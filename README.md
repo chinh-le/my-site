@@ -1,4 +1,5 @@
 # my-site
+Project scaffolded with Vue CLI v4.0.1
 
 ## Project setup
 ```
