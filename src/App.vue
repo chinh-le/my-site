@@ -4,6 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
+    <button class="btn btn-primary">Customizing Bootstrap</button>
     <router-view/>
   </div>
 </template>
