@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <app-logo></app-logo>
-        <app-navigation></app-navigation>
-    </div>
+  <div>
+    <app-logo></app-logo>
+    <app-navigation></app-navigation>
+  </div>
 </template>
 <script>
 import Logo from './Logo.vue';
