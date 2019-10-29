@@ -1,6 +1,8 @@
 <template>
   <div class="home">
     <h1>Welcome to my personal site</h1>
+    <p>My name is Chinh Le</p>
+    <p>Frontend Web Developer experienced with Vue, React and Angular Javascript libraries/frameworks</p>
   </div>
 </template>
 
