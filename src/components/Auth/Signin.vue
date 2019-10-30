@@ -19,7 +19,9 @@
   </transition>
 </template>
 <script>
-import axios from '@/axios-auth';
+import axios from '@/http/axios-auth';
+import config from '@/config';
+
 export default {
   props: {
     show: {
@@ -34,9 +36,7 @@ export default {
       this.$emit('ceSignin');
     },
     onSubmit () {
-      console.log('onSubmit()');
-      console.dir(axios);
-      axios.post('/accounts:signInWithPassword?key=AIzaSyAYn15a51XgUgS7QweQQO-00O7cpyGd47c', {
+      axios.post('/accounts:signInWithPassword?key=' + config.apiKey, {
         email: 'resume@chinhle.ca',
         password: 'download',
         returnSecureToken: true
