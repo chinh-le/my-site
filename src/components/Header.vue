@@ -8,13 +8,13 @@
     <button class="" @click="toggleSignin()">
       <span class="">[auth icon]</span>
     </button>
-    <app-auth :show="showSignin" @ceSignin="toggleSignin"></app-auth>
+    <app-signin :show="showSignin" @ceSignin="toggleSignin"></app-signin>
   </header>
 </template>
 <script>
 import Logo from './Logo.vue';
 import Navigation from './Navigation.vue';
-import Auth from './Auth/Signin.vue';
+import Signin from './Auth/Signin.vue';
 
 export default {
   data () {
@@ -34,7 +34,7 @@ export default {
   components: {
     appLogo: Logo,
     appNavigation: Navigation,
-    appAuth: Auth
+    appSignin: Signin
   }
 };
 </script>
