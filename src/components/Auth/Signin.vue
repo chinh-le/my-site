@@ -1,7 +1,7 @@
 <template>
   <transition name="slide">
-    <div v-show="show" class="auth">
-      <button type="button" @click="closeAuth()">[close icon]</button>
+    <div v-show="show" class="signin">
+      <button type="button" @click="closeSiginin()">[close icon]</button>
       <form @submit.prevent="onSubmit()">
         <ul>
           <li>
@@ -30,8 +30,8 @@ export default {
     }
   },
   methods: {
-    closeAuth () {
-      this.$emit('ceAuth');
+    closeSiginin () {
+      this.$emit('ceSignin');
     },
     onSubmit () {
       console.log('onSubmit()');
@@ -52,7 +52,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-.auth {
+.signin {
     width: 200px;
     position: absolute;
     top: 0;

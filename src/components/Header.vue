@@ -5,10 +5,10 @@
       <span class="">[hamburger icon]</span>
     </button>
     <app-navigation :show="showNav" :cb="toggleNav"></app-navigation>
-    <button class="" @click="toggleAuth()">
+    <button class="" @click="toggleSignin()">
       <span class="">[auth icon]</span>
     </button>
-    <app-auth :show="showAuth" @ceAuth="toggleAuth"></app-auth>
+    <app-auth :show="showSignin" @ceSignin="toggleSignin"></app-auth>
   </header>
 </template>
 <script>
@@ -20,15 +20,15 @@ export default {
   data () {
     return {
       showNav: false,
-      showAuth: false
+      showSignin: false
     };
   },
   methods: {
     toggleNav () {
       this.showNav = !this.showNav;
     },
-    toggleAuth () {
-      this.showAuth = !this.showAuth;
+    toggleSignin () {
+      this.showSignin = !this.showSignin;
     }
   },
   components: {
