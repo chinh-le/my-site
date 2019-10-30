@@ -14,7 +14,7 @@
 <script>
 import Logo from './Logo.vue';
 import Navigation from './Navigation.vue';
-import Auth from './Auth.vue';
+import Auth from './Auth/Signin.vue';
 
 export default {
   data () {

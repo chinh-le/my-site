@@ -2,7 +2,7 @@
   <transition name="slide">
     <div v-show="show" class="auth">
       <button type="button" @click="closeAuth()">[close icon]</button>
-      <form>
+      <form @submit.prevent="onSubmit()">
         <ul>
           <li>
             <label for="username">Username</label>
@@ -19,6 +19,7 @@
   </transition>
 </template>
 <script>
+import axios from '@/axios-auth';
 export default {
   props: {
     show: {
@@ -31,6 +32,21 @@ export default {
   methods: {
     closeAuth () {
       this.$emit('ceAuth');
+    },
+    onSubmit () {
+      console.log('onSubmit()');
+      console.dir(axios);
+      axios.post('/accounts:signInWithPassword?key=AIzaSyAYn15a51XgUgS7QweQQO-00O7cpyGd47c', {
+        email: 'resume@chinhle.ca',
+        password: 'download',
+        returnSecureToken: true
+      })
+        .then(res => {
+          console.log('res: ', res);
+        })
+        .catch(err => {
+          console.log('err: ', err);
+        });
     }
   }
 };
