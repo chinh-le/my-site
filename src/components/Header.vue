@@ -4,27 +4,37 @@
     <button class="" @click="toggleNav()">
       <span class="">[hamburger icon]</span>
     </button>
-    <app-navigation :showNav="showNav" :toggleNav="toggleNav"></app-navigation>
+    <app-navigation :show="showNav" :cb="toggleNav"></app-navigation>
+    <button class="" @click="toggleAuth()">
+      <span class="">[auth icon]</span>
+    </button>
+    <app-auth :show="showAuth" @ceAuth="toggleAuth"></app-auth>
   </header>
 </template>
 <script>
 import Logo from './Logo.vue';
 import Navigation from './Navigation.vue';
+import Auth from './Auth.vue';
 
 export default {
   data () {
     return {
-      showNav: false
+      showNav: false,
+      showAuth: false
     };
   },
   methods: {
     toggleNav () {
       this.showNav = !this.showNav;
+    },
+    toggleAuth () {
+      this.showAuth = !this.showAuth;
     }
   },
   components: {
     appLogo: Logo,
-    appNavigation: Navigation
+    appNavigation: Navigation,
+    appAuth: Auth
   }
 };
 </script>

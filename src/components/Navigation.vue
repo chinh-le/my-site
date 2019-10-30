@@ -1,7 +1,7 @@
 <template>
   <transition name="slide">
-    <nav v-show="showNav">
-      <button type="button" @click="toggleNav()">[close icon]</button>
+    <nav v-show="show">
+      <button type="button" @click="cb()">[close icon]</button>
       <ul class="">
         <li class=""><router-link to="/" class="">Home</router-link></li>
         <li class=""><router-link to="/about" class="">About</router-link></li>
@@ -16,13 +16,13 @@
 <script>
 export default {
   props: {
-    showNav: {
+    show: {
       type: Boolean,
       default () {
         return false;
       }
     },
-    toggleNav: {
+    cb: {
       type: Function
     }
   }
