@@ -1,10 +1,12 @@
 <template>
   <div>
-    <app-logo></app-logo>
-    <app-quick-links></app-quick-links>
-    <app-contact-info></app-contact-info>
-    <div class="copyright">&copy; Copyright</div>
-    <app-social-media></app-social-media>
+    <app-logo />
+    <app-quick-links />
+    <app-contact-info />
+    <div class="copyright">
+      &copy; Copyright
+    </div>
+    <app-social-media />
   </div>
 </template>
 <script>

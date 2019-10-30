@@ -1,14 +1,26 @@
 <template>
   <header class="">
-    <app-logo></app-logo>
-    <button class="" @click="toggleNav()">
+    <app-logo />
+    <button
+      class=""
+      @click="toggleNav()"
+      >
       <span class="">[hamburger icon]</span>
     </button>
-    <app-navigation :show="showNav" :cb="toggleNav"></app-navigation>
-    <button class="" @click="toggleSignin()">
+    <app-navigation
+      :show="showNav"
+      :cb="toggleNav"
+      />
+    <button
+      class=""
+      @click="toggleSignin()"
+      >
       <span class="">[auth icon]</span>
     </button>
-    <app-signin :show="showSignin" @ceSignin="toggleSignin"></app-signin>
+    <app-signin
+      :show="showSignin"
+      @ceSignin="toggleSignin"
+      />
   </header>
 </template>
 <script>
@@ -17,6 +29,11 @@ import Navigation from './Navigation.vue';
 import Signin from './Auth/Signin.vue';
 
 export default {
+  components: {
+    appLogo: Logo,
+    appNavigation: Navigation,
+    appSignin: Signin
+  },
   data () {
     return {
       showNav: false,
@@ -30,11 +47,6 @@ export default {
     toggleSignin () {
       this.showSignin = !this.showSignin;
     }
-  },
-  components: {
-    appLogo: Logo,
-    appNavigation: Navigation,
-    appSignin: Signin
   }
 };
 </script>

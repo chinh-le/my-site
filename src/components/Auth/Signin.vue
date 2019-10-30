@@ -1,19 +1,35 @@
 <template>
   <transition name="slide">
-    <div v-show="show" class="signin">
-      <button type="button" @click="closeSiginin()">[close icon]</button>
+    <div
+      v-show="show"
+      class="signin"
+      >
+      <button
+        type="button"
+        @click="closeSiginin()"
+        >
+        [close icon]
+      </button>
       <form @submit.prevent="onSubmit()">
         <ul>
           <li>
             <label for="username">Username</label>
-            <input type="text" id="username"/>
+            <input
+              id="username"
+              type="text"
+              >
           </li>
           <li>
             <label for="password">Password</label>
-            <input type="password" id="password"/>
+            <input
+              id="password"
+              type="password"
+              >
           </li>
         </ul>
-        <button type="submit">Submit</button>
+        <button type="submit">
+          Submit
+        </button>
       </form>
     </div>
   </transition>
