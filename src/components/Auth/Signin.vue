@@ -37,8 +37,8 @@ export default {
     },
     onSubmit () {
       axios.post('/accounts:signInWithPassword?key=' + config.apiKey, {
-        email: 'resume@chinhle.ca',
-        password: 'download',
+        email: '',
+        password: '',
         returnSecureToken: true
       })
         .then(res => {
