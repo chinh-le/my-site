@@ -15,7 +15,7 @@
       class=""
       @click="toggleSignin()"
       >
-      <span class="">[auth icon]</span>
+      <span class="">[auth icon] - {{ getAuthentication }}</span>
     </button>
     <app-signin
       :show="showSignin"
@@ -39,6 +39,11 @@ export default {
       showNav: false,
       showSignin: false
     };
+  },
+  computed: {
+    getAuthentication () {
+      return this.$store.getters.authentication;
+    }
   },
   methods: {
     toggleNav () {

@@ -35,9 +35,6 @@
   </transition>
 </template>
 <script>
-import axios from '@/http/axios-auth';
-import config from '@/config';
-
 export default {
   props: {
     show: {
@@ -52,17 +49,11 @@ export default {
       this.$emit('ceSignin');
     },
     onSubmit () {
-      axios.post('/accounts:signInWithPassword?key=' + config.apiKey, {
-        email: '',
-        password: '',
-        returnSecureToken: true
-      })
-        .then(res => {
-          console.log('res: ', res);
-        })
-        .catch(err => {
-          console.log('err: ', err);
-        });
+      const payload = {
+        email: 'resume@chinhle.ca',
+        password: 'download'
+      };
+      this.$store.dispatch('signin', payload);
     }
   }
 };
