@@ -1,42 +1,47 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import axios from '@/http/axios-auth';
-import config from '@/config';
+// import * as firebase from 'firebase';
+// import axios from '@/http/axios-auth';
+// import config from '@/config';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    authenticated: false,
-    userId: null,
-    tokenId: null,
-    token: null
+    // userId: null,
+    // tokenId: null,
+    token: null,
+    downloadUrl: null
   },
   getters: {
-    authentication (state) {
+    isAuthenticated (state) {
+      return state.token !== null;
+    },
+    /* authentication (state) {
       return state.authenticated;
+    }, */
+    downloadUrl (state) {
+      return state.downloadUrl;
     }
   },
   mutations: {
-    setAuthentication (state, isAuthenticated) {
+    setAuthUser (state, user) {
+      if (user) {
+        state.token = user.token;
+      } else {
+        state.token = null;
+      }
+    },
+    /* setAuthentication (state, isAuthenticated) {
       state.authenticated = isAuthenticated;
+    }, */
+    setDownloadUrl (state, url) {
+      state.downloadUrl = url || null;
     }
   },
   actions: {
-    signin ({ commit }, payload) {
-      axios.post('/accounts:signInWithPassword?key=' + config.apiKey, {
-        email: payload.email,
-        password: payload.password,
-        returnSecureToken: true
-      })
-        .then(res => {
-          console.log('res: ', res);
-          commit('setAuthentication', true);
-        })
-        .catch(err => {
-          console.log('err: ', err);
-          commit('setAuthentication', false);
-        });
+    autoSignin ({ commit }) {
+
     }
   },
   modules: {

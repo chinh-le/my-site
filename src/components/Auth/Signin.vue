@@ -35,6 +35,7 @@
   </transition>
 </template>
 <script>
+import { login } from '@/firebase';
 export default {
   props: {
     show: {
@@ -53,7 +54,8 @@ export default {
         email: 'resume@chinhle.ca',
         password: 'download'
       };
-      this.$store.dispatch('signin', payload);
+
+      login(payload);
     }
   }
 };

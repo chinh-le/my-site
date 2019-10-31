@@ -12,10 +12,18 @@
       :cb="toggleNav"
       />
     <button
+      v-show="!authenticated"
       class=""
       @click="toggleSignin()"
       >
-      <span class="">[auth icon] - {{ getAuthentication }}</span>
+      <span class="">[auth icon] - {{ authenticated }}</span>
+    </button>
+    <button
+      v-show="authenticated"
+      class=""
+      @click="signout()"
+      >
+      <span class="">[logout icon] - {{ authenticated }}</span>
     </button>
     <app-signin
       :show="showSignin"
@@ -24,6 +32,7 @@
   </header>
 </template>
 <script>
+import { logout } from '@/firebase';
 import Logo from './Logo.vue';
 import Navigation from './Navigation.vue';
 import Signin from './Auth/Signin.vue';
@@ -41,8 +50,8 @@ export default {
     };
   },
   computed: {
-    getAuthentication () {
-      return this.$store.getters.authentication;
+    authenticated () {
+      return this.$store.getters.isAuthenticated;
     }
   },
   methods: {
@@ -51,6 +60,10 @@ export default {
     },
     toggleSignin () {
       this.showSignin = !this.showSignin;
+    },
+    signout () {
+      logout();
+      this.$store.commit('setAuthUser');
     }
   }
 };
