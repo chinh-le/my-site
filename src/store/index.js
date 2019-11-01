@@ -1,15 +1,10 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-// import * as firebase from 'firebase';
-// import axios from '@/http/axios-auth';
-// import config from '@/config';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    // userId: null,
-    // tokenId: null,
     token: null,
     downloadUrl: null
   },
@@ -17,9 +12,6 @@ export default new Vuex.Store({
     isAuthenticated (state) {
       return state.token !== null;
     },
-    /* authentication (state) {
-      return state.authenticated;
-    }, */
     downloadUrl (state) {
       return state.downloadUrl;
     }
@@ -32,17 +24,11 @@ export default new Vuex.Store({
         state.token = null;
       }
     },
-    /* setAuthentication (state, isAuthenticated) {
-      state.authenticated = isAuthenticated;
-    }, */
     setDownloadUrl (state, url) {
       state.downloadUrl = url || null;
     }
   },
   actions: {
-    autoSignin ({ commit }) {
-
-    }
   },
   modules: {
   }

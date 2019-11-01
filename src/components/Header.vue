@@ -63,7 +63,6 @@ export default {
     },
     signout () {
       logout();
-      this.$store.commit('setAuthUser');
     }
   }
 };
