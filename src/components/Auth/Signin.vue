@@ -13,16 +13,18 @@
       <form @submit.prevent="onSubmit()">
         <ul>
           <li>
-            <label for="username">Username</label>
+            <label for="email">Email</label>
             <input
-              id="username"
-              type="text"
+              id="email"
+              v-model.lazy="email"
+              type="email"
               >
           </li>
           <li>
             <label for="password">Password</label>
             <input
               id="password"
+              v-model.lazy="password"
               type="password"
               >
           </li>
@@ -45,14 +47,22 @@ export default {
       }
     }
   },
+  data () {
+    return {
+      email: null,
+      password: null
+    };
+  },
   methods: {
     closeSiginin () {
       this.$emit('ceSignin');
     },
     onSubmit () {
       const payload = {
-        email: 'resume@chinhle.ca',
-        password: 'download'
+        // email: 'resume@chinhle.ca',
+        email: this.email,
+        // password: 'download'
+        password: this.password
       };
 
       login(payload);
