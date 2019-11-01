@@ -1,14 +1,61 @@
 <template>
   <transition name="slide">
-    <nav v-show="showNav">
-      <button type="button" @click="toggleNav()">[close icon]</button>
+    <nav v-show="show">
+      <button
+        type="button"
+        @click="cb()"
+        >
+        [close icon]
+      </button>
       <ul class="">
-        <li class=""><router-link to="/" class="">Home</router-link></li>
-        <li class=""><router-link to="/about" class="">About</router-link></li>
-        <li class=""><router-link to="/works" class="">Works</router-link></li>
-        <li class=""><router-link to="/services" class="">Services</router-link></li>
-        <li class=""><router-link to="/resume" class="">Resume</router-link></li>
-        <li class=""><router-link to="/contact" class="">Contact</router-link></li>
+        <li class="">
+          <router-link
+            to="/"
+            class=""
+            >
+            Home
+          </router-link>
+        </li>
+        <li class="">
+          <router-link
+            to="/about"
+            class=""
+            >
+            About
+          </router-link>
+        </li>
+        <li class="">
+          <router-link
+            to="/works"
+            class=""
+            >
+            Works
+          </router-link>
+        </li>
+        <li class="">
+          <router-link
+            to="/services"
+            class=""
+            >
+            Services
+          </router-link>
+        </li>
+        <li class="">
+          <router-link
+            to="/resume"
+            class=""
+            >
+            Resume
+          </router-link>
+        </li>
+        <li class="">
+          <router-link
+            to="/contact"
+            class=""
+            >
+            Contact
+          </router-link>
+        </li>
       </ul>
     </nav>
   </transition>
@@ -16,14 +63,17 @@
 <script>
 export default {
   props: {
-    showNav: {
+    show: {
       type: Boolean,
       default () {
         return false;
       }
     },
-    toggleNav: {
-      type: Function
+    cb: {
+      type: Function,
+      default () {
+        return null;
+      }
     }
   }
 };
