@@ -59,9 +59,7 @@ export default {
     },
     onSubmit () {
       const payload = {
-        // email: 'resume@chinhle.ca',
         email: this.email,
-        // password: 'download'
         password: this.password
       };
 
