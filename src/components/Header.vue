@@ -25,7 +25,7 @@
       >
       <span class="">[logout icon] - {{ authenticated }}</span>
     </button>
-    <app-signin
+    <app-authenticate
       :show="showSignin"
       @ceSignin="toggleSignin"
       />
@@ -35,13 +35,13 @@
 import { logout } from '@/firebase';
 import Logo from './Logo.vue';
 import Navigation from './Navigation.vue';
-import Signin from './Auth/Signin.vue';
+import Authenticate from './Authenticate.vue';
 
 export default {
   components: {
     appLogo: Logo,
     appNavigation: Navigation,
-    appSignin: Signin
+    appAuthenticate: Authenticate
   },
   data () {
     return {

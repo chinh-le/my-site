@@ -15,6 +15,7 @@ export const init = () => {
 
 export {
   onStateChange,
+  signup,
   login,
   logout
 } from './auth';

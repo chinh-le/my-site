@@ -30,14 +30,14 @@
           </li>
         </ul>
         <button type="submit">
-          Submit
+          {{ isSignup ? 'Sign Up' : 'Sign In' }}
         </button>
       </form>
     </div>
   </transition>
 </template>
 <script>
-import { login } from '@/firebase';
+import { signup, login } from '@/firebase';
 export default {
   props: {
     show: {
@@ -49,6 +49,8 @@ export default {
   },
   data () {
     return {
+      isSignup: true,
+      // isSignup: false,
       user: {
         email: null,
         password: null
@@ -65,7 +67,11 @@ export default {
         password: this.user.password
       };
 
-      login(payload);
+      if (this.isSignup) {
+        signup(payload);
+      } else {
+        login(payload);
+      }
     }
   }
 };
