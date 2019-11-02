@@ -40,6 +40,8 @@
   </div>
 </template>
 <script>
+import { writeUserData } from '@/firebase';
+
 export default {
   data () {
     return {
@@ -53,7 +55,8 @@ export default {
   },
   methods: {
     onSubmit () {
-      console.log(this.user);
+      // console.log(this.user);
+      writeUserData(this.user);
     }
   }
 };

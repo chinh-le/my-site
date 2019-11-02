@@ -17,6 +17,7 @@ export default {
     appFooter: Footer
   },
   beforeCreate () {
+    // console.log('beforeCreate');
     init();
     onStateChange();
   }
