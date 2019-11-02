@@ -16,7 +16,7 @@
             <label for="email">Email</label>
             <input
               id="email"
-              v-model.lazy="email"
+              v-model.lazy="user.email"
               type="email"
               >
           </li>
@@ -24,7 +24,7 @@
             <label for="password">Password</label>
             <input
               id="password"
-              v-model.lazy="password"
+              v-model.lazy="user.password"
               type="password"
               >
           </li>
@@ -49,8 +49,10 @@ export default {
   },
   data () {
     return {
-      email: null,
-      password: null
+      user: {
+        email: null,
+        password: null
+      }
     };
   },
   methods: {
@@ -59,8 +61,8 @@ export default {
     },
     onSubmit () {
       const payload = {
-        email: this.email,
-        password: this.password
+        email: this.user.email,
+        password: this.user.password
       };
 
       login(payload);
