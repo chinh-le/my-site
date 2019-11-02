@@ -40,8 +40,16 @@ const onStateChange = () => {
     }
   });
 };
+const signup = (payload) => {
+  auth().createUserWithEmailAndPassword(payload.email, payload.password)
+    .then(res => {
+      console.log('res: ', res);
+    })
+    .catch(err => {
+      console.log('err: ', err);
+    });
+};
 const login = (payload) => {
-  // console.log('payload: ', payload);
   auth().signInWithEmailAndPassword(payload.email, payload.password)
     .then(res => {
       console.log('res: ', res);
@@ -65,6 +73,7 @@ const logout = () => {
 
 export {
   onStateChange,
+  signup,
   login,
   logout
 };
