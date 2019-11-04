@@ -9,5 +9,6 @@ export default {
   measurementId: process.env.VUE_APP_GOOGLE_MEASUREMENT_ID,
   gmailAccount: process.env.VUE_APP_GMAIL_ACCOUNT,
   gmailLogin: process.env.VUE_APP_GMAIL_LOGIN,
-  gmailPassword: process.env.VUE_APP_GMAIL_PASSWORD
+  gmailPassword: process.env.VUE_APP_GMAIL_PASSWORD,
+  authenticationType: process.env.AUTHENTICATION_TYPE
 };
