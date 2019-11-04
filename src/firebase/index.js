@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase';
 import config from '@/config';
 
 export const init = () => {
-  // console.log('config: ', config);
+  console.log('config: ', config);
   // Set the configuration for your app
   const firebaseConfig = {
     // authDomain: config.authDomain,
