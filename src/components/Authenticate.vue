@@ -37,6 +37,7 @@
   </transition>
 </template>
 <script>
+import config from '@/config';
 import { signup, login } from '@/firebase';
 export default {
   props: {
@@ -49,8 +50,7 @@ export default {
   },
   data () {
     return {
-      isSignup: true,
-      // isSignup: false,
+      isSignup: config.appAuthenticationType,
       user: {
         email: null,
         password: null
