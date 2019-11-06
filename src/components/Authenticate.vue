@@ -50,7 +50,7 @@ export default {
   },
   data () {
     return {
-      isSignup: config.appAuthenticationType,
+      isSignup: !!config.appAuthenticationType,
       user: {
         email: null,
         password: null
