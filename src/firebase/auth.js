@@ -1,5 +1,6 @@
 import { auth } from 'firebase';
 import store from '@/store';
+import config from '@/config';
 import { getDownloadUrl } from './storage';
 
 let signoutTimer = null;
@@ -25,13 +26,13 @@ const onStateChange = () => {
     if (user) {
       auth().currentUser.getIdTokenResult()
         .then(res => {
-          console.log('res: ', res);
+          // console.log('res: ', res);
           store.commit('setAuthUser', res);
 
           localStorage.setItem('token', res.token);
           localStorage.setItem('expirationTime', res.expirationTime); // 1h by default
 
-          getDownloadUrl('/docs/WebDesigner.doc', store);
+          getDownloadUrl(config.appResumePath);
 
           autoSignout(res.expirationTime);
         });
@@ -43,7 +44,7 @@ const onStateChange = () => {
 const signup = (payload) => {
   auth().createUserWithEmailAndPassword(payload.email, payload.password)
     .then(res => {
-      console.log('res: ', res);
+      // console.log('res: ', res);
     })
     .catch(err => {
       console.log('err: ', err);
@@ -52,7 +53,7 @@ const signup = (payload) => {
 const login = (payload) => {
   auth().signInWithEmailAndPassword(payload.email, payload.password)
     .then(res => {
-      console.log('res: ', res);
+      // console.log('res: ', res);
     })
     .catch(err => {
       console.log('err: ', err);
