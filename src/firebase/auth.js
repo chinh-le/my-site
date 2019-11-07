@@ -22,7 +22,7 @@ const autoSignout = (expirationTime) => {
 const onStateChange = () => {
   // Set an authentication state observer and get user data
   auth().onAuthStateChanged(user => {
-    console.log('onAuthStateChanged');
+    // console.log('onAuthStateChanged');
     if (user) {
       auth().currentUser.getIdTokenResult()
         .then(res => {
