@@ -23,7 +23,7 @@ const writeUserData = (contact) => {
     if (err) {
       console.error(err);
     } else {
-      console.log('write succeed!!!');
+      console.log('Write: SUCCESS!!!');
     }
   });
 };

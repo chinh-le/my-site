@@ -9,6 +9,7 @@ export default {
   messagingSenderId: process.env.VUE_APP_GOOGLE_MESSAGING_SENDER_ID,
   appId: process.env.VUE_APP_GOOGLE_APP_ID,
   measurementId: process.env.VUE_APP_GOOGLE_MEASUREMENT_ID,
+  recaptchaToken: process.env.VUE_APP_GOOGLE_RECAPTCHA_TOKEN, // v3
   gmailAccount: process.env.VUE_APP_GMAIL_ACCOUNT,
   gmailLogin: process.env.VUE_APP_GMAIL_LOGIN,
   gmailPassword: process.env.VUE_APP_GMAIL_PASSWORD,

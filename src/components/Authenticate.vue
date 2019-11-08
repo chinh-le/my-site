@@ -29,6 +29,7 @@
               >
           </li>
         </ul>
+        <p>This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
         <button type="submit">
           {{ isSignup ? 'Sign Up' : 'Sign In' }}
         </button>
@@ -39,6 +40,8 @@
 <script>
 import config from '@/config';
 import { signup, login } from '@/firebase';
+import { loginCase } from '@/recaptcha';
+
 export default {
   props: {
     show: {
@@ -72,6 +75,8 @@ export default {
       } else {
         login(payload);
       }
+
+      loginCase(); // reCaptcha
     }
   }
 };
@@ -104,5 +109,9 @@ export default {
   to {
     transform: translateX(200px);
   }
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
 }
 </style>

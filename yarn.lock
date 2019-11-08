@@ -7420,6 +7420,11 @@ readdirp@^2.2.1:
     micromatch "^3.1.10"
     readable-stream "^2.0.2"
 
+recaptcha-v3@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/recaptcha-v3/-/recaptcha-v3-1.7.0.tgz#64aefd1e161a8337c2266a0d4e4558d745592867"
+  integrity sha512-XnwNjLdw2nNOFUgFEM2thpvJzJdmJV4kmqZQXVH28G1+KhAzgrZnzrd5V0UnDuRsrXkrQUdP4aywqkDMEIE1Yw==
+
 redent@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/redent/-/redent-1.0.0.tgz#cf916ab1fd5f1f16dfb20822dd6ec7f730c2afde"
@@ -8926,6 +8931,13 @@ vue-loader@^15.7.0:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
+
+vue-recaptcha-v3@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/vue-recaptcha-v3/-/vue-recaptcha-v3-1.7.0.tgz#b683955597bdf53c4abd28fc70ccdf24ef5b3a7a"
+  integrity sha512-DCIrcMkThzkYKA1q50JZHuKhG6LezyBwus2xFg3WG6GDgkqf0P5WK6lpYZYtSsQ5qifyTKzIVUy9NMbZ1JzeBg==
+  dependencies:
+    recaptcha-v3 "^1.7.0"
 
 vue-router@^3.0.6:
   version "3.1.3"

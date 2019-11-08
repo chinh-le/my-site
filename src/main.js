@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import { VueReCaptcha } from 'vue-recaptcha-v3';
 import BootstrapVue from 'bootstrap-vue';
 // import 'bootstrap/dist/css/bootstrap.css'
 // import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -9,6 +10,17 @@ import './style/style.scss';
 import App from './App.vue';
 import router from './router';
 import store from './store';
+import config from './config';
+// console.log('config: ', config);
+
+Vue.use(VueReCaptcha, {
+  siteKey: config.recaptchaToken,
+  loaderOptions: {
+    // useRecaptchaNet: true,
+    // renderParameters: {},
+    autoHideBadge: true
+  }
+});
 
 Vue.use(BootstrapVue);
 

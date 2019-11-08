@@ -33,6 +33,7 @@
             />
         </li>
       </ul>
+      <p>This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
       <button type="submit">
         Send Message
       </button>
@@ -41,6 +42,7 @@
 </template>
 <script>
 import { writeUserData } from '@/firebase';
+import { loginCase } from '@/recaptcha';
 
 export default {
   data () {
@@ -57,7 +59,14 @@ export default {
     onSubmit () {
       // console.log(this.user);
       writeUserData(this.user);
+
+      loginCase(); // reCaptcha
     }
   }
 };
 </script>
+<style scoped lang="scss">
+.grecaptcha-badge {
+  visibility: hidden;
+}
+</style>
