@@ -34,7 +34,6 @@ var recaptchaVerify = functions.https.onRequest((req, res) => {
         console.log('functions.config(): ', functions.config());
         var params = {
             secret: functions.config().recaptcha['secret-key'], // v3 secret key (backend)
-            // secret: '6LdRpMEUAAAAADrzNO2QfrWZa7Qsu1LA-l2mOxYP', // v3 secret key (backend)
             response: req.body.token
         };
         console.log('Qs.stringify(params): ', Qs.stringify(params));
