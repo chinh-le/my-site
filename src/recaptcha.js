@@ -1,6 +1,3 @@
-import Vue from 'vue';
-import axios from 'axios';
-
 /*
 reCcaptcha v3
 Score
@@ -15,6 +12,9 @@ social                       Limit unanswered friend requests from abusive users
 e-commerce                   Put your real sales ahead of bots and identify risky transactions.
 */
 
+import Vue from 'vue';
+import axios from 'axios';
+
 // make sure reCAPTCHA API has loaded
 const loaded = () => Vue.prototype.$recaptchaLoaded();
 
@@ -22,9 +22,11 @@ const loaded = () => Vue.prototype.$recaptchaLoaded();
 const execute = actionName => Vue.prototype.$recaptcha(actionName);
 
 /*
-- verify token, 2 minutes life span, with reCAPTCHA using the following API to ensure the token is valid: URL: https://www.google.com/recaptcha/api/siteverify METHOD: POST
+- verify token, 2 minutes life span, with reCAPTCHA using the following API to ensure the token is valid
+    - URL: https://www.google.com/recaptcha/api/siteverify
+    - METHOD: POST
 - can only run in server side
-    - recaptcha Cloud Functions - https://console.cloud.google.com/functions/list?project=my-site-258216
+    - recaptcha Cloud Functions - https://console.cloud.google.com/functions/details/us-central1/recaptcha?project=my-site-258216&tab=general&duration=PT1H
     - /Users/Chinh/Dev/Personal/my-site/functions/recaptcha.js
  */
 const siteVerify = token => axios.post('https://us-central1-my-site-258216.cloudfunctions.net/recaptcha', { 'token': token });
@@ -33,14 +35,14 @@ const recaptchaPage = (action) => {
   return new Promise((resolve, reject) => {
     loaded()
       .then(isLoaded => {
-        console.log('recaptcha isLoaded: ', isLoaded);
+        // console.log('recaptcha isLoaded: ', isLoaded);
         execute(action)
           .then(token => {
             // console.log('token: ', token);
             resolve(token);
           })
           .catch(err => {
-            console.error(err);
+            // console.error(err);
             reject(err);
           });
       });
@@ -51,18 +53,18 @@ const recaptchaElement = action => {
   return new Promise((resolve, reject) => {
     recaptchaPage(action)
       .then(token => {
-        // to allow/continue with next action, as form submit action token verified
+        // to allow/continue with next action, as form submit action token verification
         // - contactInfo submit to write to DB and send email
         // - authenticate form submit to signin/signup
         siteVerify(token)
           .then(res => {
-            console.log('res.data.score (default threshold: 0.5): ', res.data.score);
-            console.log('res.data.success: ', res.data.success);
-            console.log('res.data.action: ', res.data.action);
+            // console.log('res.data.score (default threshold: 0.5): ', res.data.score);
+            // console.log('res.data.success: ', res.data.success);
+            // console.log('res.data.action: ', res.data.action);
             resolve(res);
           })
           .catch(err => {
-            console.log('err: ', err);
+            // console.error('err: ', err);
             reject(err);
           });
       });
