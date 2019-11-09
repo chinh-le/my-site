@@ -40,7 +40,7 @@
 <script>
 import config from '@/config';
 import { signup, login } from '@/firebase';
-import { loginCase } from '@/recaptcha';
+import { recaptchaElement } from '@/recaptcha';
 
 export default {
   props: {
@@ -53,6 +53,7 @@ export default {
   },
   data () {
     return {
+      recaptchaAction: 'login',
       isSignup: !!config.appAuthenticationType,
       user: {
         email: null,
@@ -60,6 +61,7 @@ export default {
       }
     };
   },
+
   methods: {
     closeSiginin () {
       this.$emit('ceSignin');
@@ -70,13 +72,21 @@ export default {
         password: this.user.password
       };
 
-      if (this.isSignup) {
-        signup(payload);
-      } else {
-        login(payload);
-      }
-
-      loginCase(); // reCaptcha
+      recaptchaElement(this.recaptchaAction)
+        .then(res => {
+          if (res.data.success && res.data.action === this.recaptchaAction) {
+            if (this.isSignup) {
+              signup(payload);
+            } else {
+              login(payload);
+            }
+          } else {
+            console.error('SPAM!!!');
+          }
+        })
+        .catch(err => {
+          console.log('err: ', err);
+        });
     }
   }
 };

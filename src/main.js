@@ -14,7 +14,7 @@ import config from './config';
 // console.log('config: ', config);
 
 Vue.use(VueReCaptcha, {
-  siteKey: config.recaptchaToken,
+  siteKey: config.recaptchaSiteKey,
   loaderOptions: {
     // useRecaptchaNet: true,
     // renderParameters: {},

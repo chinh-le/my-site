@@ -1,0 +1,66 @@
+[debug] [2019-11-09T02:28:10.793Z] ----------------------------------------------------------------------
+[debug] [2019-11-09T02:28:10.795Z] Command:       /Users/Chinh/.nvm/versions/node/v12.13.0/bin/node /Users/Chinh/.nvm/versions/node/v12.13.0/bin/firebase deploy --only functions
+[debug] [2019-11-09T02:28:10.795Z] CLI Version:   7.6.2
+[debug] [2019-11-09T02:28:10.795Z] Platform:      darwin
+[debug] [2019-11-09T02:28:10.795Z] Node Version:  v12.13.0
+[debug] [2019-11-09T02:28:10.796Z] Time:          Fri Nov 08 2019 21:28:10 GMT-0500 (GMT-05:00)
+[debug] [2019-11-09T02:28:10.796Z] ----------------------------------------------------------------------
+[debug] [2019-11-09T02:28:10.796Z] 
+[debug] [2019-11-09T02:28:10.803Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-09T02:28:10.803Z] > authorizing via signed-in user
+[debug] [2019-11-09T02:28:10.803Z] [iam] checking project my-site-258216 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2019-11-09T02:28:10.805Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-11-09T02:28:10.805Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-11-09T02:28:10.976Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-09T02:28:10.986Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/my-site-258216:testIamPermissions  
+
+[debug] [2019-11-09T02:28:11.298Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'my-site-258216'...
+[info] 
+[info] i  deploying functions
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] ✔  functions: Finished running predeploy script.
+[debug] [2019-11-09T02:28:14.771Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dns": "^0.2.2",
+    "firebase-admin": "^8.6.0",
+    "firebase-functions": "^3.3.0",
+    "nodemailer": "^6.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "firebase-functions-test": "^0.1.6"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[debug] [2019-11-09T02:28:14.773Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/my-site-258216/services/cloudfunctions.googleapis.com  
+ 
+[debug] [2019-11-09T02:28:14.773Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/my-site-258216/services/runtimeconfig.googleapis.com  
+ 
+[debug] [2019-11-09T02:28:15.203Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-09T02:28:15.213Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2019-11-09T02:28:15.214Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/my-site-258216/adminSdkConfig  
+ 
+[debug] [2019-11-09T02:28:15.490Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2019-11-09T02:28:15.493Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/my-site-258216/configs  
+ 

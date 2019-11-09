@@ -42,11 +42,12 @@
 </template>
 <script>
 import { writeUserData } from '@/firebase';
-import { loginCase } from '@/recaptcha';
+import { recaptchaElement } from '@/recaptcha';
 
 export default {
   data () {
     return {
+      recaptchaAction: 'contactInfo',
       user: {
         name: '',
         email: '',
@@ -58,9 +59,14 @@ export default {
   methods: {
     onSubmit () {
       // console.log(this.user);
-      writeUserData(this.user);
-
-      loginCase(); // reCaptcha
+      recaptchaElement(this.recaptchaAction)
+        .then(res => {
+          if (res.data.success && res.data.action === this.recaptchaAction) {
+            writeUserData(this.user);
+          } else {
+            console.error('SPAM!!!');
+          }
+        });
     }
   }
 };

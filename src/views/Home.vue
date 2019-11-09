@@ -7,8 +7,13 @@
 </template>
 
 <script>
-export default {
+import { recaptchaPage } from '@/recaptcha';
 
+export default {
+  created () {
+    console.log('home - created  ');
+    recaptchaPage('home');
+  }
 };
 </script>
 
