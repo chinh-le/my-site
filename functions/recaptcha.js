@@ -1,18 +1,27 @@
-const functions = require('firebase-functions');
-const https = require('https');
-const Qs = require('qs');
+var functions = require('firebase-functions');
+var https = require('https');
+var Qs = require('qs');
+// var cors = require('cors')({origin: true});
 
 var recaptchaVerify = functions.https.onRequest((req, res) => {
     console.log('recaptchaVerify');
 
+    // CORS and Cloud Functions export logic
+    /* exports.hello = function hello(req, res) {
+        var corsFn = cors();
+        corsFn(req, res, function() {
+            helloFn(req, res);
+        });
+    } */
+    
     res.set('Access-Control-Allow-Origin', '*')
         .set('Access-Control-Allow-Methods', 'GET, POST')
         .set('Access-Control-Allow-Headers', '*')
         .status(200);
-    
+
     // preflighted request
     if (req.method === `OPTIONS`) {
-        res.send();
+        res.send('Preflighted request...');
         return;
     }
 
@@ -35,7 +44,7 @@ var recaptchaVerify = functions.https.onRequest((req, res) => {
         // console.log('response.headers: ' + JSON.stringify(response.headers));
         response.on('data', data => {
             console.log('data: ', data);
-            res.send(data);
+            res.status(200).send(data);
         });
     });
           
