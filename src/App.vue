@@ -17,9 +17,8 @@ export default {
     appFooter: Footer
   },
   beforeCreate () {
-    // console.log('beforeCreate');
-    init();
-    onStateChange();
+    init(); // set firebase config
+    onStateChange(); // authentication state observer
   }
 };
 </script>
