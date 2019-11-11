@@ -57,7 +57,6 @@
           >
           {{ isSigningUp ? 'Sign Up' : 'Sign In' }}
         </button>
-        <pre>{{ $v.user }}</pre>
       </form>
     </div>
   </transition>

@@ -60,7 +60,6 @@
         >
         Send Message
       </button>
-      <pre>{{ $v.user }}</pre>
     </form>
   </div>
 </template>
@@ -82,20 +81,7 @@ export default {
       }
     };
   },
-  /* validations: {
-    user: {
-      name: {
-        required
-      },
-      email: {
-        required
-      },
-      message: {
-        required,
-        maxLength: maxLength(2)
-      }
-    }
-  }, */
+  // KIM - to use dynamic value, which is also used in template (textarea): this.messageMaxLength
   validations () {
     return {
       user: {
