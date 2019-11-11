@@ -14,5 +14,7 @@ export default {
   gmailLogin: process.env.VUE_APP_GMAIL_LOGIN,
   gmailPassword: process.env.VUE_APP_GMAIL_PASSWORD,
   appAuthenticationType: process.env.VUE_APP_AUTHENTICATION_TYPE,
-  appResumePath: process.env.VUE_APP_RESUME_PATH
+  appResumePath: process.env.VUE_APP_RESUME_PATH,
+  appDefaultEmail: process.env.VUE_APP_DEFAULT_EMAIL,
+  appDefaultPassword: process.env.VUE_APP_DEFAULT_PASSWORD
 };

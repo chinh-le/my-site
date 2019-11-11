@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import { VueReCaptcha } from 'vue-recaptcha-v3';
+import Vuelidate from 'vuelidate';
 import BootstrapVue from 'bootstrap-vue';
 // import 'bootstrap/dist/css/bootstrap.css'
 // import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -22,6 +23,7 @@ Vue.use(VueReCaptcha, {
   }
 });
 
+Vue.use(Vuelidate);
 Vue.use(BootstrapVue);
 
 Vue.config.productionTip = false;
