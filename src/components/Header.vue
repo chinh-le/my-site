@@ -1,47 +1,49 @@
 <template>
-  <header class="">
+  <header>
     <app-logo />
-    <button
-      class=""
-      @click="toggleNav()"
-      >
-      <span class="">[hamburger icon]</span>
-    </button>
-    <app-navigation
-      :show="showNav"
-      :cb="toggleNav"
-      />
-    <button
-      v-show="!authenticated"
-      class=""
-      @click="toggleSignin()"
-      >
-      <span class="">[auth icon] - {{ authenticated }}</span>
-    </button>
-    <button
-      v-show="authenticated"
-      class=""
-      @click="signout()"
-      >
-      <span class="">[logout icon] - {{ authenticated }}</span>
-    </button>
-    <app-authenticate
+    <app-social-media />
+    <div class="loginNav">
+      <button class="btn-nav-open" @click="toggleNav()">
+        <i />
+        <i />
+        <i />
+      </button>
+
+      <button v-show="!authenticated" class="btn-login" @click="toggleSignin()">
+        <!-- <span class>[auth icon] - {{ authenticated }}</span> -->
+        <i></i>login
+      </button>
+      <!-- <button
+        v-show="authenticated"
+        class=""
+        @click="signout()"
+        >
+        <span class="">[logout icon] - {{ authenticated }}</span>
+      </button>-->
+      <!-- <app-navigation
+        :show="showNav"
+        :cb="toggleNav"
+      />-->
+    </div>
+    <!-- <app-authentication
       :show="showSignin"
       @ceSignin="toggleSignin"
-      />
+    />-->
   </header>
 </template>
 <script>
 import { logout } from '@/firebase';
 import Logo from './Logo.vue';
-import Navigation from './Navigation.vue';
-import Authenticate from './Authenticate.vue';
+// import Navigation from './Navigation.vue';
+// import Authentication from './Authentication.vue';
+import SocialMedia from './SocialMedia.vue';
 
 export default {
   components: {
     appLogo: Logo,
-    appNavigation: Navigation,
-    appAuthenticate: Authenticate
+    // appNavigation: Navigation,
+    // appAuthentication: Authentication,
+    appSocialMedia: SocialMedia
   },
   data () {
     return {
@@ -68,11 +70,31 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* added line */
+}
+.btn-nav-open {
+  padding: 1em 0.5em;
+  > i {
+    display: block;
+    width: 2.5em;
+    height: 0.3em;
+    background-color: #fff;
+    border-radius: 0.2em;
+    margin: 0.3em 0;
+  }
+  &:after {
+    content: "open navigation";
+    @extend .visually-hidden;
+  }
+}
+.btn-login {
+  content: url("../assets/icons/perm_identity-24px.svg");
 }
 </style>

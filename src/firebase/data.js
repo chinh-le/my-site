@@ -1,25 +1,29 @@
 import { database } from 'firebase';
 
 const writeUserData = (contact) => {
-//   console.log('contact: ', contact);
-  const contactsRef = database().ref('/contacts/' + contact.name);
+  // console.log('contact: ', contact);
 
-  //   contactsRef.on('value', snapshot => {
-  contactsRef.once('value', snapshot => {
-    // console.log('snapshot: ', snapshot);
-  });
+  /*
+    - Firebase Database constraint: Paths must be non-empty strings and can't contain ".", "#", "$", "[", or "]""
+      - Converting dots (.) in email address into '%'
+  */
+  // const emailAddConverted = (contact.email).replace(/\./g, '+');
+  // console.log('emailAddConverted: ', emailAddConverted);
+  // const contactsRef = database().ref('/contacts/' + emailAddConverted);
+
+  // ./src/functions/index.js: exports.sendingMail = functions.database.ref('/contacts/{pushId}')
+  const contactsRef = database().ref('/contacts').push(); // auto-generate unqiue key
 
   contactsRef.set({
-    //   contactsRef.update({
     name: contact.name,
     email: contact.email,
     subject: contact.subject,
     message: contact.message
   }, err => {
     if (err) {
-      console.log('err: ', err);
+      console.error(err);
     } else {
-      console.log('write succeed!!!');
+      console.log('Write: SUCCESS!!!');
     }
   });
 };

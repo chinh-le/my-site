@@ -9,11 +9,17 @@
   </div>
 </template>
 <script>
+import { recaptchaPage } from '@/recaptcha';
+
 export default {
   computed: {
     downloadUrl () {
       return this.$store.getters.downloadUrl;
     }
+  },
+  created () {
+    console.log('resume - created');
+    recaptchaPage('resume');
   }
 };
 </script>
