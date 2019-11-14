@@ -1,17 +1,10 @@
 <template>
-  <div
-    id="app"
-    :style="{height: winHeight + 'px'}"
-    >
+  <div id="app" :style="{height: winHeight + 'px'}">
     <app-header />
     <router-view />
     <app-footer />
-    <!-- <app-navigation
-      :show="showNav"
-      :cb="toggleNav"
-      /> -->
-    <!-- <app-navigation :elem-height="winHeight" /> -->
     <app-navigation />
+    <app-authentication></app-authentication>
   </div>
 </template>
 <script>
@@ -20,12 +13,14 @@ import { init, onStateChange } from '@/firebase';
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
 import Navigation from './components/Navigation';
+import Authentication from './components/Authentication';
 
 export default {
   components: {
     appHeader: Header,
     appFooter: Footer,
-    appNavigation: Navigation
+    appNavigation: Navigation,
+    appAuthentication: Authentication
   },
   data () {
     return {
@@ -52,7 +47,4 @@ export default {
 };
 </script>
 <style lang="scss">
-/* #app {
-  height: 700px;
-} */
 </style>

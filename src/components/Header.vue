@@ -3,46 +3,29 @@
     <app-logo />
     <app-social-media />
     <div class="loginNav">
-      <button class="btn-nav-open" @click="toggleNav()">
+      <button v-show="!authenticated" class="btn-login" @click="openAuth()">
+        <i class="material-icons">person_outline</i>
+      </button>
+      <button v-show="authenticated" class="btn-logout" @click="signout()">
+        <i class="material-icons">person</i>
+      </button>
+      <button class="btn-nav-open" @click="openNav()">
         <i />
         <i />
         <i />
       </button>
-
-      <button v-show="!authenticated" class="btn-login" @click="toggleSignin()">
-        <!-- <span class>[auth icon] - {{ authenticated }}</span> -->
-        <i></i>login
-      </button>
-      <!-- <button
-        v-show="authenticated"
-        class=""
-        @click="signout()"
-        >
-        <span class="">[logout icon] - {{ authenticated }}</span>
-      </button>-->
-      <!-- <app-navigation
-        :show="showNav"
-        :cb="toggleNav"
-      />-->
     </div>
-    <!-- <app-authentication
-      :show="showSignin"
-      @ceSignin="toggleSignin"
-    />-->
   </header>
 </template>
 <script>
 import { logout } from '@/firebase';
 import Logo from './Logo.vue';
-// import Navigation from './Navigation.vue';
-// import Authentication from './Authentication.vue';
 import SocialMedia from './SocialMedia.vue';
+import { eventBus } from '@/eventBus';
 
 export default {
   components: {
     appLogo: Logo,
-    // appNavigation: Navigation,
-    // appAuthentication: Authentication,
     appSocialMedia: SocialMedia
   },
   data () {
@@ -57,8 +40,11 @@ export default {
     }
   },
   methods: {
-    toggleNav () {
-      this.showNav = !this.showNav;
+    openNav () {
+      eventBus.openNav();
+    },
+    openAuth () {
+      eventBus.openAuth();
     },
     toggleSignin () {
       this.showSignin = !this.showSignin;
@@ -95,6 +81,15 @@ export default {
   }
 }
 .btn-login {
-  content: url("../assets/icons/perm_identity-24px.svg");
+  &:after {
+    content: "open login";
+    @extend .visually-hidden;
+  }
+}
+.btn-logoout {
+  &:after {
+    content: "open logout";
+    @extend .visually-hidden;
+  }
 }
 </style>
