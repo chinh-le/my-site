@@ -1,9 +1,6 @@
 <template>
   <div class="logo">
-    <router-link to="/"
-class>
-chinh.le
-</router-link>
+    <router-link to="/" class>chinh.le</router-link>
     <!-- <p class="roboto">
       chinh.le
     </p>
@@ -22,8 +19,8 @@ export default {};
 .logo {
   // font-family: 'Righteous', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   // font-family: 'Righteous-Regular';
-  font-size: 3em;
-  font-family: "Righteous";
+  font-size: 1.5em;
+  font-family: Righteous, Syncopate, Roboto, Verdana, Geneva, Tahoma, sans-serif;
   a {
     text-decoration: none;
     color: #fff;
