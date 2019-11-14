@@ -10,10 +10,11 @@ body {
 }
 header {
     height: 10%;
-    background-color: lightgreen;
+    // background-color: lightgreen;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: $body-padding;
 }
 
 /* .navigation {
@@ -28,17 +29,36 @@ header {
 
 .main {
     height: 65%;
-    background-color: lightsteelblue;
+    // background-color: lightsteelblue;
+    padding: $body-padding;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 footer {
     height: 25%;
     background-color: lightskyblue;
+    padding: $body-padding;
+
 }
 
 @media screen and (max-width: 330px) {
     header > .social-media {
         display: none;
+    }
+    .main {
+        height: 90%;
+        > h1 {
+            text-transform: uppercase;
+            margin: 1em 0;
+        }
+    }
+    footer {
+        display: none;
+        > .social-media {
+            display: none;
+        }
     }
     nav > .social-media {
         display: block;

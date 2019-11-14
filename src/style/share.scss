@@ -12,3 +12,13 @@
     clip: rect(1px, 1px, 1px, 1px);
     white-space: nowrap; /* added line */
 }
+
+.focus {
+    color: $appTxtColorFocus;
+}
+.unfocus {
+    color: $appTxtColorUnfocus;
+}
+.line {
+    font-size: 3em;
+}

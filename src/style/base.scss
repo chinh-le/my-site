@@ -1,7 +1,14 @@
 body {
     font-size: 16px;
+    font-family: Montserrat, Verdana, Geneva, Tahoma, sans-serif; // Montserrat, Roboto, Syncopate, Righteous
+    background-color: $appBgColor;
+    color: $appTxtColor;
 }
-
+h1 {
+    font-family: Syncopate, Verdana, Geneva, Tahoma, sans-serif; // Montserrat, Roboto, Syncopate, Righteous
+    font-size: 2.5em;
+    line-height: 1.2em;
+}
 p {
     line-height: 1.2em;
 }

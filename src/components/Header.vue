@@ -4,10 +4,12 @@
     <app-social-media />
     <div class="loginNav">
       <button v-show="!authenticated" class="btn-login" @click="openAuth()">
-        <i class="material-icons">person_outline</i>
+        <i class="material-icons md-light">person_outline</i>
+        <!-- <i class="material-icons md-light md-inactive">person_outline</i> -->
       </button>
       <button v-show="authenticated" class="btn-logout" @click="signout()">
-        <i class="material-icons">person</i>
+        <i class="material-icons md-light">person</i>
+        <!-- <i class="material-icons md-dark md-inactive">person</i> -->
       </button>
       <button class="btn-nav-open" @click="openNav()">
         <i />
@@ -69,27 +71,40 @@ export default {
   padding: 1em 0.5em;
   > i {
     display: block;
-    width: 2.5em;
-    height: 0.3em;
-    background-color: #fff;
+    // width: 1.5em;
+    // height: 0.2em;
     border-radius: 0.2em;
-    margin: 0.3em 0;
+    padding: 0.1em 1em;
+    margin: 0.25em;
+    background-color: #fff;
   }
   &:after {
     content: "open navigation";
     @extend .visually-hidden;
+    display: none;
+  }
+}
+.btn-login,
+.btn-logout {
+  padding: 0.8em;
+  &:after {
+    // content: "open login";
+    @extend .visually-hidden;
+  }
+  .material-icons {
+    &.md-light,
+    &.md-dark {
+      color: rgba($color: #fff, $alpha: 1);
+    }
+    &.md-inactive {
+      // color: rgba(255, 255, 255, 0.3);
+    }
   }
 }
 .btn-login {
-  &:after {
-    content: "open login";
-    @extend .visually-hidden;
-  }
+  content: "open login";
 }
 .btn-logoout {
-  &:after {
-    content: "open logout";
-    @extend .visually-hidden;
-  }
+  content: "logout";
 }
 </style>
