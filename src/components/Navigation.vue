@@ -5,10 +5,10 @@
         <button type="button" class="btn-nav-close" @click="closeNav()"></button>
         <ul class="lang">
           <li>
-            <a href="#">EN</a>
+            <a href="#" class="current">en</a>
           </li>
           <li>
-            <a href="#">FR</a>
+            <a href="#">fr</a>
           </li>
         </ul>
         <ul class="views">
@@ -32,6 +32,7 @@
           </li>
         </ul>
         <app-social-media />
+        <app-copyright></app-copyright>
       </nav>
     </div>
   </transition>
@@ -39,6 +40,7 @@
 <script>
 import SocialMedia from './SocialMedia.vue';
 import { eventBus } from '@/eventBus';
+import Copyright from './Copyright';
 
 export default {
   methods: {
@@ -57,7 +59,8 @@ export default {
     });
   },
   components: {
-    appSocialMedia: SocialMedia
+    appSocialMedia: SocialMedia,
+    appCopyright: Copyright
   },
   props: {
     navShow: {
@@ -91,11 +94,18 @@ export default {
 </script>
 <style scoped lang="scss">
 $signin-width: 100%;
-$appTxtColor: #fff;
+$app-txt-color: #999;
 $app-min-height: 500px;
-$appBgColor: #333;
-$body-padding: 2em;
+$app-bg-color: #333;
+$body-padding: 1em;
+$font-fallback: Verdana, Geneva, Tahoma, sans-serif;
+$font-heading: Roboto, $font-fallback;
+$app-txt-color-focus: #b36a12;
 
+a {
+  color: $app-txt-color;
+  text-decoration: none;
+}
 .visually-hidden {
   position: absolute !important;
   height: 1px;
@@ -105,12 +115,27 @@ $body-padding: 2em;
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap; /* added line */
 }
+.navigation-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: $signin-width;
+  height: $signin-width;
+  min-height: $app-min-height;
+  background-color: $app-bg-color;
+}
+.navigation {
+  display: flex;
+  flex-direction: column;
+  padding: $body-padding;
+}
 .btn-nav-close {
   font-family: "Roboto";
-  font-size: 2em;
-  padding: 0.1em 0 0.1em 1em;
+  font-size: 1.7em;
+  padding: 0.5em 0 0 1em;
   align-self: flex-end;
-  color: $appTxtColor;
+  color: $app-txt-color;
+  margin-bottom: 1em;
   &:before {
     content: "\00d7";
   }
@@ -119,19 +144,30 @@ $body-padding: 2em;
     @extend .visually-hidden;
   }
 }
-.navigation-container {
-  width: $signin-width;
-  height: $signin-width;
-  min-height: $app-min-height;
-  position: absolute;
-  right: 0;
-  top: 0;
-  background-color: $appBgColor;
+.lang {
+  margin-bottom: 3em;
+  li {
+    display: inline-block;
+    margin-right: 1.5em;
+    > a {
+      text-transform: uppercase;
+      font-size: 0.8em;
+      &.current {
+        color: $app-txt-color-focus;
+      }
+    }
+  }
 }
-.navigation {
-  display: flex;
-  flex-direction: column;
-  padding: $body-padding;
+.views {
+  font-family: $font-heading;
+  font-size: 2em;
+  margin-bottom: 1.5em;
+  > li {
+    margin-bottom: 0.5em;
+  }
+}
+.social-media {
+  margin-bottom: 3em;
 }
 .slide-enter-active {
   animation: slideIn 0.5s ease-in;

@@ -158,10 +158,11 @@ export default {
 <style scoped lang="scss">
 $signin-width: 100%;
 $app-bg-color: #333;
-$body-padding: 2em;
-$app-txt-color: #fff;
+$body-padding: 1em;
+$app-txt-color: #999;
 $form-field-bg-color: #444;
 $app-txt-color-focus: #b36a12;
+$app-min-height: 500px;
 
 .visually-hidden {
   position: absolute !important;
@@ -181,6 +182,7 @@ $app-txt-color-focus: #b36a12;
   right: 0;
   width: $signin-width;
   height: $signin-width;
+  min-height: $app-min-height;
   background-color: $app-bg-color;
 }
 .signin {
@@ -213,7 +215,7 @@ form {
     padding: 1.5em;
     background-color: $form-field-bg-color;
     border: 0;
-    color: rgba($color: $app-txt-color, $alpha: 0.5);
+    color: $app-txt-color;
     &:disabled {
       border: 1px solid $form-field-bg-color;
       background: none;
@@ -225,8 +227,8 @@ form {
 }
 .btn-close {
   font-family: "Roboto";
-  font-size: 2em;
-  padding: 0.1em 0 0.1em 1em;
+  font-size: 1.7em;
+  padding: 0.5em 0 0 1em;
   align-self: flex-end;
   color: $app-txt-color;
   margin-bottom: 1em;
