@@ -1,29 +1,39 @@
 <template>
   <transition name="slide">
-    <nav v-show="isShow">
-      <button type="button" class="btnNavClose" @click="closeNav()"></button>
-      <ul class>
-        <li class>
-          <router-link to="/" class>Home</router-link>
-        </li>
-        <li class>
-          <router-link to="/about" class>About</router-link>
-        </li>
-        <li class>
-          <router-link to="/works" class>Works</router-link>
-        </li>
-        <li class>
-          <router-link to="/services" class>Services</router-link>
-        </li>
-        <li class>
-          <router-link to="/resume" class>Resume</router-link>
-        </li>
-        <li class>
-          <router-link to="/contact" class>Contact</router-link>
-        </li>
-      </ul>
-      <app-social-media />
-    </nav>
+    <div class="navigation-container" v-show="isShow">
+      <nav class="navigation">
+        <button type="button" class="btn-nav-close" @click="closeNav()"></button>
+        <ul class="lang">
+          <li>
+            <a href="#">EN</a>
+          </li>
+          <li>
+            <a href="#">FR</a>
+          </li>
+        </ul>
+        <ul class="views">
+          <li class>
+            <router-link to="/" class>Home</router-link>
+          </li>
+          <li class>
+            <router-link to="/about" class>About</router-link>
+          </li>
+          <li class>
+            <router-link to="/works" class>Works</router-link>
+          </li>
+          <li class>
+            <router-link to="/services" class>Services</router-link>
+          </li>
+          <li class>
+            <router-link to="/resume" class>Resume</router-link>
+          </li>
+          <li class>
+            <router-link to="/contact" class>Contact</router-link>
+          </li>
+        </ul>
+        <app-social-media />
+      </nav>
+    </div>
   </transition>
 </template>
 <script>
@@ -80,6 +90,12 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+$signin-width: 100%;
+$appTxtColor: #fff;
+$app-min-height: 500px;
+$appBgColor: #333;
+$body-padding: 2em;
+
 .visually-hidden {
   position: absolute !important;
   height: 1px;
@@ -89,11 +105,12 @@ export default {
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap; /* added line */
 }
-.btnNavClose {
+.btn-nav-close {
   font-family: "Roboto";
-  font-size: 3em;
-  padding: 0 0.2em;
+  font-size: 2em;
+  padding: 0.1em 0 0.1em 1em;
   align-self: flex-end;
+  color: $appTxtColor;
   &:before {
     content: "\00d7";
   }
@@ -102,16 +119,19 @@ export default {
     @extend .visually-hidden;
   }
 }
-nav {
-  width: 100%;
-  height: 100%;
-  min-height: 500px !important; // $app-min-height !important;
+.navigation-container {
+  width: $signin-width;
+  height: $signin-width;
+  min-height: $app-min-height;
   position: absolute;
   right: 0;
   top: 0;
-  background-color: #fff;
+  background-color: $appBgColor;
+}
+.navigation {
   display: flex;
   flex-direction: column;
+  padding: $body-padding;
 }
 .slide-enter-active {
   animation: slideIn 0.5s ease-in;

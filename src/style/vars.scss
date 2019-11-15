@@ -1,6 +1,14 @@
 $app-min-height: 500px;
 $body-padding: 1em;
-$appBgColor: #292930;
+// $appBgColor: #292930;
+// $appBgColor: #343638;
+$appBgColor: #333;
 $appTxtColor: #fff;
 $appTxtColorFocus: #b36a12;
-$appTxtColorUnfocus: rgba($color: #fff, $alpha: 0.4);;
+$appTxtColorUnfocus: rgba($color: #fff, $alpha: 0.4);
+$formFieldBgColor: #444;
+$font-fallback: Verdana, Geneva, Tahoma, sans-serif;
+// Google Fonts: Righteous, Montserrat, Syncopate, Roboto
+$font-logo: Righteous $font-fallback;
+$font-body: Montserrat $font-fallback;
+$font-heading: Syncopate $font-fallback;

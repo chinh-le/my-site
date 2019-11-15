@@ -20,7 +20,7 @@ export default {};
   // font-family: 'Righteous', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   // font-family: 'Righteous-Regular';
   font-size: 1.5em;
-  font-family: Righteous, Syncopate, Roboto, Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Righteous, Verdana, Geneva, Tahoma, sans-serif;
   a {
     text-decoration: none;
     color: #fff;

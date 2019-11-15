@@ -3,7 +3,7 @@
     top: -9999px;
 }
 
-%visually-hidden { 
+.visually-hidden { 
     position: absolute !important;
     height: 1px; 
     width: 1px;
@@ -21,4 +21,15 @@
 }
 .line {
     font-size: 3em;
+}
+.footnote {
+    font-size: 0.5em;
+    opacity: 0.5;
+    > a {
+        color: $appTxtColor;
+        opacity: 0.5;
+    }
+}
+.form-field {
+
 }
