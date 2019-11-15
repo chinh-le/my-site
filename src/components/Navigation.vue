@@ -43,6 +43,13 @@ import { eventBus } from '@/eventBus';
 import Copyright from './Copyright';
 
 export default {
+  watch: {
+    $route (to, from) {
+      // console.log('to: ', to);
+      // console.log('from: ', from);
+      this.isShow = false; // close nav on route change
+    }
+  },
   methods: {
     closeNav () {
       this.isShow = false;
@@ -53,10 +60,32 @@ export default {
       isShow: false
     };
   },
+  beforeCreated () {
+    // console.log('nav beforeCreated: ', this.$route);
+  },
   created () {
+    // console.log('nav created: ', this.$route);
     eventBus.$on('ebOpenNav', () => {
       this.isShow = true;
     });
+  },
+  beforeMount () {
+    // console.log('nav beforeMOunt: ', this.$route);
+  },
+  mounted () {
+    // console.log('nav mounted: ', this.$route);
+  },
+  beforeUpdate () {
+    // console.log('nav beforeUpdate: ', this.$route);
+  },
+  updated () {
+    // console.log('nav updated: ', this.$route);
+  },
+  beforeDestroy () {
+    // console.log('nav beforeDestroy: ', this.$route);
+  },
+  destroyed () {
+    // console.log('nav destroyed: ', this.$route);
   },
   components: {
     appSocialMedia: SocialMedia,
@@ -105,6 +134,7 @@ $app-txt-color-focus: #b36a12;
 a {
   color: $app-txt-color;
   text-decoration: none;
+  display: block;
 }
 .visually-hidden {
   position: absolute !important;
