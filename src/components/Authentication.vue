@@ -1,47 +1,59 @@
 <template>
   <transition name="slide">
-    <div class="signin" v-show="isShow">
-      <button type="button" @click="closeSiginin()" class="btn-close"></button>
-      <form novalidate @submit.prevent="onSubmit($event)">
-        <ul>
-          <li>
-            <label for="email">Email</label>
-            <input
-              id="email"
-              v-model="user.email"
-              type="email"
-              autocomplete="username"
-              @input="$v.user.email.$touch()"
-            />
-            <p v-show="!$v.user.email.isDefault && $v.user.email.$dirty">not as provided to you</p>
-          </li>
-          <li>
-            <label for="password">Password</label>
-            <input
-              id="password"
-              v-model="user.password"
-              type="password"
-              :autocomplete="isSigningUp ? 'new-password' : 'current-password'"
-              @input="$v.user.password.$touch()"
-            />
-            <p
-              v-show="!$v.user.password.isDefault && $v.user.password.$dirty"
-            >not as provided to you</p>
-          </li>
-          <li v-show="signingOption">
-            <input id="isSignup" v-model="isSigningUp" type="checkbox" />
-            <label for="isSignup">signing up</label>
-          </li>
-        </ul>
-        <p>
-          This site is protected by reCAPTCHA and the Google
-          <a
-            href="https://policies.google.com/privacy"
-          >Privacy Policy</a> and
-          <a href="https://policies.google.com/terms">Terms of Service</a> apply.
-        </p>
-        <button :disabled="$v.$invalid" type="submit">{{ isSigningUp ? 'Sign Up' : 'Sign In' }}</button>
-      </form>
+    <div class="signin-container" v-show="isShow">
+      <div class="signin">
+        <button type="button" @click="closeSiginin()" class="btn-close"></button>
+        <form novalidate @submit.prevent="onSubmit($event)">
+          <ul>
+            <li>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  v-model="user.email"
+                  type="email"
+                  autocomplete="username"
+                  @input="$v.user.email.$touch()"
+                  placeholder="email*"
+                />
+              </div>
+              <span
+                class="form-error"
+                :class="{visible: !$v.user.email.isDefault && $v.user.email.$dirty}"
+              >Please use the provided</span>
+            </li>
+            <li>
+              <div class="form-field">
+                <label for="password">Password</label>
+                <input
+                  id="password"
+                  v-model="user.password"
+                  type="password"
+                  :autocomplete="isSigningUp ? 'new-password' : 'current-password'"
+                  @input="$v.user.password.$touch()"
+                  placeholder="password*"
+                />
+              </div>
+              <span
+                class="form-error"
+                :class="{visible: !$v.user.password.isDefault && $v.user.password.$dirty}"
+              >Please use the provided</span>
+            </li>
+            <li v-show="signingOption">
+              <input id="isSignup" v-model="isSigningUp" type="checkbox" />
+              <label for="isSignup">signing up</label>
+            </li>
+          </ul>
+          <p class="footnote">
+            This site is protected by reCAPTCHA and the Google
+            <a
+              href="https://policies.google.com/privacy"
+            >Privacy Policy</a> and
+            <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+          </p>
+          <button :disabled="$v.$invalid" type="submit">{{ isSigningUp ? 'Sign Up' : 'Sign In' }}</button>
+        </form>
+      </div>
     </div>
   </transition>
 </template>
@@ -145,6 +157,12 @@ export default {
 </script>
 <style scoped lang="scss">
 $signin-width: 100%;
+$app-bg-color: #333;
+$body-padding: 2em;
+$app-txt-color: #fff;
+$form-field-bg-color: #444;
+$app-txt-color-focus: #b36a12;
+
 .visually-hidden {
   position: absolute !important;
   height: 1px;
@@ -154,22 +172,64 @@ $signin-width: 100%;
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap; /* added line */
 }
-.signin {
-  width: $signin-width;
+.visible {
+  visibility: visible !important;
+}
+.signin-container {
   position: absolute;
   top: 0;
   right: 0;
   width: $signin-width;
   height: $signin-width;
-  background-color: lightseagreen;
+  background-color: $app-bg-color;
+}
+.signin {
   display: flex;
   flex-direction: column;
+  padding: $body-padding;
+}
+.form-field {
+  background-color: $form-field-bg-color;
+  padding: 0 1.5em;
+}
+.form-error {
+  font-size: 0.7em;
+  opacity: 0.8;
+  position: relative;
+  top: -2.5em;
+  left: 2em;
+  visibility: hidden;
+  color: $app-txt-color-focus;
+}
+form {
+  li {
+    margin-bottom: 0.5em;
+  }
+  label {
+    @extend .visually-hidden;
+  }
+  button {
+    font-size: 1em;
+    padding: 1.5em;
+    background-color: $form-field-bg-color;
+    border: 0;
+    color: rgba($color: $app-txt-color, $alpha: 0.5);
+    &:disabled {
+      border: 1px solid $form-field-bg-color;
+      background: none;
+    }
+  }
+}
+.footnote {
+  margin-bottom: 4em;
 }
 .btn-close {
   font-family: "Roboto";
-  font-size: 3em;
-  padding: 0 0.2em;
+  font-size: 2em;
+  padding: 0.1em 0 0.1em 1em;
   align-self: flex-end;
+  color: $app-txt-color;
+  margin-bottom: 1em;
   &:before {
     content: "\00d7";
   }
