@@ -67,12 +67,13 @@ export default {
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap; /* added line */
 }
+button {
+  margin-left: 0.4em;
+}
 .btn-nav-open {
-  padding: 1em 0.5em;
+  padding: 1em 0 1em 1em;
   > i {
     display: block;
-    // width: 1.5em;
-    // height: 0.2em;
     border-radius: 0.2em;
     padding: 0.1em 1em;
     margin: 0.25em;
@@ -84,11 +85,20 @@ export default {
     display: none;
   }
 }
+.btn-login {
+  &:after {
+    content: "open login";
+  }
+}
+.btn-logoout {
+  &:after {
+    content: "logout";
+  }
+}
 .btn-login,
 .btn-logout {
-  padding: 0.8em;
+  padding: 0.8em 0 0.8em 1.5em;
   &:after {
-    // content: "open login";
     @extend .visually-hidden;
   }
   .material-icons {
@@ -100,11 +110,5 @@ export default {
       // color: rgba(255, 255, 255, 0.3);
     }
   }
-}
-.btn-login {
-  content: "open login";
-}
-.btn-logoout {
-  content: "logout";
 }
 </style>

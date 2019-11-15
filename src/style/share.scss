@@ -14,10 +14,10 @@
 }
 
 .focus {
-    color: $appTxtColorFocus;
+    color: $app-txt-color-focus;
 }
 .unfocus {
-    color: $appTxtColorUnfocus;
+    color: $app-txt-color-unfocus;
 }
 .line {
     font-size: 3em;
@@ -25,9 +25,9 @@
 .footnote {
     font-size: 0.5em;
     opacity: 0.5;
+    line-height: 1.5em;
     > a {
-        color: $appTxtColor;
-        opacity: 0.5;
+        color: $app-txt-color-light;
     }
 }
 .form-field {

@@ -17,22 +17,11 @@ export default {};
 </script>
 <style scoped lang="scss">
 .logo {
-  // font-family: 'Righteous', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  // font-family: 'Righteous-Regular';
   font-size: 1.5em;
   font-family: Righteous, Verdana, Geneva, Tahoma, sans-serif;
   a {
     text-decoration: none;
     color: #fff;
-  }
-  p.roboto {
-    font-family: "Roboto";
-  }
-  p.righteous {
-    font-family: "Righteous";
-  }
-  p.syncopate {
-    font-family: "Syncopate   ";
   }
 }
 </style>

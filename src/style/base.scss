@@ -1,13 +1,14 @@
 body {
     font-size: 16px;
-    font-family: Montserrat, Verdana, Geneva, Tahoma, sans-serif; // Montserrat, Roboto, Syncopate, Righteous
-    background-color: $appBgColor;
-    color: $appTxtColor;
+    font-family: $font-body;
+    background-color: $app-bg-color;
+    color: $app-txt-color;
 }
 h1 {
-    font-family: Syncopate, Verdana, Geneva, Tahoma, sans-serif; // Montserrat, Roboto, Syncopate, Righteous
+    font-family: $font-heading-capital;
     font-size: 2.5em;
     line-height: 1.2em;
+    color: $app-heading-color;
 }
 p {
     line-height: 1.2em;
@@ -15,9 +16,9 @@ p {
 input {
     font-size: 1em;
     border: 0;
-    background-color: $formFieldBgColor;
+    background-color: $form-field-bg-color;
     width: 100%;
     padding: 1.5em 0;
-    color: rgba($color: #fff, $alpha: 0.5);
+    color: $app-txt-color;
     outline: none;
 }
