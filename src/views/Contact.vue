@@ -1,15 +1,24 @@
 <template>
   <div class="contact">
-    <h1>This is contact page</h1>
+    <p class="unfocus">Get in touch</p>
+    <app-contact-info></app-contact-info>
   </div>
 </template>
 <script>
-import { recaptchaPage } from '@/recaptcha';
+import ContactInfo from '@/components/ContactInfo';
 
 export default {
-  created () {
-    console.log('contact - created  ');
-    recaptchaPage('contact');
+  components: {
+    appContactInfo: ContactInfo
   }
 };
 </script>
+<style lang="scss" scoped>
+.contact {
+  > p {
+    &.unfocus {
+      margin-bottom: 2em;
+    }
+  }
+}
+</style>
