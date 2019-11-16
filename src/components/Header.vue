@@ -1,21 +1,23 @@
 <template>
   <header>
-    <app-logo />
-    <app-social-media />
-    <div class="loginNav">
-      <button v-show="!authenticated" class="btn-login" @click="openAuth()">
-        <i class="material-icons md-light">person_outline</i>
-        <!-- <i class="material-icons md-light md-inactive">person_outline</i> -->
-      </button>
-      <button v-show="authenticated" class="btn-logout" @click="signout()">
-        <i class="material-icons md-light">person</i>
-        <!-- <i class="material-icons md-dark md-inactive">person</i> -->
-      </button>
-      <button class="btn-nav-open" @click="openNav()">
-        <i />
-        <i />
-        <i />
-      </button>
+    <div class="container">
+      <app-logo />
+      <app-social-media />
+      <div class="loginNav">
+        <button v-show="!authenticated" class="btn-login" @click="openAuth()">
+          <i class="material-icons md-light">person_outline</i>
+          <!-- <i class="material-icons md-light md-inactive">person_outline</i> -->
+        </button>
+        <button v-show="authenticated" class="btn-logout" @click="signout()">
+          <i class="material-icons md-light">person</i>
+          <!-- <i class="material-icons md-dark md-inactive">person</i> -->
+        </button>
+        <button class="btn-nav-open" @click="openNav()">
+          <i />
+          <i />
+          <i />
+        </button>
+      </div>
     </div>
   </header>
 </template>
@@ -67,6 +69,10 @@ export default {
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap; /* added line */
 }
+
+.container {
+}
+
 button {
   margin-left: 0.4em;
 }

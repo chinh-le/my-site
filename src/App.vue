@@ -1,9 +1,13 @@
 <template>
   <div id="app" :style="{height: winHeight + 'px'}">
     <app-header />
-    <router-view />
+    <main>
+      <router-view />
+    </main>
     <app-footer />
-    <app-navigation />
+    <nav>
+      <app-navigation />
+    </nav>
     <app-authentication></app-authentication>
   </div>
 </template>

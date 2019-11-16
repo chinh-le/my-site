@@ -13,7 +13,7 @@ h1 {
 p {
     line-height: 1.2em;
 }
-input {
+input, textarea {
     font-size: 1em;
     border: 0;
     background-color: $form-field-bg-color;
@@ -21,4 +21,14 @@ input {
     padding: 1.5em 0;
     color: $app-txt-color;
     outline: none;
+}
+/* textarea {
+    font: unset;
+    font-family: $font-body;
+    resize: none;
+    overflow: auto;
+} */
+
+.grecaptcha-badge {
+  visibility: hidden;
 }

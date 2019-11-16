@@ -6,6 +6,13 @@
 
 @import url("https://fonts.googleapis.com/css?family=Montserrat|Righteous|Roboto|Syncopate&display=swap");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+// form reset mixins from https://gist.github.com/mjlescano/fc472f778e77c4b760ab
+// <script src="https://gist.github.com/mjlescano/fc472f778e77c4b760ab.js"></script>
+// @import url("https://gist.github.com/mjlescano/fc472f778e77c4b760ab.js");
+@import "src/style/modules/form-reset-helpers";
+@import "src/style/modules/form-reset";
+
 @import "src/style/reset";
 @import "src/style/base";
 @import "src/style/share";

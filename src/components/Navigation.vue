@@ -1,7 +1,7 @@
 <template>
   <transition name="slide">
-    <div class="navigation-container" v-show="isShow">
-      <nav class="navigation">
+    <div class="container" v-show="isShow">
+      <div class="navigation">
         <button type="button" class="btn-nav-close" @click="closeNav()"></button>
         <ul class="lang">
           <li>
@@ -33,7 +33,7 @@
         </ul>
         <app-social-media />
         <app-copyright></app-copyright>
-      </nav>
+      </div>
     </div>
   </transition>
 </template>
@@ -145,7 +145,7 @@ a {
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap; /* added line */
 }
-.navigation-container {
+.container {
   position: absolute;
   top: 0;
   right: 0;
