@@ -1,5 +1,5 @@
 <template>
-  <div class="about main">
+  <div class="about">
     <p class="unfocus">About me</p>
     <h1>
       <span class="focus">Responsive site</span> , mobile and desktop
@@ -13,6 +13,9 @@ export default {};
 <style scoped lang="scss">
 $body-padding: 1em;
 
+h1 {
+  margin: 1em 0;
+}
 .about {
   padding: $body-padding;
 }

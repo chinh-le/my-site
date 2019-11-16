@@ -1,5 +1,6 @@
 <template>
-  <div id="app" :style="{height: winHeight + 'px'}">
+  <!-- <div id="app" :style="{height: winHeight + 'px'}"> -->
+  <div id="app">
     <app-header />
     <main>
       <router-view />
@@ -28,7 +29,7 @@ export default {
   },
   data () {
     return {
-      winHeight: 500
+      // winHeight: 500
     };
   },
   beforeCreate () {
@@ -37,16 +38,16 @@ export default {
     onStateChange(); // authentication state observer
   },
   created () {
-    this.winHeight = window.innerHeight;
-    window.addEventListener('resize', this.resizeHandler);
+    // this.winHeight = window.innerHeight;
+    // window.addEventListener('resize', this.resizeHandler);
   },
   destroyed () {
-    window.removeEventListener('resize');
+    // window.removeEventListener('resize');
   },
   methods: {
-    resizeHandler (evt) {
+    /* resizeHandler (evt) {
       this.winHeight = evt.currentTarget.innerHeight;
-    }
+    } */
   }
 };
 </script>
