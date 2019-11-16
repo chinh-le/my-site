@@ -53,5 +53,20 @@ body {
 }
 
 @media screen and (max-width: 330px) {
-    
+    .main {
+        .works {
+            .container {
+                a {
+                    &:before {
+                        visibility: hidden;
+                    }
+                    &:hover {
+                        &:before {
+                        visibility: visible !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
