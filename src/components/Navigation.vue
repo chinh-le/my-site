@@ -22,7 +22,7 @@
             <router-link to="/works" class>Works</router-link>
           </li>
           <li class>
-            <router-link to="/services" class>Services</router-link>
+            <router-link to="/education" class>Education</router-link>
           </li>
           <li class>
             <router-link to="/resume" class>Resume</router-link>
