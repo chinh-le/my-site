@@ -3,7 +3,15 @@
     <div class="container">
       <app-logo />
       <app-social-media />
-      <div class="loginNav">
+      <div class="login-nav">
+        <a
+          v-show="authenticated && downloadUrl"
+          :href="downloadUrl"
+          target="_blank"
+          class="btn-download"
+        >
+          <i class="material-icons md-light">cloud_download</i>
+        </a>
         <button v-show="!authenticated" class="btn-login" @click="openAuth()">
           <i class="material-icons md-light">person_outline</i>
           <!-- <i class="material-icons md-light md-inactive">person_outline</i> -->
@@ -12,11 +20,14 @@
           <i class="material-icons md-light">person</i>
           <!-- <i class="material-icons md-dark md-inactive">person</i> -->
         </button>
-        <button class="btn-nav-open" @click="openNav()">
-          <i />
-          <i />
-          <i />
+        <button class="btn-nav" @click="openNav()">
+          <i class="material-icons md-light md-48">dehaze</i>
         </button>
+        <!-- <button class="btn-nav-open" @click="openNav()">
+          <i />
+          <i />
+          <i />
+        </button>-->
       </div>
     </div>
   </header>
@@ -39,6 +50,9 @@ export default {
     };
   },
   computed: {
+    downloadUrl () {
+      return this.$store.getters.downloadUrl;
+    },
     authenticated () {
       return this.$store.getters.isAuthenticated;
     }
@@ -72,12 +86,36 @@ export default {
 
 .container {
 }
-
+.login-nav {
+  display: flex;
+  flex-direction: row;
+  align-content: baseline;
+}
+.btn-download {
+  display: inline-block;
+  color: unset;
+  text-decoration: none;
+  // background-color: #fff;
+  padding: 0.8em 0 0.8em 1.5em;
+  &:after {
+    content: "cloud download";
+    @extend .visually-hidden;
+  }
+  .material-icons {
+    &.md-light,
+    &.md-dark {
+      color: rgba($color: #fff, $alpha: 1);
+    }
+    &.md-inactive {
+      // color: rgba(255, 255, 255, 0.3);
+    }
+  }
+}
 button {
   margin-left: 0.4em;
 }
-.btn-nav-open {
-  padding: 1em 0 1em 1em;
+/* .btn-nav-open {
+  // padding: 1em 0 1em 1em;
   > i {
     display: block;
     border-radius: 0.2em;
@@ -88,9 +126,9 @@ button {
   &:after {
     content: "open navigation";
     @extend .visually-hidden;
-    display: none;
+    // display: none;
   }
-}
+} */
 .btn-login {
   &:after {
     content: "open login";
@@ -105,6 +143,24 @@ button {
 .btn-logout {
   padding: 0.8em 0 0.8em 1.5em;
   &:after {
+    @extend .visually-hidden;
+  }
+  .material-icons {
+    &.md-light,
+    &.md-dark {
+      color: rgba($color: #fff, $alpha: 1);
+    }
+    &.md-inactive {
+      // color: rgba(255, 255, 255, 0.3);
+    }
+  }
+}
+.btn-nav {
+  // padding-top: 0.16em;
+  // padding: 0.8em 0 0.8em 1.5em;
+  padding: 1em 0 0.6em 1.5em;
+  &:after {
+    content: "open navigation";
     @extend .visually-hidden;
   }
   .material-icons {
