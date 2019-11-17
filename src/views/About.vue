@@ -32,6 +32,6 @@ h6 {
   font-size: 1em;
 }
 .about {
-  padding: $body-padding;
+  // padding: $body-padding;
 }
 </style>
