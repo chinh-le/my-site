@@ -50,7 +50,7 @@ h1 {
   @extend .visually-hidden;
 }
 h2 {
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
 }
 .container {
   margin-bottom: 3em;

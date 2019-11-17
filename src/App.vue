@@ -29,26 +29,78 @@ export default {
   },
   data () {
     return {
-      // winHeight: 500
+      winHeight: ''
     };
   },
   beforeCreate () {
-    // console.log('beforeCreate');
+    // console.log('app - beforeCreate');
+    // console.dir(window);
+    // console.log(window.innerHeight);
+    // console.log(document.body.clientHeight);
+    /* console.log(
+      'document.body.clientHeight < window.innerHeight: ',
+      document.body.clientHeight < window.innerHeight
+    ); */
+    /* if (document.body.clientHeight < window.innerHeight) {
+      this.winHeight = window.innerHeight;
+    } */
     init(); // set firebase config
     onStateChange(); // authentication state observer
   },
   created () {
+    // console.log('app - created');
+    // console.dir(window);
+    // console.dir(document.body.clientHeight);
+    /* if (document.body.clientHeight < window.innerHeight) {
+      this.winHeight = window.innerHeight;
+    }
     // this.winHeight = window.innerHeight;
-    // window.addEventListener('resize', this.resizeHandler);
+    window.addEventListener('resize', this.resizeHandler); */
+  },
+  beforeMount () {
+    // console.log('app - beforeMount');
+    // console.dir(window);
+    // console.dir(document.body.clientHeight);
+  },
+  mounted () {
+    // console.log('app - mounted');
+    // console.dir(window);
+    // console.dir(document.body.clientHeight);
+  },
+  beforeUpdate () {
+    // console.log('app - beforeUpdate');
+  },
+  updated () {
+    // console.log('app - updated');
+  },
+  beforeDestroyed () {
+    // console.log('app - beforeDestroyed');
   },
   destroyed () {
+    // console.log('app - destroyed');
     // window.removeEventListener('resize');
   },
   methods: {
     /* resizeHandler (evt) {
-      this.winHeight = evt.currentTarget.innerHeight;
+      // this.winHeight = evt.currentTarget.innerHeight;
+      if (document.body.clientHeight < evt.currentTarget.innerHeight) {
+        this.winHeight = evt.currentTarget.innerHeight;
+      }
     } */
   }
+  /* watch: {
+    $route (fr, to) {
+      console.log('to: ', to);
+      // this.winHeight = null;
+      document.getElementById('app').style.height = null;
+      console.log(window.innerHeight);
+      console.log(document.body.clientHeight);
+      console.log(
+        'document.body.clientHeight < window.innerHeight: ',
+        document.body.clientHeight < window.innerHeight
+      );
+    }
+  } */
 };
 </script>
 <style lang="scss">
