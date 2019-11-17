@@ -4,8 +4,10 @@ body {
     background-color: $app-bg-color;
     color: $app-txt-color;
 }
-h1 {
+h1, h2, h3, h4, h5, h6 {
     font-family: $font-heading-capital;
+}
+h1 {
     font-size: 2em;
     line-height: 1.2em;
     color: $app-heading-color;
