@@ -10,16 +10,13 @@
 </template>
 
 <script>
-import { recaptchaPage } from '@/recaptcha';
-
-export default {
-  created () {
-    // console.log('home - created  ');
-    recaptchaPage('home');
-  }
-};
+export default {};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+h1 {
+  text-transform: uppercase;
+  margin: 2em 0;
+}
 </style>
