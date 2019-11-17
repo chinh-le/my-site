@@ -2,7 +2,9 @@
   <transition name="slide">
     <div class="signin-container" v-show="isShow">
       <div class="signin">
-        <button type="button" @click="closeSiginin()" class="btn-close"></button>
+        <button type="button" @click="closeSiginin()" class="btn-close">
+          <i class="material-icons md-light">close</i>
+        </button>
         <form novalidate @submit.prevent="onSubmit($event)">
           <ul>
             <li>
@@ -226,6 +228,17 @@ form {
   margin-bottom: 4em;
 }
 .btn-close {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0.8em 0;
+  margin-bottom: 1em;
+  &:after {
+    content: "close authentication";
+    @extend .visually-hidden;
+  }
+}
+/* .btn-close {
   font-family: "Roboto";
   font-size: 1.7em;
   padding: 0.5em 0 0 1em;
@@ -239,7 +252,7 @@ form {
     content: "close authentication";
     @extend .visually-hidden;
   }
-}
+} */
 .slide-enter-active {
   animation: slideIn 0.5s ease-in;
 }

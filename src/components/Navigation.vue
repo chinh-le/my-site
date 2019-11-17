@@ -2,7 +2,9 @@
   <transition name="slide">
     <div class="container" v-show="isShow">
       <div class="navigation">
-        <button type="button" class="btn-nav-close" @click="closeNav()"></button>
+        <button type="button" class="btn-close" @click="closeNav()">
+          <i class="material-icons md-light">close</i>
+        </button>
         <ul class="lang">
           <li>
             <a href="#" class="current">en</a>
@@ -23,9 +25,6 @@
           </li>
           <li class>
             <router-link to="/education" class>Education</router-link>
-          </li>
-          <li class>
-            <router-link to="/resume" class>Resume</router-link>
           </li>
           <li class>
             <router-link to="/contact" class>Contact</router-link>
@@ -159,7 +158,18 @@ a {
   flex-direction: column;
   padding: $body-padding;
 }
-.btn-nav-close {
+.btn-close {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0.8em 0;
+  margin-bottom: 1em;
+  &:after {
+    content: "close navigation";
+    @extend .visually-hidden;
+  }
+}
+/* .btn-nav-close {
   font-family: "Roboto";
   font-size: 1.7em;
   padding: 0.5em 0 0 1em;
@@ -173,7 +183,7 @@ a {
     content: "close navigation";
     @extend .visually-hidden;
   }
-}
+} */
 .lang {
   margin-bottom: 3em;
   li {
