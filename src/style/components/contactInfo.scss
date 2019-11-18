@@ -39,7 +39,7 @@ form {
   button {
     font-size: 1em;
     padding: 1.5em;
-    background-color: $form-field-bg-color;
+    background-color: $app-txt-color-focus;
     border: 0;
     color: $app-txt-color;
     &:disabled {
