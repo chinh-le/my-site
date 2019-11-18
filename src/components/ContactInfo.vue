@@ -118,7 +118,7 @@ export default {
         if (res.data.success && res.data.action === this.recaptchaAction) {
           writeUserData(this.user);
         } else {
-          console.error('SPAM!!!');
+          // console.error('SPAM!!!');
         }
       });
     }

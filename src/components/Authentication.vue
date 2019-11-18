@@ -120,39 +120,36 @@ export default {
       };
       // console.log('payload: ', payload);
 
-      recaptchaElement(this.recaptchaAction)
-        .then(res => {
-          if (res.data.success && res.data.action === this.recaptchaAction) {
-            if (this.isSigningUp) {
-              signup(payload)
-                .then(res => {
-                  console.log('res: ', res);
-                  if (res.user) {
-                    this.isShow = false; // close login form
-                  }
-                })
-                .catch(err => {
-                  console.log('1err: ', err);
-                });
-            } else {
-              login(payload)
-                .then(res => {
-                  console.log('res: ', res);
-                  if (res.user) {
-                    this.isShow = false; // close login form
-                  }
-                })
-                .catch(err => {
-                  console.log('1err: ', err);
-                });
-            }
+      recaptchaElement(this.recaptchaAction).then(res => {
+        if (res.data.success && res.data.action === this.recaptchaAction) {
+          if (this.isSigningUp) {
+            signup(payload).then(res => {
+              // console.log('res: ', res);
+              if (res.user) {
+                this.isShow = false; // close login form
+              }
+            });
+            /* .catch(err => {
+                  // console.error(err);
+                }) */
           } else {
-            console.error('SPAM!!!');
+            login(payload).then(res => {
+              // console.log('res: ', res);
+              if (res.user) {
+                this.isShow = false; // close login form
+              }
+            });
+            /* .catch(err => {
+                  // console.error(err);
+                }) */
           }
-        })
-        .catch(err => {
-          console.log('err: ', err);
-        });
+        } else {
+          // console.error('SPAM!!!');
+        }
+      });
+      /* .catch(err => {
+          // console.error(err);
+        }) */
     }
   }
 };
