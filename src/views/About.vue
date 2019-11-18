@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <p class="unfocus">About me</p>
+    <p class="page-header">About me</p>
     <h1>
       <span class="focus">Responsive site</span> , mobile and desktop
     </h1>
@@ -20,18 +20,5 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-$body-padding: 1em;
-
-h1 {
-  margin: 1em 0;
-}
-h2 {
-  margin: 2em 0 1em;
-}
-h6 {
-  font-size: 1em;
-}
-.about {
-  // padding: $body-padding;
-}
+@import "../style/views/about.scss";
 </style>

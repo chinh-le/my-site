@@ -1,0 +1,10 @@
+h2 {
+  margin-bottom: 1em;
+}
+.contact {
+  > p {
+    &.unfocus {
+      margin-bottom: 2em;
+    }
+  }
+}

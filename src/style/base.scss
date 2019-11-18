@@ -3,14 +3,18 @@ body {
     font-family: $font-body;
     background-color: $app-bg-color;
     color: $app-txt-color;
+    line-height: 1.6em;
 }
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
     font-family: $font-heading-capital;
 }
 h1 {
     font-size: 2em;
     line-height: 1.2em;
     color: $app-heading-color;
+}
+h2 {
+    color: #fff;
 }
 p {
     line-height: 1.2em;

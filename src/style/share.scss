@@ -13,6 +13,14 @@
     white-space: nowrap; /* added line */
 }
 
+.page-header {
+    color: #555;
+    text-transform: lowercase;
+    font-size: 1em;
+    margin: 0.3em 0 5em;
+}
+
+
 .focus {
     color: $app-txt-color-focus;
 }

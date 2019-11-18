@@ -1,6 +1,7 @@
 <template>
   <div class="contact">
-    <p class="unfocus">Get in touch</p>
+    <p class="page-header">contact</p>
+    <h2>Get in touch</h2>
     <app-contact-info></app-contact-info>
   </div>
 </template>
@@ -14,11 +15,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.contact {
-  > p {
-    &.unfocus {
-      margin-bottom: 2em;
-    }
-  }
-}
+@import "../style/views/contact.scss";
 </style>
