@@ -118,7 +118,7 @@ export default {
         if (res.data.success && res.data.action === this.recaptchaAction) {
           writeUserData(this.user);
         } else {
-          console.error('SPAM!!!');
+          // console.error('SPAM!!!');
         }
       });
     }
@@ -126,56 +126,5 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-$app-txt-color: #999;
-$form-field-bg-color: #444;
-$app-txt-color-focus: #b36a12;
-
-.visually-hidden {
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px);
-  white-space: nowrap; /* added line */
-}
-.visible {
-  visibility: visible !important;
-}
-
-.form-field {
-  background-color: $form-field-bg-color;
-  padding: 0 1.5em;
-}
-.form-error {
-  font-size: 0.7em;
-  opacity: 0.8;
-  position: relative;
-  top: -2.5em;
-  left: 2em;
-  visibility: hidden;
-  color: $app-txt-color-focus;
-}
-form {
-  li {
-    margin-bottom: 0.5em;
-  }
-  label {
-    @extend .visually-hidden;
-  }
-  button {
-    font-size: 1em;
-    padding: 1.5em;
-    background-color: $form-field-bg-color;
-    border: 0;
-    color: $app-txt-color;
-    &:disabled {
-      border: 1px solid $form-field-bg-color;
-      background: none;
-    }
-  }
-}
-.footnote {
-  margin-bottom: 4em;
-}
+@import "../style/components/contactInfo.scss";
 </style>

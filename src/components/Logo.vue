@@ -16,12 +16,14 @@
 export default {};
 </script>
 <style scoped lang="scss">
+$app-color-gray-light: #aaa;
+
 .logo {
   font-size: 1.5em;
   font-family: Righteous, Verdana, Geneva, Tahoma, sans-serif;
   a {
     text-decoration: none;
-    color: #fff;
+    color: $app-color-gray-light;
   }
 }
 </style>

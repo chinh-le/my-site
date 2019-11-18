@@ -19,6 +19,7 @@ body {
         // height: 10%;
         position: fixed;
         background-color: $app-bg-color;
+        border-bottom: 1px solid #282828;
         .container {
             display: flex;
             justify-content: space-between;

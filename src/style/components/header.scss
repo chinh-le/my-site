@@ -1,0 +1,101 @@
+$app-color-gray-light: #aaa;
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* added line */
+}
+
+.container {
+}
+.login-nav {
+  display: flex;
+  flex-direction: row;
+  align-content: baseline;
+}
+.btn-download {
+  display: inline-block;
+  color: unset;
+  text-decoration: none;
+  // background-color: #fff;
+  padding: 0.8em 0 0.8em 1.5em;
+  &:after {
+    content: "cloud download";
+    @extend .visually-hidden;
+  }
+  .material-icons {
+    &.md-light,
+    &.md-dark {
+      color: $app-color-gray-light;
+    }
+    &.md-inactive {
+      // color: rgba(255, 255, 255, 0.3);
+    }
+  }
+}
+button {
+  margin-left: 0.4em;
+}
+/* .btn-nav-open {
+  // padding: 1em 0 1em 1em;
+  > i {
+    display: block;
+    border-radius: 0.2em;
+    padding: 0.1em 1em;
+    margin: 0.25em;
+    background-color: #fff;
+  }
+  &:after {
+    content: "open navigation";
+    @extend .visually-hidden;
+    // display: none;
+  }
+} */
+.btn-login {
+  &:after {
+    content: "open login";
+  }
+}
+.btn-logoout {
+  &:after {
+    content: "logout";
+  }
+}
+.btn-login,
+.btn-logout {
+  padding: 0.8em 0 0.8em 1.5em;
+  &:after {
+    @extend .visually-hidden;
+  }
+  .material-icons {
+    &.md-light,
+    &.md-dark {
+      color: $app-color-gray-light;
+    }
+    &.md-inactive {
+      // color: rgba(255, 255, 255, 0.3);
+    }
+  }
+}
+.btn-nav {
+  // padding-top: 0.16em;
+  // padding: 0.8em 0 0.8em 1.5em;
+  padding: 1em 0 0.6em 1.5em;
+  &:after {
+    content: "open navigation";
+    @extend .visually-hidden;
+  }
+  .material-icons {
+    &.md-light,
+    &.md-dark {
+      color: $app-color-gray-light;
+    }
+    &.md-inactive {
+      // color: rgba(255, 255, 255, 0.3);
+    }
+  }
+}

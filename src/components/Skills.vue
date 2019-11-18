@@ -182,51 +182,5 @@
 export default {};
 </script>
 <style lang="scss" scoped>
-$app-txt-color-focus: #b36a12;
-$app-txt-color-unfocus: #777;
-$app-txt-color: #999;
-$dot-width: 0.7em;
-
-h2 {
-  margin-bottom: 2em;
-}
-h5 {
-  width: 60%;
-}
-.skills {
-  li {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 1em;
-  }
-}
-.dot-set {
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  .dots {
-    .dot {
-      width: $dot-width;
-      height: $dot-width;
-      display: inline-block;
-      margin-left: 0.3em;
-      border-radius: $dot-width;
-      background-color: $app-txt-color-unfocus;
-      opacity: 0.15;
-
-      &.fill {
-        opacity: 0.4;
-      }
-      &.empty {
-        opacity: 0.15;
-      }
-    }
-  }
-  label {
-    font-size: 0.5em;
-  }
-}
+@import "../style/components/skills.scss";
 </style>

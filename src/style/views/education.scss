@@ -1,0 +1,47 @@
+$app-txt-color: #999;
+$app-txt-color-unfocus: #777;
+$app-border-dark: #444;
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* added line */
+}
+
+h1 {
+  @extend .visually-hidden;
+}
+h2 {
+//   font-size: 1.2em;
+  margin-bottom: 1em;
+}
+.scholarships {
+  margin-bottom: 3em;
+}
+.scholarships,
+.certificates {
+  > li {
+    border: 1px solid $app-border-dark;
+    padding: 1em;
+    margin-bottom: 1em;
+    h3 {
+      font-size: 1em;
+      margin-bottom: 0.5em;
+    }
+    p {
+      font-size: 0.7em;
+      margin-bottom: 1em;
+    }
+    a {
+    //   text-decoration: none;
+      color: $app-txt-color-unfocus;
+    }
+    img {
+      width: 100%;
+    }
+  }
+}
