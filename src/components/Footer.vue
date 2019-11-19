@@ -1,9 +1,8 @@
 <template>
-  <footer>
+  <footer class="site-footer">
     <app-logo />
     <app-quick-links />
     <!-- <app-contact-info /> -->
-
     <app-social-media />
     <app-copyright></app-copyright>
   </footer>

@@ -40,7 +40,17 @@ input, textarea {
     color: $color-txt;
     outline: none;
 }
-header, main, footer {
+
+// position: fixed
+// main {
+.site-wrap {
+    padding: var(--site-header-height) $padd-container $padd-container;
+    // background: transparent url(../assets/bg3.jpg) no-repeat center center;
+    // background-size: 1000%;
+}
+// position: fixed
+
+.site-footer {
     padding: $padd-container;
 }
 

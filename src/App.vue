@@ -2,11 +2,11 @@
   <!-- <div id="app" :style="{height: winHeight + 'px'}"> -->
   <div id="app">
     <app-header />
-    <main>
+    <main class="site-wrap">
       <router-view />
     </main>
     <app-footer />
-    <nav>
+    <nav class="site-nav">
       <app-navigation />
     </nav>
     <app-authentication></app-authentication>
