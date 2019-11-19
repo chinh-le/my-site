@@ -1,0 +1,84 @@
+button {
+  margin-left: 0.4em;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.login-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.btn-download {
+  display: inline-block;
+  color: unset;
+  text-decoration: none;
+  padding: 1em 0 0.4em 1.5em;
+  &:after {
+    content: "cloud download";
+    @include visually-hidden;
+  }
+  .material-icons {
+      font-size: 20px;
+    // &.md-light,
+    // &.md-dark {
+      color: $color-icon-download;
+    // }
+    // &.md-inactive {
+    // }
+  }
+}
+.btn-login {
+  padding: 0.9em 0 0.6em 1.5em;
+  &:after {
+      content: "open login";
+    @include visually-hidden;
+  }
+  .material-icons {
+      font-size: 20px;
+    // &.md-light,
+    // &.md-dark {
+      color: $color-icon-auth;
+    // }
+    // &.md-inactive {
+      // color: rgba(255, 255, 255, 0.3);
+    // }
+  }
+}
+.btn-logout {
+  padding: 0.9em 0 0.6em 1.5em;
+  &:after {
+      content: "logout";
+    @include visually-hidden;
+  }
+  .material-icons {
+      font-size: 20px;
+
+    // &.md-light,
+    // &.md-dark {
+      color: $color-icon-auth;
+    // }
+    // &.md-inactive {
+      // color: rgba(255, 255, 255, 0.3);
+    // }
+  }
+}
+.btn-nav {
+  padding: 1em 0 0.6em 1.5em;
+  &:after {
+    content: "open navigation";
+    @include visually-hidden;
+  }
+  .material-icons {
+    // &.md-light,
+    // &.md-dark {
+      color: $color-icon-nav;
+    // }
+    // &.md-inactive {
+      // color: rgba(255, 255, 255, 0.3);
+    // }
+  }
+}

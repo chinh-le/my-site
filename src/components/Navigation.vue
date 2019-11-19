@@ -13,7 +13,7 @@
             <a href="#">fr</a>
           </li>
         </ul>
-        <ul class="views">
+        <ul class="page-links">
           <li class>
             <router-link to="/" class>Home</router-link>
           </li>
@@ -121,5 +121,5 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "../style/components/navigation.scss";
+@import "@/styles/components/navigation";
 </style>

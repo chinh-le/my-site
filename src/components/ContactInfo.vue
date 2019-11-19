@@ -1,9 +1,8 @@
 <template>
-  <!-- <div class="contactInfo"> -->
   <form @submit.prevent="onSubmit()" class="contact-info">
     <ul>
       <li>
-        <div class="form-field">
+        <div class="form-input">
           <label for="name">Name</label>
           <input
             id="name"
@@ -19,7 +18,7 @@
         >required</span>
       </li>
       <li>
-        <div class="form-field">
+        <div class="form-input">
           <label for="email">Email</label>
           <input
             id="email"
@@ -35,21 +34,21 @@
         >required</span>
       </li>
       <li>
-        <div class="form-field">
+        <div class="form-input">
           <label for="subject">Subject</label>
           <input v-model.lazy="user.subject" type="text" placeholder="Subject" id="subject" />
         </div>
         <span class="form-error">required</span>
       </li>
       <li>
-        <div class="form-field">
+        <div class="form-input">
           <label for="message">Message</label>
           <textarea
             id="message"
             v-model="user.message"
             name
             cols="30"
-            rows="10"
+            rows="7"
             placeholder="Message*"
             :maxlength="messageMaxLength + 1"
             @input="$v.user.message.$touch()"
@@ -74,7 +73,6 @@
     </p>
     <button type="submit" :disabled="$v.$invalid">Send Message</button>
   </form>
-  <!-- </li> -->
 </template>
 <script>
 import { required, maxLength } from 'vuelidate/lib/validators';
@@ -126,5 +124,5 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "../style/components/contactInfo.scss";
+@import "@/styles/components/contactInfo";
 </style>

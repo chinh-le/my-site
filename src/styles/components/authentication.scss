@@ -1,0 +1,76 @@
+.visible {
+  @include visible;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: $slide-in-width;
+  height: $slide-in-height;
+  background-color: $color-bg-slide-in-panel;
+}
+
+.signin {
+  display: flex;
+  flex-direction: column;
+  padding: $padd-container;
+}
+
+.form-input {
+  background-color: $color-bg-form-input;
+  padding: 0 1.5em;
+}
+
+.form-error {
+  font-size: 0.7em;
+  opacity: 0.8;
+  position: relative;
+  top: -3em;
+  left: 2em;
+  visibility: hidden;
+  color: $color-txt-form-error;
+}
+
+form {
+  li {
+    margin-bottom: 0.5em;
+  }
+  label {
+    @include visually-hidden;
+  }
+  button {
+    font-size: 1em;
+    padding: 1.5em;
+    background-color: $color-bg-form-button;
+    border: 0;
+    color: $color-txt-form-button;
+    &:disabled {
+        color: $color-txt-form-button-disabled;
+        border: 1px solid $color-form-button-border;
+        background: none;
+    }
+  }
+}
+
+.footnote {
+    @include footnote;
+    margin-bottom: 3em;
+}
+
+.btn-close {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0.8em 0;
+  margin-bottom: 1em;
+  &:after {
+    content: "close authentication";
+    @include visually-hidden;
+  }
+  > i {
+      color: $color-slide-in-button-close;
+  }
+}
+
+@include slide-helper;

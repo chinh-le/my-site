@@ -21,9 +21,9 @@ const writeUserData = (contact) => {
     message: contact.message
   }, err => {
     if (err) {
-      console.error(err);
+      // console.error(err);
     } else {
-      console.log('Write: SUCCESS!!!');
+      // console.log('Write: SUCCESS!!!');
     }
   });
 };

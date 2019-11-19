@@ -1,32 +1,43 @@
 <template>
   <div class="works">
-    <h1 id="experiences">Experiences</h1>
-    <p class="page-header">works</p>
+    <h1 id="works">works</h1>
     <div class="container professional">
-      <h2 id="professional">Professional</h2>
+      <h3 id="professional">Professional</h3>
       <ul>
         <li>
-          <a href="https://www.videotron.com/" class="videotron"></a>
+          <a href="https://www.videotron.com/" class="videotron">
+            <img src="../assets/videotron-mobility.png" alt="Videotron site" />
+          </a>
         </li>
         <li>
-          <a href="https://clubillico.videotron.com/" class="clubillico"></a>
+          <a href="https://clubillico.videotron.com/" class="clubillico site">
+            <img src="../assets/clubillico.png" alt="Club illico" />
+          </a>
         </li>
         <li>
-          <a href="https://illicoweb.videotron.com/" class="illicoweb"></a>
+          <a href="https://illicoweb.videotron.com/" class="illicoweb site">
+            <img src="../assets/illicoweb.png" alt="illico TV" />
+          </a>
         </li>
       </ul>
     </div>
     <div class="container personal">
-      <h2 id="personal">Personal</h2>
+      <h3 id="personal">Personal</h3>
       <ul>
         <li>
-          <a href="#" class="coming-soon"></a>
+          <a href="#" class="coming-soon">
+            <span class="overlay"></span>
+          </a>
         </li>
         <li>
-          <a href="#" class="coming-soon"></a>
+          <a href="#" class="coming-soon">
+            <span class="overlay"></span>
+          </a>
         </li>
         <li>
-          <a href="#" class="coming-soon"></a>
+          <a href="#" class="coming-soon">
+            <span class="overlay"></span>
+          </a>
         </li>
       </ul>
     </div>
@@ -36,5 +47,5 @@
 export default {};
 </script>
 <style lang="scss" scoped>
-@import "../style/views/works.scss";
+@import "../styles/views/works.scss";
 </style>

@@ -6,7 +6,8 @@ import BootstrapVue from 'bootstrap-vue';
 // import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 // SCSS customizing
-import './style/style.scss';
+// import './style/style.scss';
+import './styles/style.scss';
 
 import App from './App.vue';
 import router from './router';

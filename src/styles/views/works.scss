@@ -1,0 +1,25 @@
+.container {
+  margin-bottom: 4em;
+}
+li {
+  width: 100%;
+  margin-bottom: 1em;
+}
+a {
+    color: $color-txt;
+    text-decoration: none;
+    > img {
+        width: 100%;
+    }
+}
+.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    background-color: $color-bg-overlay;
+    &:before {
+        content: 'coming soon';
+    }
+}
