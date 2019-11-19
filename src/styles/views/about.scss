@@ -1,9 +1,16 @@
 .color-focus {
     @include color-focus;
 }
+
 h2 {
     margin-bottom: 1em;
 }
+
 .mb-4 {
     @include set-margin(4em, 'bottom');
+}
+
+.content {
+    // display: flex;
+    // flex-direction: row;
 }

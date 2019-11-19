@@ -60,3 +60,14 @@
     }
   }
 }
+
+@mixin bg-canvas {
+  .bg-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $slide-in-width;
+    height: $slide-in-height;
+    background-color: $color-bg-overlay;
+  }
+}

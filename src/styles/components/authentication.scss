@@ -2,16 +2,13 @@
   @include visible;
 }
 
-.container {
+.signin {
   position: absolute;
   top: 0;
   right: 0;
   width: $slide-in-width;
   height: $slide-in-height;
   background-color: $color-bg-slide-in-panel;
-}
-
-.signin {
   display: flex;
   flex-direction: column;
   padding: $padd-container;
@@ -74,3 +71,5 @@ form {
 }
 
 @include slide-helper;
+
+@include bg-canvas;

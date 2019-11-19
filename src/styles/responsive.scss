@@ -1,0 +1,141 @@
+
+body {
+    width: $breakpoint-xs;
+}  
+
+#app {
+    > header {
+        .social-media {
+            display: none;
+        }
+    }
+    > footer {
+       display: none;
+    }
+}    
+
+@media screen and (min-width: $breakpoint-xs) {
+    body {
+        width: auto;
+    }
+}
+
+@media screen and (min-width: $breakpoint-sm) {
+    #app {
+        > header {
+            padding: 1em 3em;
+            .social-media {
+                display: block;
+                a {
+                    margin: 0 0.5em;
+                    background-position: center center;
+                }
+            }
+        }
+        main {
+            padding-right: 3em;           
+            padding-left: 3em;
+            .home {
+                margin-top: 5em;
+            }
+        }
+        > nav {
+            .navigation {
+                width: 40%;
+                padding: 3em;
+            }
+            .lang {
+                margin-right: 1em;
+                margin-left: 1em;
+            }
+            .page-links {
+                margin-right: 0.5em;
+                margin-left: 0.5em;
+            }
+            .social-media {
+                display: none;
+            }
+            .copyright {
+                margin: 0 1.5em;
+            }
+        }
+        .signin {
+            width: 40%;
+            padding: 3em;
+        }
+    }
+}
+
+@media screen and (min-width: $breakpoint-md) {
+    .home {
+        width: 50%;
+        margin: 0 auto;
+    }
+    .about {
+        .content {
+            display: flex;
+            flex-direction: row;
+            > .desc {
+                width: 50%;
+                margin-right: 10%;
+            }
+            > .skills {
+                width: 40%;
+            }
+        }
+    }
+    .works {
+        .container {
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                > li {
+                    width: 49%;
+                }
+            }
+        }
+    }
+    .education {
+        .certificates,
+        .scholarships {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            > li {
+                width: 45%;
+            }
+        }
+    }
+    .contact {
+        .content {
+            width: 70%;
+            margin: 0 auto;
+            .contact-info {
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    > li {
+                        width: 100%;
+                    }
+                    .name,
+                    .email {
+                        width: 47%;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+@media screen and (min-width: $breakpoint-lg) {
+    body {
+        width: $breakpoint-lg;
+        margin: 0 auto;
+    }
+}

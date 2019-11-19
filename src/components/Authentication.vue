@@ -1,7 +1,8 @@
 <template>
-  <transition name="slide">
-    <div class="container" v-show="isShow">
-      <div class="signin">
+  <div>
+    <div class="bg-canvas" v-show="isShow" @click="closeSiginin()"></div>
+    <transition name="slide">
+      <div class="signin" v-show="isShow">
         <button type="button" @click="closeSiginin()" class="btn-close">
           <i class="material-icons md-light">close</i>
         </button>
@@ -56,8 +57,8 @@
           <button :disabled="$v.$invalid" type="submit">{{ isSigningUp ? 'Sign Up' : 'Sign In' }}</button>
         </form>
       </div>
-    </div>
-  </transition>
+    </transition>
+  </div>
 </template>
 <script>
 import config from '@/config';
