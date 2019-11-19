@@ -1,84 +1,72 @@
-button {
-  margin-left: 0.4em;
-}
-.container {
+// position: fixed
+.site-header {
+  position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 0;
+    background-color: #1a1a1a;
+    width: $breakpoint-xs;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    // height: var(--site-header-height);
 }
+// position: fixed
+
+button {
+  border-left: 1px solid #2a2a2a;
+  i {
+    padding: 0.6em;
+  }
+}
+
 .login-nav {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
+
 .btn-download {
-  display: inline-block;
-  color: unset;
-  text-decoration: none;
-  padding: 0.9em 0 0.5em 1.5em;
+  border-left: 1px solid #2a2a2a;
+  border-radius: 2em;
   &:after {
     content: "cloud download";
     @include visually-hidden;
   }
   .material-icons {
-      font-size: 20px;
-    // &.md-light,
-    // &.md-dark {
-      color: $color-icon-download;
-    // }
-    // &.md-inactive {
-    // }
+    color: $color-icon-download;
+    padding: 0.6em 0.7em 0.6em 0.9em;
   }
 }
-.btn-login {
-  padding: 0.9em 0 0.6em 1.5em;
-  &:after {
-      content: "open login";
-    @include visually-hidden;
-  }
-  .material-icons {
-      font-size: 20px;
-    // &.md-light,
-    // &.md-dark {
-      color: $color-icon-auth;
-    // }
-    // &.md-inactive {
-      // color: rgba(255, 255, 255, 0.3);
-    // }
-  }
-}
-.btn-logout {
-  padding: 0.9em 0 0.6em 1.5em;
-  &:after {
-      content: "logout";
-    @include visually-hidden;
-  }
-  .material-icons {
-      font-size: 20px;
 
-    // &.md-light,
-    // &.md-dark {
-      color: $color-icon-auth;
-    // }
-    // &.md-inactive {
-      // color: rgba(255, 255, 255, 0.3);
-    // }
+.btn-login {
+  &:after {
+    content: "open login";
+    @include visually-hidden;
+  }
+  .material-icons {
+    color: $color-icon-auth;
   }
 }
+
+.btn-logout {
+  &:after {
+    content: "logout";
+    @include visually-hidden;
+  }
+  .material-icons {
+    color: $color-icon-auth;
+  }
+}
+
 .btn-nav {
-  padding: 1em 0 0.6em 1.5em;
   &:after {
     content: "open navigation";
     @include visually-hidden;
   }
   .material-icons {
-    // &.md-light,
-    // &.md-dark {
-      color: $color-icon-nav;
-    // }
-    // &.md-inactive {
-      // color: rgba(255, 255, 255, 0.3);
-    // }
+    color: $color-icon-nav;
   }
 }
