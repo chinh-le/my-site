@@ -1,7 +1,9 @@
 <template>
-  <transition name="slide">
-    <div class="container" v-show="isShow">
-      <div class="navigation">
+  <div>
+    <div class="bg-canvas" v-show="isShow" @click="closeNav()"></div>
+    <transition name="slide">
+      <!-- <div class="container" v-show="isShow"> -->
+      <div class="navigation" v-show="isShow">
         <button type="button" class="btn-close" @click="closeNav()">
           <i class="material-icons md-light">close</i>
         </button>
@@ -33,8 +35,9 @@
         <app-social-media />
         <app-copyright></app-copyright>
       </div>
-    </div>
-  </transition>
+      <!-- </div> -->
+    </transition>
+  </div>
 </template>
 <script>
 import SocialMedia from './SocialMedia.vue';

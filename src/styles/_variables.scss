@@ -1,5 +1,9 @@
-// responsive breakpoints
-$breakpoint-min: 330px;
+// responsive breakpoints (Bootstrap)
+$breakpoint-xs: 330px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
 
 $font-family-fallback: Verdana, Geneva, Tahoma, sans-serif;
 $font-family: Montserrat, $font-family-fallback;

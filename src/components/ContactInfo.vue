@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="onSubmit()" class="contact-info">
     <ul>
-      <li>
+      <li class="name">
         <div class="form-input">
           <label for="name">Name</label>
           <input
@@ -17,7 +17,7 @@
           :class="{visible: $v.user.name.$dirty && !$v.user.name.required}"
         >required</span>
       </li>
-      <li>
+      <li class="email">
         <div class="form-input">
           <label for="email">Email</label>
           <input

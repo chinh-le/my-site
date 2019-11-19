@@ -1,8 +1,10 @@
 <template>
   <div class="contact">
     <h1>contact</h1>
-    <h3>Get in touch</h3>
-    <app-contact-info></app-contact-info>
+    <div class="content">
+      <h3>Get in touch</h3>
+      <app-contact-info></app-contact-info>
+    </div>
   </div>
 </template>
 <script>
