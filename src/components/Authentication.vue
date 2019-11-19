@@ -1,6 +1,6 @@
 <template>
   <transition name="slide">
-    <div class="signin-container" v-show="isShow">
+    <div class="container" v-show="isShow">
       <div class="signin">
         <button type="button" @click="closeSiginin()" class="btn-close">
           <i class="material-icons md-light">close</i>
@@ -8,7 +8,7 @@
         <form novalidate @submit.prevent="onSubmit($event)">
           <ul>
             <li>
-              <div class="form-field">
+              <div class="form-input">
                 <label for="email">Email</label>
                 <input
                   id="email"
@@ -25,7 +25,7 @@
               >Please use the provided</span>
             </li>
             <li>
-              <div class="form-field">
+              <div class="form-input">
                 <label for="password">Password</label>
                 <input
                   id="password"
@@ -155,5 +155,5 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "../style/components/authentication.scss";
+@import "../styles/components/authentication";
 </style>

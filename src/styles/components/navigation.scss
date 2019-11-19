@@ -1,0 +1,85 @@
+a {
+  text-decoration: none;
+  display: block;
+}
+.container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: $slide-in-width;
+  height: $slide-in-height;
+//   min-height: 500px;
+  background-color: $color-bg-slide-in-panel;
+}
+.navigation {
+  display: flex;
+  flex-direction: column;
+  padding: $padd-container;
+}
+.lang {
+  margin-bottom: 3em;
+  li {
+    display: inline-block;
+    margin-right: 1.5em;
+    > a {
+      color: $color-txt;
+      text-transform: uppercase;
+      font-size: 0.8em;
+      &.current {
+        color: $color-txt-slide-in-current;
+      }
+    }
+  }
+}
+.page-links {
+  font-family: $font-family-navigation;
+  font-size: 2em;
+  margin-bottom: 1.5em;
+  > li {
+    margin-bottom: 0.5em;
+    > a {
+      color: $color-links-slide-in;
+    }
+  }
+}
+.social-media {
+  margin-bottom: 3em;
+}
+.btn-close {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0.8em 0;
+  margin-bottom: 1em;
+  &:after {
+    content: "close navigation";
+    @include visually-hidden;
+  }
+  > i {
+      color: $color-slide-in-button-close;
+  }
+}
+
+@include slide-helper;
+/* .slide-enter-active {
+  animation: slideIn 0.5s ease-in;
+}
+.slide-leave-active {
+  animation: slideOut 0.4s ease-out;
+}
+@keyframes slideIn {
+  from {
+    transform: translateX($slide-in-width);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX($slide-in-width);
+  }
+} */

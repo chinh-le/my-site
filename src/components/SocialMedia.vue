@@ -10,32 +10,5 @@
   </ul>
 </template>
 <style scoped lang="scss">
-ul {
-  li {
-    display: inline-block;
-  }
-  a {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    color: transparent;
-    margin-right: 1em;
-    padding: 0.5em;
-    &.linkedin {
-      background: transparent url("../assets/linkedin-logo-lightgray.png")
-        no-repeat left 0.5em;
-      background-size: 20px 20px;
-    }
-    &.github {
-      background: transparent url("../assets/github-logo-lightgray.png")
-        no-repeat left 0.5em;
-      background-size: 20px 20px;
-    }
-    &.instagram {
-      background: transparent url("../assets/instagram-logo-lightgray.png")
-        no-repeat left 0.5em;
-      background-size: 20px 20px;
-    }
-  }
-}
+@import "@/styles/components/socialMedia";
 </style>

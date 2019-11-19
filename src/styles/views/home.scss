@@ -1,0 +1,13 @@
+h1 {
+  margin-bottom: 4em;
+}
+h2 {
+  font-size: 3em;
+  margin-bottom: 1em;
+}
+.line {
+    font-size: 3em;
+}
+.color-focus {
+    @include color-focus;
+}

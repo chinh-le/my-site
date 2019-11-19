@@ -1,10 +1,10 @@
 <template>
   <div class="home">
-    <p class="unfocus">Welcome to my personal site</p>
-    <h1>
-      <span class="focus">Hello</span> My name is Chinh Le
-    </h1>
-    <p class="line focus">___</p>
+    <h1>Welcome to my personal site</h1>
+    <h2>
+      <span class="color-focus">Hello</span> My name is Chinh Le
+    </h2>
+    <p class="line color-focus">___</p>
   </div>
 </template>
 
@@ -13,5 +13,5 @@ export default {};
 </script>
 
 <style scoped lang="scss">
-@import "../style/views/home.scss";
+@import "../styles/views/home.scss";
 </style>

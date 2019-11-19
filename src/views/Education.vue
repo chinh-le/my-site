@@ -1,19 +1,7 @@
 <template>
   <div class="education">
     <h1>Education</h1>
-    <p class="page-header">education</p>
-    <h2>Scholarships</h2>
-    <ul class="scholarships">
-      <li>
-        <h4>Cloud Developer</h4>
-        <p>
-          @
-          <a href="https://www.udacity.com/course/cloud-developer-nanodegree--nd9990">Udacity.com</a>
-        </p>
-        <img src="../assets/education/Bertelsmann-2019@2x.jpg" alt="Bertelsmann scholarship" />
-      </li>
-    </ul>
-    <h2>Certifications</h2>
+    <h3>Certifications</h3>
     <ul class="certificates">
       <li>
         <h4>VueJS 2 - The Complete Guide</h4>
@@ -56,11 +44,22 @@
         <p>@ Concordia University</p>
       </li>
     </ul>
+    <h3>Scholarships</h3>
+    <ul class="scholarships">
+      <li>
+        <h4>Cloud Developer</h4>
+        <p>
+          @
+          <a href="https://www.udacity.com/course/cloud-developer-nanodegree--nd9990">Udacity.com</a>
+        </p>
+        <img src="../assets/education/Bertelsmann-2019@2x.jpg" alt="Bertelsmann scholarship" />
+      </li>
+    </ul>
   </div>
 </template>
 <script>
 export default {};
 </script>
 <style lang="scss" scoped>
-@import "../style/views/education.scss";
+@import "../styles/views/education.scss";
 </style>

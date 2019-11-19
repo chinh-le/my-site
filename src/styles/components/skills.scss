@@ -1,14 +1,8 @@
-$app-txt-color-focus: #b36a12;
-$app-txt-color-unfocus: #777;
-$app-txt-color: #999;
 $dot-width: 0.7em;
 
-h2 {
-  margin-bottom: 1.5em;
-}
-h5 {
-  width: 60%;
-  line-height: 1.3em;
+h4 {
+    width: 60%;
+    line-height: 1.2em;
 }
 .skills {
   li {
@@ -31,7 +25,7 @@ h5 {
       display: inline-block;
       margin-left: 0.3em;
       border-radius: $dot-width;
-      background-color: $app-txt-color-unfocus;
+      background-color: $color-unfocus;
       opacity: 0.15;
 
       &.fill {
@@ -45,5 +39,6 @@ h5 {
   label {
     font-size: 0.5em;
     line-height: 0.5em;
+    @include color-unfocus;
   }
 }

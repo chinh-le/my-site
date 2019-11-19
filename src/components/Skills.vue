@@ -1,9 +1,9 @@
 <template>
   <div class="skills">
-    <h2>Skills</h2>
+    <h3>Skills</h3>
     <ul class>
       <li>
-        <h5>VueJS</h5>
+        <h4>VueJS</h4>
         <div class="dot-set">
           <div class="dots" id="dots">
             <span class="dot fill"></span>
@@ -16,7 +16,7 @@
         </div>
       </li>
       <li>
-        <h5>React 16</h5>
+        <h4>React 16</h4>
         <div class="dot-set">
           <div class="dots" id="dots">
             <span class="dot fill"></span>
@@ -29,7 +29,7 @@
         </div>
       </li>
       <li>
-        <h5>Angular, AngularJS</h5>
+        <h4>Angular, AngularJS</h4>
         <div class="dot-set">
           <div class="dots" id="dots">
             <span class="dot fill"></span>
@@ -42,7 +42,7 @@
         </div>
       </li>
       <li>
-        <h5>Boostrap 4</h5>
+        <h4>Boostrap 4</h4>
         <div class="dot-set">
           <div class="dots" id="dots">
             <span class="dot fill"></span>
@@ -55,7 +55,7 @@
         </div>
       </li>
       <li>
-        <h5>Google Firebase, Google Cloud Platform</h5>
+        <h4>Google Firebase, Google Cloud Platform</h4>
         <div class="dot-set">
           <div class="dots" id="dots">
             <span class="dot fill"></span>
@@ -68,7 +68,7 @@
         </div>
       </li>
       <li>
-        <h5>Javascript, JQuery</h5>
+        <h4>Javascript, JQuery</h4>
         <div class="dot-set">
           <div class="dots" id="dots">
             <span class="dot fill"></span>
@@ -81,46 +81,33 @@
         </div>
       </li>
       <li>
-        <h5>CSS, Sass, Less</h5>
+        <h4>CSS, Sass, Less</h4>
         <div class="dot-set">
           <div class="dots" id="dots">
             <span class="dot fill"></span>
             <span class="dot fill"></span>
             <span class="dot fill"></span>
-            <span class="dot empty"></span>
+            <span class="dot fill"></span>
             <span class="dot empty"></span>
           </div>
-          <label for="dots">good</label>
+          <label for="dots">very good</label>
         </div>
       </li>
       <li>
-        <h5>HTML</h5>
+        <h4>HTML</h4>
         <div class="dot-set">
           <div class="dots" id="dots">
             <span class="dot fill"></span>
             <span class="dot fill"></span>
             <span class="dot fill"></span>
-            <span class="dot empty"></span>
+            <span class="dot fill"></span>
             <span class="dot empty"></span>
           </div>
-          <label for="dots">good</label>
+          <label for="dots">very good</label>
         </div>
       </li>
       <li>
-        <h5>Git, Subversion</h5>
-        <div class="dot-set">
-          <div class="dots" id="dots">
-            <span class="dot fill"></span>
-            <span class="dot fill"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-          </div>
-          <label for="dots">average</label>
-        </div>
-      </li>
-      <li>
-        <h5>NPM, Yarn, Webpack</h5>
+        <h4>Git, Subversion</h4>
         <div class="dot-set">
           <div class="dots" id="dots">
             <span class="dot fill"></span>
@@ -133,7 +120,7 @@
         </div>
       </li>
       <li>
-        <h5>Grunt, Grunt</h5>
+        <h4>NPM, Yarn, Webpack</h4>
         <div class="dot-set">
           <div class="dots" id="dots">
             <span class="dot fill"></span>
@@ -146,7 +133,20 @@
         </div>
       </li>
       <li>
-        <h5>Java, PHP, Smarty</h5>
+        <h4>Grunt, Grunt</h4>
+        <div class="dot-set">
+          <div class="dots" id="dots">
+            <span class="dot fill"></span>
+            <span class="dot fill"></span>
+            <span class="dot empty"></span>
+            <span class="dot empty"></span>
+            <span class="dot empty"></span>
+          </div>
+          <label for="dots">average</label>
+        </div>
+      </li>
+      <li>
+        <h4>Java, PHP, Smarty</h4>
         <div class="dot-set">
           <div class="dots" id="dots">
             <span class="dot fill"></span>
@@ -159,7 +159,7 @@
         </div>
       </li>
       <!-- <li v-for="skill in skills.set" :key="skill.name">
-        <h5>{{skill.name}}</h5>
+        <h4>{{skill.name}}</h4>
         <div class="dot-set">
           <div class="dots" id="dots">
             <span
@@ -182,5 +182,5 @@
 export default {};
 </script>
 <style lang="scss" scoped>
-@import "../style/components/skills.scss";
+@import "@/styles/components/skills";
 </style>

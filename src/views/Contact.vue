@@ -1,7 +1,7 @@
 <template>
   <div class="contact">
-    <p class="page-header">contact</p>
-    <h2>Get in touch</h2>
+    <h1>contact</h1>
+    <h3>Get in touch</h3>
     <app-contact-info></app-contact-info>
   </div>
 </template>
@@ -15,5 +15,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "../style/views/contact.scss";
+@import "../styles/views/contact.scss";
 </style>

@@ -1,0 +1,62 @@
+@mixin visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* added line */
+}
+@mixin visible {
+  visibility: visible !important;
+}
+
+@mixin color-focus {
+  color: $color-focus;
+}
+@mixin color-unfocus {
+  color: $color-unfocus;
+}
+
+@mixin set-margin($value, $direction: false) {
+  @if $direction {
+    margin-#{$direction}: $value;
+  }
+  @else {
+    margin: $value;
+  }
+}
+
+@mixin footnote {
+  font-size: 0.7em;
+  line-height: 1.3em;
+  color: $color-txt-footnote;
+  > a {
+    color: $color-txt-footnote-links;
+  }
+}
+
+@mixin slide-helper {
+  .slide-enter-active {
+    animation: slideIn 0.5s ease-in;
+  }
+  .slide-leave-active {
+    animation: slideOut 0.4s ease-out;
+  }
+  @keyframes slideIn {
+    from {
+      transform: translateX($slide-in-width);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX($slide-in-width);
+    }
+  }
+}

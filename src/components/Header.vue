@@ -10,18 +10,17 @@
           target="_blank"
           class="btn-download"
         >
-          <i class="material-icons md-light">cloud_download</i>
+          <i class="material-icons">cloud_download</i>
         </a>
         <button v-show="!authenticated" class="btn-login" @click="openAuth()">
-          <i class="material-icons md-light">person_outline</i>
-          <!-- <i class="material-icons md-light md-inactive">person_outline</i> -->
+          <i class="material-icons">person_outline</i>
         </button>
         <button v-show="authenticated" class="btn-logout" @click="signout()">
           <i class="material-icons md-light">person</i>
           <!-- <i class="material-icons md-dark md-inactive">person</i> -->
         </button>
         <button class="btn-nav" @click="openNav()">
-          <i class="material-icons md-light md-48">dehaze</i>
+          <i class="material-icons">dehaze</i>
         </button>
         <!-- <button class="btn-nav-open" @click="openNav()">
           <i />
@@ -74,5 +73,5 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "../style/components/header.scss";
+@import "@/styles/components/header";
 </style>
