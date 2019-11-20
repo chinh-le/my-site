@@ -1,72 +1,67 @@
+@media screen and (min-width: $breakpoint-xs) and (max-width: $breakpoint-sm) {
+    .site-wrap {
+        padding-right: 2em!important;
+        padding-left: 2em!important;
+    }
+}
 
-body {
-    width: $breakpoint-xs;
-}  
-
-#app {
-    > header {
+@media screen and (min-width: $breakpoint-sm + 1) {
+    .site-header {
         .social-media {
-            display: none;
+            display: block!important;
         }
     }
-    > footer {
-       display: none;
+    .site-nav {
+        .social-media {
+            display: none!important;
+        }
     }
-}    
+}
 
-@media screen and (min-width: $breakpoint-xs) {
+// @media screen and (min-width: $breakpoint-xs + 1) and (max-width: $breakpoint-sm) {
+@media screen and (min-width: $breakpoint-sm + 1) and (max-width: $breakpoint-md) {
     body {
-        width: auto;
+        --slide-in-width: 60%;
+    }    
+    /* .site-header {
+        .social-media {
+            display: block!important;
+        }
+    } */
+    .site-wrap {
+        padding-right: 3em!important;           
+        padding-left: 3em!important;
+        .home {
+            margin-top: 3em;
+        }
+    }
+    .site-nav {
+        .content {
+            padding-right: 0!important;
+            padding-left: 0!important;
+        }
+        .lang {
+            margin-right: 1em;
+            margin-left: 1em;
+        }
+        .page-links {
+            margin-right: 0.5em;
+            margin-left: 0.5em;
+        }
+        /* .social-media {
+            display: none!important;
+        } */
     }
 }
 
-@media screen and (min-width: $breakpoint-sm) {
-    #app {
-        > header {
-            padding: 1em 3em;
-            .social-media {
-                display: block;
-                a {
-                    margin: 0 0.5em;
-                    background-position: center center;
-                }
-            }
-        }
-        main {
-            padding-right: 3em;           
-            padding-left: 3em;
-            .home {
-                margin-top: 5em;
-            }
-        }
-        > nav {
-            .navigation {
-                width: 40%;
-                padding: 3em;
-            }
-            .lang {
-                margin-right: 1em;
-                margin-left: 1em;
-            }
-            .page-links {
-                margin-right: 0.5em;
-                margin-left: 0.5em;
-            }
-            .social-media {
-                display: none;
-            }
-            .copyright {
-                margin: 0 1.5em;
-            }
-        }
-        .signin {
-            width: 40%;
-            padding: 3em;
-        }
+@media screen and (min-width: $breakpoint-md + 1) and (max-width: $breakpoint-lg) {
+    body {
+        --slide-in-width: 50%;
     }
-}
-
-@media screen and (min-width: $breakpoint-md) {
+    .site-wrap {
+        padding-right: 2em!important;
+        padding-left: 2em!important;
+    }
     .home {
         width: 50%;
         margin: 0 auto;
@@ -75,12 +70,10 @@ body {
         .content {
             display: flex;
             flex-direction: row;
-            > .desc {
-                width: 50%;
-                margin-right: 10%;
-            }
+            justify-content: space-between;
+            > .desc,
             > .skills {
-                width: 40%;
+                width: 47%;
             }
         }
     }
@@ -131,11 +124,193 @@ body {
         }
 
     }
+    .site-nav {
+        .content {
+            padding-right: 1em!important;
+            padding-left: 1em!important;
+        }
+    }
 }
 
-@media screen and (min-width: $breakpoint-lg) {
+@media screen and (min-width: $breakpoint-md + 1) {
     body {
+        --site-header-height: 5em;
+    }
+    .site-header {
+        .logo > a {
+            font-size: 1.7em;
+        }
+        .btn-nav,
+        .btn-login,
+        .btn-logout,
+        .btn-download {
+            > i {
+                font-size: 2em;
+            }
+        }
+        .social-media a {
+            --social-icon-dimension: 2em;
+        }
+    }
+}
+
+@media screen and (min-width: $breakpoint-lg + 1) and (max-width: $breakpoint-xl) {
+    body {
+        --slide-in-width: 40%;
+        // --site-header-width: 992px;//$breakpoint-lg;
         width: $breakpoint-lg;
         margin: 0 auto;
+    }
+    .site-wrap {
+        padding-right: 2em!important;
+        padding-left: 2em!important;
+    }
+    .home {
+        width: 50%;
+        margin: 0 auto;
+    }
+    .about {
+        .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            > .desc,
+            > .skills {
+                width: 47%;
+            }
+        }
+    }
+    .works {
+        .container {
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                > li {
+                    width: 49%;
+                }
+            }
+        }
+    }
+    .education {
+        .certificates,
+        .scholarships {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            > li {
+                width: 45%;
+            }
+        }
+    }
+    .contact {
+        .content {
+            width: 70%;
+            margin: 0 auto;
+            .contact-info {
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    > li {
+                        width: 100%;
+                    }
+                    .name,
+                    .email {
+                        width: 47%;
+                    }
+                }
+            }
+        }
+
+    }
+    .site-nav {
+        .content {
+            padding-right: 1em!important;
+            padding-left: 1em!important;
+        }
+    }
+}
+
+@media screen and (min-width: $breakpoint-xl + 1) {
+    body {
+        --slide-in-width: 30%;
+        // --site-header-width: 1201px;//$breakpoint-xl + 1;
+        width: $breakpoint-xl;
+        margin: 0 auto;
+    }
+    .site-wrap {
+        padding-right: 2em!important;
+        padding-left: 2em!important;
+    }
+    .home {
+        width: 40%;
+        margin: 0 auto;
+    }
+    .about {
+        .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            > .desc,
+            > .skills {
+                width: 47%;
+            }
+        }
+    }
+    .works {
+        .container {
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                > li {
+                    width: 32%;
+                }
+            }
+        }
+    }
+    .education {
+        .certificates,
+        .scholarships {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            > li {
+                width: 29%;
+            }
+        }
+    }
+    .contact {
+        .content {
+            width: 70%;
+            margin: 0 auto;
+            .contact-info {
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    > li {
+                        width: 100%;
+                    }
+                    .name,
+                    .email {
+                        width: 47%;
+                    }
+                }
+            }
+        }
+    }
+    .site-nav {
+        .content {
+            padding-right: 1em!important;
+            padding-left: 1em!important;
+        }
     }
 }

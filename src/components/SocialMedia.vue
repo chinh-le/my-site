@@ -6,7 +6,9 @@
     <li>
       <a href="https://github.com/chinh-le" class="github">github</a>
     </li>
-    <a href="https://www.instagram.com/niusaul/" class="instagram">instagram</a>
+    <li>
+      <a href="https://www.instagram.com/niusaul/" class="instagram">instagram</a>
+    </li>
   </ul>
 </template>
 <style scoped lang="scss">

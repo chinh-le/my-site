@@ -6,10 +6,8 @@
       <router-view />
     </main>
     <app-footer />
-    <nav class="site-nav">
-      <app-navigation />
-    </nav>
-    <app-authentication></app-authentication>
+    <app-navigation />
+    <app-authentication />
   </div>
 </template>
 <script>
@@ -104,4 +102,5 @@ export default {
 };
 </script>
 <style lang="scss">
+@import "@/styles/app";
 </style>

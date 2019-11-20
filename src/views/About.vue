@@ -4,7 +4,7 @@
     <div class="content">
       <div class="desc">
         <h2>
-          <span class="color-focus">Responsive site</span> , mobile and desktop
+          <span class="color-focus">Responsive site</span>, mobile and desktop
         </h2>
         <p
           class="mb-4"

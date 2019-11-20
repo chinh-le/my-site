@@ -22,20 +22,9 @@ form {
     margin-bottom: 0.5em;
   }
   label {
-    @include visually-hidden;
+    @include screen-reader-ready;
   }
-  button {
-    font-size: 1em;
-    padding: 1.5em;
-    background-color: $color-bg-form-button;
-    border: 0;
-    color: $color-txt-form-button;
-    &:disabled {
-        color: $color-txt-form-button-disabled;
-        border: 1px solid $color-form-button-border;
-        background: none;
-    }
-  }
+  @include form-button-submit;
 }
 
 .footnote {
