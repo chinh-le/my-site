@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <nav class="site-nav">
     <div class="bg-canvas" v-show="isShow" @click="closeNav()"></div>
     <transition name="slide">
       <!-- <div class="container" v-show="isShow"> -->
@@ -7,37 +7,39 @@
         <button type="button" class="btn-close" @click="closeNav()">
           <i class="material-icons md-light">close</i>
         </button>
-        <ul class="lang">
-          <li>
-            <a href="#" class="current">en</a>
-          </li>
-          <li>
-            <a href="#">fr</a>
-          </li>
-        </ul>
-        <ul class="page-links">
-          <li class>
-            <router-link to="/" class>Home</router-link>
-          </li>
-          <li class>
-            <router-link to="/about" class>About</router-link>
-          </li>
-          <li class>
-            <router-link to="/works" class>Works</router-link>
-          </li>
-          <li class>
-            <router-link to="/education" class>Education</router-link>
-          </li>
-          <li class>
-            <router-link to="/contact" class>Contact</router-link>
-          </li>
-        </ul>
-        <app-social-media />
-        <app-copyright></app-copyright>
+        <div class="content">
+          <ul class="lang">
+            <li>
+              <a href="#" class="current">en</a>
+            </li>
+            <li>
+              <a href="#">fr</a>
+            </li>
+          </ul>
+          <ul class="page-links">
+            <li class>
+              <router-link to="/" class>Home</router-link>
+            </li>
+            <li class>
+              <router-link to="/about" class>About</router-link>
+            </li>
+            <li class>
+              <router-link to="/works" class>Works</router-link>
+            </li>
+            <li class>
+              <router-link to="/education" class>Education</router-link>
+            </li>
+            <li class>
+              <router-link to="/contact" class>Contact</router-link>
+            </li>
+          </ul>
+          <app-social-media />
+          <app-copyright></app-copyright>
+        </div>
       </div>
       <!-- </div> -->
     </transition>
-  </div>
+  </nav>
 </template>
 <script>
 import SocialMedia from './SocialMedia.vue';

@@ -4,26 +4,34 @@ a {
 }
 
 .navigation {
+  z-index: $z-index-overlay;
   display: flex;
   flex-direction: column;
-  padding: $padd-container;
+  // padding: $padd-container;
   position: absolute;
   top: 0;
   right: 0;
-  width: $slide-in-width;
+  // width: $slide-in-width;
+  width: var(--slide-in-width);
   height: $slide-in-height;
   background-color: $color-bg-slide-in-panel;
 }
 
+.content {
+  padding: 2em 0.5em;
+}
+
 .lang {
-  margin-bottom: 3em;
+  // margin: 0 0 3em 1.5em;
+  margin-bottom: 2em;
   li {
     display: inline-block;
-    margin-right: 1.5em;
+    // margin-right: 1.5em;
     > a {
       color: $color-txt;
       text-transform: uppercase;
       font-size: 0.8em;
+      padding: 1em 2em;
       &.current {
         color: $color-txt-slide-in-current;
       }
@@ -36,29 +44,26 @@ a {
   font-size: 2em;
   margin-bottom: 1.5em;
   > li {
-    margin-bottom: 0.5em;
     > a {
       color: $color-links-slide-in;
+      padding: 0.5em 0 0.5em 0.7em;
     }
   }
-}
-
-.social-media {
-  margin-bottom: 3em;
 }
 
 .btn-close {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding: 0.8em 0;
-  margin-bottom: 1em;
+  // padding: 0.8em 0;
+  // margin-bottom: 1em;
   &:after {
     content: "close navigation";
-    @include visually-hidden;
+    @include screen-reader-ready;
   }
   > i {
       color: $color-slide-in-button-close;
+      padding: 0.6em;
   }
 }
 

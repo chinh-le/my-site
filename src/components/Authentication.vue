@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="site-auth">
     <div class="bg-canvas" v-show="isShow" @click="closeSiginin()"></div>
     <transition name="slide">
       <div class="signin" v-show="isShow">

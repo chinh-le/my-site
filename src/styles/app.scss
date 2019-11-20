@@ -4,8 +4,6 @@ body {
     color: $color-txt;
     line-height: $line-height-body;
     background-color: $color-bg-body;
-    // background: transparent url('../assets/shutterstock-keyboard.jpg') no-repeat center center;
-    // background-size: 100%;
 }
 h1 {
     font-family: $font-family-heading1;
@@ -18,7 +16,6 @@ h2 {
     font-family: $font-family-heading2;
     font-size: $txt-size-heading2;
     color: $color-txt-heading2;
-    line-height: 1.3em;
 }
 h3 {
     font-family: $font-family-heading3;
@@ -42,4 +39,23 @@ input, textarea {
     padding: 1.5em 0;
     color: $color-txt;
     outline: none;
+}
+
+// position: fixed
+// main {
+.site-wrap {
+    padding: var(--site-header-height) $padd-container $padd-container;
+    // background: transparent url(../assets/bg3.jpg) no-repeat center center;
+    // background-size: 1000%;
+}
+// position: fixed
+
+.site-footer {
+    padding: $padd-container;
+    display: none;
+}
+
+// recaptcha v3: hide the badge
+.grecaptcha-badge {
+  visibility: hidden;
 }

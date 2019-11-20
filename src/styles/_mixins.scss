@@ -1,19 +1,22 @@
-@mixin visually-hidden {
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px);
-  white-space: nowrap; /* added line */
-}
-@mixin visible {
-  visibility: visible !important;
+@mixin form-button-submit {
+  button {
+    font-size: 1em;
+    padding: 1.5em;
+    background-color: $color-bg-form-button;
+    border-radius: 0.5em;
+    color: $color-txt-form-button;
+    &:disabled {
+        color: $color-txt-form-button-disabled;
+        border: 1px solid $color-form-button-border;
+        background: none;
+    }
+  }
 }
 
 @mixin color-focus {
   color: $color-focus;
 }
+
 @mixin color-unfocus {
   color: $color-unfocus;
 }
@@ -33,6 +36,18 @@
   color: $color-txt-footnote;
   > a {
     color: $color-txt-footnote-links;
+  }
+}
+
+@mixin bg-canvas {
+  .bg-canvas {
+    z-index: $z-index-overlay-bg;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $slide-in-width;
+    height: $slide-in-height;
+    background-color: $color-bg-overlay;
   }
 }
 
@@ -61,13 +76,16 @@
   }
 }
 
-@mixin bg-canvas {
-  .bg-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: $slide-in-width;
-    height: $slide-in-height;
-    background-color: $color-bg-overlay;
-  }
+@mixin screen-reader-ready {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* added line */
+}
+
+@mixin visible {
+  visibility: visible !important;
 }

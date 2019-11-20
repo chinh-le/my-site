@@ -1,22 +1,33 @@
 // position: fixed
-.site-header {
+header {
+  z-index: $z-index-nav;
   position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    padding: 0;
-    background-color: #1a1a1a;
-    width: $breakpoint-xs;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    // height: var(--site-header-height);
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 0;
+}
+.site-header {
+  /* z-index: $z-index-nav;
+  position: fixed;
+  left: 0;
+  top: 0; */
+  width: var(--site-header-width);
+  margin: 0 auto;
+  // padding: 0;
+  background-color: $color-bg-header;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  .social-media {
+      display: none;
+  }
 }
 // position: fixed
 
 button {
-  border-left: 1px solid #2a2a2a;
+  border-left: 1px solid $color-border-button-header;
   i {
     padding: 0.6em;
   }
@@ -29,11 +40,11 @@ button {
 }
 
 .btn-download {
-  border-left: 1px solid #2a2a2a;
+  border-left: 1px solid $color-border-button-header;
   border-radius: 2em;
   &:after {
     content: "cloud download";
-    @include visually-hidden;
+    @include screen-reader-ready;
   }
   .material-icons {
     color: $color-icon-download;
@@ -44,7 +55,7 @@ button {
 .btn-login {
   &:after {
     content: "open login";
-    @include visually-hidden;
+    @include screen-reader-ready;
   }
   .material-icons {
     color: $color-icon-auth;
@@ -54,7 +65,7 @@ button {
 .btn-logout {
   &:after {
     content: "logout";
-    @include visually-hidden;
+    @include screen-reader-ready;
   }
   .material-icons {
     color: $color-icon-auth;
@@ -64,7 +75,7 @@ button {
 .btn-nav {
   &:after {
     content: "open navigation";
-    @include visually-hidden;
+    @include screen-reader-ready;
   }
   .material-icons {
     color: $color-icon-nav;
