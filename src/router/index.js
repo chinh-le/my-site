@@ -37,6 +37,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "contact" */ '../views/Contact.vue')
   },
   {
+    path: '/admin',
+    name: 'admin',
+    component: () => import(/* webpackChunkName: "contact" */ '../components/admin/Admin.vue')
+  },
+  {
     path: '*',
     redirect: { name: 'home' }
   }

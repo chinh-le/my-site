@@ -5,9 +5,10 @@ export const init = () => {
   // console.log('config: ', config);
   // Set the configuration for your app
   const firebaseConfig = {
-    // authDomain: config.authDomain,
-    databaseURL: config.databaseUrl,
-    storageBucket: config.storageBucket,
+    authDomain: config.authDomain, // required if use IAM (Identity Auth Management)
+    projectId: config.projectId, // required for Cloud Firestore DB
+    databaseURL: config.databaseUrl, // required for Realtime DB
+    storageBucket: config.storageBucket, // required for Storage
     messagingSenderId: config.messagingSenderId,
     apiKey: config.apiKey
   };
@@ -20,7 +21,7 @@ export {
   signup,
   login,
   logout
-} from './auth';
+} from './authentication';
 
 export {
   getDownloadUrl
@@ -28,4 +29,13 @@ export {
 
 export {
   writeUserData
-} from './data';
+} from './db-realtime';
+
+export {
+  _addCollection,
+  _getCollection,
+  _addSkills,
+  _getSkills,
+  _addRatings,
+  _getRatings
+} from './db-cloud-firestore';

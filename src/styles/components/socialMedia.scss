@@ -20,13 +20,13 @@
     background-size: var(--social-icon-dimension) var(--social-icon-dimension);
     background-position: center center;
     &.linkedin {
-      background-image: url("../assets/linkedin-logo-lightgray.png");
+      background-image: url("../assets/socialMedia/linkedin-logo-lightgray.png");
     }
     &.github {
-      background-image: url("../assets/github-logo-lightgray.png");
+      background-image: url("../assets/socialMedia/github-logo-lightgray.png");
     }
     &.instagram {
-      background-image: url("../assets/instagram-logo-lightgray.png");
+      background-image: url("../assets/socialMedia/instagram-logo-lightgray.png");
     }
   }
 }
