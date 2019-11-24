@@ -2,184 +2,61 @@
   <div class="skills">
     <h3>Skills</h3>
     <ul class>
-      <li>
-        <h4>VueJS</h4>
-        <div class="dot-set">
-          <div class="dots" id="dots">
-            <span class="dot fill"></span>
-            <span class="dot fill"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-          </div>
-          <label for="dots">average</label>
-        </div>
-      </li>
-      <li>
-        <h4>React 16</h4>
-        <div class="dot-set">
-          <div class="dots" id="dots">
-            <span class="dot fill"></span>
-            <span class="dot fill"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-          </div>
-          <label for="dots">average</label>
-        </div>
-      </li>
-      <li>
-        <h4>Angular, AngularJS</h4>
-        <div class="dot-set">
-          <div class="dots" id="dots">
-            <span class="dot fill"></span>
-            <span class="dot fill"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-          </div>
-          <label for="dots">average</label>
-        </div>
-      </li>
-      <li>
-        <h4>Boostrap 4</h4>
-        <div class="dot-set">
-          <div class="dots" id="dots">
-            <span class="dot fill"></span>
-            <span class="dot fill"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-          </div>
-          <label for="dots">average</label>
-        </div>
-      </li>
-      <li>
-        <h4>Google Firebase, Google Cloud Platform</h4>
-        <div class="dot-set">
-          <div class="dots" id="dots">
-            <span class="dot fill"></span>
-            <span class="dot fill"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-          </div>
-          <label for="dots">average</label>
-        </div>
-      </li>
-      <li>
-        <h4>Javascript, JQuery</h4>
-        <div class="dot-set">
-          <div class="dots" id="dots">
-            <span class="dot fill"></span>
-            <span class="dot fill"></span>
-            <span class="dot fill"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-          </div>
-          <label for="dots">good</label>
-        </div>
-      </li>
-      <li>
-        <h4>CSS, Sass, Less</h4>
-        <div class="dot-set">
-          <div class="dots" id="dots">
-            <span class="dot fill"></span>
-            <span class="dot fill"></span>
-            <span class="dot fill"></span>
-            <span class="dot fill"></span>
-            <span class="dot empty"></span>
-          </div>
-          <label for="dots">very good</label>
-        </div>
-      </li>
-      <li>
-        <h4>HTML</h4>
-        <div class="dot-set">
-          <div class="dots" id="dots">
-            <span class="dot fill"></span>
-            <span class="dot fill"></span>
-            <span class="dot fill"></span>
-            <span class="dot fill"></span>
-            <span class="dot empty"></span>
-          </div>
-          <label for="dots">very good</label>
-        </div>
-      </li>
-      <li>
-        <h4>Git, Subversion</h4>
-        <div class="dot-set">
-          <div class="dots" id="dots">
-            <span class="dot fill"></span>
-            <span class="dot fill"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-          </div>
-          <label for="dots">average</label>
-        </div>
-      </li>
-      <li>
-        <h4>NPM, Yarn, Webpack</h4>
-        <div class="dot-set">
-          <div class="dots" id="dots">
-            <span class="dot fill"></span>
-            <span class="dot fill"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-          </div>
-          <label for="dots">average</label>
-        </div>
-      </li>
-      <li>
-        <h4>Grunt, Grunt</h4>
-        <div class="dot-set">
-          <div class="dots" id="dots">
-            <span class="dot fill"></span>
-            <span class="dot fill"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-          </div>
-          <label for="dots">average</label>
-        </div>
-      </li>
-      <li>
-        <h4>Java, PHP, Smarty</h4>
-        <div class="dot-set">
-          <div class="dots" id="dots">
-            <span class="dot fill"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-            <span class="dot empty"></span>
-          </div>
-          <label for="dots">basic</label>
-        </div>
-      </li>
-      <!-- <li v-for="skill in skills.set" :key="skill.name">
+      <li v-for="skill in skills" :key="skill.name">
         <h4>{{skill.name}}</h4>
         <div class="dot-set">
           <div class="dots" id="dots">
             <span
-              v-for="rating in skills.ratings"
-              :key="rating.id"
               class="dot"
-              :class="setDot(skill.rateId)"
+              v-for="dot in ratingsLength"
+              :key="dot"
+              :class="{fill: dot <= skill.rate, empty: dot > skill.rate}"
             ></span>
           </div>
-          <label for="dots">{{skills.ratings.id[skill.rate].label}}</label>
+          <label for="dots">{{ratings[skill.rate]}}</label>
         </div>
-      </li>-->
+      </li>
     </ul>
   </div>
 </template>
 <script>
-/* const DotBox = {
-  template: `<span class="dot-box>dot box</span>`
-}; */
-export default {};
+import { _getSkills, _getRatings } from '@/firebase';
+
+export default {
+  data () {
+    return {
+      skills: [],
+      ratings: {},
+      ratingsLength: 0,
+      totalDot: null
+    };
+  },
+  // created () {
+  beforeCreate () {
+    // console.log('beforeCreate');
+    // console.log('this.ratingsLength: ', this.ratingsLength);
+    _getRatings().then(doc => {
+      // console.log('doc.exists: ', doc.exists);
+      if (doc.exists) {
+        this.ratings = doc.data();
+        this.ratingsLength = Object.keys(this.ratings).length; // key() returns an array
+        // this.totalDot = ratingsData.length;
+        _getSkills().then(querySnapshots => {
+          // console.log('querySnapshots.empty: ', querySnapshots.empty);
+          if (!querySnapshots.empty) {
+            querySnapshots.forEach(element => {
+              this.skills.push(element.data());
+            });
+          } else {
+            console.error('Fetching skills data: FAILED!!!');
+          }
+        });
+      } else {
+        console.error('Fetching ratings data: FAILED!!!');
+      }
+    });
+  }
+};
 </script>
 <style lang="scss" scoped>
 @import "@/styles/components/skills";
