@@ -2,7 +2,7 @@
   <div class="site-auth">
     <div class="bg-canvas" v-show="isShow" @click="closeSiginin()"></div>
     <transition name="slide">
-      <div class="signin" v-show="isShow">
+      <div class="signin" v-show="isShow" id="signin">
         <button type="button" @click="closeSiginin()" class="btn-close">
           <i class="material-icons md-light">close</i>
         </button>
@@ -61,17 +61,33 @@
   </div>
 </template>
 <script>
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks
+} from 'body-scroll-lock';
 import config from '@/config';
 import { required } from 'vuelidate/lib/validators';
 import { signup, login } from '@/firebase';
 import { recaptchaElement } from '@/recaptcha';
 import { eventBus } from '@/eventBus';
+import { scrollTo } from '@/helpers';
 
 export default {
   created () {
     eventBus.$on('ebOpenAuth', () => {
+      scrollTo({
+        x: 0,
+        y: 0
+      });
+
       this.isShow = true;
+
+      disableBodyScroll(this.elPersistLockScroll);
     });
+  },
+  beforeDestroy () {
+    clearAllBodyScrollLocks();
   },
   props: {
     show: {
@@ -83,6 +99,7 @@ export default {
   },
   data () {
     return {
+      elPersistLockScroll: document.querySelector('#signin'),
       isShow: false,
       recaptchaAction: 'login',
       signingOption: false,
@@ -113,6 +130,8 @@ export default {
     closeSiginin () {
       // this.$emit('ceSignin');
       this.isShow = false;
+
+      enableBodyScroll(this.elPersistLockScroll);
     },
     onSubmit (evt) {
       const payload = {

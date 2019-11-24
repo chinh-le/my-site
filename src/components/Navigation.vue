@@ -2,8 +2,7 @@
   <nav class="site-nav">
     <div class="bg-canvas" v-show="isShow" @click="closeNav()"></div>
     <transition name="slide">
-      <!-- <div class="container" v-show="isShow"> -->
-      <div class="navigation" v-show="isShow">
+      <div class="navigation" v-show="isShow" id="navigation">
         <button type="button" class="btn-close" @click="closeNav()">
           <i class="material-icons md-light">close</i>
         </button>
@@ -37,14 +36,19 @@
           <app-copyright></app-copyright>
         </div>
       </div>
-      <!-- </div> -->
     </transition>
   </nav>
 </template>
 <script>
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks
+} from 'body-scroll-lock';
 import SocialMedia from './SocialMedia.vue';
-import { eventBus } from '@/eventBus';
 import Copyright from './Copyright';
+import { eventBus } from '@/eventBus';
+import { scrollTo } from '@/helpers';
 
 export default {
   watch: {
@@ -57,11 +61,14 @@ export default {
   methods: {
     closeNav () {
       this.isShow = false;
+
+      enableBodyScroll(this.elPersistLockScroll);
     }
   },
   data () {
     return {
-      isShow: false
+      isShow: false,
+      elPersistLockScroll: document.querySelector('#navigation')
     };
   },
   beforeCreated () {
@@ -70,7 +77,14 @@ export default {
   created () {
     // console.log('nav created: ', this.$route);
     eventBus.$on('ebOpenNav', () => {
+      scrollTo({
+        x: 0,
+        y: 0
+      });
+
       this.isShow = true;
+
+      disableBodyScroll(this.elPersistLockScroll);
     });
   },
   beforeMount () {
@@ -87,6 +101,7 @@ export default {
   },
   beforeDestroy () {
     // console.log('nav beforeDestroy: ', this.$route);
+    clearAllBodyScrollLocks();
   },
   destroyed () {
     // console.log('nav destroyed: ', this.$route);
