@@ -164,68 +164,67 @@
     .site-wrap {
         padding-right: 2em!important;
         padding-left: 2em!important;
-    }
-    .home {
-        width: 50%;
-        margin: 0 auto;
-    }
-    .about {
-        .content {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            > .desc,
-            > .skills {
-                width: 47%;
+        > .home {
+            width: 50%;
+            margin: 0 auto;
+        }
+        > .about {
+            .content {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                > .desc,
+                > .skills {
+                    width: 47%;
+                }
             }
         }
-    }
-    .works {
-        .container {
-            ul {
+        > .works {
+            .container {
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    > li {
+                        width: 49%;
+                    }
+                }
+            }
+        }
+        > .education {
+            .certificates,
+            .scholarships {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
                 flex-wrap: wrap;
                 > li {
-                    width: 49%;
+                    width: 45%;
                 }
             }
         }
-    }
-    .education {
-        .certificates,
-        .scholarships {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            > li {
-                width: 45%;
-            }
-        }
-    }
-    .contact {
-        .content {
-            width: 70%;
-            margin: 0 auto;
-            .contact-info {
-                ul {
-                    display: flex;
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                    justify-content: space-between;
-                    > li {
-                        width: 100%;
-                    }
-                    .name,
-                    .email {
-                        width: 47%;
+        > .contact {
+            .content {
+                width: 70%;
+                margin: 0 auto;
+                .contact-info {
+                    ul {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                        > li {
+                            width: 100%;
+                        }
+                        .name,
+                        .email {
+                            width: 47%;
+                        }
                     }
                 }
             }
         }
-
     }
     .site-nav {
         .content {
@@ -311,6 +310,68 @@
         .content {
             padding-right: 1em!important;
             padding-left: 1em!important;
+        }
+    }
+}
+
+@media screen and (min-width: $breakpoint-lg + 1) {
+    .pagelinksElement {
+        display: block!important;
+        position: fixed!important;
+        width: 10%;
+        height: 100%;
+        top: 40%;
+        right: 0;
+        > ul { 
+            margin-right: 2em;
+            > li {
+                > a {
+                    display: inline-block;
+                    padding: 0.6em!important;
+                    &:before {
+                        @include screen-reader-ready;
+                    }
+                    > i {
+                        display: block!important;                            
+                    }
+                }
+            }
+        }
+    }
+
+    .home {
+        display: flex!important;
+        flex-direction: row!important;
+        > .content {
+            width: 90%;
+        }
+        > .page-links {
+            @extend .pagelinksElement;
+        }
+    }
+    
+    .about,
+    .works,
+    .education,
+    .contact {
+        display: flex!important;
+        flex-direction: row!important;
+        > .heading {
+            width: 10%;
+            > h1 {
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform-origin: top left;
+                transform: rotate(-90deg);
+                margin-top: 100px;
+            }
+        }
+        > .content {
+            width: 80%;
+        }
+        > .page-links {
+            @extend .pagelinksElement;
         }
     }
 }

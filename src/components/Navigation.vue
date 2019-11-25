@@ -7,15 +7,16 @@
           <i class="material-icons md-light">close</i>
         </button>
         <div class="content">
-          <ul class="lang">
+          <!-- <ul class="lang">
             <li>
               <a href="#" class="current">en</a>
             </li>
             <li>
               <a href="#">fr</a>
             </li>
-          </ul>
-          <ul class="page-links">
+          </ul>-->
+          <app-lang />
+          <!-- <ul class="page-links">
             <li class>
               <router-link to="/" class>Home</router-link>
             </li>
@@ -31,7 +32,8 @@
             <li class>
               <router-link to="/contact" class>Contact</router-link>
             </li>
-          </ul>
+          </ul>-->
+          <app-page-links />
           <app-social-media />
           <app-copyright></app-copyright>
         </div>
@@ -45,6 +47,8 @@ import {
   enableBodyScroll,
   clearAllBodyScrollLocks
 } from 'body-scroll-lock';
+import Lang from './Lang';
+import PageLinks from './PageLinks';
 import SocialMedia from './SocialMedia.vue';
 import Copyright from './Copyright';
 import { eventBus } from '@/eventBus';
@@ -107,6 +111,8 @@ export default {
     // console.log('nav destroyed: ', this.$route);
   },
   components: {
+    appLang: Lang,
+    appPageLinks: PageLinks,
     appSocialMedia: SocialMedia,
     appCopyright: Copyright
   },

@@ -1,6 +1,8 @@
 <template>
   <div class="about">
-    <h1>About me</h1>
+    <div class="heading">
+      <h1>About me</h1>
+    </div>
     <div class="content">
       <div class="desc">
         <h2>
@@ -12,14 +14,17 @@
       </div>
       <app-skills></app-skills>
     </div>
+    <app-page-links />
   </div>
 </template>
 <script>
 import Skills from '@/components/Skills';
+import PageLinks from '@/components/PageLinks';
 
 export default {
   components: {
-    appSkills: Skills
+    appSkills: Skills,
+    appPageLinks: PageLinks
   }
 };
 </script>
