@@ -2,15 +2,14 @@
     @include color-focus;
 }
 
+.heading {
+  position: relative;
+}
+
 h2 {
     margin-bottom: 1em;
 }
 
 .mb-4 {
     @include set-margin(4em, 'bottom');
-}
-
-.content {
-    // display: flex;
-    // flex-direction: row;
 }

@@ -1,36 +1,46 @@
 <template>
   <div class="works">
-    <h1 id="works">works</h1>
-    <div v-if="professionals" class="container">
-      <h3 id="professional">Professional</h3>
-      <ul class="professionals">
-        <li v-for="(professional, key, index) in professionals" :key="index">
-          <a :href="professional.url" :class="key">
-            <img :src="getImgContextPath(professional.image)" :alt="professional.label" />
-          </a>
-        </li>
-      </ul>
+    <div class="heading">
+      <h1 id="works">works</h1>
     </div>
-    <div v-if="personals" class="container">
-      <h3 id="personal">Personal</h3>
-      <ul class="personals">
-        <li v-for="(personal, key, index) in personals" :key="index">
-          <a :href="personal.url" :class="key">
-            <img
-              v-if="personal.image"
-              :src="getImgContextPath(personal.image)"
-              :alt="personal.label"
-            />
-            <span v-else class="overlay"></span>
-          </a>
-        </li>
-      </ul>
+    <div class="content">
+      <div v-if="professionals" class="container">
+        <h3 id="professional">Professional</h3>
+        <ul class="professionals">
+          <li v-for="(professional, key, index) in professionals" :key="index">
+            <a :href="professional.url" :class="key">
+              <img :src="getImgContextPath(professional.image)" :alt="professional.label" />
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div v-if="personals" class="container">
+        <h3 id="personal">Personal</h3>
+        <ul class="personals">
+          <li v-for="(personal, key, index) in personals" :key="index">
+            <a :href="personal.url" :class="key">
+              <img
+                v-if="personal.image"
+                :src="getImgContextPath(personal.image)"
+                :alt="personal.label"
+              />
+              <span v-else class="overlay"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
+    <app-page-links />
   </div>
 </template>
 <script>
 import { _getCollection } from '@/firebase';
+import PageLinks from '@/components/PageLinks';
+
 export default {
+  components: {
+    appPageLinks: PageLinks
+  },
   data () {
     return {
       professionals: [],

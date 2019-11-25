@@ -1,10 +1,16 @@
 .container {
   margin-bottom: 4em;
 }
+
+.heading {
+  position: relative;
+}
+
 li {
   width: 100%;
   margin-bottom: 1em;
 }
+
 a {
     color: $color-txt;
     text-decoration: none;
@@ -12,6 +18,7 @@ a {
         width: 100%;
     }
 }
+
 .overlay {
     display: flex;
     justify-content: center;
