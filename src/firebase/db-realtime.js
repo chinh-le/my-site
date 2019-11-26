@@ -14,17 +14,24 @@ const writeUserData = (contact) => {
   // ./src/functions/index.js: exports.sendingMail = functions.database.ref('/contacts/{pushId}')
   const contactsRef = database().ref('/contacts').push(); // auto-generate unqiue key
 
-  contactsRef.set({
-    name: contact.name,
-    email: contact.email,
-    subject: contact.subject,
-    message: contact.message
-  }, err => {
-    if (err) {
-      // console.error(err);
-    } else {
-      // console.log('Write: SUCCESS!!!');
-    }
+  /* contactsRef.once('value', snapshot => {
+    console.log('TLC: writeUserData -> snapshot.val()', snapshot.val());
+  }); */
+
+  return new Promise((resolve, reject) => {
+    contactsRef.set({
+      name: contact.name,
+      email: contact.email,
+      subject: contact.subject,
+      message: contact.message
+
+    }, err => {
+      if (err) {
+        reject(Error(err));
+      } else {
+        resolve('write SUCCESS');
+      }
+    });
   });
 };
 

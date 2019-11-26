@@ -1,5 +1,5 @@
 <template>
-  <nav class="site-nav">
+  <nav class="site-nav" id="site-nav">
     <div class="bg-canvas" v-show="isShow" @click="closeNav()"></div>
     <transition name="slide">
       <div class="navigation" v-show="isShow" id="navigation">
@@ -7,32 +7,7 @@
           <i class="material-icons md-light">close</i>
         </button>
         <div class="content">
-          <!-- <ul class="lang">
-            <li>
-              <a href="#" class="current">en</a>
-            </li>
-            <li>
-              <a href="#">fr</a>
-            </li>
-          </ul>-->
           <app-lang />
-          <!-- <ul class="page-links">
-            <li class>
-              <router-link to="/" class>Home</router-link>
-            </li>
-            <li class>
-              <router-link to="/about" class>About</router-link>
-            </li>
-            <li class>
-              <router-link to="/works" class>Works</router-link>
-            </li>
-            <li class>
-              <router-link to="/education" class>Education</router-link>
-            </li>
-            <li class>
-              <router-link to="/contact" class>Contact</router-link>
-            </li>
-          </ul>-->
           <app-page-links />
           <app-social-media />
           <app-copyright></app-copyright>
@@ -66,21 +41,23 @@ export default {
     closeNav () {
       this.isShow = false;
 
-      enableBodyScroll(this.elPersistLockScroll);
+      enableBodyScroll(this.elemPersistLockScroll);
+      // console.log('TLC: Navigation - closeNav -> enableBodyScroll');
     }
   },
   data () {
     return {
       isShow: false,
-      elPersistLockScroll: document.querySelector('#navigation')
+      elemPersistLockScroll: null
     };
   },
   beforeCreated () {
-    // console.log('nav beforeCreated: ', this.$route);
+    // console.log('TLC: Navigation - beforeCreated -> beforeCreated');
   },
   created () {
-    // console.log('nav created: ', this.$route);
-    eventBus.$on('ebOpenNav', () => {
+    // console.log('TLC: Navigation - created -> created');
+
+    eventBus.$on('evtBusOpenNav', () => {
       scrollTo({
         x: 0,
         y: 0
@@ -88,27 +65,31 @@ export default {
 
       this.isShow = true;
 
-      disableBodyScroll(this.elPersistLockScroll);
+      disableBodyScroll(this.elemPersistLockScroll);
+      // console.log(
+      // 'TLC: Navigation - created - evtBusOpenNav -> disableBodyScroll'
+      // );
     });
   },
   beforeMount () {
-    // console.log('nav beforeMOunt: ', this.$route);
+    // console.log('TLC: Navigation - beforeMount -> beforeMount');
   },
   mounted () {
-    // console.log('nav mounted: ', this.$route);
+    // console.log('TLC: Navigation - mounted -> mounted');
+    this.elemPersistLockScroll = document.querySelector('#site-nav');
   },
   beforeUpdate () {
-    // console.log('nav beforeUpdate: ', this.$route);
+    // console.log('TLC: Navigation - beforeUpdate -> beforeUpdate');
   },
   updated () {
-    // console.log('nav updated: ', this.$route);
+    // console.log('TLC: Navigation - updated -> updated');
   },
   beforeDestroy () {
-    // console.log('nav beforeDestroy: ', this.$route);
+    // console.log('TLC: Navigation - beforeDestroy -> beforeDestroy');
     clearAllBodyScrollLocks();
   },
   destroyed () {
-    // console.log('nav destroyed: ', this.$route);
+    // console.log('TLC: Navigation - destroyed -> destroyed');
   },
   components: {
     appLang: Lang,

@@ -12,6 +12,7 @@
 </template>
 <script>
 // @ is an alias to /src
+import { clearAllBodyScrollLocks } from 'body-scroll-lock';
 import { init, onStateChange } from '@/firebase';
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
@@ -78,6 +79,13 @@ export default {
     // console.log('app - destroyed');
     // window.removeEventListener('resize');
   },
+  watch: {
+    $route (fr, to) {
+      // console.log('TLC: App - watch $route -> fr', fr);
+      // console.log('TLC: App - watch $route -> to', to);
+      clearAllBodyScrollLocks();
+    }
+  },
   methods: {
     /* resizeHandler (evt) {
       // this.winHeight = evt.currentTarget.innerHeight;
@@ -86,19 +94,6 @@ export default {
       }
     } */
   }
-  /* watch: {
-    $route (fr, to) {
-      console.log('to: ', to);
-      // this.winHeight = null;
-      document.getElementById('app').style.height = null;
-      console.log(window.innerHeight);
-      console.log(document.body.clientHeight);
-      console.log(
-        'document.body.clientHeight < window.innerHeight: ',
-        document.body.clientHeight < window.innerHeight
-      );
-    }
-  } */
 };
 </script>
 <style lang="scss">

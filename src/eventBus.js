@@ -3,10 +3,10 @@ import Vue from 'vue';
 export const eventBus = new Vue({
   methods: {
     openNav () {
-      this.$emit('ebOpenNav');
+      this.$emit('evtBusOpenNav');
     },
     openAuth () {
-      this.$emit('ebOpenAuth');
+      this.$emit('evtBusOpenAuth');
     }
   }
 });
