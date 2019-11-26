@@ -1,9 +1,9 @@
 <template>
-  <div class="site-auth">
-    <div class="bg-canvas" v-show="isShow" @click="closeSiginin()"></div>
+  <div class="site-auth" id="site-auth">
+    <div class="bg-canvas" v-show="isShow" @click="closeSignin()"></div>
     <transition name="slide">
       <div class="signin" v-show="isShow" id="signin">
-        <button type="button" @click="closeSiginin()" class="btn-close">
+        <button type="button" @click="closeSignin()" class="btn-close">
           <i class="material-icons md-light">close</i>
         </button>
         <form novalidate @submit.prevent="onSubmit($event)">
@@ -56,6 +56,7 @@
           </p>
           <button :disabled="$v.$invalid" type="submit">{{ isSigningUp ? 'Sign Up' : 'Sign In' }}</button>
         </form>
+        <app-svg-spinner v-show="isLoading" />
       </div>
     </transition>
   </div>
@@ -72,10 +73,15 @@ import { signup, login } from '@/firebase';
 import { recaptchaElement } from '@/recaptcha';
 import { eventBus } from '@/eventBus';
 import { scrollTo } from '@/helpers';
+import SvgSpinner from './SvgSpinner';
 
 export default {
+  components: {
+    appSvgSpinner: SvgSpinner
+  },
   created () {
-    eventBus.$on('ebOpenAuth', () => {
+    // // console.log('TLC: Authentication - created -> created');
+    eventBus.$on('evtBusOpenAuth', () => {
       scrollTo({
         x: 0,
         y: 0
@@ -83,11 +89,15 @@ export default {
 
       this.isShow = true;
 
-      disableBodyScroll(this.elPersistLockScroll);
+      disableBodyScroll(this.elemPersistLockScroll);
     });
   },
   beforeDestroy () {
+    // // console.log('TLC: Authentication - beforeDestroy -> beforeDestroy');
     clearAllBodyScrollLocks();
+  },
+  destroyed () {
+    // // console.log('TLC: Authentication - destroyed -> destroyed');
   },
   props: {
     show: {
@@ -97,9 +107,17 @@ export default {
       }
     }
   },
+  beforeMount () {
+    // // console.log('TLC: Authentication - beforeMount -> beforeMount');
+  },
+  mounted () {
+    // // console.log('TLC: Authentication - mounted -> mounted');
+    this.elemPersistLockScroll = document.querySelector('#site-auth');
+  },
   data () {
     return {
-      elPersistLockScroll: document.querySelector('#signin'),
+      isLoading: false,
+      elemPersistLockScroll: null,
       isShow: false,
       recaptchaAction: 'login',
       signingOption: false,
@@ -127,11 +145,11 @@ export default {
     }
   },
   methods: {
-    closeSiginin () {
+    closeSignin () {
       // this.$emit('ceSignin');
       this.isShow = false;
 
-      enableBodyScroll(this.elPersistLockScroll);
+      enableBodyScroll(this.elemPersistLockScroll);
     },
     onSubmit (evt) {
       const payload = {
@@ -140,13 +158,16 @@ export default {
       };
       // console.log('payload: ', payload);
 
+      this.isLoading = true;
+
       recaptchaElement(this.recaptchaAction).then(res => {
         if (res.data.success && res.data.action === this.recaptchaAction) {
           if (this.isSigningUp) {
             signup(payload).then(res => {
               // console.log('res: ', res);
               if (res.user) {
-                this.isShow = false; // close login form
+                this.closeSignin();
+                this.isLoading = false;
               }
             });
             /* .catch(err => {
@@ -156,7 +177,8 @@ export default {
             login(payload).then(res => {
               // console.log('res: ', res);
               if (res.user) {
-                this.isShow = false; // close login form
+                this.closeSignin();
+                this.isLoading = false;
               }
             });
             /* .catch(err => {

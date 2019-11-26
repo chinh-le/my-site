@@ -5,13 +5,11 @@ $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
 
-
-// $breakpoint-sm: 476px;
-
 $z-index-nav: 1001;
 $z-index-overlay-bg: 2000;
 $z-index-overlay: 2001;
-
+$z-index-spinner-bg: 3000;
+$z-index-spinner: 3001;
 
 $font-family-fallback: Verdana, Geneva, Tahoma, sans-serif;
 $font-family: Montserrat, $font-family-fallback;
@@ -34,7 +32,7 @@ $padd-container: 1em;
 
 $color-bg-body: #222;
 $color-bg-header: #1a1a1a;
-$color-bg-overlay: rgba(0, 0, 0, 0.9);
+$color-bg-overlay: rgba(0, 0, 0, 0.5);
 
 $color-txt: #999;
 $color-txt-heading1: #555;
