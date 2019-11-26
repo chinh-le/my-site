@@ -9,16 +9,17 @@
           :href="downloadUrl"
           target="_blank"
           class="btn-download"
+          title="download resume"
         >
           <i class="material-icons">cloud_download</i>
         </a>
-        <button v-show="!authenticated" class="btn-login" @click="openAuth()">
+        <button v-show="!authenticated" class="btn-login" @click="openAuth()" title="sign in">
           <i class="material-icons">person_outline</i>
         </button>
-        <button v-show="authenticated" class="btn-logout" @click="signout()">
+        <button v-show="authenticated" class="btn-logout" @click="signout()" title="sign out">
           <i class="material-icons md-light">person</i>
         </button>
-        <button class="btn-nav" @click="openNav()">
+        <button class="btn-nav" @click="openNav()" title="open navigation">
           <i class="material-icons">dehaze</i>
         </button>
         <!-- <button class="btn-nav-open" @click="openNav()">

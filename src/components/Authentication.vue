@@ -3,7 +3,7 @@
     <div class="bg-canvas" v-show="isShow" @click="closeSignin()"></div>
     <transition name="slide">
       <div class="signin" v-show="isShow" id="signin">
-        <button type="button" @click="closeSignin()" class="btn-close">
+        <button type="button" @click="closeSignin()" class="btn-close" title="close sign in">
           <i class="material-icons md-light">close</i>
         </button>
         <form novalidate @submit.prevent="onSubmit($event)">
@@ -54,7 +54,11 @@
             >Privacy Policy</a> and
             <a href="https://policies.google.com/terms">Terms of Service</a> apply.
           </p>
-          <button :disabled="$v.$invalid" type="submit">{{ isSigningUp ? 'Sign Up' : 'Sign In' }}</button>
+          <button
+            :disabled="$v.$invalid"
+            type="submit"
+            title="submit form"
+          >{{ isSigningUp ? 'Sign Up' : 'Sign In' }}</button>
         </form>
         <app-svg-spinner v-show="isLoading" />
       </div>

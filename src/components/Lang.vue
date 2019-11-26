@@ -2,10 +2,10 @@
   <div class="lang">
     <ul>
       <li>
-        <a href="#" class="current en">en</a>
+        <a href="#" class="current en" title="ehglish">en</a>
       </li>
       <li>
-        <a href="#" class="fr">fr</a>
+        <a href="#" class="fr" title="français">fr</a>
       </li>
     </ul>
   </div>

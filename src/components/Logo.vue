@@ -1,6 +1,6 @@
 <template>
   <div class="logo">
-    <router-link to="/" class>chinh.le</router-link>
+    <router-link to="/" title="home">chinh.le</router-link>
   </div>
 </template>
 <script>

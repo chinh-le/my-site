@@ -1,6 +1,6 @@
 <template>
   <div class="contact-info" id="contact-info">
-    <form @submit.prevent="onSubmit()" v-if="!messageSent">
+    <form @submit.prevent="onSubmit()" v-if="!messageSent" novalidate>
       <ul>
         <li class="name">
           <div class="form-input">
@@ -72,7 +72,7 @@
         >Privacy Policy</a> and
         <a href="https://policies.google.com/terms">Terms of Service</a> apply.
       </p>
-      <button type="submit" :disabled="$v.$invalid">Send Message</button>
+      <button type="submit" :disabled="$v.$invalid" title="submit form">Send Message</button>
     </form>
     <p
       class="message-conf"
