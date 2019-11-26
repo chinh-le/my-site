@@ -1,12 +1,10 @@
 <template>
-  <footer>
+  <footer class="site-footer">
     <app-logo />
     <app-quick-links />
     <!-- <app-contact-info /> -->
-    <div class="copyright">
-      &copy; Copyright
-    </div>
     <app-social-media />
+    <app-copyright></app-copyright>
   </footer>
 </template>
 <script>
@@ -14,13 +12,15 @@ import Logo from './Logo.vue';
 import QuickLinks from './QuickLinks.vue';
 // import ContactInfo from './ContactInfo.vue';
 import SocialMedia from './SocialMedia.vue';
+import Copyright from './Copyright';
 
 export default {
   components: {
     appLogo: Logo,
     appQuickLinks: QuickLinks,
     // appContactInfo: ContactInfo,
-    appSocialMedia: SocialMedia
+    appSocialMedia: SocialMedia,
+    appCopyright: Copyright
   }
 };
 </script>

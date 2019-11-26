@@ -14,7 +14,7 @@ export const getDownloadUrl = (filePath) => {
     .then(url => {
       store.commit('setDownloadUrl', url);
     })
-    .catch(err => {
-      console.log('err: ', err);
-    });
+    /* .catch(err => {
+      // console.error(err);
+    }) */;
 };

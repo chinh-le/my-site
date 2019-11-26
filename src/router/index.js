@@ -27,19 +27,19 @@ const routes = [
     component: () => import(/* webpackChunkName: "works" */ '../views/Works.vue')
   },
   {
-    path: '/services',
-    name: 'services',
-    component: () => import(/* webpackChunkName: "services" */ '../views/Services.vue')
-  },
-  {
-    path: '/resume',
-    name: 'resume',
-    component: () => import(/* webpackChunkName: "resume" */ '../views/Resume.vue')
+    path: '/education',
+    name: 'education',
+    component: () => import(/* webpackChunkName: "services" */ '../views/Education.vue')
   },
   {
     path: '/contact',
     name: 'contact',
     component: () => import(/* webpackChunkName: "contact" */ '../views/Contact.vue')
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: () => import(/* webpackChunkName: "contact" */ '../components/admin/Admin.vue')
   },
   {
     path: '*',

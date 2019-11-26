@@ -1,0 +1,73 @@
+// responsive breakpoints (Bootstrap)
+$breakpoint-xs: 330px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+$z-index-nav: 1001;
+$z-index-overlay-bg: 2000;
+$z-index-overlay: 2001;
+$z-index-spinner-bg: 3000;
+$z-index-spinner: 3001;
+
+$font-family-fallback: Verdana, Geneva, Tahoma, sans-serif;
+$font-family: Montserrat, $font-family-fallback;
+$font-family-logo: Righteous, $font-family-fallback;
+$font-family-navigation: Roboto, $font-family-fallback;
+$font-family-heading1: Montserrat, $font-family-fallback;
+$font-family-heading2: Syncopate, $font-family-fallback;
+$font-family-heading3: Syncopate, $font-family-fallback;
+$font-family-heading4: Montserrat, $font-family-fallback;
+
+$txt-size: 16px;
+$txt-size-heading1: 1em;
+$txt-size-heading2: 2em;
+$txt-size-heading3: 1.5em;
+$txt-size-heading4: 0.8em;
+
+$line-height-body: 1.6em;
+
+$padd-container: 1em;
+
+$color-bg-body: #222;
+$color-bg-header: #1a1a1a;
+$color-bg-overlay: rgba(0, 0, 0, 0.5);
+
+$color-txt: #999;
+$color-txt-heading1: #555;
+$color-txt-heading2: #fff;
+$color-txt-heading3: #fff;
+$color-txt-heading4: #999;
+$color-txt-footnote: #555;
+$color-txt-footnote-links: #666;
+
+$color-logo: #aaa;
+$color-icon-auth: #aaa;
+$color-icon-nav: #aaa;
+$color-icon-download: #aaa;
+$color-nav-links: #aaa;
+$color-nav-links-current: #b36a12;
+
+$color-focus: #b36a12;
+$color-unfocus: #777;
+$color-border-button-header: #2a2a2a;
+$color-border-button-navigation: #444;
+
+// form
+$color-txt-form-button: #999;
+$color-txt-form-button-disabled: #444;
+$color-bg-form-input: #444;
+$color-bg-form-button: #b36a12;
+$color-form-button-border: #444;
+$color-txt-form-error: #b36a12;
+
+// slide in panel: navigation, signin
+$slide-in-width: 100%;
+$slide-in-height: 100%;
+$color-slide-in-button-close: #aaa;
+// $color-txt-slide-in-current: #b36a12;
+// $color-links-slide-in: #fff;
+$color-bg-slide-in-panel: #333;
+$color-bg-slide-in-form-input: #444;
+

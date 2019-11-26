@@ -1,0 +1,91 @@
+@mixin form-button-submit {
+  button {
+    font-size: 1em;
+    padding: 1.5em;
+    background-color: $color-bg-form-button;
+    border-radius: 0.5em;
+    color: $color-txt-form-button;
+    &:disabled {
+        color: $color-txt-form-button-disabled;
+        border: 1px solid $color-form-button-border;
+        background: none;
+    }
+  }
+}
+
+@mixin color-focus {
+  color: $color-focus;
+}
+
+@mixin color-unfocus {
+  color: $color-unfocus;
+}
+
+@mixin set-margin($value, $direction: false) {
+  @if $direction {
+    margin-#{$direction}: $value;
+  }
+  @else {
+    margin: $value;
+  }
+}
+
+@mixin footnote {
+  font-size: 0.7em;
+  line-height: 1.3em;
+  color: $color-txt-footnote;
+  > a {
+    color: $color-txt-footnote-links;
+  }
+}
+
+@mixin bg-canvas {
+  .bg-canvas {
+    z-index: $z-index-overlay-bg;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $slide-in-width;
+    height: $slide-in-height;
+    background-color: $color-bg-overlay;
+  }
+}
+
+@mixin slide-helper {
+  .slide-enter-active {
+    animation: slideIn 0.5s ease-in;
+  }
+  .slide-leave-active {
+    animation: slideOut 0.4s ease-out;
+  }
+  @keyframes slideIn {
+    from {
+      transform: translateX($slide-in-width);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX($slide-in-width);
+    }
+  }
+}
+
+@mixin screen-reader-ready {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* added line */
+}
+
+@mixin visible {
+  visibility: visible !important;
+}

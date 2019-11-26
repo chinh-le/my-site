@@ -1,0 +1,35 @@
+.education {
+    display: flex;
+    flex-direction: column;
+}
+
+.heading {
+    position: relative;
+}
+
+.certificates {
+    margin-bottom: 3em;
+}
+
+.certificates,
+.scholarships {
+  > li {
+        border: 1px solid #444;
+        padding: 1em;
+        margin-bottom: 1em;
+        h3 {
+            font-size: 1em;
+            margin-bottom: 0.5em;
+        }
+        p {
+            font-size: 0.7em;
+            margin-bottom: 1em;
+        }
+        a {
+            color: $color-unfocus;
+        }
+        img {
+            width: 100%;
+        }
+    }
+}

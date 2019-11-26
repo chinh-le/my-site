@@ -1,81 +1,117 @@
 <template>
-  <div class="navigation">
+  <nav class="site-nav" id="site-nav">
+    <div class="bg-canvas" v-show="isShow" @click="closeNav()"></div>
     <transition name="slide">
-      <!-- <nav v-show="show"> -->
-      <nav>
-        <button
-          type="button"
-          class="btnNavClose"
-          @click="cb()"
-          >
-          close
+      <div class="navigation" v-show="isShow" id="navigation">
+        <button type="button" class="btn-close" @click="closeNav()">
+          <i class="material-icons md-light">close</i>
         </button>
-        <ul class="">
-          <li class="">
-            <router-link
-              to="/"
-              class=""
-              >
-              Home
-            </router-link>
-          </li>
-          <li class="">
-            <router-link
-              to="/about"
-              class=""
-              >
-              About
-            </router-link>
-          </li>
-          <li class="">
-            <router-link
-              to="/works"
-              class=""
-              >
-              Works
-            </router-link>
-          </li>
-          <li class="">
-            <router-link
-              to="/services"
-              class=""
-              >
-              Services
-            </router-link>
-          </li>
-          <li class="">
-            <router-link
-              to="/resume"
-              class=""
-              >
-              Resume
-            </router-link>
-          </li>
-          <li class="">
-            <router-link
-              to="/contact"
-              class=""
-              >
-              Contact
-            </router-link>
-          </li>
-        </ul>
-        <app-social-media />
-      </nav>
+        <div class="content">
+          <app-lang />
+          <app-page-links />
+          <app-social-media />
+          <app-copyright></app-copyright>
+        </div>
+      </div>
     </transition>
-  </div>
+  </nav>
 </template>
 <script>
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks
+} from 'body-scroll-lock';
+import Lang from './Lang';
+import PageLinks from './PageLinks';
 import SocialMedia from './SocialMedia.vue';
+import Copyright from './Copyright';
+import { eventBus } from '@/eventBus';
+import { scrollTo } from '@/helpers';
 
 export default {
+  watch: {
+    $route (to, from) {
+      // console.log('to: ', to);
+      // console.log('from: ', from);
+      this.isShow = false; // close nav on route change
+    }
+  },
+  methods: {
+    closeNav () {
+      this.isShow = false;
+
+      enableBodyScroll(this.elemPersistLockScroll);
+      // console.log('TLC: Navigation - closeNav -> enableBodyScroll');
+    }
+  },
+  data () {
+    return {
+      isShow: false,
+      elemPersistLockScroll: null
+    };
+  },
+  beforeCreated () {
+    // console.log('TLC: Navigation - beforeCreated -> beforeCreated');
+  },
+  created () {
+    // console.log('TLC: Navigation - created -> created');
+
+    eventBus.$on('evtBusOpenNav', () => {
+      scrollTo({
+        x: 0,
+        y: 0
+      });
+
+      this.isShow = true;
+
+      disableBodyScroll(this.elemPersistLockScroll);
+      // console.log(
+      // 'TLC: Navigation - created - evtBusOpenNav -> disableBodyScroll'
+      // );
+    });
+  },
+  beforeMount () {
+    // console.log('TLC: Navigation - beforeMount -> beforeMount');
+  },
+  mounted () {
+    // console.log('TLC: Navigation - mounted -> mounted');
+    this.elemPersistLockScroll = document.querySelector('#site-nav');
+  },
+  beforeUpdate () {
+    // console.log('TLC: Navigation - beforeUpdate -> beforeUpdate');
+  },
+  updated () {
+    // console.log('TLC: Navigation - updated -> updated');
+  },
+  beforeDestroy () {
+    // console.log('TLC: Navigation - beforeDestroy -> beforeDestroy');
+    clearAllBodyScrollLocks();
+  },
+  destroyed () {
+    // console.log('TLC: Navigation - destroyed -> destroyed');
+  },
   components: {
-    appSocialMedia: SocialMedia
+    appLang: Lang,
+    appPageLinks: PageLinks,
+    appSocialMedia: SocialMedia,
+    appCopyright: Copyright
   },
   props: {
-    /* elemHeight: {
-      type: Number
-    }, */
+    navShow: {
+      type: Boolean
+    },
+    nav: {
+      show: {
+        type: Boolean,
+        default () {
+          return false;
+        }
+      },
+      cb: {
+        type: Function
+      }
+    },
     show: {
       type: Boolean,
       default () {
@@ -92,46 +128,5 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-.navigation {
-  display: none;
-}
-.btnNavClose {
-  font-family: 'Roboto';
-    font-size: 3em;
-    padding: 0 0.2em;
-  &:before {
-    content: '\00d7';
-    /* font-family: 'Roboto';
-    font-size: 4em; */
-  }
-}
-nav {
-  float: right;
-  width: 200px;
-  position: relative;
-  right: 0;
-  top: 0;
-}
-.slide-enter-active {
-  animation: slideIn .5s ease-in;
-}
-.slide-leave-active {
-  animation: slideOut .4s ease-in;
-}
-@keyframes slideIn {
-  from {
-    transform: translateX(200px);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-@keyframes slideOut {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(200px);
-  }
-}
+@import "@/styles/components/navigation";
 </style>

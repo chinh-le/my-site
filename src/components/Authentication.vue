@@ -1,75 +1,104 @@
 <template>
-  <div class="authentication">
+  <div class="site-auth" id="site-auth">
+    <div class="bg-canvas" v-show="isShow" @click="closeSignin()"></div>
     <transition name="slide">
-      <div
-        v-show="show"
-        class="signin"
-        >
-        <button
-          type="button"
-          @click="closeSiginin()"
-          >
-          [close icon]
+      <div class="signin" v-show="isShow" id="signin">
+        <button type="button" @click="closeSignin()" class="btn-close">
+          <i class="material-icons md-light">close</i>
         </button>
-        <form
-          novalidate
-          @submit.prevent="onSubmit($event)"
-          >
+        <form novalidate @submit.prevent="onSubmit($event)">
           <ul>
             <li>
-              <label for="email">Email</label>
-              <input
-                id="email"
-                v-model="user.email"
-                type="email"
-                autocomplete="username"
-                @input="$v.user.email.$touch()"
-                >
-              <p v-show="!$v.user.email.isDefault && $v.user.email.$dirty">
-                not as provided to you
-              </p>
+              <div class="form-input">
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  v-model="user.email"
+                  type="email"
+                  autocomplete="username"
+                  @input="$v.user.email.$touch()"
+                  placeholder="email*"
+                />
+              </div>
+              <span
+                class="form-error"
+                :class="{visible: !$v.user.email.isDefault && $v.user.email.$dirty}"
+              >Please use the provided</span>
             </li>
             <li>
-              <label for="password">Password</label>
-              <input
-                id="password"
-                v-model="user.password"
-                type="password"
-                :autocomplete="isSigningUp ? 'new-password' : 'current-password'"
-                @input="$v.user.password.$touch()"
-                >
-              <p v-show="!$v.user.password.isDefault && $v.user.password.$dirty">
-                not as provided to you
-              </p>
+              <div class="form-input">
+                <label for="password">Password</label>
+                <input
+                  id="password"
+                  v-model="user.password"
+                  type="password"
+                  :autocomplete="isSigningUp ? 'new-password' : 'current-password'"
+                  @input="$v.user.password.$touch()"
+                  placeholder="password*"
+                />
+              </div>
+              <span
+                class="form-error"
+                :class="{visible: !$v.user.password.isDefault && $v.user.password.$dirty}"
+              >Please use the provided</span>
             </li>
             <li v-show="signingOption">
-              <input
-                id="isSignup"
-                v-model="isSigningUp"
-                type="checkbox"
-                >
+              <input id="isSignup" v-model="isSigningUp" type="checkbox" />
               <label for="isSignup">signing up</label>
             </li>
           </ul>
-          <p>This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
-          <button
-            :disabled="$v.$invalid"
-            type="submit"
-            >
-            {{ isSigningUp ? 'Sign Up' : 'Sign In' }}
-          </button>
+          <p class="footnote">
+            This site is protected by reCAPTCHA and the Google
+            <a
+              href="https://policies.google.com/privacy"
+            >Privacy Policy</a> and
+            <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+          </p>
+          <button :disabled="$v.$invalid" type="submit">{{ isSigningUp ? 'Sign Up' : 'Sign In' }}</button>
         </form>
+        <app-svg-spinner v-show="isLoading" />
       </div>
     </transition>
   </div>
 </template>
 <script>
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks
+} from 'body-scroll-lock';
 import config from '@/config';
 import { required } from 'vuelidate/lib/validators';
 import { signup, login } from '@/firebase';
 import { recaptchaElement } from '@/recaptcha';
+import { eventBus } from '@/eventBus';
+import { scrollTo } from '@/helpers';
+import SvgSpinner from './SvgSpinner';
 
 export default {
+  components: {
+    appSvgSpinner: SvgSpinner
+  },
+  created () {
+    // // console.log('TLC: Authentication - created -> created');
+    eventBus.$on('evtBusOpenAuth', () => {
+      scrollTo({
+        x: 0,
+        y: 0
+      });
+
+      this.isShow = true;
+
+      disableBodyScroll(this.elemPersistLockScroll);
+    });
+  },
+  beforeDestroy () {
+    // // console.log('TLC: Authentication - beforeDestroy -> beforeDestroy');
+    clearAllBodyScrollLocks();
+  },
+  destroyed () {
+    // // console.log('TLC: Authentication - destroyed -> destroyed');
+  },
   props: {
     show: {
       type: Boolean,
@@ -78,8 +107,18 @@ export default {
       }
     }
   },
+  beforeMount () {
+    // // console.log('TLC: Authentication - beforeMount -> beforeMount');
+  },
+  mounted () {
+    // // console.log('TLC: Authentication - mounted -> mounted');
+    this.elemPersistLockScroll = document.querySelector('#site-auth');
+  },
   data () {
     return {
+      isLoading: false,
+      elemPersistLockScroll: null,
+      isShow: false,
       recaptchaAction: 'login',
       signingOption: false,
       isSigningUp: false,
@@ -99,15 +138,18 @@ export default {
       },
       password: {
         required,
-        isDefault: (password) => {
+        isDefault: password => {
           return password === config.appDefaultPassword;
         }
       }
     }
   },
   methods: {
-    closeSiginin () {
-      this.$emit('ceSignin');
+    closeSignin () {
+      // this.$emit('ceSignin');
+      this.isShow = false;
+
+      enableBodyScroll(this.elemPersistLockScroll);
     },
     onSubmit (evt) {
       const payload = {
@@ -116,57 +158,44 @@ export default {
       };
       // console.log('payload: ', payload);
 
-      recaptchaElement(this.recaptchaAction)
-        .then(res => {
-          if (res.data.success && res.data.action === this.recaptchaAction) {
-            if (this.isSigningUp) {
-              signup(payload);
-            } else {
-              login(payload);
-            }
+      this.isLoading = true;
+
+      recaptchaElement(this.recaptchaAction).then(res => {
+        if (res.data.success && res.data.action === this.recaptchaAction) {
+          if (this.isSigningUp) {
+            signup(payload).then(res => {
+              // console.log('res: ', res);
+              if (res.user) {
+                this.closeSignin();
+                this.isLoading = false;
+              }
+            });
+            /* .catch(err => {
+                  // console.error(err);
+                }) */
           } else {
-            console.error('SPAM!!!');
+            login(payload).then(res => {
+              // console.log('res: ', res);
+              if (res.user) {
+                this.closeSignin();
+                this.isLoading = false;
+              }
+            });
+            /* .catch(err => {
+                  // console.error(err);
+                }) */
           }
-        })
-        .catch(err => {
-          console.log('err: ', err);
-        });
+        } else {
+          // console.error('SPAM!!!');
+        }
+      });
+      /* .catch(err => {
+          // console.error(err);
+        }) */
     }
   }
 };
 </script>
 <style scoped lang="scss">
-$signin-width: 200px;
-.signin {
-    width: $signin-width;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-.slide-enter-active {
-  animation: slideIn .5s ease-in;
-}
-.slide-leave-active {
-  animation: slideOut .4s ease-out;
-}
-@keyframes slideIn {
-  from {
-    transform: translateX($signin-width);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-@keyframes slideOut {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX($signin-width);
-  }
-}
-
-.grecaptcha-badge {
-  visibility: hidden;
-}
+@import "../styles/components/authentication";
 </style>
