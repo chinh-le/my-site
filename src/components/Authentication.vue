@@ -6,7 +6,7 @@
         <button type="button" @click="closeSignin()" class="btn-close" title="close sign in">
           <i class="material-icons md-light">close</i>
         </button>
-        <form novalidate @submit.prevent="onSubmit($event)">
+        <form novalidate @submit.prevent="onSubmit($event)" autocomplete="on">
           <ul>
             <li>
               <div class="form-input">
@@ -16,14 +16,21 @@
                   v-model="user.email"
                   type="email"
                   autocomplete="username"
-                  @input="$v.user.email.$touch()"
+                  @blur="$v.user.email.$touch()"
                   placeholder="email*"
                 />
               </div>
               <span
                 class="form-error"
-                :class="{visible: !$v.user.email.isDefault && $v.user.email.$dirty}"
-              >Please use the provided</span>
+                :class="{visible: $v.user.email.$dirty && (!$v.user.email.required ||!$v.user.email.isDefault)}"
+              >please use the provided email</span>
+              <!-- <span
+                class="form-error"
+                :class="{visible: $v.user.email.$dirty && (!$v.user.email.isDefault || !$v.user.email.validAddress)}"
+              >
+                <span v-if="!$v.user.email.isDefault">please use the provided email</span>
+                <span v-else-if="!$v.user.email.validAddress">invalid</span>
+              </span>-->
             </li>
             <li>
               <div class="form-input">
@@ -33,14 +40,14 @@
                   v-model="user.password"
                   type="password"
                   :autocomplete="isSigningUp ? 'new-password' : 'current-password'"
-                  @input="$v.user.password.$touch()"
+                  @blur="$v.user.password.$touch()"
                   placeholder="password*"
                 />
               </div>
               <span
                 class="form-error"
-                :class="{visible: !$v.user.password.isDefault && $v.user.password.$dirty}"
-              >Please use the provided</span>
+                :class="{visible: $v.user.password.$dirty && !$v.user.password.isDefault}"
+              >please use the provided password</span>
             </li>
             <li v-show="signingOption">
               <input id="isSignup" v-model="isSigningUp" type="checkbox" />
@@ -77,6 +84,7 @@ import { signup, login } from '@/firebase';
 import { recaptchaElement } from '@/recaptcha';
 import { eventBus } from '@/eventBus';
 import { scrollTo } from '@/helpers';
+// import { scrollTo, emailRegex } from '@/helpers';
 import SvgSpinner from './SvgSpinner';
 
 export default {
@@ -136,6 +144,9 @@ export default {
     user: {
       email: {
         required,
+        /* validAddress (email) {
+          return emailRegex.test(email);
+        }, */
         isDefault (email) {
           return email === config.appDefaultEmail;
         }

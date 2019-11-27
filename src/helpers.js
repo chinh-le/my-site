@@ -6,6 +6,9 @@ const scrollTo = (position) => {
   });
 };
 
+const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+
 export {
-  scrollTo
+  scrollTo,
+  emailRegex
 };
