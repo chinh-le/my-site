@@ -38,6 +38,12 @@ import SocialMedia from './SocialMedia.vue';
 import { eventBus } from '@/eventBus';
 
 export default {
+  created () {
+    console.log(
+      'TLC: Header created -> this.$store.getters.isAuthenticated ',
+      this.$store.getters.isAuthenticated
+    );
+  },
   components: {
     appLogo: Logo,
     appSocialMedia: SocialMedia
