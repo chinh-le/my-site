@@ -5607,6 +5607,11 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+material-icons@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/material-icons/-/material-icons-0.3.1.tgz#425e06e2448632d6249d6e1ffe2993682c5b171e"
+  integrity sha512-5Hbj76A6xDPcDZEbM4oxTknhWuMwGWnAHVLLPCEq9eVlcHb0fn4koU9ZeyMy1wjARtDEPAHfd5ZdL2Re5hf0zQ==
+
 md5.js@^1.3.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/md5.js/-/md5.js-1.3.5.tgz#b5d07b8e3216e3e27cd728d72f70d1e6a342005f"
@@ -8762,6 +8767,26 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typeface-montserrat@^0.0.75:
+  version "0.0.75"
+  resolved "https://registry.yarnpkg.com/typeface-montserrat/-/typeface-montserrat-0.0.75.tgz#b796d9c767ab8ed1343271985beb1e44b382b7b3"
+  integrity sha512-8ski20t3hdwu2T85pVfjK4jsDbwW8yWzd+LAKxYEmu+JVLVlB7G2yfmdKZz06pUwYCLVFvHvup+NYYulHDpE+w==
+
+typeface-righteous@^0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/typeface-righteous/-/typeface-righteous-0.0.72.tgz#a4e0ccc59ddb4a692c088d01a4e505789c81a29f"
+  integrity sha512-JMMkhPgwtRSM+AvmVjZTQ7fZ3OiqubHt27qhMatCW6JR1hVRjvNuYk7L31Ad/3EOzg+l0dXdCBJMT+OO0uVELA==
+
+typeface-roboto@^0.0.75:
+  version "0.0.75"
+  resolved "https://registry.yarnpkg.com/typeface-roboto/-/typeface-roboto-0.0.75.tgz#98d5ba35ec234bbc7172374c8297277099cc712b"
+  integrity sha512-VrR/IiH00Z1tFP4vDGfwZ1esNqTiDMchBEXYY9kilT6wRGgFoCAlgkEUMHb1E3mB0FsfZhv756IF0+R+SFPfdg==
+
+typeface-syncopate@^0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/typeface-syncopate/-/typeface-syncopate-0.0.72.tgz#317bdd5ed8d88dfb34538e4d55d1e225a98c8b76"
+  integrity sha512-R2GWNnGto1PgYrSMZfly6/W+oq85iB08vtSRLesn/9kHOQp2p6jTml6etTmqCVT3zKU+JSEtQsrvZv2nuPGxTQ==
 
 uglify-js@3.4.x:
   version "3.4.10"
