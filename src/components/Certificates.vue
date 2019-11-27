@@ -1,0 +1,50 @@
+<template>
+  <div class="certificates">
+    <h3>Certifications</h3>
+    <ul class>
+      <li v-for="certificate in certificates" :key="certificate.header">
+        <h4>{{certificate.header}}</h4>
+        <p>
+          <a :href="certificate.url" :title="certificate.url">@{{certificate.location}}</a>
+        </p>
+        <img :src="certificate.image" :alt="certificate.alt" />
+      </li>
+    </ul>
+  </div>
+</template>
+<script>
+import { _getCollection } from '@/firebase';
+export default {
+  data () {
+    return {
+      certificates: []
+    };
+  },
+  created () {
+    _getCollection('certificates').then(snapshots => {
+      // console.log('TLC: created -> snapshots', snapshots);
+      if (!snapshots.empty) {
+        snapshots.forEach(element => {
+          // console.log('TLC: created -> element.data()', element.data());
+          let elemData = element.data();
+          if (elemData.image) {
+            elemData.image = this.getImgContextPath(elemData.image);
+          }
+          // console.log('TLC: created -> elemData.image', elemData.image);
+          this.certificates.push(elemData);
+        });
+      } else {
+        console.error('list empty!!!');
+      }
+    });
+  },
+  methods: {
+    getImgContextPath (imgName) {
+      const imgPath = require('@/assets/education/' + imgName);
+
+      return imgPath || null;
+    }
+  }
+};
+</script>
+<style src="@/styles/components/certificates.scss" scoped lang="scss"></style>

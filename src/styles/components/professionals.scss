@@ -1,0 +1,17 @@
+.professionals {
+  margin-bottom: 4em;
+}
+
+li {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+a {
+    display: block;
+    color: $color-txt;
+    text-decoration: none;
+    > img {
+        width: 100%;
+    }
+}
