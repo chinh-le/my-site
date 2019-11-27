@@ -35,6 +35,7 @@
           >
             <span v-if="!$v.user.email.required">required</span>
             <span v-else-if="!$v.user.email.validAddress">invalid</span>
+            <span v-else>valid</span>
           </span>
         </li>
         <li>
@@ -95,6 +96,7 @@ import { writeUserData } from '@/firebase';
 import { recaptchaElement } from '@/recaptcha';
 import { scrollTo, emailRegex } from '@/helpers';
 import SvgSpinner from '@/components/SvgSpinner';
+import { htmlEscaping } from '@/xss';
 
 export default {
   mounted () {
@@ -156,9 +158,17 @@ export default {
       // console.log(this.user);
       recaptchaElement(this.recaptchaAction).then(res => {
         if (res.data.success && res.data.action === this.recaptchaAction) {
-          writeUserData(this.user).then(
+          // escaping user's inputs
+          let inputEscaped = {};
+          for (let i in this.user) {
+            inputEscaped[i] = htmlEscaping(this.user[i]);
+          }
+          // console.log('TLC: onSubmit -> inputEscaped', inputEscaped);
+
+          // writeUserData(this.user).then(
+          writeUserData(inputEscaped).then(
             res => {
-              // // console.log('TLC: ContactInfo - onSubmit -> res', res);
+              // console.log('TLC: ContactInfo - onSubmit -> res', res);
               this.isLoading = false;
 
               this.messageSent = true;
