@@ -1,3 +1,62 @@
+@mixin form {
+  .form-input {
+    background-color: $color-bg-form-input;
+    padding: 0 1.5em;
+  }
+
+  .form-error {
+    font-size: 0.7em;
+    opacity: 0.8;
+    position: relative;
+    top: -3em;
+    left: 2em;
+    visibility: hidden;
+    color: $color-txt-form-error;
+  }
+
+  form {
+    li {
+      margin-bottom: 0.5em;
+    }
+    label {
+      @include screen-reader-ready;
+    }
+    @include form-button-submit;
+  }
+
+  .visible {
+    @include visible;
+  }
+}
+
+@mixin slide-in-panel {
+  z-index: $z-index-overlay;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--slide-in-width);
+  height: $slide-in-height;
+  display: flex;
+  flex-direction: column;
+  background-color: $color-bg-slide-in-panel;
+}
+
+@mixin btn-close-x($content: "") {
+  .btn-close {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    &:after {
+      content: $content;
+      @include screen-reader-ready;
+    }
+    > i {
+      color: $color-slide-in-button-close;
+      padding: 0.6em;
+    }
+  }
+}
+
 @mixin form-button-submit {
   button {
     font-size: 1em;
@@ -6,9 +65,9 @@
     border-radius: 0.5em;
     color: $color-txt-form-button;
     &:disabled {
-        color: $color-txt-form-button-disabled;
-        border: 1px solid $color-form-button-border;
-        background: none;
+      color: $color-txt-form-button-disabled;
+      border: 1px solid $color-form-button-border;
+      background: none;
     }
   }
 }

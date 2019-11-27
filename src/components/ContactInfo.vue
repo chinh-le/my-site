@@ -56,7 +56,7 @@
               rows="7"
               placeholder="Message*"
               :maxlength="messageMaxLength + 1"
-              @input="$v.user.message.$touch()"
+              @blur="$v.user.message.$touch()"
             />
           </div>
           <span
