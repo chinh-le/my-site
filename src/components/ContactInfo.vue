@@ -1,6 +1,6 @@
 <template>
   <div class="contact-info" id="contact-info">
-    <form @submit.prevent="onSubmit()" v-if="!messageSent" novalidate>
+    <form @submit.prevent="onSubmit()" v-if="!messageSent" novalidate autocomplete="off">
       <ul>
         <li class="name">
           <div class="form-input">
@@ -31,8 +31,11 @@
           </div>
           <span
             class="form-error"
-            :class="{visible: $v.user.email.$dirty && !$v.user.email.required}"
-          >required</span>
+            :class="{visible: $v.user.email.$dirty && (!$v.user.email.validAddress || !$v.user.email.required)}"
+          >
+            <span v-if="!$v.user.email.required">required</span>
+            <span v-else-if="!$v.user.email.validAddress">invalid</span>
+          </span>
         </li>
         <li>
           <div class="form-input">
@@ -90,7 +93,7 @@ import {
 import { required, maxLength } from 'vuelidate/lib/validators';
 import { writeUserData } from '@/firebase';
 import { recaptchaElement } from '@/recaptcha';
-import { scrollTo } from '@/helpers';
+import { scrollTo, emailRegex } from '@/helpers';
 import SvgSpinner from '@/components/SvgSpinner';
 
 export default {
@@ -123,7 +126,11 @@ export default {
           required
         },
         email: {
-          required
+          required,
+          validAddress (email) {
+            // console.log('TLC: validAddress -> email', email);
+            return emailRegex.test(email);
+          }
         },
         message: {
           required,
@@ -151,7 +158,7 @@ export default {
         if (res.data.success && res.data.action === this.recaptchaAction) {
           writeUserData(this.user).then(
             res => {
-              // console.log('TLC: ContactInfo - onSubmit -> res', res);
+              // // console.log('TLC: ContactInfo - onSubmit -> res', res);
               this.isLoading = false;
 
               this.messageSent = true;

@@ -37,9 +37,9 @@ a {
 input, textarea {
     font-size: 1em;
     border: 0;
-    background-color: $color-bg-form-input;
+    background-color: $color-bg-form-input!important;
     width: 100%;
     padding: 1.5em 0;
-    color: $color-txt;
+    color: $color-txt!important;
     outline: none;
 }
