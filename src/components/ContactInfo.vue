@@ -78,10 +78,15 @@
       </p>
       <button type="submit" :disabled="$v.$invalid" title="submit form">Send Message</button>
     </form>
+    <p class="message-conf" v-else>
+      Your message has been sent!
+      <br />I will get back to you as soon as possible.
+      <br />Thank you.
+    </p>
     <p
-      class="message-conf"
-      v-else
-    >Your message has been sent! I will get back to you as soon as possible. Thank you.</p>
+      class="error-request"
+      v-if="isErrorRequest"
+    >Oops! There's something wrong with our server. Please try again later.</p>
     <app-svg-spinner v-show="isLoading" />
   </div>
 </template>
@@ -107,6 +112,7 @@ export default {
   },
   data () {
     return {
+      isErrorRequest: false,
       isLoading: false,
       elemPersistLockScroll: null,
       messageSent: false,
@@ -152,6 +158,7 @@ export default {
       });
 
       this.isLoading = true;
+      this.isErrorRequest = false;
 
       disableBodyScroll(this.elemPersistLockScroll);
 
@@ -166,24 +173,31 @@ export default {
           // console.log('TLC: onSubmit -> inputEscaped', inputEscaped);
 
           // writeUserData(this.user).then(
-          writeUserData(inputEscaped).then(
-            res => {
-              // console.log('TLC: ContactInfo - onSubmit -> res', res);
+          writeUserData(inputEscaped)
+            .then(
+              res => {
+                // console.log('TLC: ContactInfo - onSubmit -> res', res);
+                this.isLoading = false;
+
+                this.messageSent = true;
+
+                enableBodyScroll(this.elemPersistLockScroll);
+              },
+              err => {
+                console.error(err);
+                this.isLoading = false;
+                this.isErrorRequest = true;
+                enableBodyScroll(this.elemPersistLockScroll);
+              }
+            )
+            .catch(err => {
+              console.error(err);
               this.isLoading = false;
-
-              this.messageSent = true;
-
+              this.isErrorRequest = true;
               enableBodyScroll(this.elemPersistLockScroll);
-            },
-            err => {
-              console.error(err);
-            }
-          );
-          /* .catch(err => {
-              console.error(err);
-            }); */
+            });
         } else {
-          // console.error('SPAM!!!');
+          console.error('SPAM!!!');
         }
       });
     }

@@ -4,6 +4,10 @@
 
 @include form;
 
+.error-request {
+  @include error-request;
+}
+
 form {
   padding: 2em;
 }

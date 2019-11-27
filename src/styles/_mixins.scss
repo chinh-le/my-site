@@ -1,3 +1,8 @@
+@mixin error-request {
+  color: $color-txt-error-request;
+  padding: 2em;
+}
+
 @mixin form {
   .form-input {
     background-color: $color-bg-form-input;

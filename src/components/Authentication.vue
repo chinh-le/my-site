@@ -67,6 +67,10 @@
             title="submit form"
           >{{ isSigningUp ? 'Sign Up' : 'Sign In' }}</button>
         </form>
+        <p
+          class="error-request"
+          v-if="isErrorRequest"
+        >Oops! There's something wrong with our server. Please try again later.</p>
         <app-svg-spinner v-show="isLoading" />
       </div>
     </transition>
@@ -92,7 +96,7 @@ export default {
     appSvgSpinner: SvgSpinner
   },
   created () {
-    // // console.log('TLC: Authentication - created -> created');
+    // // // console.log('TLC: Authentication - created -> created');
     eventBus.$on('evtBusOpenAuth', () => {
       scrollTo({
         x: 0,
@@ -105,11 +109,11 @@ export default {
     });
   },
   beforeDestroy () {
-    // // console.log('TLC: Authentication - beforeDestroy -> beforeDestroy');
+    // // // console.log('TLC: Authentication - beforeDestroy -> beforeDestroy');
     clearAllBodyScrollLocks();
   },
   destroyed () {
-    // // console.log('TLC: Authentication - destroyed -> destroyed');
+    // // // console.log('TLC: Authentication - destroyed -> destroyed');
   },
   props: {
     show: {
@@ -120,14 +124,15 @@ export default {
     }
   },
   beforeMount () {
-    // // console.log('TLC: Authentication - beforeMount -> beforeMount');
+    // // // console.log('TLC: Authentication - beforeMount -> beforeMount');
   },
   mounted () {
-    // // console.log('TLC: Authentication - mounted -> mounted');
+    // // // console.log('TLC: Authentication - mounted -> mounted');
     this.elemPersistLockScroll = document.querySelector('#site-auth');
   },
   data () {
     return {
+      isErrorRequest: false,
       isLoading: false,
       elemPersistLockScroll: null,
       isShow: false,
@@ -171,15 +176,16 @@ export default {
         email: this.user.email,
         password: this.user.password
       };
-      // console.log('payload: ', payload);
+      // // console.log('TLC: onSubmit -> payload', payload);
 
       this.isLoading = true;
+      this.isErrorRequest = false;
 
       recaptchaElement(this.recaptchaAction).then(res => {
         if (res.data.success && res.data.action === this.recaptchaAction) {
           if (this.isSigningUp) {
             signup(payload).then(res => {
-              // console.log('res: ', res);
+              // console.log('TLC: onSubmit -> res', res);
               if (res.user) {
                 this.closeSignin();
                 this.isLoading = false;
@@ -189,16 +195,19 @@ export default {
                   // console.error(err);
                 }) */
           } else {
-            login(payload).then(res => {
-              // console.log('res: ', res);
-              if (res.user) {
-                this.closeSignin();
+            login(payload)
+              .then(res => {
+                // console.log('TLC: onSubmit -> res', res);
+                if (res.user) {
+                  this.closeSignin();
+                  this.isLoading = false;
+                }
+              })
+              .catch(err => {
+                console.error(err);
+                this.isErrorRequest = true;
                 this.isLoading = false;
-              }
-            });
-            /* .catch(err => {
-                  // console.error(err);
-                }) */
+              });
           }
         } else {
           // console.error('SPAM!!!');

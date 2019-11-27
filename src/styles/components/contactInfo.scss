@@ -1,5 +1,9 @@
 @include form;
 
+form {
+    margin-bottom: 2em;
+}
+
 .footnote {
     @include footnote;
     margin-bottom: 3em;
