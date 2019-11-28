@@ -4,10 +4,31 @@ body {
     color: $color-txt;
     line-height: $line-height-body;
     background-color: $color-bg-body;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    // background: transparent url('../assets/shutterstock-education.jpg') no-repeat center center;
+    // background-size: 100%;
+    // background-size: cover;
+
+    /* position: relative;
+    width: 100%;
+    height: 100%;
+    &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     background: transparent url('../assets/shutterstock-education.jpg') no-repeat center center;
     // background: transparent url('../assets/shutterstock-keyboard.jpg') no-repeat center center;
     background-size: 100%;
+    } */
 }
+
 h1 {
     font-family: $font-family-heading1;
     font-size: $txt-size-heading1;
@@ -15,26 +36,31 @@ h1 {
     text-transform: lowercase;
     margin-bottom: 2em;
 }
+
 h2 {
     font-family: $font-family-heading2;
     font-size: $txt-size-heading2;
     color: $color-txt-heading2;
     line-height: 1.3em;
 }
+
 h3 {
     font-family: $font-family-heading3;
     font-size: $txt-size-heading3;
     color: $color-txt-heading3;
     @include set-margin(1em, 'bottom');
 }
+
 h4 {
     font-family: $font-family-heading4;
     font-size: $txt-size-heading4;
     color: $color-txt-heading4;
 }
+
 a {
     color: $color-txt;
 }
+
 input, textarea {
     font-size: 1em;
     border: 0;
@@ -43,4 +69,14 @@ input, textarea {
     padding: 1.5em 0;
     color: $color-txt!important;
     outline: none;
+}
+
+.site-footer {
+    padding: $padd-container;
+    display: none;
+}
+
+// recaptcha v3: hide the badge
+.grecaptcha-badge {
+  visibility: hidden;
 }

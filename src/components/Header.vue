@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="site-header">
+    <div class="site-header" id="site-header">
       <app-logo />
       <app-social-media />
       <div class="login-nav">

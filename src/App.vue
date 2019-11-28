@@ -1,8 +1,9 @@
 <template>
   <!-- <div id="app" :style="{height: winHeight + 'px'}"> -->
   <div id="app">
+    <img src="@/assets/shutterstock-education.jpg" alt class="body-img-bg" />
     <app-header />
-    <main class="site-wrap">
+    <main class="site-wrap" :style="{height: winHeight + 'px'}" id="site-wrap">
       <router-view />
     </main>
     <app-footer />
@@ -28,7 +29,9 @@ export default {
   },
   data () {
     return {
-      winHeight: ''
+      winHeight: '',
+      siteWrapSelector: null,
+      siteHeaderSelector: null
     };
   },
   beforeCreate () {
@@ -43,6 +46,7 @@ export default {
     /* if (document.body.clientHeight < window.innerHeight) {
       this.winHeight = window.innerHeight;
     } */
+
     init(); // set firebase config
     onStateChange(); // authentication state observer
   },
@@ -50,11 +54,12 @@ export default {
     // console.log('app - created');
     // console.dir(window);
     // console.dir(document.body.clientHeight);
-    /* if (document.body.clientHeight < window.innerHeight) {
+
+    if (document.body.clientHeight < window.innerHeight) {
       this.winHeight = window.innerHeight;
     }
     // this.winHeight = window.innerHeight;
-    window.addEventListener('resize', this.resizeHandler); */
+    window.addEventListener('resize', this.resizeHandler);
   },
   beforeMount () {
     // console.log('app - beforeMount');
@@ -65,6 +70,21 @@ export default {
     // console.log('app - mounted');
     // console.dir(window);
     // console.dir(document.body.clientHeight);
+
+    /* console.log(
+      'TLC: created -> document.querySelector("#site-header") ',
+      document.querySelector('#site-header').offsetHeight
+    ); */
+    this.siteWrapSelector = document.querySelector('#site-wrap');
+    // this.siteWrapSelector = document.getElementById('site-wrap');
+    // console.log('TLC: mounted -> this.siteWrapSelector', this.siteWrapSelector);
+    this.siteHeaderSelector = document.querySelector('#site-header');
+    // this.siteHeaderSelector = document.getElementById('site-header');
+    /* console.log(
+      'TLC: mounted -> this.siteHeaderSelector',
+      this.siteHeaderSelector
+    ); */
+    this.setInlineStyle();
   },
   beforeUpdate () {
     // console.log('app - beforeUpdate');
@@ -77,7 +97,7 @@ export default {
   },
   destroyed () {
     // console.log('app - destroyed');
-    // window.removeEventListener('resize');
+    window.removeEventListener('resize');
   },
   watch: {
     $route (fr, to) {
@@ -87,15 +107,20 @@ export default {
     }
   },
   methods: {
-    /* resizeHandler (evt) {
+    setInlineStyle () {
+      // this.siteWrapSelector.style.width = this.siteHeaderSelector.offsetHeight;
+      this.siteWrapSelector.style.top =
+        this.siteHeaderSelector.offsetHeight + 'px';
+    },
+    resizeHandler (evt) {
       // this.winHeight = evt.currentTarget.innerHeight;
       if (document.body.clientHeight < evt.currentTarget.innerHeight) {
         this.winHeight = evt.currentTarget.innerHeight;
       }
-    } */
+
+      this.setInlineStyle();
+    }
   }
 };
 </script>
-<style lang="scss">
-@import "@/styles/app";
-</style>
+<style scoped lang="scss" src="@/styles/app.scss"></style>
