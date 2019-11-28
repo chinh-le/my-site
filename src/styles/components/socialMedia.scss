@@ -14,7 +14,7 @@
     height: var(--social-icon-dimension);
     color: transparent;
     padding: 1em 1.5em;
-    border-right: 1px solid $color-border-button-header;
+    // border-right: 1px solid $color-border-button-header;
     background-color: transparent;
     background-repeat: no-repeat;
     background-size: var(--social-icon-dimension) var(--social-icon-dimension);
@@ -35,7 +35,7 @@
   li {
     &:first-child {
       > a {
-        border-left: 1px solid $color-border-button-header;
+        // border-left: 1px solid $color-border-button-header;
       }
     }
   }

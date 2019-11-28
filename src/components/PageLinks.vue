@@ -46,7 +46,8 @@
       &.current {
         color: $color-nav-links-current;
         > i {
-          background-color: $color-nav-links-current;
+          // background-color: $color-nav-links-current;
+          background-color: rgba(179, 106, 18, 0.5em);
         }
       }
       &.link-home {
@@ -79,7 +80,8 @@
         width: 0.3em;
         height: 0.3em;
         border-radius: 0.3em;
-        background-color: $color-nav-links;
+        // background-color: $color-nav-links;
+        background-color: rgba(170, 170, 170, 0.5em);
         font-style: normal;
       }
     }

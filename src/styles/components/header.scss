@@ -28,7 +28,7 @@ header {
 // position: fixed
 
 button {
-  border-left: 1px solid $color-border-button-header;
+  // border-left: 1px solid $color-border-button-header;
   i {
     padding: 0.6em;
   }
@@ -41,7 +41,7 @@ button {
 }
 
 .btn-download {
-  border-left: 1px solid $color-border-button-header;
+  // border-left: 1px solid $color-border-button-header;
   border-radius: 2em;
   &:after {
     content: "cloud download";

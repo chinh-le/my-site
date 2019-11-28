@@ -8,6 +8,14 @@
       <app-personals />
     </div>
     <app-page-links />
+    <!-- <div class="page-links"> -->
+    <!-- <div class="links">
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </div>-->
   </div>
 </template>
 <script>
@@ -18,8 +26,8 @@ import PageLinks from '@/components/PageLinks';
 export default {
   components: {
     appProfessionals: Professionals,
-    appPersonals: Personals,
-    appPageLinks: PageLinks
+    appPageLinks: PageLinks,
+    appPersonals: Personals
   }
 };
 </script>

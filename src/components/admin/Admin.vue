@@ -1,6 +1,5 @@
 <template src="./template.html" />
 <script>
-// import store from '@/store';
 import { auth } from 'firebase';
 import {
   _addCollection,

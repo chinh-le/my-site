@@ -320,23 +320,25 @@
 
 @media screen and (min-width: $breakpoint-lg + 1) {
     .pagelinksElement {
-        display: block!important;
         position: fixed!important;
+        top: 0;
+        right: 0;
         width: 10%;
         height: 100%;
-        top: 40%;
-        right: 0;
-        > ul { 
-            margin-right: 2em;
+        display: flex!important;
+        align-items: center;
+        justify-content: center;
+        > ul {
             > li {
                 > a {
-                    display: inline-block;
-                    padding: 0.6em!important;
+                    display: inline-block!important;
+                    padding: 0!important;
                     &:before {
                         @include screen-reader-ready;
                     }
                     > i {
                         display: block!important;                            
+                        margin: 0.5em;
                     }
                 }
             }
@@ -344,11 +346,11 @@
     }
 
     .home {
-        display: flex!important;
-        flex-direction: row!important;
-        > .content {
+        // display: flex!important;
+        // flex-direction: row!important;
+        /* > .content {
             width: 90%;
-        }
+        } */
         > .page-links {
             @extend .pagelinksElement;
         }
@@ -362,17 +364,27 @@
         flex-direction: row!important;
         > .heading {
             width: 10%;
+            height: 100%;
+            position: fixed!important;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             > h1 {
-                position: absolute;
-                top: 0;
-                left: 0;
-                transform-origin: top left;
+                margin: 0;
+                // color: red;
+                // position: absolute;
+                // top: 0;
+                // left: 0;
+                // transform-origin: center left;
                 transform: rotate(-90deg);
-                margin-top: 100px;
+                // margin-top: 100px;
             }
         }
         > .content {
             width: 80%;
+            margin: 0 auto;
         }
         > .page-links {
             @extend .pagelinksElement;
