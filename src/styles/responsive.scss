@@ -159,8 +159,8 @@
     body {
         --slide-in-width: 40%;
         // --site-header-width: 992px;//$breakpoint-lg;
-        width: $breakpoint-lg;
-        margin: 0 auto;
+        // width: $breakpoint-lg;
+        // margin: 0 auto;
     }
     .site-wrap {
         padding-right: 2em!important;
@@ -239,7 +239,8 @@
 @media screen and (min-width: $breakpoint-xl + 1) {
     body {
         --slide-in-width: 30%;
-        --site-header-width: 1200px;//$breakpoint-xl + 1;
+        --site-header-width: var(--breakpoint-xl);
+        // --site-header-width: $breakpoint-xl;
         // width: $breakpoint-xl;
         // margin: 0 auto;
     }
