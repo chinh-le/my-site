@@ -2,19 +2,19 @@ const professionals = {
   videotron: {
     order: 1,
     label: 'Videotron app',
-    image: 'videotron-mobility.png',
+    image: 'videotron-mobility-640.jpg',
     url: 'https://www.videotron.com/'
   },
   clubillico: {
     order: 2,
     label: 'Club illico app',
-    image: 'clubillico.png',
+    image: 'clubillico-640.jpg',
     url: 'https://clubillico.videotron.com/'
   },
   illicoweb: {
     order: 3,
     label: 'illico TV app',
-    image: 'illicoweb.png',
+    image: 'illicoweb-640.jpg',
     url: 'https://illicoweb.videotron.com/'
   }
 };
@@ -33,7 +33,7 @@ const certificates = {
     order: 1,
     header: 'VueJS2 - The Complete Guide',
     url: 'https://udemy.com/course/vuejs-2-the-complete-guide/',
-    image: 'UC-KKDCJ1EE.jpg',
+    image: 'UC-KKDCJ1EE-640.jpg',
     alt: 'VueJS 2 certificate',
     location: 'Udemy.com'
   },
@@ -41,7 +41,7 @@ const certificates = {
     order: 2,
     header: 'Reacte 16 - The Complete Guide',
     url: 'https://udemy.com/course/react-the-complete-guide-incl-redux/',
-    image: 'UC-AV9URVXK.jpg',
+    image: 'UC-AV9URVXK-640.jpg',
     alt: 'Reacte 16 certificate',
     location: 'Udemy.com'
   },
@@ -49,7 +49,7 @@ const certificates = {
     order: 3,
     header: 'Angular - The Complete Guide',
     url: 'https://udemy.com/course/the-complete-guide-to-angular-2/',
-    image: 'UC-RFUPPOFP.jpg',
+    image: 'UC-RFUPPOFP-640.jpg',
     alt: 'Angular certificate',
     location: 'Udemy.com'
   },
@@ -57,7 +57,7 @@ const certificates = {
     order: 4,
     header: 'Bootstrap 4 - Bootcamp',
     url: 'https://udemy.com/course/bootstrap-4-bootcamp/',
-    image: 'UC-SCGX1MCT.jpg',
+    image: 'UC-SCGX1MCT-640.jpg',
     alt: 'Bootcamp 4 certificate',
     location: 'Udemy.com'
   },

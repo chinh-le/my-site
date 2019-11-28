@@ -78,7 +78,7 @@
         }
     }
     .works {
-        .container {
+        .content {
             ul {
                 display: flex;
                 flex-direction: row;
@@ -91,14 +91,15 @@
         }
     }
     .education {
-        .certificates,
-        .scholarships {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            > li {
-                width: 45%;
+        .content {
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                > li {
+                    width: 45%;
+                }
             }
         }
     }
@@ -180,7 +181,7 @@
             }
         }
         > .works {
-            .container {
+            .content {
                 ul {
                     display: flex;
                     flex-direction: row;
@@ -193,14 +194,15 @@
             }
         }
         > .education {
-            .certificates,
-            .scholarships {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                flex-wrap: wrap;
-                > li {
-                    width: 45%;
+            .content {
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    > li {
+                        width: 45%;
+                    }
                 }
             }
         }
@@ -261,7 +263,7 @@
         }
     }
     .works {
-        .container {
+        .content {
             ul {
                 display: flex;
                 flex-direction: row;
@@ -274,14 +276,15 @@
         }
     }
     .education {
-        .certificates,
-        .scholarships {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            > li {
-                width: 29%;
+        .content {
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                > li {
+                    width: 29%;
+                }
             }
         }
     }
