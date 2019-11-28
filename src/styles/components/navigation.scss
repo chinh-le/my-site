@@ -1,15 +1,5 @@
 .navigation {
-  z-index: $z-index-overlay;
-  display: flex;
-  flex-direction: column;
-  // padding: $padd-container;
-  position: absolute;
-  top: 0;
-  right: 0;
-  // width: $slide-in-width;
-  width: var(--slide-in-width);
-  height: $slide-in-height;
-  background-color: $color-bg-slide-in-panel;
+  @include slide-in-panel;
 }
 
 .page-links {
@@ -20,21 +10,7 @@
   padding: 2em 0.5em;
 }
 
-.btn-close {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  // padding: 0.8em 0;
-  // margin-bottom: 1em;
-  &:after {
-    content: "close navigation";
-    @include screen-reader-ready;
-  }
-  > i {
-      color: $color-slide-in-button-close;
-      padding: 0.6em;
-  }
-}
+@include btn-close-x("close navigation");
 
 @include slide-helper;
 

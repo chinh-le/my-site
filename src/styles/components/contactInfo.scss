@@ -1,30 +1,7 @@
-.visible {
-  @include visible;
-}
-
-.form-input {
-  background-color: $color-bg-form-input;
-  padding: 0 1.5em;
-}
-
-.form-error {
-  font-size: 0.7em;
-  opacity: 0.8;
-  position: relative;
-  top: -3em;
-  left: 2em;
-  visibility: hidden;
-  color: $color-txt-form-error;
-}
+@include form;
 
 form {
-  li {
-    margin-bottom: 0.5em;
-  }
-  label {
-    @include screen-reader-ready;
-  }
-  @include form-button-submit;
+    margin-bottom: 2em;
 }
 
 .footnote {

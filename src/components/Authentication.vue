@@ -6,7 +6,7 @@
         <button type="button" @click="closeSignin()" class="btn-close" title="close sign in">
           <i class="material-icons md-light">close</i>
         </button>
-        <form novalidate @submit.prevent="onSubmit($event)">
+        <form novalidate @submit.prevent="onSubmit($event)" autocomplete="on">
           <ul>
             <li>
               <div class="form-input">
@@ -16,14 +16,21 @@
                   v-model="user.email"
                   type="email"
                   autocomplete="username"
-                  @input="$v.user.email.$touch()"
+                  @blur="$v.user.email.$touch()"
                   placeholder="email*"
                 />
               </div>
               <span
                 class="form-error"
-                :class="{visible: !$v.user.email.isDefault && $v.user.email.$dirty}"
-              >Please use the provided</span>
+                :class="{visible: $v.user.email.$dirty && (!$v.user.email.required ||!$v.user.email.isDefault)}"
+              >please use the provided email</span>
+              <!-- <span
+                class="form-error"
+                :class="{visible: $v.user.email.$dirty && (!$v.user.email.isDefault || !$v.user.email.validAddress)}"
+              >
+                <span v-if="!$v.user.email.isDefault">please use the provided email</span>
+                <span v-else-if="!$v.user.email.validAddress">invalid</span>
+              </span>-->
             </li>
             <li>
               <div class="form-input">
@@ -33,14 +40,14 @@
                   v-model="user.password"
                   type="password"
                   :autocomplete="isSigningUp ? 'new-password' : 'current-password'"
-                  @input="$v.user.password.$touch()"
+                  @blur="$v.user.password.$touch()"
                   placeholder="password*"
                 />
               </div>
               <span
                 class="form-error"
-                :class="{visible: !$v.user.password.isDefault && $v.user.password.$dirty}"
-              >Please use the provided</span>
+                :class="{visible: $v.user.password.$dirty && !$v.user.password.isDefault}"
+              >please use the provided password</span>
             </li>
             <li v-show="signingOption">
               <input id="isSignup" v-model="isSigningUp" type="checkbox" />
@@ -60,6 +67,10 @@
             title="submit form"
           >{{ isSigningUp ? 'Sign Up' : 'Sign In' }}</button>
         </form>
+        <p
+          class="error-request"
+          v-if="isErrorRequest"
+        >Oops! There's something wrong with our server. Please try again later.</p>
         <app-svg-spinner v-show="isLoading" />
       </div>
     </transition>
@@ -77,6 +88,7 @@ import { signup, login } from '@/firebase';
 import { recaptchaElement } from '@/recaptcha';
 import { eventBus } from '@/eventBus';
 import { scrollTo } from '@/helpers';
+// import { scrollTo, emailRegex } from '@/helpers';
 import SvgSpinner from './SvgSpinner';
 
 export default {
@@ -84,7 +96,7 @@ export default {
     appSvgSpinner: SvgSpinner
   },
   created () {
-    // // console.log('TLC: Authentication - created -> created');
+    // // // console.log('TLC: Authentication - created -> created');
     eventBus.$on('evtBusOpenAuth', () => {
       scrollTo({
         x: 0,
@@ -97,11 +109,11 @@ export default {
     });
   },
   beforeDestroy () {
-    // // console.log('TLC: Authentication - beforeDestroy -> beforeDestroy');
+    // // // console.log('TLC: Authentication - beforeDestroy -> beforeDestroy');
     clearAllBodyScrollLocks();
   },
   destroyed () {
-    // // console.log('TLC: Authentication - destroyed -> destroyed');
+    // // // console.log('TLC: Authentication - destroyed -> destroyed');
   },
   props: {
     show: {
@@ -112,14 +124,15 @@ export default {
     }
   },
   beforeMount () {
-    // // console.log('TLC: Authentication - beforeMount -> beforeMount');
+    // // // console.log('TLC: Authentication - beforeMount -> beforeMount');
   },
   mounted () {
-    // // console.log('TLC: Authentication - mounted -> mounted');
+    // // // console.log('TLC: Authentication - mounted -> mounted');
     this.elemPersistLockScroll = document.querySelector('#site-auth');
   },
   data () {
     return {
+      isErrorRequest: false,
       isLoading: false,
       elemPersistLockScroll: null,
       isShow: false,
@@ -136,6 +149,9 @@ export default {
     user: {
       email: {
         required,
+        /* validAddress (email) {
+          return emailRegex.test(email);
+        }, */
         isDefault (email) {
           return email === config.appDefaultEmail;
         }
@@ -160,15 +176,16 @@ export default {
         email: this.user.email,
         password: this.user.password
       };
-      // console.log('payload: ', payload);
+      // // console.log('TLC: onSubmit -> payload', payload);
 
       this.isLoading = true;
+      this.isErrorRequest = false;
 
       recaptchaElement(this.recaptchaAction).then(res => {
         if (res.data.success && res.data.action === this.recaptchaAction) {
           if (this.isSigningUp) {
             signup(payload).then(res => {
-              // console.log('res: ', res);
+              // console.log('TLC: onSubmit -> res', res);
               if (res.user) {
                 this.closeSignin();
                 this.isLoading = false;
@@ -178,16 +195,19 @@ export default {
                   // console.error(err);
                 }) */
           } else {
-            login(payload).then(res => {
-              // console.log('res: ', res);
-              if (res.user) {
-                this.closeSignin();
+            login(payload)
+              .then(res => {
+                // console.log('TLC: onSubmit -> res', res);
+                if (res.user) {
+                  this.closeSignin();
+                  this.isLoading = false;
+                }
+              })
+              .catch(err => {
+                console.error(err);
+                this.isErrorRequest = true;
                 this.isLoading = false;
-              }
-            });
-            /* .catch(err => {
-                  // console.error(err);
-                }) */
+              });
           }
         } else {
           // console.error('SPAM!!!');
