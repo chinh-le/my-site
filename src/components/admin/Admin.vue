@@ -1,6 +1,7 @@
 <template src="./template.html" />
 <script>
-import store from '@/store';
+// import store from '@/store';
+import { auth } from 'firebase';
 import {
   _addCollection,
   _getCollection,
@@ -12,13 +13,21 @@ import {
 import * as mocks from '../../../mocks/data.js';
 
 export default {
+  // guard route
   beforeRouteEnter (to, from, next) {
-    console.log('TLC: beforeRouteEnter -> store.getters.isAuthenticated', store.getters.isAuthenticated);
-    if (store.getters.isAuthenticated) {
-      next();
-    } else {
-      next({ name: 'home' });
-    }
+    auth().onAuthStateChanged(user => {
+      // console.log('TLC: beforeRouteEnter -> user', user);
+      if (user) {
+        auth().currentUser.getIdTokenResult()
+          .then(res => {
+            // console.log('TLC: beforeRouteEnter -> LOGGED');
+            next();
+          });
+      } else {
+        // console.log('TLC: beforeRouteEnter -> NOT LOGGED!!!');
+        next({ name: 'home' });
+      }
+    });
   },
   methods: {
     addCollection (type) {
@@ -42,10 +51,10 @@ export default {
     getCollection (collection) {
       _getCollection(collection)
         .then(snapshots => {
-          // console.log('TLC: getCollection -> snapshots', snapshots);
+          // // console.log('TLC: getCollection -> snapshots', snapshots);
           if (!snapshots.empty) {
             snapshots.forEach(element => {
-              // console.log('TLC: getCollection -> element', element);
+              // // console.log('TLC: getCollection -> element', element);
             });
           } else {
             console.error('FAILED');
@@ -57,10 +66,10 @@ export default {
     },
     getSkills () {
       _getSkills().then(snapshots => {
-        // console.log('TLC: getSkills -> snapshots', snapshots);
+        // // console.log('TLC: getSkills -> snapshots', snapshots);
         if (!snapshots.empty) {
           snapshots.forEach(element => {
-            // console.log('TLC: getSkills -> element', element);
+            // // console.log('TLC: getSkills -> element', element);
           });
         } else {
           console.error('FAILED');
@@ -72,9 +81,9 @@ export default {
     },
     getRatings () {
       _getRatings().then(snapshots => {
-        // console.log('TLC: getRatings -> snapshots', snapshots);
+        // // console.log('TLC: getRatings -> snapshots', snapshots);
         if (snapshots.exists) {
-          // console.log('TLC: getRatings -> snapshots.data()', snapshots.data());
+          // // console.log('TLC: getRatings -> snapshots.data()', snapshots.data());
         } else {
           console.error('FAILED');
         }
