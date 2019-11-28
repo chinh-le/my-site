@@ -6,6 +6,7 @@ header {
   top: 0;
   width: 100%;
   padding: 0;
+  background-color: $color-bg-header;
 }
 .site-header {
   /* z-index: $z-index-nav;
@@ -15,7 +16,7 @@ header {
   width: var(--site-header-width);
   margin: 0 auto;
   // padding: 0;
-  background-color: $color-bg-header;
+  // background-color: $color-bg-header;
   display: flex;
   flex-direction: row;
   align-items: center;
