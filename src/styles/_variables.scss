@@ -31,11 +31,14 @@ $line-height-body: 1.6em;
 $padd-container: 1em;
 
 $color-bg-body: #222;
-$color-bg-header: #1a1a1a;
+// $color-bg-header: #1a1a1a;
+// $color-bg-header: rgba(255, 255, 255, 0.05);
+$color-bg-header: rgba(0, 0, 0, 0.15);
 $color-bg-overlay: rgba(0, 0, 0, 0.5);
 
 $color-txt: #999;
-$color-txt-heading1: #555;
+// $color-txt-heading1: #555;
+$color-txt-heading1: #999;
 $color-txt-heading2: #fff;
 $color-txt-heading3: #fff;
 $color-txt-heading4: #999;
@@ -46,8 +49,8 @@ $color-logo: #aaa;
 $color-icon-auth: #aaa;
 $color-icon-nav: #aaa;
 $color-icon-download: #aaa;
-$color-nav-links: #aaa;
-$color-nav-links-current: #b36a12;
+$color-nav-links: #aaa; // 170, 170, 170
+$color-nav-links-current: #b36a12; // 179, 106, 18
 
 $color-focus: #b36a12;
 $color-unfocus: #777;

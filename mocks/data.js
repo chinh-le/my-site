@@ -2,19 +2,19 @@ const professionals = {
   videotron: {
     order: 1,
     label: 'Videotron app',
-    image: 'videotron-mobility-640.jpg',
+    image: 'videotron-mobility-640-en.jpg',
     url: 'https://www.videotron.com/'
   },
   clubillico: {
     order: 2,
     label: 'Club illico app',
-    image: 'clubillico-640.jpg',
+    image: 'clubillico-640-en.jpg',
     url: 'https://clubillico.videotron.com/'
   },
   illicoweb: {
     order: 3,
     label: 'illico TV app',
-    image: 'illicoweb-640.jpg',
+    image: 'illicoweb-640-en.jpg',
     url: 'https://illicoweb.videotron.com/'
   }
 };

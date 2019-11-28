@@ -7,7 +7,7 @@
       </h2>
       <p class="line color-focus">___</p>
     </div>
-    <button @click="authenticate">Authenticate</button>
+    <!-- <button @click="authenticate">Authenticate</button> -->
     <app-page-links />
   </div>
 </template>
