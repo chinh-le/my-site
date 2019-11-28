@@ -1,5 +1,6 @@
 <template src="./template.html" />
 <script>
+import store from '@/store';
 import {
   _addCollection,
   _getCollection,
@@ -11,6 +12,14 @@ import {
 import * as mocks from '../../../mocks/data.js';
 
 export default {
+  beforeRouteEnter (to, from, next) {
+    console.log('TLC: beforeRouteEnter -> store.getters.isAuthenticated', store.getters.isAuthenticated);
+    if (store.getters.isAuthenticated) {
+      next();
+    } else {
+      next({ name: 'home' });
+    }
+  },
   methods: {
     addCollection (type) {
       _addCollection(
