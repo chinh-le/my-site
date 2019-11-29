@@ -8,8 +8,9 @@ align-content: center;
   a {
     display: inline-flex;
     > img {
-    width: var(--social-icon-dimension);
-    padding: 1.3em;
+      width: var(--social-icon-dimension);
+      height: var(--social-icon-dimension);
+      padding: 1.3em;
       }
     &.linkedin {
       &:after {

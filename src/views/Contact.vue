@@ -7,12 +7,12 @@
       <h3>Get in touch</h3>
       <app-contact-info></app-contact-info>
     </div>
-    <app-page-links />
+    <!-- <app-page-links /> -->
   </div>
 </template>
 <script>
 import ContactInfo from '@/components/ContactInfo';
-import PageLinks from '@/components/PageLinks';
+// import PageLinks from '@/components/PageLinks';
 
 export default {
   mounted () {
@@ -22,8 +22,8 @@ export default {
     });
   },
   components: {
-    appContactInfo: ContactInfo,
-    appPageLinks: PageLinks
+    appContactInfo: ContactInfo
+    // appPageLinks: PageLinks
   }
 };
 </script>
