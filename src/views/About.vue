@@ -14,17 +14,17 @@
       </div>
       <app-skills></app-skills>
     </div>
-    <app-page-links />
+    <!-- <app-page-links /> -->
   </div>
 </template>
 <script>
 import Skills from '@/components/Skills';
-import PageLinks from '@/components/PageLinks';
+// import PageLinks from '@/components/PageLinks';
 
 export default {
   components: {
-    appSkills: Skills,
-    appPageLinks: PageLinks
+    appSkills: Skills
+    // appPageLinks: PageLinks
   }
 };
 </script>

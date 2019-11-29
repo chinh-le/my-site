@@ -1,19 +1,19 @@
 const professionals = {
   videotron: {
     order: 1,
-    label: 'Videotron app',
+    label: 'videotron',
     image: 'videotron-mobility-640-en.jpg',
     url: 'https://www.videotron.com/'
   },
   clubillico: {
     order: 2,
-    label: 'Club illico app',
+    label: 'clubillico',
     image: 'clubillico-640-en.jpg',
     url: 'https://clubillico.videotron.com/'
   },
   illicoweb: {
     order: 3,
-    label: 'illico TV app',
+    label: 'illicoweb',
     image: 'illicoweb-640-en.jpg',
     url: 'https://illicoweb.videotron.com/'
   }
@@ -156,11 +156,33 @@ const ratings = {
   5: 'expert'
 };
 
+const socialMedia = {
+  linked: {
+    order: 1,
+    label: 'linkedin',
+    image: 'linkedin-logo-lightgray.png',
+    url: 'https://www.linkedin.com/in/chinh11/'
+  },
+  github: {
+    order: 2,
+    label: 'github',
+    image: 'github-logo-lightgray.png',
+    url: 'https://github.com/chinh-le/'
+  },
+  instagram: {
+    order: 3,
+    label: 'instagram',
+    image: 'instagram-logo-lightgray.png',
+    url: 'https://www.instagram.com/niusaul/'
+  }
+};
+
 export {
   professionals,
   personals,
   scholarships,
   certificates,
   skills,
-  ratings
+  ratings,
+  socialMedia
 };

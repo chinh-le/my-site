@@ -42,6 +42,8 @@ export default {
               return mocks.certificates;
             case 'scholarships':
               return mocks.scholarships;
+            case 'socialMedia':
+              return mocks.socialMedia;
             default:
           }
         })()
@@ -50,10 +52,10 @@ export default {
     getCollection (collection) {
       _getCollection(collection)
         .then(snapshots => {
-          // // console.log('TLC: getCollection -> snapshots', snapshots);
+          // console.log('TLC: getCollection -> snapshots', snapshots);
           if (!snapshots.empty) {
             snapshots.forEach(element => {
-              // // console.log('TLC: getCollection -> element', element);
+              // console.log('TLC: getCollection -> element', element);
             });
           } else {
             console.error('FAILED');
@@ -65,10 +67,10 @@ export default {
     },
     getSkills () {
       _getSkills().then(snapshots => {
-        // // console.log('TLC: getSkills -> snapshots', snapshots);
+        // console.log('TLC: getSkills -> snapshots', snapshots);
         if (!snapshots.empty) {
           snapshots.forEach(element => {
-            // // console.log('TLC: getSkills -> element', element);
+            // console.log('TLC: getSkills -> element', element);
           });
         } else {
           console.error('FAILED');
@@ -80,9 +82,9 @@ export default {
     },
     getRatings () {
       _getRatings().then(snapshots => {
-        // // console.log('TLC: getRatings -> snapshots', snapshots);
+        // console.log('TLC: getRatings -> snapshots', snapshots);
         if (snapshots.exists) {
-          // // console.log('TLC: getRatings -> snapshots.data()', snapshots.data());
+          // console.log('TLC: getRatings -> snapshots.data()', snapshots.data());
         } else {
           console.error('FAILED');
         }

@@ -37,5 +37,6 @@ export {
   _addSkills,
   _getSkills,
   _addRatings,
-  _getRatings
+  _getRatings,
+  _getImgContextPath
 } from './db-cloud-firestore';

@@ -2,10 +2,10 @@
   <div class="scholarships">
     <h3>Scholarships</h3>
     <ul class>
-      <li v-for="scholarship in scholarships" :key="scholarship.header">
+      <li v-for="(scholarship, index) in scholarships" :key="index">
         <h4>{{scholarship.header}}</h4>
         <p>
-          <a :href="scholarship.url" :title="scholarship.url">@{{scholarship.location}}</a>
+          <a :href="scholarship.url" :title="scholarship.alt">@{{scholarship.location}}</a>
         </p>
         <img :src="scholarship.image" :alt="scholarship.alt" />
       </li>
@@ -13,7 +13,7 @@
   </div>
 </template>
 <script>
-import { _getCollection } from '@/firebase';
+import { _getCollection, _getImgContextPath } from '@/firebase';
 export default {
   data () {
     return {
@@ -29,7 +29,8 @@ export default {
           let elemData = element.data();
           // console.log('TLC: created -> elemData', elemData);
           if (elemData.image) {
-            elemData.image = this.getImgContextPath(elemData.image);
+            // elemData.image = this.getImgContextPath(elemData.image);
+            elemData.image = _getImgContextPath(`education/${elemData.image}`);
           }
 
           this.scholarships.push(elemData);
@@ -38,13 +39,6 @@ export default {
         console.error('list empty!!!');
       }
     });
-  },
-  methods: {
-    getImgContextPath (imgName) {
-      const imgPath = require('@/assets/education/' + imgName);
-
-      return imgPath || null;
-    }
   }
 };
 </script>

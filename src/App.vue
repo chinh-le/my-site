@@ -4,11 +4,15 @@
     <img src="@/assets/shutterstock-education.jpg" alt class="body-img-bg" />
     <app-header />
     <main class="site-wrap" :style="{height: winHeight + 'px'}" id="site-wrap">
-      <router-view />
+      <transition name="fading" mode="out-in">
+        <!-- <transition name="animating" mode="out-in"> -->
+        <router-view />
+      </transition>
     </main>
     <app-footer />
     <app-navigation />
     <app-authentication />
+    <app-page-links />
   </div>
 </template>
 <script>
@@ -19,13 +23,15 @@ import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
 import Navigation from './components/Navigation';
 import Authentication from './components/Authentication';
+import PageLinks from './components/PageLinks';
 
 export default {
   components: {
     appHeader: Header,
     appFooter: Footer,
     appNavigation: Navigation,
-    appAuthentication: Authentication
+    appAuthentication: Authentication,
+    appPageLinks: PageLinks
   },
   data () {
     return {

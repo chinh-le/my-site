@@ -8,7 +8,7 @@
 @media screen and (min-width: $breakpoint-sm + 1) {
     .site-header {
         .social-media {
-            display: block!important;
+            display: flex!important;
         }
     }
     .site-nav {
@@ -133,12 +133,31 @@
     }
 }
 
-@media screen and (min-width: $breakpoint-md + 1) {
-    body {
-        --site-header-height: 5em;
-    }
+@media screen and (max-width: $breakpoint-md) {
     .site-header {
+        @include anim(height, ease-out);
         .logo > a {
+            @include anim(font-size, ease-out);
+        }
+        .btn-nav,
+        .btn-login,
+        .btn-logout,
+        .btn-download {
+            > i {
+                @include anim(font-size, ease-out);
+            }
+        }
+        .social-media a > img {
+            @include anim(width, ease-out);
+        }
+    }
+}
+@media screen and (min-width: $breakpoint-md + 1) {
+    .site-header {
+        @include anim(height, ease-in);
+        --site-header-height: var(--site-header-height-md);
+        .logo > a {
+            @include anim(font-size, ease-in);
             font-size: 1.7em;
         }
         .btn-nav,
@@ -146,11 +165,13 @@
         .btn-logout,
         .btn-download {
             > i {
+                @include anim(font-size, ease-in);
                 font-size: 2em;
             }
         }
-        .social-media a {
-            --social-icon-dimension: 2em;
+        .social-media a > img {
+            @include anim(width, ease-in);
+            --social-icon-dimension: var(--social-icon-dimension-md);
         }
     }
 }
@@ -345,15 +366,44 @@
         }
     }
 
+    #app {
+        > .page-links {
+            // @extend .pagelinksElement;
+            position: fixed!important;
+            top: 0;
+            right: 0;
+            width: 10%;
+            height: 100%;
+            display: flex!important;
+            align-items: center;
+            justify-content: center;
+            > ul {
+                > li {
+                    > a {
+                        display: inline-block!important;
+                        padding: 0!important;
+                        &:before {
+                            @include screen-reader-ready;
+                        }
+                        > i {
+                            display: block!important;                            
+                            margin: 0.5em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     .home {
         // display: flex!important;
         // flex-direction: row!important;
         /* > .content {
             width: 90%;
         } */
-        > .page-links {
+        /* > .page-links {
             @extend .pagelinksElement;
-        }
+        } */
     }
     
     .about,
@@ -386,8 +436,8 @@
             width: 80%;
             margin: 0 auto;
         }
-        > .page-links {
+        /* > .page-links {
             @extend .pagelinksElement;
-        }
+        } */
     }
 }

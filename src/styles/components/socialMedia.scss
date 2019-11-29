@@ -1,32 +1,33 @@
 .social-media {
-  display: none;
+display: flex;
+flex-direction: row;
+align-content: center;
   li {
-    display: inline-block;
-    /* &:first-child {
-      > a {
-        border-left: 1px solid $color-border-button-header;
-      }
-    } */
+    line-height: 1em;
   }
   a {
-    display: inline-block;
+    display: inline-flex;
+    > img {
     width: var(--social-icon-dimension);
-    height: var(--social-icon-dimension);
-    color: transparent;
-    padding: 1em 1.5em;
-    // border-right: 1px solid $color-border-button-header;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-size: var(--social-icon-dimension) var(--social-icon-dimension);
-    background-position: center center;
+    padding: 1.3em;
+      }
     &.linkedin {
-      background-image: url("../assets/socialMedia/linkedin-logo-lightgray.png");
+      &:after {
+        content: "linkedin";
+      }
     }
     &.github {
-      background-image: url("../assets/socialMedia/github-logo-lightgray.png");
+      &:after {
+        content: "github";
+      }
     }
     &.instagram {
-      background-image: url("../assets/socialMedia/instagram-logo-lightgray.png");
+      &:after {
+        content: "instagram";
+      }
+    }
+    &:after {
+      @include screen-reader-ready;
     }
   }
 }
