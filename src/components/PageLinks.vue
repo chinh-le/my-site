@@ -1,5 +1,5 @@
 <template>
-  <div class="page-links">
+  <nav class="page-links" role="navigation">
     <ul class>
       <li class>
         <router-link to="/" class="link-home" title="Home">
@@ -27,7 +27,7 @@
         </router-link>
       </li>
     </ul>
-  </div>
+  </nav>
 </template>
 <style scoped lang="scss">
 .page-links {

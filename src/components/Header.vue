@@ -18,7 +18,7 @@
           <i class="material-icons">person_outline</i>
         </button>
         <button v-show="authenticated" class="btn-logout" @click="signout()" title="sign out">
-          <i class="material-icons md-light">person</i>
+          <i class="material-icons">person</i>
         </button>
         <button class="btn-nav" @click="openNav()" title="open navigation">
           <i class="material-icons">dehaze</i>
