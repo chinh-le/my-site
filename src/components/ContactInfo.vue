@@ -1,6 +1,12 @@
-\<template>
+<template>
   <div class="contact-info" id="contact-info">
-    <form @submit.prevent="onSubmit()" v-if="!messageSent" novalidate autocomplete="off">
+    <form
+      @submit.prevent="onSubmit()"
+      v-if="!messageSent"
+      novalidate
+      autocomplete="off"
+      role="contact"
+    >
       <ul>
         <li class="name">
           <div class="form-input">
@@ -11,11 +17,15 @@
               type="text"
               placeholder="Name*"
               @blur="$v.user.name.$touch()"
+              aria-label="name"
+              aria-required="true"
             />
           </div>
           <span
             class="form-error"
             :class="{visible: $v.user.name.$dirty && !$v.user.name.required}"
+            role="alert"
+            aria-relevant="all"
           >required</span>
         </li>
         <li class="email">
@@ -27,11 +37,15 @@
               type="email"
               placeholder="Email*"
               @blur="$v.user.email.$touch()"
+              aria-label="email address"
+              aria-required="true"
             />
           </div>
           <span
             class="form-error"
             :class="{visible: $v.user.email.$dirty && (!$v.user.email.validAddress || !$v.user.email.required)}"
+            role="alert"
+            aria-relevant="all"
           >
             <span v-if="!$v.user.email.required">required</span>
             <span v-else-if="!$v.user.email.validAddress">invalid</span>
@@ -41,7 +55,13 @@
         <li>
           <div class="form-input">
             <label for="subject">Subject</label>
-            <input v-model.lazy="user.subject" type="text" placeholder="Subject" id="subject" />
+            <input
+              v-model.lazy="user.subject"
+              type="text"
+              placeholder="Subject"
+              id="subject"
+              aria-label="subject"
+            />
           </div>
           <span class="form-error">required</span>
         </li>
@@ -57,15 +77,21 @@
               placeholder="Message*"
               :maxlength="messageMaxLength + 1"
               @blur="$v.user.message.$touch()"
+              aria-label="message to send"
+              aria-required="true"
             />
           </div>
           <span
             class="form-error"
             :class="{visible: $v.user.message.$dirty && !$v.user.message.required}"
+            role="alert"
+            aria-relevant="all"
           >required</span>
           <span
             class="form-error"
             :class="{visible: !$v.user.message.maxLength}"
+            role="alert"
+            aria-relevant="all"
           >Max length: {{messageMaxLength}}</span>
         </li>
       </ul>

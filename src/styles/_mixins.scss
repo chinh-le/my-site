@@ -178,3 +178,8 @@
 @mixin visible {
   visibility: visible !important;
 }
+@mixin hiddenClass {
+  .hidden {
+    opacity: 0 !important;
+  }
+}

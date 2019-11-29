@@ -1,12 +1,15 @@
 <template>
   <div class="site-auth" id="site-auth">
-    <div class="bg-canvas" v-show="isShow" @click="closeSignin()"></div>
-    <transition name="slide">
+    <transition name="fading" mode="in-out">
+      <div class="bg-canvas" v-show="isShow" @click="closeSignin()"></div>
+    </transition>
+    <!-- <div class="bg-canvas" :class="{hidden: !isShow}" @click="closeSignin()"></div> -->
+    <transition name="slide" mode="in-out">
       <div class="signin" v-show="isShow" id="signin">
         <button type="button" @click="closeSignin()" class="btn-close" title="close sign in">
-          <i class="material-icons md-light">close</i>
+          <i class="material-icons">close</i>
         </button>
-        <form novalidate @submit.prevent="onSubmit($event)" autocomplete="on">
+        <form novalidate @submit.prevent="onSubmit($event)" autocomplete="on" role="authentication">
           <ul>
             <li>
               <div class="form-input">
@@ -18,11 +21,15 @@
                   autocomplete="username"
                   @blur="$v.user.email.$touch()"
                   placeholder="email*"
+                  aria-label="email address"
+                  aria-required="true"
                 />
               </div>
               <span
                 class="form-error"
                 :class="{visible: $v.user.email.$dirty && (!$v.user.email.required ||!$v.user.email.isDefault)}"
+                role="alert"
+                aria-relevant="all"
               >please use the provided email</span>
               <!-- <span
                 class="form-error"
@@ -42,11 +49,15 @@
                   :autocomplete="isSigningUp ? 'new-password' : 'current-password'"
                   @blur="$v.user.password.$touch()"
                   placeholder="password*"
+                  aria-label="password"
+                  aria-required="true"
                 />
               </div>
               <span
                 class="form-error"
                 :class="{visible: $v.user.password.$dirty && !$v.user.password.isDefault}"
+                role="alert"
+                aria-relevant="all"
               >please use the provided password</span>
             </li>
             <li v-show="signingOption">
@@ -65,6 +76,7 @@
             :disabled="$v.$invalid"
             type="submit"
             title="submit form"
+            role="button"
           >{{ isSigningUp ? 'Sign Up' : 'Sign In' }}</button>
         </form>
         <p

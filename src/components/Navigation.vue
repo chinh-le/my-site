@@ -1,10 +1,12 @@
 <template>
-  <nav class="site-nav" id="site-nav">
-    <div class="bg-canvas" v-show="isShow" @click="closeNav()" title="close navigation"></div>
+  <div class="site-nav" id="site-nav">
+    <transition name="fading" mode="in-out">
+      <div class="bg-canvas" v-show="isShow" @click="closeNav()" title="close navigation"></div>
+    </transition>
     <transition name="slide">
       <div class="navigation" v-show="isShow" id="navigation">
         <button type="button" class="btn-close" @click="closeNav()" title="close navigation">
-          <i class="material-icons md-light">close</i>
+          <i class="material-icons">close</i>
         </button>
         <div class="content">
           <app-lang />
@@ -14,7 +16,7 @@
         </div>
       </div>
     </transition>
-  </nav>
+  </div>
 </template>
 <script>
 import {
