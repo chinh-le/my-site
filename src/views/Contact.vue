@@ -15,6 +15,12 @@ import ContactInfo from '@/components/ContactInfo';
 import PageLinks from '@/components/PageLinks';
 
 export default {
+  mounted () {
+    document.querySelector('#site-wrap').scroll({
+      left: 0,
+      top: 0
+    });
+  },
   components: {
     appContactInfo: ContactInfo,
     appPageLinks: PageLinks

@@ -87,7 +87,7 @@ import { required } from 'vuelidate/lib/validators';
 import { signup, login } from '@/firebase';
 import { recaptchaElement } from '@/recaptcha';
 import { eventBus } from '@/eventBus';
-import { scrollTo } from '@/helpers';
+// import { scrollTo } from '@/helpers';
 // import { scrollTo, emailRegex } from '@/helpers';
 import SvgSpinner from './SvgSpinner';
 
@@ -98,10 +98,10 @@ export default {
   created () {
     // // // console.log('TLC: Authentication - created -> created');
     eventBus.$on('evtBusOpenAuth', () => {
-      scrollTo({
+      /* scrollTo({
         x: 0,
         y: 0
-      });
+      }); */
 
       this.isShow = true;
 

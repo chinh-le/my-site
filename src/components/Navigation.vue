@@ -27,7 +27,7 @@ import PageLinks from './PageLinks';
 import SocialMedia from './SocialMedia.vue';
 import Copyright from './Copyright';
 import { eventBus } from '@/eventBus';
-import { scrollTo } from '@/helpers';
+// import { scrollTo } from '@/helpers';
 
 export default {
   watch: {
@@ -58,10 +58,10 @@ export default {
     // console.log('TLC: Navigation - created -> created');
 
     eventBus.$on('evtBusOpenNav', () => {
-      scrollTo({
+      /* scrollTo({
         x: 0,
         y: 0
-      });
+      }); */
 
       this.isShow = true;
 

@@ -1,4 +1,4 @@
-<template>
+\<template>
   <div class="contact-info" id="contact-info">
     <form @submit.prevent="onSubmit()" v-if="!messageSent" novalidate autocomplete="off">
       <ul>
@@ -99,7 +99,8 @@ import {
 import { required, maxLength } from 'vuelidate/lib/validators';
 import { writeUserData } from '@/firebase';
 import { recaptchaElement } from '@/recaptcha';
-import { scrollTo, emailRegex } from '@/helpers';
+// import { scrollTo, emailRegex } from '@/helpers';
+import { emailRegex } from '@/helpers';
 import SvgSpinner from '@/components/SvgSpinner';
 import { htmlEscaping } from '@/xss';
 
@@ -152,10 +153,10 @@ export default {
   },
   methods: {
     onSubmit () {
-      scrollTo({
+      /* scrollTo({
         x: 0,
         y: 0
-      });
+      }); */
 
       this.isLoading = true;
       this.isErrorRequest = false;

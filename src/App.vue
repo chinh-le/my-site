@@ -19,6 +19,7 @@
 // @ is an alias to /src
 import { clearAllBodyScrollLocks } from 'body-scroll-lock';
 import { init, onStateChange } from '@/firebase';
+// import { scrollTo } from '@/helpers';
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
 import Navigation from './components/Navigation';
@@ -26,6 +27,16 @@ import Authentication from './components/Authentication';
 import PageLinks from './components/PageLinks';
 
 export default {
+  /* beforeRouteEnter (to, from, next) {
+    next(
+      (() => {
+        scrollTo({
+          x: 0,
+          y: 0
+        });
+      })()
+    );
+  }, */
   components: {
     appHeader: Header,
     appFooter: Footer,
@@ -57,7 +68,7 @@ export default {
     onStateChange(); // authentication state observer
   },
   created () {
-    // console.log('app - created');
+    // console.log('TLC: App created -> created');
     // console.dir(window);
     // console.dir(document.body.clientHeight);
 
@@ -77,19 +88,19 @@ export default {
     // console.dir(window);
     // console.dir(document.body.clientHeight);
 
-    /* console.log(
-      'TLC: created -> document.querySelector("#site-header") ',
-      document.querySelector('#site-header').offsetHeight
-    ); */
+    // /* console.log(
+    // 'TLC: created -> document.querySelector("#site-header") ',
+    // document.querySelector('#site-header').offsetHeight
+    // ); */
     this.siteWrapSelector = document.querySelector('#site-wrap');
     // this.siteWrapSelector = document.getElementById('site-wrap');
-    // console.log('TLC: mounted -> this.siteWrapSelector', this.siteWrapSelector);
+    // // console.log('TLC: mounted -> this.siteWrapSelector', this.siteWrapSelector);
     this.siteHeaderSelector = document.querySelector('#site-header');
     // this.siteHeaderSelector = document.getElementById('site-header');
-    /* console.log(
-      'TLC: mounted -> this.siteHeaderSelector',
-      this.siteHeaderSelector
-    ); */
+    // /* console.log(
+    // 'TLC: mounted -> this.siteHeaderSelector',
+    // this.siteHeaderSelector
+    // ); */
     this.setInlineStyle();
   },
   beforeUpdate () {
@@ -107,8 +118,8 @@ export default {
   },
   watch: {
     $route (fr, to) {
-      // console.log('TLC: App - watch $route -> fr', fr);
-      // console.log('TLC: App - watch $route -> to', to);
+      // // console.log('TLC: App - watch $route -> fr', fr);
+      // // console.log('TLC: App - watch $route -> to', to);
       clearAllBodyScrollLocks();
     }
   },
