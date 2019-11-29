@@ -1,4 +1,5 @@
 <template>
+  <!-- <transition name="fading" mode="in-out"> -->
   <header>
     <div class="site-header" id="site-header">
       <app-logo />
@@ -23,13 +24,14 @@
           <i class="material-icons">dehaze</i>
         </button>
         <!-- <button class="btn-nav-open" @click="openNav()">
-          <i />
-          <i />
-          <i />
+            <i />
+            <i />
+            <i />
         </button>-->
       </div>
     </div>
   </header>
+  <!-- </transition> -->
 </template>
 <script>
 import { logout } from '@/firebase';

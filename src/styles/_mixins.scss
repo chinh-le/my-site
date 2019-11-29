@@ -1,3 +1,7 @@
+@mixin anim($prop, $effect: linear, $duration: 1s) {
+  transition: $prop $duration $effect;
+}
+
 @mixin error-request {
   color: $color-txt-error-request;
   padding: 2em;
@@ -137,6 +141,27 @@
     to {
       transform: translateX($slide-in-width);
     }
+  }
+}
+
+@mixin fading-helper {
+  .fading-enter {
+    opacity: 0;
+  }
+  .fading-enter-to {
+    opacity: 1;
+  }
+  .fading-enter-active {
+    transition: opacity 0.3s ease-in;
+  }
+  .fading-leave {
+    opacity: 1;
+  }
+  .fading-leave-active {
+    transition: opacity 0.8s ease-out;
+  }
+  .fading-leave-to {
+    opacity: 0;
   }
 }
 

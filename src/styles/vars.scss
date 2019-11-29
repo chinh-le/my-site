@@ -1,7 +1,9 @@
 :root {
     --site-header-width: 100%;
-    --site-header-height: 4em;
-    --social-icon-dimension: 1.5em;
+    --site-header-height: 3.5em; // 56px
+    --site-header-height-md: 4.5em; // 72px
+    --social-icon-dimension: 1.1em;
+    --social-icon-dimension-md: 1.5em;
     --slide-in-width: 100%;
     --breakpoint-xl: 1200px;
 }

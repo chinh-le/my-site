@@ -1,6 +1,5 @@
-// position: fixed
 header {
-  z-index: $z-index-nav;
+  z-index: $z-index-header;//6
   position: fixed;
   left: 0;
   top: 0;
@@ -8,15 +7,11 @@ header {
   padding: 0;
   background-color: $color-bg-header;
 }
+
 .site-header {
-  /* z-index: $z-index-nav;
-  position: fixed;
-  left: 0;
-  top: 0; */
   width: var(--site-header-width);
+  height: var(--site-header-height);
   margin: 0 auto;
-  // padding: 0;
-  // background-color: $color-bg-header;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -25,7 +20,6 @@ header {
       display: none;
   }
 }
-// position: fixed
 
 button {
   // border-left: 1px solid $color-border-button-header;
@@ -82,3 +76,16 @@ button {
     color: $color-icon-nav;
   }
 }
+
+// @include fading-helper;
+/* .sliding-enter-active {
+  animation: slideIn .2s ease-in;
+}
+@keyframes slideIn {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(70px);
+  }
+} */

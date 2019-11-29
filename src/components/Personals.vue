@@ -2,9 +2,9 @@
   <div v-if="personals" class="personals">
     <h3 id="personal">Personal</h3>
     <ul class>
-      <li v-for="(personal, key, index) in personals" :key="index">
-        <a :href="personal.url" :class="key" :title="personal.label">
-          <img v-if="personal.image" :src="getImgContextPath(personal.image)" :alt="personal.label" />
+      <li v-for="(personal, index) in personals" :key="index">
+        <a :href="personal.url" :class="personal.label" :title="personal.label">
+          <img v-if="personal.image" :src="personal.image" :alt="personal.label" />
           <span v-else class="overlay"></span>
         </a>
       </li>
@@ -12,7 +12,7 @@
   </div>
 </template>
 <script>
-import { _getCollection } from '@/firebase';
+import { _getCollection, _getImgContextPath } from '@/firebase';
 export default {
   data () {
     return {
@@ -24,19 +24,16 @@ export default {
       // console.log('TLC: created -> querySnapshot', querySnapshot);
       if (!querySnapshot.empty) {
         querySnapshot.forEach(element => {
-          this.personals.push(element.data());
+          let elemData = element.data();
+          if (elemData.image) {
+            elemData.image = _getImgContextPath(`works/${elemData.image}`);
+          }
+          this.personals.push(elemData);
         });
       } else {
         console.error('list empty!!!');
       }
     });
-  },
-  methods: {
-    getImgContextPath (imgName) {
-      const imgPath = require('@/assets/works/' + imgName);
-
-      return imgPath || null;
-    }
   }
 };
 </script>

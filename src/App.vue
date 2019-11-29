@@ -4,28 +4,45 @@
     <img src="@/assets/shutterstock-education.jpg" alt class="body-img-bg" />
     <app-header />
     <main class="site-wrap" :style="{height: winHeight + 'px'}" id="site-wrap">
-      <router-view />
+      <transition name="fading" mode="out-in">
+        <!-- <transition name="animating" mode="out-in"> -->
+        <router-view />
+      </transition>
     </main>
     <app-footer />
     <app-navigation />
     <app-authentication />
+    <app-page-links />
   </div>
 </template>
 <script>
 // @ is an alias to /src
 import { clearAllBodyScrollLocks } from 'body-scroll-lock';
 import { init, onStateChange } from '@/firebase';
+// import { scrollTo } from '@/helpers';
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
 import Navigation from './components/Navigation';
 import Authentication from './components/Authentication';
+import PageLinks from './components/PageLinks';
 
 export default {
+  /* beforeRouteEnter (to, from, next) {
+    next(
+      (() => {
+        scrollTo({
+          x: 0,
+          y: 0
+        });
+      })()
+    );
+  }, */
   components: {
     appHeader: Header,
     appFooter: Footer,
     appNavigation: Navigation,
-    appAuthentication: Authentication
+    appAuthentication: Authentication,
+    appPageLinks: PageLinks
   },
   data () {
     return {
@@ -51,7 +68,7 @@ export default {
     onStateChange(); // authentication state observer
   },
   created () {
-    // console.log('app - created');
+    // console.log('TLC: App created -> created');
     // console.dir(window);
     // console.dir(document.body.clientHeight);
 
@@ -71,19 +88,19 @@ export default {
     // console.dir(window);
     // console.dir(document.body.clientHeight);
 
-    /* console.log(
-      'TLC: created -> document.querySelector("#site-header") ',
-      document.querySelector('#site-header').offsetHeight
-    ); */
+    // /* console.log(
+    // 'TLC: created -> document.querySelector("#site-header") ',
+    // document.querySelector('#site-header').offsetHeight
+    // ); */
     this.siteWrapSelector = document.querySelector('#site-wrap');
     // this.siteWrapSelector = document.getElementById('site-wrap');
-    // console.log('TLC: mounted -> this.siteWrapSelector', this.siteWrapSelector);
+    // // console.log('TLC: mounted -> this.siteWrapSelector', this.siteWrapSelector);
     this.siteHeaderSelector = document.querySelector('#site-header');
     // this.siteHeaderSelector = document.getElementById('site-header');
-    /* console.log(
-      'TLC: mounted -> this.siteHeaderSelector',
-      this.siteHeaderSelector
-    ); */
+    // /* console.log(
+    // 'TLC: mounted -> this.siteHeaderSelector',
+    // this.siteHeaderSelector
+    // ); */
     this.setInlineStyle();
   },
   beforeUpdate () {
@@ -101,8 +118,8 @@ export default {
   },
   watch: {
     $route (fr, to) {
-      // console.log('TLC: App - watch $route -> fr', fr);
-      // console.log('TLC: App - watch $route -> to', to);
+      // // console.log('TLC: App - watch $route -> fr', fr);
+      // // console.log('TLC: App - watch $route -> to', to);
       clearAllBodyScrollLocks();
     }
   },

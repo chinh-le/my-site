@@ -10,6 +10,7 @@
 };
  */
 const scrollTo = (position) => {
+  console.log('TLC: scrollTo -> position', position);
   window.scroll({
     left: position.x,
     top: position.y

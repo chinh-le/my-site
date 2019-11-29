@@ -13,7 +13,7 @@
   </div>
 </template>
 <script>
-import { _getCollection } from '@/firebase';
+import { _getCollection, _getImgContextPath } from '@/firebase';
 export default {
   data () {
     return {
@@ -28,7 +28,7 @@ export default {
           // console.log('TLC: created -> element.data()', element.data());
           let elemData = element.data();
           if (elemData.image) {
-            elemData.image = this.getImgContextPath(elemData.image);
+            elemData.image = _getImgContextPath(`education/${elemData.image}`);
           }
           // console.log('TLC: created -> elemData.image', elemData.image);
           this.certificates.push(elemData);
@@ -37,13 +37,6 @@ export default {
         console.error('list empty!!!');
       }
     });
-  },
-  methods: {
-    getImgContextPath (imgName) {
-      const imgPath = require('@/assets/education/' + imgName);
-
-      return imgPath || null;
-    }
   }
 };
 </script>
