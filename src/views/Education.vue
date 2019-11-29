@@ -7,19 +7,19 @@
       <app-certificates />
       <app-scholarships />
     </div>
-    <app-page-links />
+    <!-- <app-page-links /> -->
   </div>
 </template>
 <script>
 import Certificates from '@/components/Certificates';
 import Scholarships from '@/components/Scholarships';
-import PageLinks from '@/components/PageLinks';
+// import PageLinks from '@/components/PageLinks';
 
 export default {
   components: {
     appCertificates: Certificates,
-    appScholarships: Scholarships,
-    appPageLinks: PageLinks
+    appScholarships: Scholarships
+    // appPageLinks: PageLinks
   }
 };
 </script>

@@ -7,26 +7,18 @@
       <app-professionals />
       <app-personals />
     </div>
-    <app-page-links />
-    <!-- <div class="page-links"> -->
-    <!-- <div class="links">
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-      </ul>
-    </div>-->
+    <!-- <app-page-links /> -->
   </div>
 </template>
 <script>
 import Professionals from '@/components/Professionals';
 import Personals from '@/components/Personals';
-import PageLinks from '@/components/PageLinks';
+// import PageLinks from '@/components/PageLinks';
 
 export default {
   components: {
     appProfessionals: Professionals,
-    appPageLinks: PageLinks,
+    // appPageLinks: PageLinks,
     appPersonals: Personals
   }
 };

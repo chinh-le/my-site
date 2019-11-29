@@ -9,24 +9,6 @@ body {
     position: relative;
     z-index: 1;
     overflow: hidden;
-
-    // background: transparent url('../assets/shutterstock-education.jpg') no-repeat center center;
-    // background-size: 100%;
-    // background-size: cover;
-
-    /* position: relative;
-    width: 100%;
-    height: 100%;
-    &:before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    background: transparent url('../assets/shutterstock-education.jpg') no-repeat center center;
-    // background: transparent url('../assets/shutterstock-keyboard.jpg') no-repeat center center;
-    background-size: 100%;
-    } */
 }
 
 h1 {
@@ -64,7 +46,6 @@ a {
 input, textarea {
     font-size: 1em;
     border: 0;
-    background-color: $color-bg-form-input!important;
     width: 100%;
     padding: 1.5em 0;
     color: $color-txt!important;
@@ -75,6 +56,25 @@ input, textarea {
     padding: $padd-container;
     display: none;
 }
+
+/* Change Autocomplete styles in Chrome */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: $color-txt;
+  box-shadow:  none;
+  -webkit-box-shadow: none;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
 
 // recaptcha v3: hide the badge
 .grecaptcha-badge {
