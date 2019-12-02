@@ -24,11 +24,13 @@
     padding: var(--site-header-height) $padd-container $padd-container;
     overflow-y: scroll;
     > div {
-        margin-bottom: 10em;
+        // margin-bottom: 10em;
     }
 }
 
+@include bg-canvas;
 @include fading-helper;
+@include slide-helper;
 /* .animating-enter-active {
     animation: slideIn .3s ease-in;
 }

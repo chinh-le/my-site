@@ -13,9 +13,9 @@
           <ul>
             <li>
               <div class="form-input">
-                <label for="email">Email</label>
+                <label for="user-email">Email</label>
                 <input
-                  id="email"
+                  id="user-email"
                   v-model="user.email"
                   type="email"
                   autocomplete="username"
@@ -41,9 +41,9 @@
             </li>
             <li>
               <div class="form-input">
-                <label for="password">Password</label>
+                <label for="user-password">Password</label>
                 <input
-                  id="password"
+                  id="user-password"
                   v-model="user.password"
                   type="password"
                   :autocomplete="isSigningUp ? 'new-password' : 'current-password'"
@@ -79,10 +79,10 @@
             role="button"
           >{{ isSigningUp ? 'Sign Up' : 'Sign In' }}</button>
         </form>
-        <p
-          class="error-request"
-          v-if="isErrorRequest"
-        >Oops! There's something wrong with our server. Please try again later.</p>
+        <p class="error-request" v-if="isErrorRequestMsg">
+          Oops! There's something wrong with our server. Please try again later.
+          <span>[{{isErrorRequestMsg.code}} - {{isErrorRequestMsg.status}}]</span>
+        </p>
         <app-svg-spinner v-show="isLoading" />
       </div>
     </transition>
@@ -144,7 +144,7 @@ export default {
   },
   data () {
     return {
-      isErrorRequest: false,
+      isErrorRequestMsg: false,
       isLoading: false,
       elemPersistLockScroll: null,
       isShow: false,
@@ -191,7 +191,7 @@ export default {
       // // console.log('TLC: onSubmit -> payload', payload);
 
       this.isLoading = true;
-      this.isErrorRequest = false;
+      this.isErrorRequestMsg = false;
 
       recaptchaElement(this.recaptchaAction).then(res => {
         if (res.data.success && res.data.action === this.recaptchaAction) {
@@ -216,8 +216,7 @@ export default {
                 }
               })
               .catch(err => {
-                console.error(err);
-                this.isErrorRequest = true;
+                this.isErrorRequestMsg = JSON.parse(err.message).error;
                 this.isLoading = false;
               });
           }

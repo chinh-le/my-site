@@ -8,7 +8,7 @@ const _addCollection = (name, data) => {
   for (let i in data) {
     collectionRef.doc(i).set(data[i])
       .then(_ => {
-        console.log('TLC: _addCollection -> SUCCESS');
+        // console.log('TLC: _addCollection -> SUCCESS');
       });
     /* .catch(err => {
       console.error(err);
@@ -32,7 +32,7 @@ const _addSkills = (data) => {
   for (let i in data) {
     categoriesRef.doc(i).set(data[i])
       .then(_ => {
-        console.log('TLC: _addSkills -> SUCCESS');
+        // console.log('TLC: _addSkills -> SUCCESS');
       });
     /* .catch(err => {
       console.error(err);
@@ -54,11 +54,8 @@ const _addRatings = (data) => {
 
   return educationRef.doc('ratings').set(data)
     .then(_ => {
-      console.log('TLC: _addRatings -> SUCCESS');
+      // console.log('TLC: _addRatings -> SUCCESS');
     });
-  /* .catch(err => {
-    console.error(err);
-  }); */
 };
 
 const _getRatings = () => {

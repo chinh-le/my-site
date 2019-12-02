@@ -1,7 +1,7 @@
 <template>
   <div class="skills">
     <h3>Skills</h3>
-    <ul class>
+    <ul v-if="skills.length > 0">
       <li v-for="skill in skills" :key="skill.name">
         <h4>{{skill.name}}</h4>
         <div class="dot-set">
@@ -17,6 +17,7 @@
         </div>
       </li>
     </ul>
+    <p v-else>Oops! There's something wrong with our server. Please try again later.</p>
   </div>
 </template>
 <script>
@@ -33,26 +34,21 @@ export default {
   },
   // created () {
   beforeCreate () {
-    // console.log('beforeCreate');
-    // console.log('this.ratingsLength: ', this.ratingsLength);
     _getRatings().then(doc => {
-      // console.log('doc.exists: ', doc.exists);
       if (doc.exists) {
         this.ratings = doc.data();
         this.ratingsLength = Object.keys(this.ratings).length; // key() returns an array
-        // this.totalDot = ratingsData.length;
         _getSkills().then(querySnapshots => {
-          // console.log('querySnapshots.empty: ', querySnapshots.empty);
           if (!querySnapshots.empty) {
             querySnapshots.forEach(element => {
               this.skills.push(element.data());
             });
           } else {
-            console.error('Fetching skills data: FAILED!!!');
+            // console.log('TLC: beforeCreate -> skills list empty');
           }
         });
       } else {
-        console.error('Fetching ratings data: FAILED!!!');
+        // console.log('TLC: beforeCreate -> ratings list empty');
       }
     });
   }
