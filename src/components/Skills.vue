@@ -17,7 +17,10 @@
         </div>
       </li>
     </ul>
-    <p v-else>Oops! There's something wrong with our server. Please try again later.</p>
+    <p v-else>
+      Oops! There's something wrong with our server.
+      <br />Please try again later.
+    </p>
   </div>
 </template>
 <script>
