@@ -1,7 +1,7 @@
 <template>
   <div class="scholarships">
     <h3>Scholarships</h3>
-    <ul class>
+    <ul v-if="scholarships.length > 0">
       <li v-for="(scholarship, index) in scholarships" :key="index">
         <h4>{{scholarship.header}}</h4>
         <p>
@@ -10,6 +10,7 @@
         <img :src="scholarship.image" :alt="scholarship.alt" />
       </li>
     </ul>
+    <p v-else>Oops! There's something wrong with our server. Please try again later.</p>
   </div>
 </template>
 <script>
@@ -36,7 +37,7 @@ export default {
           this.scholarships.push(elemData);
         });
       } else {
-        console.error('list empty!!!');
+        // console.error('list empty!!!');
       }
     });
   }

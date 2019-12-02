@@ -10,9 +10,9 @@
       <ul>
         <li class="name">
           <div class="form-input">
-            <label for="name">Name</label>
+            <label for="contact-name">Name</label>
             <input
-              id="name"
+              id="contact-name"
               v-model="user.name"
               type="text"
               placeholder="Name*"
@@ -30,9 +30,9 @@
         </li>
         <li class="email">
           <div class="form-input">
-            <label for="email">Email</label>
+            <label for="contact-email">Email</label>
             <input
-              id="email"
+              id="contact-email"
               v-model="user.email"
               type="email"
               placeholder="Email*"
@@ -54,12 +54,12 @@
         </li>
         <li>
           <div class="form-input">
-            <label for="subject">Subject</label>
+            <label for="contact-subject">Subject</label>
             <input
-              v-model.lazy="user.subject"
+              id="contact-subject"
               type="text"
               placeholder="Subject"
-              id="subject"
+              v-model.lazy="user.subject"
               aria-label="subject"
             />
           </div>
@@ -67,14 +67,14 @@
         </li>
         <li>
           <div class="form-input">
-            <label for="message">Message</label>
+            <label for="contact-message">Message</label>
             <textarea
-              id="message"
-              v-model="user.message"
+              id="contact-message"
               name
               cols="30"
               rows="7"
               placeholder="Message*"
+              v-model="user.message"
               :maxlength="messageMaxLength + 1"
               @blur="$v.user.message.$touch()"
               aria-label="message to send"
@@ -109,10 +109,10 @@
       <br />I will get back to you as soon as possible.
       <br />Thank you.
     </p>
-    <p
-      class="error-request"
-      v-if="isErrorRequest"
-    >Oops! There's something wrong with our server. Please try again later.</p>
+    <p class="error-request" v-if="isErrorRequestMsg">
+      Oops! There's something wrong with our server. Please try again later.
+      <span>[{{isErrorRequestMsg}}]</span>
+    </p>
     <app-svg-spinner v-show="isLoading" />
   </div>
 </template>
@@ -139,7 +139,7 @@ export default {
   },
   data () {
     return {
-      isErrorRequest: false,
+      isErrorRequestMsg: false,
       isLoading: false,
       elemPersistLockScroll: null,
       messageSent: false,
@@ -163,7 +163,7 @@ export default {
         email: {
           required,
           validAddress (email) {
-            // console.log('TLC: validAddress -> email', email);
+            // // console.log('TLC: validAddress -> email', email);
             return emailRegex.test(email);
           }
         },
@@ -185,11 +185,10 @@ export default {
       }); */
 
       this.isLoading = true;
-      this.isErrorRequest = false;
+      this.isErrorRequestMsg = false;
 
       disableBodyScroll(this.elemPersistLockScroll);
 
-      // console.log(this.user);
       recaptchaElement(this.recaptchaAction).then(res => {
         if (res.data.success && res.data.action === this.recaptchaAction) {
           // escaping user's inputs
@@ -197,13 +196,13 @@ export default {
           for (let i in this.user) {
             inputEscaped[i] = htmlEscaping(this.user[i]);
           }
-          // console.log('TLC: onSubmit -> inputEscaped', inputEscaped);
+          // // console.log('TLC: onSubmit -> inputEscaped', inputEscaped);
 
           // writeUserData(this.user).then(
           writeUserData(inputEscaped)
             .then(
               res => {
-                // console.log('TLC: ContactInfo - onSubmit -> res', res);
+                // // console.log('TLC: ContactInfo - onSubmit -> res', res);
                 this.isLoading = false;
 
                 this.messageSent = true;
@@ -211,20 +210,20 @@ export default {
                 enableBodyScroll(this.elemPersistLockScroll);
               },
               err => {
-                console.error(err);
+                // console.log('TLC: onSubmit -> err', err);
                 this.isLoading = false;
-                this.isErrorRequest = true;
+                this.isErrorRequestMsg = err;
                 enableBodyScroll(this.elemPersistLockScroll);
               }
             )
             .catch(err => {
-              console.error(err);
+              // console.log('TLC: onSubmit -> err', err);
               this.isLoading = false;
-              this.isErrorRequest = true;
+              this.isErrorRequestMsg = err;
               enableBodyScroll(this.elemPersistLockScroll);
             });
         } else {
-          console.error('SPAM!!!');
+          // console.log('TLC: onSubmit -> SPAM');
         }
       });
     }

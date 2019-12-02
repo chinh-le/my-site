@@ -30,7 +30,7 @@ export default {
         });
         // console.log('TLC: created -> this.socialMedias', this.socialMedias);
       } else {
-        console.error('list empty!!!');
+        // console.log('TLC: created -> list empty');
       }
     });
   }

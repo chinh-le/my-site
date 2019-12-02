@@ -3,8 +3,14 @@
 }
 
 @mixin error-request {
-  color: $color-txt-error-request;
-  padding: 2em;
+  .error-request {
+    color: $color-txt-error-request;
+    padding: 2em;
+    > span {
+      display: block;
+      color: $color-unfocus;
+    }
+  }
 }
 
 @mixin form {

@@ -1,7 +1,7 @@
 <template>
   <div class="certificates">
     <h3>Certifications</h3>
-    <ul class>
+    <ul v-if="certificates.length > 0">
       <li v-for="certificate in certificates" :key="certificate.header">
         <h4>{{certificate.header}}</h4>
         <p>
@@ -10,6 +10,7 @@
         <img :src="certificate.image" :alt="certificate.alt" />
       </li>
     </ul>
+    <p v-else>Oops! There's something wrong with our server. Please try again later.</p>
   </div>
 </template>
 <script>
@@ -34,7 +35,7 @@ export default {
           this.certificates.push(elemData);
         });
       } else {
-        console.error('list empty!!!');
+        // console.log('TLC: created -> lsit empty');
       }
     });
   }

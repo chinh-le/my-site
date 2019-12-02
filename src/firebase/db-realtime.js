@@ -18,11 +18,12 @@ const writeUserData = (contact) => {
       email: contact.email,
       subject: contact.subject,
       message: contact.message
-
     }, err => {
+      // debugger;
       if (err) {
         // console.log('TLC: writeUserData -> err', err);
-        reject(Error(err));
+        // reject(Error(err));
+        reject(err);
       } else {
         // console.log('TLC: writeUserData -> SUCCESS');
         resolve('write SUCCESS');

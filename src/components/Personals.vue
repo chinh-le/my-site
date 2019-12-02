@@ -1,7 +1,7 @@
 <template>
   <div v-if="personals" class="personals">
     <h3 id="personal">Personal</h3>
-    <ul class>
+    <ul v-if="personals.length > 0">
       <li v-for="(personal, index) in personals" :key="index">
         <a :href="personal.url" :class="personal.label" :title="personal.label">
           <img v-if="personal.image" :src="personal.image" :alt="personal.label" />
@@ -9,6 +9,7 @@
         </a>
       </li>
     </ul>
+    <p v-else>Oops! There's something wrong with our server. Please try again later.</p>
   </div>
 </template>
 <script>
@@ -31,7 +32,7 @@ export default {
           this.personals.push(elemData);
         });
       } else {
-        console.error('list empty!!!');
+        // console.log('TLC: created -> list empty');
       }
     });
   }
