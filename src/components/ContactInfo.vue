@@ -109,9 +109,10 @@
       <br />I will get back to you as soon as possible.
       <br />Thank you.
     </p>
-    <p class="error-request" v-if="isErrorRequestMsg">
-      Oops! There's something wrong with our server. Please try again later.
-      <span>[{{isErrorRequestMsg}}]</span>
+    <p class="error-request" v-if="isErrorRequestCode">
+      Oops! There's something wrong with our server.
+      <span>[{{isErrorRequestCode}}]</span>
+      <br />Please try again later.
     </p>
     <app-svg-spinner v-show="isLoading" />
   </div>
@@ -139,7 +140,7 @@ export default {
   },
   data () {
     return {
-      isErrorRequestMsg: false,
+      isErrorRequestCode: false,
       isLoading: false,
       elemPersistLockScroll: null,
       messageSent: false,
@@ -163,7 +164,7 @@ export default {
         email: {
           required,
           validAddress (email) {
-            // // console.log('TLC: validAddress -> email', email);
+            // console.log('TLC: validAddress -> email', email);
             return emailRegex.test(email);
           }
         },
@@ -185,7 +186,7 @@ export default {
       }); */
 
       this.isLoading = true;
-      this.isErrorRequestMsg = false;
+      this.isErrorRequestCode = false;
 
       disableBodyScroll(this.elemPersistLockScroll);
 
@@ -196,13 +197,13 @@ export default {
           for (let i in this.user) {
             inputEscaped[i] = htmlEscaping(this.user[i]);
           }
-          // // console.log('TLC: onSubmit -> inputEscaped', inputEscaped);
+          // console.log('TLC: onSubmit -> inputEscaped', inputEscaped);
 
           // writeUserData(this.user).then(
           writeUserData(inputEscaped)
             .then(
               res => {
-                // // console.log('TLC: ContactInfo - onSubmit -> res', res);
+                // console.log('TLC: ContactInfo - onSubmit -> res', res);
                 this.isLoading = false;
 
                 this.messageSent = true;
@@ -210,20 +211,22 @@ export default {
                 enableBodyScroll(this.elemPersistLockScroll);
               },
               err => {
-                // console.log('TLC: onSubmit -> err', err);
+                // console.log('TLC: 4onSubmit -> err', err);
                 this.isLoading = false;
-                this.isErrorRequestMsg = err;
+                this.isErrorRequestCode = err.code;
                 enableBodyScroll(this.elemPersistLockScroll);
               }
             )
             .catch(err => {
-              // console.log('TLC: onSubmit -> err', err);
+              // console.log('TLC: 5onSubmit -> err', err);
               this.isLoading = false;
-              this.isErrorRequestMsg = err;
+              this.isErrorRequestCode = err.code;
               enableBodyScroll(this.elemPersistLockScroll);
             });
         } else {
-          // console.log('TLC: onSubmit -> SPAM');
+          // console.log('TLC: onSubmit -> SPAM Automated Abused!!!');
+          this.isErrorRequestCode = 'SPAM Automated Abused!!!';
+          this.isLoading = false;
         }
       });
     }

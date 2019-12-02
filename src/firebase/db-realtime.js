@@ -13,22 +13,27 @@ const writeUserData = (contact) => {
   const contactsRef = database().ref('/contacts').push(); // auto-generate unqiue key
 
   return new Promise((resolve, reject) => {
-    contactsRef.set({
-      name: contact.name,
-      email: contact.email,
-      subject: contact.subject,
-      message: contact.message
-    }, err => {
-      // debugger;
-      if (err) {
-        // console.log('TLC: writeUserData -> err', err);
-        // reject(Error(err));
+    contactsRef
+      .set({
+        name: contact.name,
+        email: contact.email,
+        subject: contact.subject,
+        message: contact.message
+      }, err => {
+        // debugger;
+        if (err) {
+          // console.log('TLC: 1writeUserData -> err', err);
+          // reject(Error(err));
+          reject(err);
+        } else {
+          // console.log('TLC: 2writeUserData -> SUCCESS');
+          resolve('write SUCCESS');
+        }
+      })
+      .catch(err => {
+        // console.log('TLC: 3writeUserData -> err', err);
         reject(err);
-      } else {
-        // console.log('TLC: writeUserData -> SUCCESS');
-        resolve('write SUCCESS');
-      }
-    });
+      });
   });
 };
 
