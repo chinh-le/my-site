@@ -1,6 +1,7 @@
 <template>
   <div class="logo">
-    <router-link to="/" title="home">chinh.le</router-link>
+    <!-- <span class="font-effect-emboss">chinh.le</span> -->
+    <router-link to="/" title="home" class="font-effect-outline">cle.</router-link>
   </div>
 </template>
 <script>

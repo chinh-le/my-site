@@ -23,7 +23,7 @@
       color: $color-txt;
       text-transform: uppercase;
       font-size: 0.8em;
-      padding: 1em 2em;
+      padding: 1.2em;
       &.router-link-exact-active,
       &.current {
         color: $color-nav-links-current;

@@ -1,14 +1,14 @@
 #app {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    // position: relative;
+    // width: 100%;
+    // height: 100%;
     z-index: $z-index-app;//2;
     > .page-links {
         z-index: $z-index-app-page-links;//5
     }
 }
 
-.body-img-bg {
+/* .body-img-bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -16,13 +16,16 @@
     width: 100%;
     height: auto;
     opacity: 0.2;
-}
+} */
 
 .site-wrap {
     position: relative;
+    top: var(--site-header-height);
     z-index: $z-index-site-wrap;//4;
-    padding: var(--site-header-height) $padd-container $padd-container;
-    overflow-y: scroll;
+    // padding: var(--site-header-height) $padd-container $padd-container;
+    padding: 0 $padd-container;
+    // overflow-y: scroll;
+    box-sizing: border-box;
     > div {
         // margin-bottom: 10em;
     }

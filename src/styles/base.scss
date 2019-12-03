@@ -6,9 +6,10 @@ body {
     background-color: $color-bg-body;
     width: 100%;
     height: 100%;
-    position: relative;
+    box-sizing: border-box;
+    // position: relative;
     z-index: 1;
-    overflow: hidden;
+    // overflow: hidden;
 }
 
 h1 {
@@ -16,7 +17,7 @@ h1 {
     font-size: $txt-size-heading1;
     color: $color-txt-heading1;
     text-transform: lowercase;
-    margin-bottom: 2em;
+    padding: 1em 0 2em;
 }
 
 h2 {
@@ -47,7 +48,8 @@ input, textarea {
     font-size: 1em;
     border: 0;
     width: 100%;
-    padding: 1.5em 0;
+    box-sizing: border-box;
+    // padding: 1.5em 0;
     color: $color-txt;
     outline: none;
     filter: none; // hack fixing form input autofill/autocomplete text color (Fifrefox)

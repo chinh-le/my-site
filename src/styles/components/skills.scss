@@ -25,7 +25,8 @@ h4 {
       display: inline-block;
       margin-left: 0.3em;
       border-radius: $dot-width;
-      background-color: $color-unfocus;
+      // background-color: $color-unfocus;
+      background-color: $color-icon-skill-dot;
       opacity: 0.15;
 
       &.fill {
