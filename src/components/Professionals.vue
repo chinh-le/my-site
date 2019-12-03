@@ -5,6 +5,7 @@
       <li v-for="(professional, index) in professionals" :key="index">
         <a :href="professional.url" :class="professional.label" :title="professional.label">
           <img :src="professional.image" :alt="professional.label" />
+          <span class="overlay">{{professional.label}}</span>
         </a>
       </li>
     </ul>

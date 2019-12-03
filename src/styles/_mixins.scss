@@ -16,7 +16,12 @@
 @mixin form {
   .form-input {
     background-color: $color-bg-form-input;
-    padding: 0 1.5em;
+    padding: 0 1em;
+    border-radius: $form-input-border-radius;
+    // border: 1px solid $form-input-border-color;
+    > input, textarea {
+      padding: $form-input-input-padding;
+    }
   }
 
   .form-error {
@@ -31,7 +36,7 @@
 
   form {
     li {
-      margin-bottom: 0.5em;
+      // margin-bottom: 0.5em;
     }
     label {
       @include screen-reader-ready;
@@ -54,6 +59,7 @@
   display: flex;
   flex-direction: column;
   background-color: $color-bg-slide-in-panel;
+  // color: $color-txt-slide-in-panel;
 }
 
 @mixin btn-close-x($content: "") {
@@ -75,14 +81,14 @@
 @mixin form-button-submit {
   button {
     font-size: 1em;
-    padding: 1.5em;
+    padding: $form-input-button-padding;
     background-color: $color-bg-form-button;
-    border-radius: 0.5em;
+    border-radius: $form-input-border-radius;
     color: $color-txt-form-button;
     &:disabled {
       color: $color-txt-form-button-disabled;
-      border: 1px solid $color-form-button-border;
-      background: none;
+      // border: 1px solid $color-form-button-border;
+      background-color: $color-bg-form-button-disabled;
     }
   }
 }

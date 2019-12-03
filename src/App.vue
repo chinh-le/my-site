@@ -1,9 +1,11 @@
 <template>
-  <!-- <div id="app" :style="{height: winHeight + 'px'}"> -->
+  <!-- <div id="app" :style="{height: siteWrapHeight + 'px'}"> -->
   <div id="app">
-    <img src="@/assets/shutterstock-education.jpg" alt class="body-img-bg" />
+    <!-- <img src="@/assets/shutterstock-education.jpg" alt class="body-img-bg" /> -->
     <app-header />
-    <main class="site-wrap" :style="{height: winHeight + 'px'}" id="site-wrap">
+    <!-- <main class="site-wrap" :style="{height: siteWrapHeight}" id="site-wrap"> -->
+    <main class="site-wrap" id="site-wrap">
+      <!-- <main class="site-wrap" id="site-wrap"> -->
       <transition name="fading" mode="out-in">
         <!-- <transition name="animating" mode="out-in"> -->
         <router-view />
@@ -46,37 +48,25 @@ export default {
   },
   data () {
     return {
-      winHeight: '',
+      siteWrapHeight: '',
       siteWrapSelector: null,
       siteHeaderSelector: null
     };
   },
   beforeCreate () {
-    // console.log('app - beforeCreate');
-    // console.dir(window);
-    // console.log(window.innerHeight);
-    // console.log(document.body.clientHeight);
-    /* console.log(
-      'document.body.clientHeight < window.innerHeight: ',
-      document.body.clientHeight < window.innerHeight
-    ); */
-    /* if (document.body.clientHeight < window.innerHeight) {
-      this.winHeight = window.innerHeight;
-    } */
-
     init(); // set firebase config
     onStateChange(); // authentication state observer
   },
   created () {
-    // console.log('TLC: App created -> created');
-    // console.dir(window);
-    // console.dir(document.body.clientHeight);
-
-    if (document.body.clientHeight < window.innerHeight) {
-      this.winHeight = window.innerHeight;
-    }
-    // this.winHeight = window.innerHeight;
-    window.addEventListener('resize', this.resizeHandler);
+    /* console.log(
+      'TLC: created -> document.body.clientHeight',
+      document.body.clientHeight
+    ); */
+    /* if (document.body.clientHeight < window.innerHeight) {
+      this.siteWrapHeight = window.innerHeight;
+    } */
+    // this.siteWrapHeight = window.innerHeight;
+    // window.addEventListener('resize', this.resizeHandler);
   },
   beforeMount () {
     // console.log('app - beforeMount');
@@ -84,24 +74,10 @@ export default {
     // console.dir(document.body.clientHeight);
   },
   mounted () {
-    // console.log('app - mounted');
-    // console.dir(window);
-    // console.dir(document.body.clientHeight);
-
-    // /* console.log(
-    // 'TLC: created -> document.querySelector("#site-header") ',
-    // document.querySelector('#site-header').offsetHeight
-    // ); */
+    /* console.log('TLC: mounted -> ', document.body.clientHeight);
     this.siteWrapSelector = document.querySelector('#site-wrap');
-    // this.siteWrapSelector = document.getElementById('site-wrap');
-    // // console.log('TLC: mounted -> this.siteWrapSelector', this.siteWrapSelector);
-    this.siteHeaderSelector = document.querySelector('#site-header');
-    // this.siteHeaderSelector = document.getElementById('site-header');
-    // /* console.log(
-    // 'TLC: mounted -> this.siteHeaderSelector',
-    // this.siteHeaderSelector
-    // ); */
-    this.setInlineStyle();
+    this.siteHeaderSelector = document.querySelector('#site-header'); */
+    // this.setSiteWrapInlineStyle();
   },
   beforeUpdate () {
     // console.log('app - beforeUpdate');
@@ -114,7 +90,7 @@ export default {
   },
   destroyed () {
     // console.log('app - destroyed');
-    window.removeEventListener('resize');
+    // window.removeEventListener('resize');
   },
   watch: {
     $route (fr, to) {
@@ -124,18 +100,29 @@ export default {
     }
   },
   methods: {
-    setInlineStyle () {
-      // this.siteWrapSelector.style.width = this.siteHeaderSelector.offsetHeight;
-      this.siteWrapSelector.style.top =
-        this.siteHeaderSelector.offsetHeight + 'px';
+    setSiteWrapInlineStyle (_height) {
+      const inlineStyle = {
+        top: this.siteHeaderSelector.offsetHeight + 'px',
+        height: _height + 'px'
+      };
+      this.siteWrapSelector.setAttribute(
+        'style',
+        'top: ' + inlineStyle.top + ';height: ' + inlineStyle.height
+      );
     },
     resizeHandler (evt) {
-      // this.winHeight = evt.currentTarget.innerHeight;
+      console.log(
+        'TLC: resizeHandler -> document.body.clientHeight ',
+        document.body.clientHeight
+      );
+      console.log(
+        'TLC: resizeHandler -> evt.currentTarget.innerHeight',
+        evt.currentTarget.innerHeight
+      );
       if (document.body.clientHeight < evt.currentTarget.innerHeight) {
-        this.winHeight = evt.currentTarget.innerHeight;
+        // this.siteWrapHeight = evt.currentTarget.innerHeight;
+        this.setSiteWrapInlineStyle(evt.currentTarget.innerHeight);
       }
-
-      this.setInlineStyle();
     }
   }
 };

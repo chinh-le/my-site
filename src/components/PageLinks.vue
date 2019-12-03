@@ -39,7 +39,7 @@
   > ul > li {
     > a {
       color: $color-nav-links;
-      padding: 0.5em 0 0.5em 0.7em;
+      padding: 0.5em 0 0.5em 0.5em;
       text-decoration: none;
       display: block;
       &.router-link-exact-active,
