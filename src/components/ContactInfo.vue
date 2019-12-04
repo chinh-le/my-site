@@ -19,6 +19,7 @@
               @blur="$v.user.name.$touch()"
               aria-label="name"
               aria-required="true"
+              autofocus
             />
           </div>
           <span

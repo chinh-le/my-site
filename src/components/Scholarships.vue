@@ -1,5 +1,5 @@
 <template>
-  <div class="scholarships">
+  <div class="scholarships" id="scholarships">
     <h3>Scholarships</h3>
     <ul v-if="scholarships.length > 0">
       <li v-for="(scholarship, index) in scholarships" :key="index">
@@ -10,7 +10,7 @@
         <img :src="scholarship.image" :alt="scholarship.alt" />
       </li>
     </ul>
-    <p v-else>
+    <p v-if="!scholarships">
       Oops! There's something wrong with our server.
       <br />Please try again later.
     </p>
@@ -19,6 +19,10 @@
 <script>
 import { _getCollection, _getImgContextPath } from '@/firebase';
 export default {
+  mounted () {
+    // const scholars = document.querySelector('#scholarships');
+    // console.log('TLC: mounted -> scholars', scholars.clientHeight);
+  },
   data () {
     return {
       scholarships: []
@@ -41,6 +45,7 @@ export default {
         });
       } else {
         // console.error('list empty!!!');
+        this.scholarships = false;
       }
     });
   }

@@ -1,5 +1,5 @@
 <template>
-  <nav class="page-links" role="navigation">
+  <nav class="page-links" role="navigation" :style="posX">
     <ul class>
       <li class>
         <router-link to="/" class="link-home" title="Home">
@@ -29,6 +29,28 @@
     </ul>
   </nav>
 </template>
+<script>
+import { setPosX, windowResizeHandler } from '@/helpers';
+
+export default {
+  data () {
+    return {
+      posX: null
+    };
+  },
+  created () {
+    // set/keep the pageLinks dots to the right aligning with the hamburger button
+    this.posX = setPosX('right');
+
+    window.addEventListener('resize', evt => {
+      this.posX = windowResizeHandler(evt, 'right');
+    });
+  },
+  destroyed () {
+    window.removeEventListener('resize');
+  }
+};
+</script>
 <style scoped lang="scss">
 .page-links {
   display: none;
@@ -47,7 +69,8 @@
         color: $color-nav-links-current;
         > i {
           // background-color: $color-nav-links-current;
-          background-color: rgba(179, 106, 18, 0.5em);
+          // background-color: rgba(179, 106, 18, 0.5em);
+          background-color: #000;
         }
       }
       &.link-home {
@@ -77,11 +100,12 @@
       }
       > i {
         display: none;
-        width: 0.3em;
-        height: 0.3em;
-        border-radius: 0.3em;
+        width: 0.25em;
+        height: 0.25em;
+        border: 1px solid #000;
+        border-radius: 0.25em;
         // background-color: $color-nav-links;
-        background-color: rgba(170, 170, 170, 0.5em);
+        // background-color: rgba(170, 170, 170, 0.5em);
         font-style: normal;
       }
     }

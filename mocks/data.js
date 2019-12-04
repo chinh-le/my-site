@@ -39,7 +39,7 @@ const certificates = {
   },
   react16: {
     order: 2,
-    header: 'Reacte 16 - The Complete Guide',
+    header: 'React 16 - The Complete Guide',
     url: 'https://udemy.com/course/react-the-complete-guide-incl-redux/',
     image: 'UC-AV9URVXK-640.jpg',
     alt: 'Reacte 16 certificate',

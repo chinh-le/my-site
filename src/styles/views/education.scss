@@ -6,3 +6,11 @@
 .heading {
     position: relative;
 }
+
+.education {
+    position: relative;
+    .content {
+        box-sizing: border-box;
+        overflow-y: scroll;
+    }
+}
