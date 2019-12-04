@@ -1,0 +1,446 @@
+@media screen and (min-width: $breakpoint-xs) and (max-width: $breakpoint-sm) {
+    .site-wrap {
+        padding-right: 2em!important;
+        padding-left: 2em!important;
+    }
+}
+
+@media screen and (min-width: $breakpoint-sm + 1) {
+    .site-header {
+        .social-media {
+            display: flex!important;
+        }
+    }
+    .site-nav {
+        .social-media {
+            display: none!important;
+        }
+    }
+    .contact {
+        // display: flex;
+        // flex-direction: column;
+        > .content {
+            width: 70%;
+            margin: 0 auto;
+            // align-self: center;
+        }
+    }
+    .site-auth {
+        .image-container {
+            .bg-canvas {
+                background-color: rgba(0, 0, 0, 0.5)!important;
+            }
+        }
+    }
+    .site-footer {
+        .copyright {
+            flex-direction: row!important;
+        }
+    }
+}
+
+// @media screen and (min-width: $breakpoint-xs + 1) and (max-width: $breakpoint-sm) {
+@media screen and (min-width: $breakpoint-sm + 1) and (max-width: $breakpoint-md) {
+    body {
+        --slide-in-width: 60%;
+    }    
+    /* .site-header {
+        .social-media {
+            display: block!important;
+        }
+    } */
+    .site-wrap {
+        padding-right: 3em!important;           
+        padding-left: 3em!important;
+        .home {
+            margin-top: 3em;
+        }
+    }
+    .site-nav {
+        .content {
+            padding-right: 0!important;
+            padding-left: 0!important;
+        }
+        .lang {
+            margin-right: 1em;
+            margin-left: 1em;
+        }
+        .page-links {
+            margin-right: 0.5em;
+            margin-left: 0.5em;
+        }
+        /* .social-media {
+            display: none!important;
+        } */
+    }
+}
+
+@media screen and (min-width: $breakpoint-md + 1) and (max-width: $breakpoint-lg) {
+    body {
+        --slide-in-width: 50%;
+    }
+    .site-wrap {
+        padding-right: 2em!important;
+        padding-left: 2em!important;
+    }
+    .home {
+        width: 50%;
+        margin: 0 auto;
+    }
+    .about {
+        .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            > .desc,
+            > .skills {
+                width: 47%;
+            }
+        }
+    }
+    .works {
+        .content {
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                > li {
+                    width: 49%;
+                }
+            }
+        }
+    }
+    .education {
+        .content {
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                > li {
+                    width: 45%;
+                }
+            }
+        }
+    }
+    .contact {
+        .content {
+            width: 70%;
+            margin: 0 auto;
+            .contact-info {
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    > li {
+                        width: 100%;
+                    }
+                    .name,
+                    .email {
+                        width: 47%;
+                    }
+                }
+            }
+        }
+
+    }
+    .site-nav {
+        .content {
+            padding-right: 1em!important;
+            padding-left: 1em!important;
+        }
+    }
+}
+
+@media screen and (max-width: $breakpoint-md) {
+    .site-header {
+        @include anim(height, ease-out);
+        .logo > a {
+            @include anim(font-size, ease-out);
+        }
+        .btn-nav,
+        .btn-login,
+        .btn-logout,
+        .btn-download {
+            > i {
+                @include anim(font-size, ease-out);
+            }
+        }
+        .social-media a > img {
+            @include anim(width, ease-out);
+        }
+    }
+}
+@media screen and (min-width: $breakpoint-md + 1) {
+    main {
+        --site-header-height: var(--site-header-height-md);
+    }
+    .site-header {
+        @include anim(height, ease-in);
+        // --site-header-height: 72px;//var(--site-header-height-md);
+        .logo > a {
+            @include anim(font-size, ease-in);
+            font-size: 1.7em;
+        }
+        .btn-nav,
+        .btn-login,
+        .btn-logout,
+        .btn-download {
+            > i {
+                @include anim(font-size, ease-in);
+                font-size: 2em;
+            }
+        }
+        .social-media a > img {
+            @include anim(all, ease-in);
+            --social-icon-dimension: var(--social-icon-dimension-md);
+        }
+    }
+}
+
+@media screen and (min-width: $breakpoint-lg + 1) and (max-width: $breakpoint-xl) {
+    body {
+        --slide-in-width: 40%;
+        // --site-header-width: 992px;//$breakpoint-lg;
+        // width: $breakpoint-lg;
+        // margin: 0 auto;
+    }
+    .site-wrap {
+        padding-right: 2em!important;
+        padding-left: 2em!important;
+        > .home {
+            width: 50%;
+            margin: 0 auto;
+        }
+        > .about {
+            .content {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                > .desc,
+                > .skills {
+                    width: 47%;
+                }
+            }
+        }
+        > .works {
+            .content {
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    > li {
+                        width: 49%;
+                    }
+                }
+            }
+        }
+        > .education {
+            .content {
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    > li {
+                        width: 45%;
+                    }
+                }
+            }
+        }
+        > .contact {
+            .content {
+                width: 70%;
+                margin: 0 auto;
+                .contact-info {
+                    ul {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                        > li {
+                            width: 100%;
+                        }
+                        .name,
+                        .email {
+                            width: 47%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .site-nav {
+        .content {
+            padding-right: 1em!important;
+            padding-left: 1em!important;
+        }
+    }
+}
+
+@media screen and (min-width: $breakpoint-lg + 1) {
+    #app {
+        > .page-links {
+            position: fixed!important;
+            top: 0;
+            right: 0;
+            // width: 10%;
+            height: 100%;
+            display: flex!important;
+            align-items: center;
+            justify-content: center;
+            padding-right: 0.2em;
+            > ul {
+                > li {
+                    > a {
+                        display: inline-block!important;
+                        padding: 0!important;
+                        &:before {
+                            @include screen-reader-ready;
+                        }
+                        > i {
+                            display: block!important;                            
+                            margin: 0.5em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .about,
+    .works,
+    .education,
+    .contact {
+        display: flex!important;
+        flex-direction: row!important;
+        padding: 2em 0;
+        > .heading {
+            // width: 10%;
+            height: 100%;
+            position: fixed!important;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            // justify-content: center;
+            justify-content: flex-end;
+            // padding-left: 0.5em;
+            > h1 {
+                margin: 0;
+                transform: rotate(-90deg);
+                padding: 0;
+            }
+        }
+        > .content {
+            width: 80%;
+            margin: 0 auto;
+        }
+    }
+}
+
+@media screen and (min-width: $breakpoint-xl + 1) {
+    body {
+        --slide-in-width: 30%;
+        --site-header-width: var(--breakpoint-xl);
+        // --site-header-width: $breakpoint-xl;
+        // width: $breakpoint-xl;
+        // margin: 0 auto;
+    }
+    .site-wrap {
+        padding-right: 2em!important;
+        padding-left: 2em!important;
+        width: $breakpoint-xl;
+        margin: 0 auto;
+    }
+    .home {
+        width: 40%;
+        margin: 0 auto;
+    }
+    .about,
+    .works,
+    .education,
+    .contact {
+        > .heading {
+            justify-content: flex-start;
+        }
+    }
+    .about {
+        .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            > .desc,
+            > .skills {
+                width: 47%;
+            }
+        }
+    }
+    .works {
+        .content {
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                > li {
+                    width: 32%;
+                }
+            }
+        }
+    }
+    .education {
+        .heading {
+            justify-content: flex-start;
+            h1 {
+                padding: 0;
+            }
+        }
+        .content {
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                > li {
+                    width: 29%;
+                }
+            }
+        }
+    }
+    .contact {
+        .content {
+            width: 70%;
+            margin: 0 auto;
+            .contact-info {
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    > li {
+                        width: 100%;
+                    }
+                    .name,
+                    .email {
+                        width: 47%;
+                    }
+                }
+            }
+        }
+    }
+    .site-nav {
+        .content {
+            padding-right: 1em!important;
+            padding-left: 1em!important;
+        }
+    }
+    #app > .page-links {
+        justify-content: flex-end;
+        padding-right: 0.5em;
+    }
+}
+

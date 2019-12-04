@@ -13,12 +13,14 @@ font-family: 'Righteous', cursive;
 */
 
 // @import url('https://fonts.googleapis.com/css?family=Righteous&text=chinh.le&effect=outline&display=swap');
+// local hosting
 @import '~typeface-righteous/index.css';
 @import '~typeface-montserrat/index.css';
 @import '~typeface-syncopate/index.css';
 @import '~typeface-roboto/index.css';
 
 // @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+// local hosting
 $material-icons-font-path: '~material-icons/iconfont/';
 @import '~material-icons/iconfont/material-icons.scss';
 
@@ -33,7 +35,6 @@ $material-icons-font-path: '~material-icons/iconfont/';
 @import './externals/form-reset-helpers.scss';
 @import './externals/form-reset.scss';
 
-@import './reset.scss';
-@import './vars.scss';
-@import './base.scss';
-@import './responsive.scss';
+@import './global/reset.scss';
+@import './global/base.scss';
+@import './global/responsive.scss';

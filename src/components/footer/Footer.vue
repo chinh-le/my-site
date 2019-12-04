@@ -1,14 +1,11 @@
-<script>
-import Copyright from '@/components/Copyright';
-import Lang from '@/components/Lang';
+<template>
+  <footer class="site-footer">
+    <div class="site-footer-container">
+      <app-copyright></app-copyright>
+      <app-lang />
+    </div>
+  </footer>
+</template>
 
-export default {
-  components: {
-    appCopyright: Copyright,
-    appLang: Lang
-  }
-};
-</script>
-
-<template src="./footer.html"/>
+<script src="./footer.js"/>
 <style scoped lang="scss" src="./footer.scss" />

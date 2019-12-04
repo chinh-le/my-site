@@ -11,7 +11,7 @@ module.exports = {
           // Provide path to the file with resources
           // resources: path.resolve(__dirname, 'src/styles/_variables.scss')
           resources: [
-            path.resolve(__dirname, 'src/styles/_variables.scss'),
+            path.resolve(__dirname, 'src/styles/_vars.scss'),
             path.resolve(__dirname, 'src/styles/_mixins.scss')
           ]
         })

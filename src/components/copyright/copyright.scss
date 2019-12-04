@@ -1,0 +1,19 @@
+.copyright {
+  font-size: 0.7em;
+  color: $color-unfocus;
+  line-height: 1.2em;
+  // padding: 0 1.2em;
+  display: flex;
+  flex-direction: column;
+  > span {
+    padding-right: 0.5em;
+  }
+}
+
+.site-nav {
+  .copyright {
+    // display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+}
