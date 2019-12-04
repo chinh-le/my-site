@@ -7,17 +7,11 @@
       </h2>
       <p class="line color-focus">___</p>
     </div>
-    <!-- <app-page-links /> -->
   </div>
 </template>
 
 <script>
-// import PageLinks from '@/components/PageLinks';
-export default {
-  components: {
-    // appPageLinks: PageLinks
-  }
-};
+export default {};
 </script>
 
 <style scoped lang="scss">

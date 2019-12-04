@@ -23,7 +23,7 @@ import { clearAllBodyScrollLocks } from 'body-scroll-lock';
 import { init, onStateChange } from '@/firebase';
 // import { scrollTo } from '@/helpers';
 import Header from '@/components/Header.vue';
-import Footer from '@/components/Footer.vue';
+import Footer from '@/components/footer/Footer.vue';
 import Navigation from './components/Navigation';
 import Authentication from './components/Authentication';
 import PageLinks from './components/PageLinks';

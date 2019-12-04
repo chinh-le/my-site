@@ -1,4 +1,3 @@
-<template src="./template.html" />
 <script>
 import { auth } from 'firebase';
 import {
@@ -17,7 +16,8 @@ export default {
     auth().onAuthStateChanged(user => {
       // console.log('TLC: beforeRouteEnter -> user', user);
       if (user) {
-        auth().currentUser.getIdTokenResult()
+        auth()
+          .currentUser.getIdTokenResult()
           .then(res => {
             // console.log('TLC: beforeRouteEnter -> LOGGED');
             next();
@@ -50,17 +50,16 @@ export default {
       );
     },
     getCollection (collection) {
-      _getCollection(collection)
-        .then(snapshots => {
-          // console.log('TLC: getCollection -> snapshots', snapshots);
-          if (!snapshots.empty) {
-            snapshots.forEach(element => {
-              // console.log('TLC: getCollection -> element', element);
-            });
-          } else {
-            console.error('FAILED');
-          }
-        });
+      _getCollection(collection).then(snapshots => {
+        // console.log('TLC: getCollection -> snapshots', snapshots);
+        if (!snapshots.empty) {
+          snapshots.forEach(element => {
+            // console.log('TLC: getCollection -> element', element);
+          });
+        } else {
+          console.error('FAILED');
+        }
+      });
     },
     addSkills () {
       _addSkills(mocks.skills);
@@ -93,4 +92,6 @@ export default {
   }
 };
 </script>
+
+<template src="./template.html" />
 <style src="./style.scss" scoped lang="scss" />

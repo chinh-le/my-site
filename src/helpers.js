@@ -1,9 +1,13 @@
 /*
-for wide screen larger than 1200px - mostly fluid pattern: max-width: $breakpoint - xl (1200px)
+for wide screen larger than 1200px - mostly fluid pattern: max-width: $breakpoint-xl (1200px)
   - set inline style left position (h1/heading1 of the page content) to have it stick to most left aligning to the logo and not further to the left
   - set inline style right position (navigation dots/pageLinks of the page content) to have it stick to most right aligning to the hamburger button and not further to the right
 */
-const wideScreenMaxWidth = 1200;
+const wideScreenMaxWidth = 1200; // $breakpoint-xl
+
+/* const resizeHandler = () => {
+
+}; */
 
 const windowResizeHandler = (evt, pos) => {
   let styleInline;
@@ -49,6 +53,7 @@ const scrollTo = (position) => {
 };
 
 export {
+  wideScreenMaxWidth,
   windowResizeHandler,
   setPosX,
   emailRegex,

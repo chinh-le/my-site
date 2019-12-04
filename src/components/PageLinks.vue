@@ -39,15 +39,19 @@ export default {
     };
   },
   created () {
-    // set/keep the pageLinks dots to the right aligning with the hamburger button
+    // set/keep the nav (pageLinks) dots to the right aligning with the hamburger icon
     this.posX = setPosX('right');
 
-    window.addEventListener('resize', evt => {
-      this.posX = windowResizeHandler(evt, 'right');
-    });
+    window.addEventListener('resize', this.resizeHandler);
   },
-  destroyed () {
-    window.removeEventListener('resize');
+  beforeDestroy () {
+    // console.log('TLC: PageLinks -> beforeDestroy');
+    window.removeEventListener('resize', this.resizeHandler);
+  },
+  methods: {
+    resizeHandler (evt) {
+      this.posX = windowResizeHandler(evt, 'right');
+    }
   }
 };
 </script>
