@@ -55,7 +55,7 @@ $color-logo: #000;
 // $color-icon-auth: #aaa;
 $color-icon-auth: #000;
 $color-icon-nav: #000;
-$color-icon-download: #aaa;
+$color-icon-download: #000;
 $color-icon-skill-dot: #000;
 // $color-nav-links: #aaa; // 170, 170, 170
 $color-nav-links: #000; // 170, 170, 170
@@ -70,7 +70,7 @@ $color-border-button-navigation: #444;
 
 // form
 $color-txt-form-button: #fff;
-$color-txt-form-button-disabled: #000;
+$color-txt-form-button-disabled: #666;
 // $color-bg-form-input: #444;
 // $color-bg-form-input: #000;
 $color-bg-form-input: #fff;
@@ -96,4 +96,4 @@ $color-bg-slide-in-form-input: #444;
 $form-input-border-radius: 0.3em;
 $form-input-border-color: #000;
 $form-input-input-padding: 1em 0;
-$form-input-button-padding: 1em;
+$form-input-button-padding: 1.1em 1em;

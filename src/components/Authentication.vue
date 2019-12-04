@@ -23,6 +23,7 @@
                   placeholder="email*"
                   aria-label="email address"
                   aria-required="true"
+                  autofocus
                 />
               </div>
               <span

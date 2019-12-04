@@ -17,7 +17,7 @@
         </div>
       </li>
     </ul>
-    <p v-else>
+    <p v-if="!ratings || !skills">
       Oops! There's something wrong with our server.
       <br />Please try again later.
     </p>
@@ -48,10 +48,12 @@ export default {
             });
           } else {
             // console.log('TLC: beforeCreate -> skills list empty');
+            this.skills = false;
           }
         });
       } else {
         // console.log('TLC: beforeCreate -> ratings list empty');
+        this.ratings = false;
       }
     });
   }

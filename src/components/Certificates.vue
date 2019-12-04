@@ -1,5 +1,5 @@
 <template>
-  <div class="certificates">
+  <div class="certificates" id="certificates">
     <h3>Certifications</h3>
     <ul v-if="certificates.length > 0">
       <li v-for="certificate in certificates" :key="certificate.header">
@@ -10,7 +10,7 @@
         <img :src="certificate.image" :alt="certificate.alt" />
       </li>
     </ul>
-    <p v-else>
+    <p v-if="!certificates">
       Oops! There's something wrong with our server.
       <br />Please try again later.
     </p>
@@ -19,6 +19,10 @@
 <script>
 import { _getCollection, _getImgContextPath } from '@/firebase';
 export default {
+  mounted () {
+    // const certs = document.querySelector('#certificates');
+    // console.log('TLC: mounted -> certs', certs.clientHeight);
+  },
   data () {
     return {
       certificates: []
@@ -39,6 +43,7 @@ export default {
         });
       } else {
         // console.log('TLC: created -> lsit empty');
+        this.certificates = false;
       }
     });
   }
