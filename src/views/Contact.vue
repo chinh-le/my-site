@@ -7,13 +7,11 @@
       <h3>Get in touch</h3>
       <app-contact-info></app-contact-info>
     </div>
-    <!-- <app-page-links /> -->
   </div>
 </template>
 <script>
 import { setPosX, windowResizeHandler } from '@/helpers';
 import ContactInfo from '@/components/ContactInfo';
-// import PageLinks from '@/components/PageLinks';
 
 export default {
   data () {
@@ -22,12 +20,10 @@ export default {
     };
   },
   created () {
-    // set/keep the heading (h1) dots to the left aligning with the logo
+    // set/keep the heading (h1) to the left aligning with the logo
     this.posX = setPosX('left');
 
-    window.addEventListener('resize', evt => {
-      this.posX = windowResizeHandler(evt, 'left');
-    });
+    window.addEventListener('resize', this.resizeHandler);
   },
   mounted () {
     document.querySelector('#site-wrap').scroll({
@@ -35,12 +31,17 @@ export default {
       top: 0
     });
   },
-  destroyed () {
-    window.removeEventListener('resize');
+  beforeDestroy () {
+    // console.log('TLC: Contact -> beforeDestroy');
+    window.removeEventListener('resize', this.resizeHandler);
+  },
+  methods: {
+    resizeHandler (evt) {
+      this.posX = windowResizeHandler(evt, 'left');
+    }
   },
   components: {
     appContactInfo: ContactInfo
-    // appPageLinks: PageLinks
   }
 };
 </script>

@@ -18,12 +18,11 @@
                   id="auth-email"
                   v-model="auth.email"
                   type="email"
-                  autocomplete="username"
+                  autocomplete="email"
                   @blur="$v.auth.email.$touch()"
                   placeholder="email*"
                   aria-label="email address"
                   aria-required="true"
-                  autofocus
                 />
               </div>
               <span

@@ -7,14 +7,12 @@
       <app-professionals />
       <app-personals />
     </div>
-    <!-- <app-page-links /> -->
   </div>
 </template>
 <script>
 import { setPosX, windowResizeHandler } from '@/helpers';
 import Professionals from '@/components/Professionals';
 import Personals from '@/components/Personals';
-// import PageLinks from '@/components/PageLinks';
 
 export default {
   data () {
@@ -23,19 +21,22 @@ export default {
     };
   },
   created () {
-    // set/keep the heading (h1) dots to the left aligning with the logo
+    // set/keep the heading (h1) to the left aligning with the logo
     this.posX = setPosX('left');
 
-    window.addEventListener('resize', evt => {
-      this.posX = windowResizeHandler(evt, 'left');
-    });
+    window.addEventListener('resize', this.resizeHandler);
   },
-  destroyed () {
-    window.removeEventListener('resize');
+  beforeDestroy () {
+    // console.log('TLC: Works -> beforeDestroy');
+    window.removeEventListener('resize', this.resizeHandler);
+  },
+  methods: {
+    resizeHandler (evt) {
+      this.posX = windowResizeHandler(evt, 'left');
+    }
   },
   components: {
     appProfessionals: Professionals,
-    // appPageLinks: PageLinks,
     appPersonals: Personals
   }
 };

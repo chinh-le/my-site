@@ -14,13 +14,11 @@
       </div>
       <app-skills></app-skills>
     </div>
-    <!-- <app-page-links /> -->
   </div>
 </template>
 <script>
 import { setPosX, windowResizeHandler } from '@/helpers';
 import Skills from '@/components/Skills';
-// import PageLinks from '@/components/PageLinks';
 
 export default {
   data () {
@@ -29,19 +27,22 @@ export default {
     };
   },
   created () {
-    // set/keep the heading (h1) dots to the left aligning with the logo
+    // set/keep the heading (h1) to the left aligning with the logo
     this.posX = setPosX('left');
 
-    window.addEventListener('resize', evt => {
-      this.posX = windowResizeHandler(evt, 'left');
-    });
+    window.addEventListener('resize', this.resizeHandler);
   },
-  destroyed () {
-    window.removeEventListener('resize');
+  beforeDestroy () {
+    // console.log('TLC: About -> beforeDestroy');
+    window.removeEventListener('resize', this.resizeHandler);
+  },
+  methods: {
+    resizeHandler (evt) {
+      this.posX = windowResizeHandler(evt, 'left');
+    }
   },
   components: {
     appSkills: Skills
-    // appPageLinks: PageLinks
   }
 };
 </script>

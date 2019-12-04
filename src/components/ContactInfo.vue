@@ -4,7 +4,7 @@
       @submit.prevent="onSubmit()"
       v-if="!messageSent"
       novalidate
-      autocomplete="off"
+      autocomplete="on"
       role="contact"
     >
       <ul>
@@ -17,6 +17,7 @@
               type="text"
               placeholder="Name*"
               @blur="$v.user.name.$touch()"
+              autocomplete="name"
               aria-label="name"
               aria-required="true"
               autofocus
@@ -38,6 +39,7 @@
               type="email"
               placeholder="Email*"
               @blur="$v.user.email.$touch()"
+              autocomplete="email"
               aria-label="email address"
               aria-required="true"
             />
@@ -61,6 +63,7 @@
               type="text"
               placeholder="Subject"
               v-model.lazy="user.subject"
+              autocomplete="off"
               aria-label="subject"
             />
           </div>
@@ -78,6 +81,7 @@
               v-model="user.message"
               :maxlength="messageMaxLength + 1"
               @blur="$v.user.message.$touch()"
+              autocomplete="off"
               aria-label="message to send"
               aria-required="true"
             />
