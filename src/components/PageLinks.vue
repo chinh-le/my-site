@@ -54,7 +54,7 @@ export default {
 <style scoped lang="scss">
 .page-links {
   display: none;
-  position: relative;
+  // position: relative;
   font-family: $font-family-navigation;
   font-size: 2em;
   margin-bottom: 1.5em;

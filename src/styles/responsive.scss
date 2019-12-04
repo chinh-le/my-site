@@ -25,6 +25,13 @@
             // align-self: center;
         }
     }
+    .site-auth {
+        .image-container {
+            .bg-canvas {
+                background-color: rgba(0, 0, 0, 0.5)!important;
+            }
+        }
+    }
 }
 
 // @media screen and (min-width: $breakpoint-xs + 1) and (max-width: $breakpoint-sm) {
