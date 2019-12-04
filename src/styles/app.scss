@@ -23,7 +23,7 @@
     top: var(--site-header-height);
     z-index: $z-index-site-wrap;//4;
     // padding: var(--site-header-height) $padd-container $padd-container;
-    padding: 0 $padd-container;
+    padding: 0 $padd-container var(--site-footer-height);
     // overflow-y: scroll;
     box-sizing: border-box;
     > div {

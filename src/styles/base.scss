@@ -55,11 +55,6 @@ input, textarea {
     filter: none; // hack fixing form input autofill/autocomplete text color (Fifrefox)
 }
 
-.site-footer {
-    padding: $padd-container;
-    // display: none;
-}
-
 // recaptcha v3: hide the badge
 .grecaptcha-badge {
     visibility: hidden;

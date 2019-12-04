@@ -1,11 +1,19 @@
 .copyright {
   font-size: 0.7em;
   color: $color-unfocus;
-  text-align: center;
+  line-height: 1.2em;
+  padding: 0 1.2em;
+  display: flex;
+  flex-direction: column;
+  > span {
+    padding-right: 0.5em;
+  }
 }
 
-/* .navigation {
+.site-nav {
   .copyright {
-    margin-left: 3em;
+    // display: flex;
+    justify-content: center;
+    flex-direction: row;
   }
-} */
+}
