@@ -12,11 +12,8 @@
 </template>
 <style scoped lang="scss">
 .lang {
-  // margin: 0 0 3em 1.5em;
-  margin-bottom: 2em;
   > ul > li {
     display: inline-block;
-    // margin-right: 1.5em;
     > a {
       text-decoration: none;
       display: block;
@@ -41,6 +38,11 @@
         }
       }
     }
+  }
+}
+.site-nav {
+  .lang {
+    margin-bottom: 2em;
   }
 }
 </style>

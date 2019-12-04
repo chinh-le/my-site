@@ -12,6 +12,7 @@ h2 {
 }
 .line {
     font-size: 3em;
+    display: none;
 }
 .color-focus {
     @include color-focus;
