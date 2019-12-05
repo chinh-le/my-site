@@ -7,9 +7,7 @@ body {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    // position: relative;
     z-index: 1;
-    // overflow: hidden;
 }
 
 h1 {
@@ -49,7 +47,6 @@ input, textarea {
     border: 0;
     width: 100%;
     box-sizing: border-box;
-    // padding: 1.5em 0;
     color: $color-txt;
     outline: none;
     filter: none; // hack fixing form input autofill/autocomplete text color (Fifrefox)
@@ -59,3 +56,5 @@ input, textarea {
 .grecaptcha-badge {
     visibility: hidden;
 }
+
+

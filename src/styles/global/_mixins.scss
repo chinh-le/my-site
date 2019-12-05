@@ -1,3 +1,4 @@
+//// preprocessed
 @mixin anim($prop, $effect: linear, $duration: 1s) {
   transition: $prop $duration $effect;
 }
@@ -7,7 +8,6 @@
     color: $color-txt-error-request;
     padding: 2em;
     > span {
-      // display: block;
       color: $color-unfocus;
     }
   }
@@ -18,7 +18,6 @@
     background-color: $color-bg-form-input;
     padding: 0 1em;
     border-radius: $form-input-border-radius;
-    // border: 1px solid $form-input-border-color;
     > input, textarea {
       padding: $form-input-input-padding;
     }
@@ -35,9 +34,6 @@
   }
 
   form {
-    li {
-      // margin-bottom: 0.5em;
-    }
     label {
       @include screen-reader-ready;
     }
@@ -59,7 +55,6 @@
   display: flex;
   flex-direction: column;
   background-color: $color-bg-slide-in-panel;
-  // color: $color-txt-slide-in-panel;
 }
 
 @mixin btn-close-x($content: "") {
@@ -87,7 +82,6 @@
     color: $color-txt-form-button;
     &:disabled {
       color: $color-txt-form-button-disabled;
-      // border: 1px solid $color-form-button-border;
       background-color: $color-bg-form-button-disabled;
     }
   }

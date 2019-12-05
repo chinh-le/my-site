@@ -70,9 +70,6 @@ export default {
     auth: {
       email: {
         required,
-        /* validAddress (email) {
-                          return emailRegex.test(email);
-                        }, */
         isDefault (email) {
           return email === config.appDefaultEmail;
         }
@@ -87,7 +84,6 @@ export default {
   },
   methods: {
     closeSignin () {
-      // this.$emit('ceSignin');
       this.isShow = false;
 
       enableBodyScroll(this.elemPersistLockScroll);

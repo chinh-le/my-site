@@ -16,7 +16,6 @@ export default {
   },
   data () {
     return {
-      // showNav: false,
       showSignin: false
     };
   },

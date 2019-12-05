@@ -1,0 +1,17 @@
+#app {
+  z-index: $z-index-app; //2;
+  > .page-links {
+    z-index: $z-index-app-page-links; //5
+  }
+}
+.site-wrap {
+  position: relative;
+  top: var(--site-header-height);
+  z-index: $z-index-site-wrap; //4;
+  padding: 0 $padd-container var(--site-footer-height);
+  box-sizing: border-box;
+}
+
+@include bg-canvas;
+@include fading-helper;
+@include slide-helper;

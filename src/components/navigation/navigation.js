@@ -37,7 +37,6 @@ export default {
   },
   created () {
     // console.log('TLC: Navigation - created -> created');
-
     eventBus.$on('evtBusOpenNav', () => {
       /* scrollTo({
                           x: 0,

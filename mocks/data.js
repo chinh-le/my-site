@@ -160,19 +160,19 @@ const socialMedia = {
   linked: {
     order: 1,
     label: 'linkedin',
-    image: 'linkedin-logo-black.png',
+    image: 'linkedin-logo-black-sm.png',
     url: 'https://www.linkedin.com/in/chinh11/'
   },
   github: {
     order: 2,
     label: 'github',
-    image: 'github-logo-black.png',
+    image: 'github-logo-black-sm.png',
     url: 'https://github.com/chinh-le/'
   },
   instagram: {
     order: 3,
     label: 'instagram',
-    image: 'instagram-logo-black.png',
+    image: 'instagram-logo-black-sm.png',
     url: 'https://www.instagram.com/niusaul/'
   }
 };

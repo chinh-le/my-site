@@ -79,7 +79,6 @@ export default {
           }
           // console.log('TLC: onSubmit -> inputEscaped', inputEscaped);
 
-          // writeUserData(this.user).then(
           writeUserData(inputEscaped)
             .then(
               res => {

@@ -3,7 +3,6 @@
     <transition name="fading" mode="in-out">
       <div class="bg-canvas" v-show="isShow" @click="closeSignin()"></div>
     </transition>
-    <!-- <div class="bg-canvas" :class="{hidden: !isShow}" @click="closeSignin()"></div> -->
     <transition name="slide" mode="in-out">
       <div class="signin" v-show="isShow" id="signin">
         <button type="button" @click="closeSignin()" class="btn-close" title="close sign in">
@@ -31,13 +30,6 @@
                 role="alert"
                 aria-relevant="all"
               >please use the provided email</span>
-              <!-- <span
-                class="form-error"
-                :class="{visible: $v.auth.email.$dirty && (!$v.auth.email.isDefault || !$v.auth.email.validAddress)}"
-              >
-                <span v-if="!$v.auth.email.isDefault">please use the provided email</span>
-                <span v-else-if="!$v.auth.email.validAddress">invalid</span>
-              </span>-->
             </li>
             <li>
               <div class="form-input">

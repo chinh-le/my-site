@@ -1,15 +1,4 @@
-// CSS vars
-:root {
-    --site-header-width: 100%;
-    --site-header-height: 3.5em; // 56px
-    --site-header-height-md: 4.5em; // 72px
-    --site-footer-height: 4em; // 64px
-    --social-icon-dimension: 1.1em;
-    --social-icon-dimension-md: 1.5em;
-    --slide-in-width: 100%;
-    --breakpoint-xl: 1200px;
-}
-
+//// preprocessed vars
 // responsive breakpoints (Bootstrap)
 $breakpoint-xs: 330px;
 $breakpoint-sm: 576px;
@@ -109,4 +98,4 @@ $color-bg-slide-in-form-input: #444;
 $form-input-border-radius: 0.3em;
 $form-input-border-color: #000;
 $form-input-input-padding: 1em 0;
-$form-input-button-padding: 1.1em 1em;
+$form-input-button-padding: 1.4em 1em;

@@ -1,9 +1,5 @@
 import { _getCollection, _getImgContextPath } from '@/firebase';
 export default {
-  mounted () {
-    // const scholars = document.querySelector('#scholarships');
-    // console.log('TLC: mounted -> scholars', scholars.clientHeight);
-  },
   data () {
     return {
       scholarships: []
