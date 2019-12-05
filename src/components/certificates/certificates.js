@@ -1,9 +1,5 @@
 import { _getCollection, _getImgContextPath } from '@/firebase';
 export default {
-  mounted () {
-    // const certs = document.querySelector('#certificates');
-    // console.log('TLC: mounted -> certs', certs.clientHeight);
-  },
   data () {
     return {
       certificates: []

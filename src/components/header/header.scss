@@ -6,7 +6,6 @@ header {
   width: 100%;
   padding: 0;
   background-color: $color-bg-header;
-  // border-bottom: 1px solid #333;
 }
 
 .site-header {
@@ -23,7 +22,6 @@ header {
 }
 
 button {
-  // border-left: 1px solid $color-border-button-header;
   i {
     padding: 0.6em;
   }
@@ -36,7 +34,6 @@ button {
 }
 
 .btn-download {
-  // border-left: 1px solid $color-border-button-header;
   border-radius: 2em;
   &:after {
     content: "cloud download";
@@ -77,16 +74,3 @@ button {
     color: $color-icon-nav;
   }
 }
-
-// @include fading-helper;
-/* .sliding-enter-active {
-  animation: slideIn .2s ease-in;
-}
-@keyframes slideIn {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(70px);
-  }
-} */

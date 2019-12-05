@@ -1,6 +1,5 @@
 .page-links {
   display: none;
-  // position: relative;
   font-family: $font-family-navigation;
   font-size: 2em;
   margin-bottom: 1.5em;
@@ -14,8 +13,6 @@
       &.current {
         color: $color-nav-links-current;
         > i {
-          // background-color: $color-nav-links-current;
-          // background-color: rgba(179, 106, 18, 0.5em);
           background-color: #000;
         }
       }
@@ -50,8 +47,6 @@
         height: 0.25em;
         border: 1px solid #000;
         border-radius: 0.25em;
-        // background-color: $color-nav-links;
-        // background-color: rgba(170, 170, 170, 0.5em);
         font-style: normal;
       }
     }
