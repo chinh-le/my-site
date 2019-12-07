@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-// import Home from '@/views/home/Home.vue';
 
 Vue.use(VueRouter);
 
@@ -8,8 +7,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    // component: Home
-    component: () => import(/* webpackChunkName: "home" */ '@/views/home/Home.vue')
+    component: () => import(/* webpackChunkName: "AppHome" */ '@/components/AppHome')
   },
   {
     path: '/about',
@@ -17,30 +15,30 @@ const routes = [
     /*
     KIM - lazy-loading / prefetching
       // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
+      // this generates a separate chunk (AppAbout.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
     */
-    component: () => import(/* webpackChunkName: "about" */ '@/views/about/About.vue')
+    component: () => import(/* webpackChunkName: "AppAbout" */ '@/components/AppAbout')
   },
   {
     path: '/works',
     name: 'works',
-    component: () => import(/* webpackChunkName: "works" */ '@/views/works/Works.vue')
+    component: () => import(/* webpackChunkName: "AppWorks" */ '@/components/AppWorks')
   },
   {
     path: '/education',
     name: 'education',
-    component: () => import(/* webpackChunkName: "services" */ '@/views/education/Education.vue')
+    component: () => import(/* webpackChunkName: "AppEducation" */ '@/components/AppEducation')
   },
   {
     path: '/contact',
     name: 'contact',
-    component: () => import(/* webpackChunkName: "contact" */ '@/views/contact/Contact.vue')
+    component: () => import(/* webpackChunkName: "AppContact" */ '@/components/AppContact')
   },
   {
     path: '/admin',
     name: 'admin',
-    component: () => import(/* webpackChunkName: "contact" */ '@/views/admin/Admin.vue')
+    component: () => import(/* webpackChunkName: "AppAdmin" */ '@/components/AppAdmin')
   },
   {
     path: '*',
