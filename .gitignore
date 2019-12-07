@@ -3,6 +3,7 @@ node_modules
 /dist*
 .firebase
 /private
+*old*
 
 # local env files
 .env.local
