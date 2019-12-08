@@ -1,28 +1,12 @@
 <template>
-  <div class="skills">
+  <div :class="$style.skills">
     <h3>Skills</h3>
-    <ul v-if="skills.length > 0">
-      <li
-        v-for="skill in skills"
-        :key="skill.name"
-      >
-        <h4>{{ skill.name }}</h4>
-        <div class="dot-set">
-          <div
-            id="dots"
-            class="dots"
-          >
-            <span
-              v-for="dot in ratingsLength"
-              :key="dot"
-              class="dot"
-              :class="{fill: dot <= skill.rate, empty: dot > skill.rate}"
-            />
-          </div>
-          <label for="dots">{{ ratings[skill.rate] }}</label>
-        </div>
-      </li>
-    </ul>
+    <AppSkillsList
+      v-if="skills.length > 0"
+      :skills="skills"
+      :ratings="ratings"
+      :ratings-length="ratingsLength"
+    />
     <p v-if="!ratings || !skills">
       Oops! There's something wrong with our server.
       <br>Please try again later.
@@ -32,8 +16,12 @@
 
 <script>
     import { _getSkills, _getRatings } from '@/firebase';
+    import AppSkillsList from './AppSkillsList';
 
     export default {
+        components: {
+            AppSkillsList
+        },
         data () {
             return {
                 skills: [],
@@ -68,14 +56,14 @@
 
 </script>
 
-<style lang="scss" scoped>
-$dot-width: 0.7em;
+<style lang="scss" module>
+// $dot-width: 0.7em;
 
-h4 {
+/* h4 {
     width: 60%;
     line-height: 1.2em;
-}
-.skills {
+} */
+/* .skills {
   li {
     display: flex;
     flex-direction: row;
@@ -83,8 +71,8 @@ h4 {
     align-items: baseline;
     margin-bottom: 1em;
   }
-}
-.dot-set {
+} */
+/* .dot-set {
   width: 40%;
   display: flex;
   flex-direction: column;
@@ -112,5 +100,5 @@ h4 {
     line-height: 0.5em;
     @include color-unfocus;
   }
-}
+} */
 </style>

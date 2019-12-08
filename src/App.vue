@@ -14,9 +14,9 @@
       </transition>
     </main>
     <TheFooter />
-    <AppNavigation />
-    <AppAuthentication />
-    <AppPageLinks />
+    <AppNavigate />
+    <AppAuthenticate />
+    <AppNavigateLinks />
   </div>
 </template>
 
@@ -26,17 +26,17 @@
     import { init, onStateChange } from '@/firebase';
     import TheHeader from '@/components/TheHeader';
     import TheFooter from '@/components/TheFooter';
-    import AppNavigation from '@/components/AppNavigation';
-    import AppAuthentication from '@/components/AppAuthentication';
-    import AppPageLinks from '@/components/AppPageLinks';
+    import AppNavigate from '@/components/AppNavigate';
+    import AppAuthenticate from '@/components/AppAuthenticate';
+    import AppNavigateLinks from '@/components/AppNavigateLinks';
 
     export default {
         components: {
             TheHeader,
             TheFooter,
-            AppNavigation,
-            AppAuthentication,
-            AppPageLinks
+            AppNavigate,
+            AppAuthenticate,
+            AppNavigateLinks
         },
         watch: {
             $route (fr, to) {
@@ -72,7 +72,9 @@
   box-sizing: border-box;
 }
 
-@include bg-canvas;
+.bg-canvas {
+  @include bg-canvas;
+}
 @include fading-helper;
 @include slide-helper;
 </style>

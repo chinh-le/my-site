@@ -6,7 +6,7 @@
     <h3 id="personal">
       Personal
     </h3>
-    <ul v-if="personals.length > 0">
+    <!-- <ul v-if="personals.length > 0">
       <li
         v-for="(personal, index) in personals"
         :key="index"
@@ -27,7 +27,11 @@
           />
         </a>
       </li>
-    </ul>
+    </ul> -->
+    <AppCardOverlayList
+      v-if="personals.length > 0"
+      :items="personals"
+    />
     <p v-if="!personals">
       Oops! There's something wrong with our server.
       <br>Please try again later.
@@ -37,7 +41,12 @@
 
 <script>
     import { _getCollection, _getImgContextPath } from '@/firebase';
+    import AppCardOverlayList from './AppCardOverlayList';
+
     export default {
+        components: {
+            AppCardOverlayList
+        },
         data () {
             return {
                 personals: []
@@ -70,7 +79,7 @@ li {
   margin-bottom: 1em;
 }
 
-a {
+/* a {
     display: block;
     color: $color-txt;
     text-decoration: none;
@@ -90,5 +99,5 @@ a {
     &:before {
         content: 'coming soon';
     }
-}
+} */
 </style>

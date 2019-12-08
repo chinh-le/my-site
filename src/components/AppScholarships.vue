@@ -4,7 +4,7 @@
     class="scholarships"
   >
     <h3>Scholarships</h3>
-    <ul v-if="scholarships.length > 0">
+    <!-- <ul v-if="scholarships.length > 0">
       <li
         v-for="(scholarship, index) in scholarships"
         :key="index"
@@ -21,7 +21,11 @@
           :alt="scholarship.alt"
         >
       </li>
-    </ul>
+    </ul> -->
+    <AppCardList
+      v-if="scholarships.length > 0"
+      :items="scholarships"
+    />
     <p v-if="!scholarships">
       Oops! There's something wrong with our server.
       <br>Please try again later.
@@ -31,7 +35,12 @@
 
 <script>
     import { _getCollection, _getImgContextPath } from '@/firebase';
+    import AppCardList from './AppCardList';
+
     export default {
+        components: {
+            AppCardList
+        },
         data () {
             return {
                 scholarships: []

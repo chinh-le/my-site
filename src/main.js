@@ -9,10 +9,10 @@ import './styles/style.scss';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import config from './config';
+import { appConfig } from './config';
 
 Vue.use(VueReCaptcha, {
-  siteKey: config.recaptchaSiteKey,
+  siteKey: appConfig.recaptchaSiteKey,
   loaderOptions: {
     // useRecaptchaNet: true,
     // renderParameters: {},

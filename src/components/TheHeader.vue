@@ -4,7 +4,7 @@
       id="site-header"
       class="site-header"
     >
-      <AppLogo />
+      <BaseLogo />
       <AppSocialMedia />
       <div class="login-nav">
         <a
@@ -46,13 +46,13 @@
 
 <script>
     import { logout } from '@/firebase';
-    import AppLogo from './AppLogo';
-    import AppSocialMedia from './AppSocialMedia';
     import { eventBus } from '@/js/eventBus';
+    import BaseLogo from './BaseLogo';
+    import AppSocialMedia from './AppSocialMedia';
 
     export default {
         components: {
-            AppLogo,
+            BaseLogo,
             AppSocialMedia
         },
         data () {

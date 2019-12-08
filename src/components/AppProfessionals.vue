@@ -6,24 +6,10 @@
     <h3 id="professional">
       Professional
     </h3>
-    <ul v-if="professionals.length > 0">
-      <li
-        v-for="(professional, index) in professionals"
-        :key="index"
-      >
-        <a
-          :href="professional.url"
-          :class="professional.label"
-          :title="professional.label"
-        >
-          <img
-            :src="professional.image"
-            :alt="professional.label"
-          >
-          <span class="overlay">{{ professional.label }}</span>
-        </a>
-      </li>
-    </ul>
+    <AppCardOverlayList
+      v-if="professionals.length > 0"
+      :items="professionals"
+    />
     <p v-if="!professionals">
       Oops! There's something wrong with our server.
       <br>Please try again later.
@@ -33,7 +19,12 @@
 
 <script>
     import { _getCollection, _getImgContextPath } from '@/firebase';
+    import AppCardOverlayList from './AppCardOverlayList';
+
     export default {
+        components: {
+            AppCardOverlayList
+        },
         data () {
             return {
                 professionals: []
@@ -68,12 +59,9 @@
   margin-bottom: 4em;
 }
 
-li {
-  width: 100%;
-  margin-bottom: 1em;
-}
 
-a {
+
+/* a {
     display: block;
     color: $color-txt;
     text-decoration: none;
@@ -93,5 +81,5 @@ a {
       height: 100%;
       color: #fff;
     }
-}
+} */
 </style>

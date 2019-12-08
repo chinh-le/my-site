@@ -5,7 +5,7 @@
         v-for="(socialMedia, index) in socialMedias"
         :key="index"
       >
-        <a
+        <!-- <a
           :href="socialMedia.url"
           :class="socialMedia.label"
           :title="socialMedia.label"
@@ -14,7 +14,8 @@
             :src="socialMedia.image"
             :alt="socialMedia.label"
           >
-        </a>
+        </a> -->
+        <BaseLinkImage :link="socialMedia" />
       </li>
     </ul>
   </div>
@@ -22,7 +23,12 @@
 
 <script>
     import { _getCollection, _getImgContextPath } from '@/firebase';
+    import BaseLinkImage from './BaseLinkImage';
+
     export default {
+        components: {
+            BaseLinkImage
+        },
         data () {
             return {
                 socialMedias: []
@@ -55,10 +61,10 @@
   display: flex;
   flex-direction: row;
   align-content: center;
-  li {
+  /* li {
     line-height: 1em;
-  }
-  a {
+  } */
+  /* a {
     display: inline-flex;
     > img {
       width: var(--social-icon-dimension);
@@ -83,7 +89,7 @@
     &:after {
       @include screen-reader-ready;
     }
-  }
+  } */
 }
 
 .navigation {

@@ -30,7 +30,7 @@
         >
           <i class="material-icons">close</i>
         </button>
-        <form
+        <!-- <form
           novalidate
           autocomplete="on"
           role="authentication"
@@ -95,15 +95,13 @@
             >Privacy Policy</a> and
             <a href="https://policies.google.com/terms">Terms of Service</a> apply.
           </p>
-          <button
+          <BaseButtonSubmit
+            :label="isSigningUp ? 'sign up' : 'sign in'"
+            :title="'to authenticate'"
             :disabled="$v.$invalid"
-            type="submit"
-            title="submit form"
-            role="button"
-          >
-            {{ isSigningUp ? 'Sign Up' : 'Sign In' }}
-          </button>
-        </form>
+          />
+        </form> -->
+        <AppAuthenticateForm :close-signin="closeSignin" />
         <p
           v-if="isErrorRequestCode"
           class="error-request"
@@ -112,7 +110,7 @@
           <span>[code: {{ isErrorRequestCode }}]</span>
           <br>Please try again later.
         </p>
-        <AppSpinner v-show="isLoading" />
+        <!-- <BaseSpinner v-show="isLoading" /> -->
       </div>
     </transition>
   </div>
@@ -124,40 +122,44 @@
         enableBodyScroll,
         clearAllBodyScrollLocks
     } from 'body-scroll-lock';
-    import config from '@/config';
-    import { required } from 'vuelidate/lib/validators';
-    import { signup, login } from '@/firebase';
-    import { recaptchaElement } from '@/js/recaptcha';
+    // import { appConfig } from '@/config';
+    // import { required } from 'vuelidate/lib/validators';
+    // import { signup, login } from '@/firebase';
+    // import { recaptchaElement } from '@/js/recaptcha';
     import { eventBus } from '@/js/eventBus';
     // import { scrollTo } from '@/js/helpers';
     // import { scrollTo, emailRegex } from '@/js/helpers';
-    import AppSpinner from './AppSpinner';
+    import BaseSpinner from './BaseSpinner';
+    // import BaseButtonSubmit from './BaseButtonSubmit';
+    import AppAuthenticateForm from './AppAuthenticateForm';
 
     export default {
         components: {
-            AppSpinner
+            // BaseButtonSubmit,
+            AppAuthenticateForm,
+            // BaseSpinner
         },
-        props: {
+        /* props: {
             show: {
                 type: Boolean,
                 default () {
                     return false;
                 }
             }
-        },
+        }, */
         data () {
             return {
                 isErrorRequestCode: false,
-                isLoading: false,
+                // isLoading: false,
                 elemPersistLockScroll: null,
                 isShow: false,
-                recaptchaAction: 'login',
-                signingOption: false,
-                isSigningUp: false,
-                auth: {
-                    email: null,
+                // recaptchaAction: 'login',
+                // signingOption: false,
+                // isSigningUp: false,
+                /* auth: {
+                    email: 'test@test.com',
                     password: null
-                }
+                } */
             };
         },
         created () {
@@ -187,29 +189,29 @@
             // // // // console.log('TLC: Authentication - mounted -> mounted');
             this.elemPersistLockScroll = document.querySelector('#site-auth');
         },
-        validations: {
+        /* validations: {
             auth: {
                 email: {
                     required,
                     isDefault (email) {
-                        return email === config.appDefaultEmail;
+                        return email === appConfig.appDefaultEmail;
                     }
                 },
                 password: {
                     required,
                     isDefault: password => {
-                        return password === config.appDefaultPassword;
+                        return password === appConfig.appDefaultPassword;
                     }
                 }
             }
-        },
+        }, */
         methods: {
             closeSignin () {
                 this.isShow = false;
 
                 enableBodyScroll(this.elemPersistLockScroll);
             },
-            onSubmit (evt) {
+            /* onSubmit (evt) {
                 const payload = {
                     email: this.auth.email,
                     password: this.auth.password
@@ -262,7 +264,7 @@
                         this.isErrorRequestCode = err.code;
                         this.isLoading = false;
                     });
-            }
+            } */
         }
     };
 
@@ -273,7 +275,7 @@
   @include slide-in-panel;
 }
 
-@include form;
+/* @include form;
 
 @include error-request;
 
@@ -285,12 +287,14 @@ form {
     @include footnote;
     margin-bottom: 3em;
 }
-
+ */
 @include btn-close-x("close authentication");
   
 @include slide-helper;
 
-@include bg-canvas;
+.bg-canvas {
+  @include bg-canvas;
+}
 
 @include fading-helper;
 

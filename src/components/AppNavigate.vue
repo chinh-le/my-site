@@ -29,10 +29,10 @@
           <i class="material-icons">close</i>
         </button>
         <div class="content">
-          <AppLang />
-          <AppPageLinks />
+          <BaseLang />
+          <AppNavigateLinks />
           <AppSocialMedia />
-          <AppCopyright />
+          <BaseCopyright />
         </div>
       </div>
     </transition>
@@ -45,19 +45,19 @@
         enableBodyScroll,
         clearAllBodyScrollLocks
     } from 'body-scroll-lock';
-    import AppLang from './AppLang';
-    import AppPageLinks from './AppPageLinks';
+    import BaseLang from './BaseLang';
+    import AppNavigateLinks from './AppNavigateLinks';
     import AppSocialMedia from './AppSocialMedia';
-    import AppCopyright from './AppCopyright';
+    import BaseCopyright from './BaseCopyright';
     import { eventBus } from '@/js/eventBus';
     // import { scrollTo } from '@/js/helpers';
 
     export default {
         components: {
-            AppLang,
-            AppPageLinks,
+            BaseLang,
+            AppNavigateLinks,
             AppSocialMedia,
-            AppCopyright
+            BaseCopyright
         },
         /* props: {
             navShow: {
@@ -168,7 +168,9 @@
 
 @include slide-helper;
 
-@include bg-canvas;
+.bg-canvas {
+  @include bg-canvas;
+}
 
 @include fading-helper;
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <div class="image-container">
-    <div class="bg-canvas" />
+  <div :class="$style.container">
+    <div :class="$style.canvas" />
     <img
-      class="svg-image"
+      :class="$style.image"
       :src="imgPath"
       alt="ripple graphic"
     >
@@ -19,8 +19,8 @@
     }
 </script>
 
-<style lang="scss" scoped>
-.image-container {
+<style lang="scss" module>
+.container {
   position: absolute;
   top: 0;
   left: 0;
@@ -29,10 +29,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.canvas {
   @include bg-canvas;
-  .svg-image {
+}
+.image {
     width: 20%;
     z-index: $z-index-overlay;
   }
-}
 </style>

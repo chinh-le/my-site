@@ -4,7 +4,7 @@
     class="certificates"
   >
     <h3>Certifications</h3>
-    <ul v-if="certificates.length > 0">
+    <!-- <ul v-if="certificates.length > 0">
       <li
         v-for="certificate in certificates"
         :key="certificate.header"
@@ -21,7 +21,11 @@
           :alt="certificate.alt"
         >
       </li>
-    </ul>
+    </ul> -->
+    <AppCardList
+      v-if="certificates.length > 0"
+      :items="certificates"
+    />
     <p v-if="!certificates">
       Oops! There's something wrong with our server.
       <br>Please try again later.
@@ -31,7 +35,12 @@
 
 <script>
     import { _getCollection, _getImgContextPath } from '@/firebase';
+    import AppCardList from './AppCardList';
+
     export default {
+        components: {
+            AppCardList
+        },
         data () {
             return {
                 certificates: []
@@ -65,7 +74,7 @@
     margin-bottom: 3em;
 }
 
-li {
+/* li {
     border-radius: 0.5em;
     background-color: #fff;
     padding: 1em;
@@ -85,5 +94,5 @@ li {
     img {
         width: 100%;
     }
-}
+} */
 </style>

@@ -8,18 +8,18 @@
     </div>
     <div class="content">
       <h3>Get in touch</h3>
-      <AppContactInfo />
+      <AppContactForm />
     </div>
   </div>
 </template>
 
 <script>
     import { setPosX, windowResizeHandler } from '@/js/helpers';
-    import AppContactInfo from './AppContactInfo';
+    import AppContactForm from './AppContactForm';
 
     export default {
         components: {
-            AppContactInfo
+            AppContactForm
         },
         data () {
             return {

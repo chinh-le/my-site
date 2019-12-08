@@ -1,20 +1,20 @@
 <template>
   <div class="site-footer">
     <footer class="site-footer-container">
-      <AppCopyright />
-      <AppLang />
+      <BaseCopyright />
+      <BaseLang />
     </footer>
   </div>
 </template>
 
 <script>
-    import AppCopyright from './AppCopyright';
-    import AppLang from './AppLang';
+    import BaseCopyright from './BaseCopyright';
+    import BaseLang from './BaseLang';
 
     export default {
         components: {
-            AppCopyright,
-            AppLang
+            BaseCopyright,
+            BaseLang
         }
     };
 </script>

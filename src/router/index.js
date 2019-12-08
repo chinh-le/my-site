@@ -1,48 +1,49 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import { appConfig } from '@/config';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: () => import(/* webpackChunkName: "AppHome" */ '@/components/AppHome')
+    path: appConfig.views.home.path,
+    name: appConfig.views.home.name,
+    component: () => import(/* webpackChunkName: "ViewHome" */ `@/components/ViewHome`)
   },
   {
-    path: '/about',
-    name: 'about',
+    path: appConfig.views.about.path,
+    name: appConfig.views.about.name,
     /*
     KIM - lazy-loading / prefetching
       // route level code-splitting
-      // this generates a separate chunk (AppAbout.[hash].js) for this route
+      // this generates a separate chunk (ViewAbout.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
     */
-    component: () => import(/* webpackChunkName: "AppAbout" */ '@/components/AppAbout')
+    component: () => import(/* webpackChunkName: "ViewAbout" */ '@/components/ViewAbout')
   },
   {
-    path: '/works',
-    name: 'works',
-    component: () => import(/* webpackChunkName: "AppWorks" */ '@/components/AppWorks')
+    path: appConfig.views.works.path,
+    name: appConfig.views.works.name,
+    component: () => import(/* webpackChunkName: "ViewWorks" */ '@/components/ViewWorks')
   },
   {
-    path: '/education',
-    name: 'education',
-    component: () => import(/* webpackChunkName: "AppEducation" */ '@/components/AppEducation')
+    path: appConfig.views.education.path,
+    name: appConfig.views.education.name,
+    component: () => import(/* webpackChunkName: "ViewEducation" */ '@/components/ViewEducation')
   },
   {
-    path: '/contact',
-    name: 'contact',
-    component: () => import(/* webpackChunkName: "AppContact" */ '@/components/AppContact')
+    path: appConfig.views.contact.path,
+    name: appConfig.views.contact.name,
+    component: () => import(/* webpackChunkName: "ViewContact" */ '@/components/ViewContact')
   },
   {
-    path: '/admin',
-    name: 'admin',
-    component: () => import(/* webpackChunkName: "AppAdmin" */ '@/components/AppAdmin')
+    path: appConfig.views.admin.name,
+    name: appConfig.views.admin.name,
+    component: () => import(/* webpackChunkName: "ViewAdmin" */ '@/components/ViewAdmin')
   },
   {
     path: '*',
-    redirect: { name: 'home' }
+    redirect: { name: appConfig.views.home.name }
   }
 ];
 
