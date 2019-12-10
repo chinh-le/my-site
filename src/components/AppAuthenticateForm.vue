@@ -1,7 +1,7 @@
 <template>
   <div>
     <form
-      :class="$style.formAuthenticate"
+      :class="$style['form-authenticate']"
       novalidate
       autocomplete="on"
       role="authentication"
@@ -9,15 +9,15 @@
     >
       <ul>
         <li>
-          <div :class="$style.formInputContainer">
+          <div :class="$style['form-input-container']">
             <label
-              :class="$style.inputLabel"
+              :class="$style['input-label']"
               for="auth-email"
             >Email</label>
             <input
               id="auth-email"
               v-model="auth.email"
-              :class="$style.input"
+              :class="$style['input']"
               type="email"
               autocomplete="email"
               placeholder="email*"
@@ -27,22 +27,21 @@
             >
           </div>
           <span
-            :class="[$style.inputError, {[$style.visible]: $v.auth.email.$dirty && (!$v.auth.email.required ||!$v.auth.email.isDefault)}]"
+            :class="[$style['input-error'], {[$style['visible']]: $v.auth.email.$dirty && (!$v.auth.email.required ||!$v.auth.email.isDefault)}]"
             role="alert"
             aria-relevant="all"
           >please use the provided email</span>
         </li>
         <li>
-          <div :class="$style.formInputContainer">
+          <div :class="$style['form-input-container']">
             <label
-              :class="$style.inputLabel"
+              :class="$style['input-label']"
               for="auth-password"
             >Password</label>
             <input
               id="auth-password"
-
               v-model="auth.password"
-              :class="$style.input"
+              :class="$style['input']"
               type="password"
               :autocomplete="isSigningUp ? 'new-password' : 'current-password'"
               placeholder="password*"
@@ -52,7 +51,7 @@
             >
           </div>
           <span
-            :class="[$style.inputError, {[$style.visible]: $v.auth.password.$dirty && !$v.auth.password.isDefault}]"
+            :class="[$style['input-error'], {[$style.visible]: $v.auth.password.$dirty && !$v.auth.password.isDefault}]"
             role="alert"
             aria-relevant="all"
           >please use the provided password</span>
@@ -61,49 +60,46 @@
           <input
             id="isSignup"
             v-model="isSigningUp"
-            :class="$style.inputCheckbox"
+            :class="$style['input-checkbox']"
             type="checkbox"
           >
           <label
-            :class="$style.inputLabel"
+            :class="$style['input-label']"
             for="isSignup"
           >signing up</label>
         </li>
       </ul>
-      <p :class="$style.footnote">
-        This site is protected by reCAPTCHA and the Google
-        <a
-          href="https://policies.google.com/privacy"
-        >Privacy Policy</a> and
-        <a href="https://policies.google.com/terms">Terms of Service</a> apply.
-      </p>
-      <BaseButtonSubmit
+      <BaseRecaptcha />
+      <BaseFormButtonSubmit
         :label="isSigningUp ? 'sign up' : 'sign in'"
         :title="'to authenticate'"
         :disabled="$v.$invalid"
       />
     </form>
-    <BaseErrorRequest :is-error-request="isErrorRequest" />
+    <BaseErrorRequest
+      v-if="isErrorRequest"
+      :error-code="errorRequestCode"
+    />
     <BaseSpinner v-show="isLoading" />
   </div>
 </template>
 
 <script>
     import { required } from 'vuelidate/lib/validators';
-    import { recaptchaElement } from '@/js/recaptcha';
-
+    import { recaptchaElement } from '@/utils/recaptcha';
     import { signup, login } from '@/firebase';
-
     import { appConfig } from '@/config';
-    import BaseSpinner from './BaseSpinner';
-    import BaseButtonSubmit from './BaseButtonSubmit';
-    import BaseErrorRequest from './BaseErrorRequest';
+    import BaseSpinner from './base/BaseSpinner';
+    import BaseFormButtonSubmit from './base/BaseFormButtonSubmit';
+    import BaseErrorRequest from './base/BaseErrorRequest';
+    import BaseRecaptcha from './base/BaseRecaptcha';
 
     export default {
         components: {
+            BaseRecaptcha,
             BaseErrorRequest,
             BaseSpinner,
-            BaseButtonSubmit
+            BaseFormButtonSubmit
         },
         props: {
             closeSignin: {
@@ -116,9 +112,8 @@
         data () {
             return {
                 isErrorRequest: false,
+                errorRequestCode: null,
                 isLoading: false,
-                // elemPersistLockScroll: null,
-                // isShow: false,
                 recaptchaAction: 'login',
                 signingOption: false,
                 isSigningUp: false,
@@ -154,6 +149,7 @@
 
                 this.isLoading = true;
                 this.isErrorRequest = false;
+                this.errorRequestCode = null;
 
                 recaptchaElement(this.recaptchaAction)
                     .then(res => {
@@ -169,7 +165,8 @@
                                     })
                                     .catch(err => {
                                         // console.log('TLC: onSubmit -> err', err);
-                                        this.isErrorRequest = err.code;
+                                        this.isErrorRequest = true;
+                                        this.errorRequestCode = err.code;
                                         this.isLoading = false;
                                     });
                             } else {
@@ -182,20 +179,23 @@
                                         }
                                     })
                                     .catch(err => {
-                                        // console.log('TLC: onSubmit -> err', err.code);
-                                        this.isErrorRequest = err.code;
+                                        // console.log('TLC: onSubmit -> err', err);
+                                        this.isErrorRequest = true;
+                                        this.errorRequestCode = err.code;
                                         this.isLoading = false;
                                     });
                             }
                         } else {
                             // console.log('TLC: onSubmit -> SPAM Automated Abused!!!');
-                            this.isErrorRequest = 'SPAM Automated Abused!!!';
+                            this.isErrorRequest = true;
+                            this.errorRequestCode = 'SPAM Automated Abused!!!';
                             this.isLoading = false;
                         }
                     })
                     .catch(err => {
                         // console.log('TLC: onSubmit -> err', err);
-                        this.isErrorRequest = err.code;
+                        this.isErrorRequest = true;
+                        this.errorRequestCode = err.code;
                         this.isLoading = false;
                     });
             }
@@ -204,40 +204,35 @@
 </script>
 
 <style lang="scss" module>
-.formAuthenticate {
-    padding: 2em;
+.form-authenticate {
+  padding: 2em;
 }
 
-.formInputContainer {
-    background-color: $color-bg-form-input;
-    padding: 0 1em;
-    border-radius: $form-input-border-radius;
+.form-input-container {
+  background-color: $color-bg-form-input;
+  padding: 0 1em;
+  border-radius: $form-input-border-radius;
 }
 
-.inputLabel {
-    @include screen-reader-ready;
+.input-label {
+  @include screen-reader-ready;
 }
 
 .input {
-    padding: $form-input-input-padding;
+  padding: $form-input-input-padding;
 }
 
-.inputError {
-    font-size: 0.7em;
-    opacity: 0.8;
-    position: relative;
-    top: -2.5em;
-    left: 1.5em;
-    visibility: hidden;
-    color: $color-txt-form-error;
-}
-
-.footnote {
-    @include footnote;
-    margin-bottom: 3em;
+.input-error {
+  font-size: 0.7em;
+  opacity: 0.8;
+  position: relative;
+  top: -2.5em;
+  left: 1.5em;
+  visibility: hidden;
+  color: $color-txt-form-error;
 }
 
 .visible {
-    @include visible;
+  @include visible;
 }
 </style>

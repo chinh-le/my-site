@@ -1,30 +1,30 @@
 <template>
   <button
-    :class="$style.button"
-    :type="buttonType"
-    :title="buttonTitle"
+    :class="$style['btn']"
+    :type="btnType"
+    :title="btnTitle"
     role="button"
   >
-    {{ buttonLabel }}
+    {{ btnLabel }}
   </button>
 </template>
 
 <script>
     export default {
         props: {
-            buttonLabel: {
+            btnLabel: {
                 type: String,
                 default () {
                     return 'button';
                 }
             },
-            buttonType: {
+            btnType: {
                 type: String,
                 default () {
                     return 'button';
                 }
             },
-            buttonTitle: {
+            btnTitle: {
                 type: String,
                 default () {
                     return '';
@@ -35,7 +35,7 @@
 </script>
 
 <style lang="scss" module>
-.button {
+.btn {
     font-size: 1em;
     padding: $form-input-button-padding;
     border-radius: $form-input-border-radius;

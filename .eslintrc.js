@@ -21,7 +21,15 @@ module.exports = {
           "indent": "off"
         }
       }
-    ]
+    ],
+
+    "space-before-function-paren": ["error", {
+        "anonymous": "always",
+        "named": "always",
+        "asyncArrow": "always"
+    }],
+    "space-before-blocks": ["error", { "functions": "always", "keywords": "always", "classes": "always" }],
+    "object-curly-spacing": ["error", "always", { "objectsInObjects": false }]
 
     // 'semi': [2, 'always'],
     /* 'vue/html-indent': [

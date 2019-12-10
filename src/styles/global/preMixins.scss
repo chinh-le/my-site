@@ -56,18 +56,16 @@
 }
 
 @mixin btn-close-x($content: "") {
-  .btn-close {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    &:after {
-      content: $content;
-      @include screen-reader-ready;
-    }
-    > i {
-      color: $color-slide-in-button-close;
-      padding: 0.6em;
-    }
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  &:after {
+    content: $content;
+    @include screen-reader-ready;
+  }
+  > i {
+    color: $color-slide-in-button-close;
+    padding: 0.6em;
   }
 }
 

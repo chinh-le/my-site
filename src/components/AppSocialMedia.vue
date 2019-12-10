@@ -1,29 +1,20 @@
 <template>
-  <div>
-    <ul class="social-media">
-      <li
-        v-for="(socialMedia, index) in socialMedias"
-        :key="index"
-      >
-        <!-- <a
-          :href="socialMedia.url"
-          :class="socialMedia.label"
-          :title="socialMedia.label"
-        >
-          <img
-            :src="socialMedia.image"
-            :alt="socialMedia.label"
-          >
-        </a> -->
-        <BaseLinkImage :link="socialMedia" />
-      </li>
-    </ul>
-  </div>
+  <ul
+    v-if="socialMedias.length > 0"
+    :class="$style['social-media']"
+  >
+    <li
+      v-for="(socialMedia, index) in socialMedias"
+      :key="index"
+    >
+      <BaseLinkImage :link="socialMedia" />
+    </li>
+  </ul>
 </template>
 
 <script>
     import { _getCollection, _getImgContextPath } from '@/firebase';
-    import BaseLinkImage from './BaseLinkImage';
+    import BaseLinkImage from './base/BaseLinkImage';
 
     export default {
         components: {
@@ -35,70 +26,43 @@
             };
         },
         created () {
-            _getCollection('socialMedia').then(snapshots => {
-                // console.log('TLC: created -> snapshots', snapshots);
-                if (!snapshots.empty) {
-                    snapshots.forEach(element => {
-                        let elemData = element.data();
-                        if (elemData.image) {
-                            elemData.image = _getImgContextPath(
-                                `socialMedia/${elemData.image}`
-                            );
-                        }
-                        this.socialMedias.push(elemData);
-                    });
+            _getCollection('socialMedia')
+                .then(snapshots => {
+                    // console.log('TLC: created -> snapshots', snapshots);
+                    if (!snapshots.empty) {
+                        snapshots.forEach(element => {
+                            let elemData = element.data();
+
+                            if (elemData.image) {
+                                elemData.image = _getImgContextPath(
+                                    `socialMedia/${elemData.image}`
+                                );
+                            }
+                            
+                            this.socialMedias.push(elemData);
+                        });
                     // console.log('TLC: created -> this.socialMedias', this.socialMedias);
-                } else {
+                    } else {
                     // console.log('TLC: created -> list empty');
-                }
-            });
+                    }
+                })
+                .catch(err => {
+                    this.errorHandler(err);
+                });
+        },
+        methods: {
+            errorHandler (err) {
+            // perhaps log error to DB and send email notification to admin
+            }
         }
     };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .social-media {
-  display: flex;
+  display: var(--social-media-display);
   flex-direction: row;
   align-content: center;
-  /* li {
-    line-height: 1em;
-  } */
-  /* a {
-    display: inline-flex;
-    > img {
-      width: var(--social-icon-dimension);
-      height: var(--social-icon-dimension);
-      padding: 1.3em;
-      }
-    &.linkedin {
-      &:after {
-        content: "linkedin";
-      }
-    }
-    &.github {
-      &:after {
-        content: "github";
-      }
-    }
-    &.instagram {
-      &:after {
-        content: "instagram";
-      }
-    }
-    &:after {
-      @include screen-reader-ready;
-    }
-  } */
+  justify-content: center;
 }
-
-.navigation {
-  .social-media {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin-bottom: 3em;
-  }
-}
-
 </style>

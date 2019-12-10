@@ -4,43 +4,49 @@ export const appConfig = {
     appResumePath: process.env.VUE_APP_RESUME_PATH,
     appDefaultEmail: process.env.VUE_APP_DEFAULT_EMAIL,
     appDefaultPassword: process.env.VUE_APP_DEFAULT_PASSWORD,
-    views: {
-        home: {
+    views: [
+        {
+            order: 4,
             name: 'home',
             path: '/',
             class: 'link-home',
             title: 'home',
             componentName: 'AppHome'
         },
-        about: {
+        {
+            order: 1,
             name: 'about',
             path: '/about',
             class: 'link-about',
             title: 'about',
             componentName: 'AppAbout'
         },
-        works: {
+        {
+            order: 3,
             name: 'works',
             path: '/works',
             class: 'link-works',
             title: 'works',
             componentName: 'AppWorks'
         },
-        education: {
+        {
+            order: 1,
             name: 'education',
             path: '/education',
             class: 'link-education',
             title: 'education',
             componentName: 'AppEducation'
         },
-        contact: {
+        {
+            order: 6,
             name: 'contact',
             path: '/contact',
             class: 'link-contact',
             title: 'contact',
             componentName: 'AppContact'
         },
-        admin: {
+        {
+            order: 7,
             name: 'admin',
             path: '/admin',
             class: 'link-admin',
@@ -48,5 +54,5 @@ export const appConfig = {
             componentName: 'AppAdmin',
             private: true // private route and only accessible if authenticated
         }
-    }
+    ]
 };

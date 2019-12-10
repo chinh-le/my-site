@@ -10,7 +10,8 @@ $z-index-body: 1;
 $z-index-app: 2;
 $z-index-body-img-bg: 3;
 $z-index-site-wrap: 4;
-$z-index-app-page-links: 5;
+// $z-index-app-page-links: 5;
+$z-index-sidebar-nav: 5;
 $z-index-header: 6;
 $z-index-footer: 7;
 $z-index-overlay-bg: 2000;
@@ -39,7 +40,7 @@ $padd-container: 1em;
 
 $color-bg-body: #f7f7f7;
 // $color-bg-header: rgba(0, 0, 0, 0.15);
-$color-bg-header: #f7f7f7;
+$color-bg-header: #fff;
 $color-bg-overlay: rgba(0, 0, 0, 0.9);
 
 // $color-txt: #999;
@@ -81,13 +82,14 @@ $color-bg-form-button-disabled: #fff;
 // $color-form-button-border: #444;
 $color-form-button-border: #000;
 $color-txt-form-error: #D85426;
-$color-txt-error-request: #fff;
+$color-txt-error-request: #000;
 
 // slide in panel: navigation, signin
 $slide-in-width: 100%;
 $slide-in-height: 100%;
 // $color-slide-in-button-close: #aaa;
-$color-slide-in-button-close: #000;
+// $color-slide-in-button-close: #000;
+$button-icon-color: #000;
 // $color-txt-slide-in-current: #D85426;
 // $color-links-slide-in: #fff;
 // $color-bg-slide-in-panel: #333;

@@ -1,3 +1,28 @@
+// filter (not to include private route) and sort view routes
+const viewsFilteredAndSorted = (views) => {
+  return views.filter(view => {
+    // console.log('TLC: created -> view', view);
+    return !view.private;
+  }).slice((viewA, viewB) => viewA.order - viewB.order);
+};
+
+// source: https://dev.to/afewminutesofcode/how-to-convert-an-array-into-an-object-in-javascript-25a4
+const convertArrayToObject = (array, key) => 
+  array.reduce((acc, curr) => {
+    acc[curr[key]] = curr;
+    return acc;
+  }, {});
+// Even concise
+// REM - error: Uncaught ReferenceError: item is not defined
+// const convertArrayToObject = (array, key) => array.reduce((acc, curr) =>(acc[item[key]] = item, acc), {});
+// Basically everything inside parentheses will be evaluated, only the last value used will be only returned.
+
+
+// https://gist.github.com/gordonbrander/2230317
+const generateUniqueId = () => {
+    return Math.random().toString(36).substr(2, 9);
+};
+
 /*
 for wide screen larger than 1200px - mostly fluid pattern: max-width: $breakpoint-xl (1200px)
   - set inline style left position (h1/heading1 of the page content) to have it stick to most left aligning to the logo and not further to the left
@@ -53,6 +78,9 @@ const scrollTo = (position) => {
 };
 
 export {
+  viewsFilteredAndSorted,
+  convertArrayToObject,
+  generateUniqueId,
   wideScreenMaxWidth,
   windowResizeHandler,
   setPosX,

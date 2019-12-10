@@ -1,3 +1,0 @@
-export {
-    generateUniqueId
-} from './uniqueId';

@@ -1,8 +1,9 @@
 <template>
-  <ul :class="$style.cards">
+  <ul :class="$style['cards-overlay']">
     <li
       v-for="(item, index) in items"
       :key="index"
+      :class="$style['cards-overlay-item']"
     >
       <BaseCardOverlay :item="item" />
     </li>
@@ -10,7 +11,7 @@
 </template>
 
 <script>
-    import BaseCardOverlay from './BaseCardOverlay';
+    import BaseCardOverlay from './base/BaseCardOverlay';
 
     export default {
         components: {
@@ -28,10 +29,8 @@
 </script>
 
 <style lang="scss" module>
-.cards {
-    > li {
-        width: 100%;
-        margin-bottom: 1em;
-    }
+.cards-overlay-item{
+  width: 100%;
+  margin-bottom: 1em;
 }
 </style>

@@ -1,9 +1,8 @@
 <template>
-  <div class="logo">
+  <div :class="$style['logo']">
     <router-link
       to="/"
       title="home"
-      class="font-effect-outline"
     >
       cle.
     </router-link>
@@ -16,10 +15,11 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .logo {
     font-family: $font-family-logo;
-    font-size: 1.3em;
+    font-size: var(--logo-font-size);
+    transition: font-size 1s var(--logo-anim-timing-function);
     a {
         text-decoration: none;
         color: $color-logo;

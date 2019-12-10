@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.card">
+  <div :class="$style['card']">
     <h4>{{ item.header }}</h4>
     <p>
       <a

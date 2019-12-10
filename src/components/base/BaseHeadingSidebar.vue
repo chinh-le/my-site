@@ -1,25 +1,23 @@
 <template>
-  <div class="contact">
-    <div
-      class="heading"
-      :style="posX"
-    >
-      <h1>contact</h1>
-    </div>
-    <div class="content">
-      <h3>Get in touch</h3>
-      <AppContactForm />
-    </div>
-  </div>
+  <header
+    :class="$style['heading']"
+    :style="posX"
+  >
+    <h1>{{ headingText }}</h1>
+  </header>
 </template>
 
 <script>
-    import { setPosX, windowResizeHandler } from '@/js/helpers';
-    import AppContactForm from './AppContactForm';
+    import { setPosX, windowResizeHandler } from '@/utils/helpers';
 
     export default {
-        components: {
-            AppContactForm
+        props: {
+            headingText: {
+                type: String,
+                default () {
+                    return null;
+                }
+            }
         },
         data () {
             return {
@@ -32,14 +30,8 @@
 
             window.addEventListener('resize', this.resizeHandler);
         },
-        mounted () {
-            document.querySelector('#site-wrap').scroll({
-                left: 0,
-                top: 0
-            });
-        },
         beforeDestroy () {
-            // console.log('TLC: Contact -> beforeDestroy');
+            // console.log('TLC: About -> beforeDestroy');
             window.removeEventListener('resize', this.resizeHandler);
         },
         methods: {
@@ -47,12 +39,11 @@
                 this.posX = windowResizeHandler(evt, 'left');
             }
         }
-    };
-
+    }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .heading {
-    position: relative;
+//   position: relative;
 }
 </style>

@@ -1,11 +1,11 @@
 <template>
-  <ul :class="$style.skillsList">
+  <ul :class="$style['skills-list']">
     <li
       v-for="skill in skills"
       :key="skill.name"
+      :class="$style['skills-list-item']"
     >
       <h4>{{ skill.name }}</h4>
-      
       <BaseDotSet
         :ratings="ratings"
         :ratings-length="ratingsLength"
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-    import BaseDotSet from './BaseDotSet';
+    import BaseDotSet from './base/BaseDotSet';
 
     export default {
         components: {
@@ -46,13 +46,11 @@
 </script>
 
 <style lang="scss" module>
-.skillsList {
-  li {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 1em;
-  }
+.skills-list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1em;
 }
 </style>

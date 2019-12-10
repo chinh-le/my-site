@@ -1,11 +1,12 @@
 <template>
-  <div id="app">
+  <div
+    id="app"
+    class="app"
+  >
     <!-- <img src="@/assets/shutterstock-education.jpg" alt class="body-img-bg" /> -->
     <TheHeader />
-    <main
-      id="site-wrap"
-      class="site-wrap"
-    >
+    <!-- <main :class="$style['site-wrap']"> -->
+    <main class="site-wrap">
       <transition
         name="fading"
         mode="out-in"
@@ -16,7 +17,7 @@
     <TheFooter />
     <AppNavigate />
     <AppAuthenticate />
-    <AppNavigateLinks />
+    <AppNavigateLinksSidebar />
   </div>
 </template>
 
@@ -28,15 +29,15 @@
     import TheFooter from '@/components/TheFooter';
     import AppNavigate from '@/components/AppNavigate';
     import AppAuthenticate from '@/components/AppAuthenticate';
-    import AppNavigateLinks from '@/components/AppNavigateLinks';
+    import AppNavigateLinksSidebar from '@/components/AppNavigateLinksSidebar';
 
     export default {
         components: {
+            AppNavigateLinksSidebar,
+            AppAuthenticate,
+            AppNavigate,
             TheHeader,
             TheFooter,
-            AppNavigate,
-            AppAuthenticate,
-            AppNavigateLinks
         },
         watch: {
             $route (fr, to) {
@@ -46,23 +47,13 @@
         beforeCreate () {
             init(); // set firebase config
             onStateChange(); // authentication state observer
-        },
-        created () { },
-        beforeMount () { },
-        mounted () { },
-        beforeUpdate () { },
-        updated () { },
-        beforeDestroyed () { },
-        destroyed () { }
+        }
     };
 </script>
 
-<style scoped lang="scss">
-#app {
+<style lang="scss" scoped>
+.app {
   z-index: $z-index-app; //2;
-  > .page-links {
-    z-index: $z-index-app-page-links; //5
-  }
 }
 .site-wrap {
   position: relative;
@@ -71,10 +62,5 @@
   padding: 0 $padd-container var(--site-footer-height);
   box-sizing: border-box;
 }
-
-.bg-canvas {
-  @include bg-canvas;
-}
 @include fading-helper;
-@include slide-helper;
 </style>

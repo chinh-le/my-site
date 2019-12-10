@@ -1,5 +1,5 @@
 <template>
-  <div class="copyright">
+  <div :class="$style['copyright']">
     <span>&copy; chinhle.ca 2019.</span>
     <span>All rights reserved.</span>
   </div>
@@ -11,22 +11,16 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .copyright {
   font-size: 0.7em;
   color: $color-unfocus;
   line-height: 1.2em;
   display: flex;
-  flex-direction: column;
+  flex-direction: var(--copyright-flex-direction);
+  justify-content: var(--copyright-justify-content);
   > span {
     padding-right: 0.5em;
-  }
-}
-
-.site-nav {
-  .copyright {
-    justify-content: center;
-    flex-direction: row;
   }
 }
 </style>

@@ -1,103 +1,65 @@
 <template>
-  <div
-    v-if="personals"
-    class="personals"
-  >
-    <h3 id="personal">
-      Personal
-    </h3>
-    <!-- <ul v-if="personals.length > 0">
-      <li
-        v-for="(personal, index) in personals"
-        :key="index"
-      >
-        <a
-          :href="personal.url"
-          :class="personal.label"
-          :title="personal.label"
-        >
-          <img
-            v-if="personal.image"
-            :src="personal.image"
-            :alt="personal.label"
-          >
-          <span
-            v-else
-            class="overlay"
-          />
-        </a>
-      </li>
-    </ul> -->
+  <div :class="$style['personals']">
+    <h3>Personal</h3>
     <AppCardOverlayList
       v-if="personals.length > 0"
       :items="personals"
     />
-    <p v-if="!personals">
-      Oops! There's something wrong with our server.
-      <br>Please try again later.
-    </p>
+    <BaseErrorRequest
+      v-show="isErrorRequest"
+      :error-code="errorRequestCode"
+    />
   </div>
 </template>
 
 <script>
     import { _getCollection, _getImgContextPath } from '@/firebase';
     import AppCardOverlayList from './AppCardOverlayList';
+    import BaseErrorRequest from './base/BaseErrorRequest';
 
     export default {
         components: {
+            BaseErrorRequest,
             AppCardOverlayList
         },
         data () {
             return {
-                personals: []
+                personals: [],
+                isErrorRequest: false,
+                errorRequestCode: null
             };
         },
         created () {
-            _getCollection('personals').then(querySnapshot => {
-                // console.log('TLC: created -> querySnapshot', querySnapshot);
-                if (!querySnapshot.empty) {
-                    querySnapshot.forEach(element => {
-                        let elemData = element.data();
-                        if (elemData.image) {
-                            elemData.image = _getImgContextPath(`works/${elemData.image}`);
-                        }
-                        this.personals.push(elemData);
-                    });
-                } else {
-                    // console.log('TLC: created -> list empty');
-                    this.personals = false;
-                }
-            });
+            _getCollection('personals')
+                .then(querySnapshot => {
+                    // console.log('TLC: created -> querySnapshot', querySnapshot);
+                    this.errorRequest = false;
+                    this.errorRequestCode = null;
+                
+                    if (!querySnapshot.empty) {
+                        querySnapshot.forEach(element => {
+                            let elemData = element.data();
+
+                            if (elemData.image) {
+                                elemData.image = _getImgContextPath(`works/${elemData.image}`);
+                            }
+
+                            this.personals.push(elemData);
+                        });
+                    } else {
+                        // console.log('TLC: created -> list empty');
+                        this.personals = [];
+                    }
+                })
+                .catch(err => {
+                    this.isErrorRequest = true;
+                    this.ErrorRequestCode = err.code;
+                });
         }
     };
 
 </script>
 
-<style lang="scss" scoped>
-li {
-  width: 100%;
-  margin-bottom: 1em;
-}
-
-/* a {
-    display: block;
-    color: $color-txt;
-    text-decoration: none;
-    > img {
-        width: 100%;
-    }
-}
-
-.overlay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 150px;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: #fff;
-    &:before {
-        content: 'coming soon';
-    }
-} */
+<style lang="scss" module>
+.personals {}
 </style>

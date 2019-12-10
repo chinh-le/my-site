@@ -1,8 +1,9 @@
 <template>
-  <ul :class="$style.cards">
+  <ul :class="$style['cards']">
     <li
       v-for="item in items"
       :key="item.header"
+      :class="$style['cards-item']"
     >
       <BaseCard :item="item" />
     </li>
@@ -10,7 +11,7 @@
 </template>
 
 <script>
-    import BaseCard from './BaseCard';
+    import BaseCard from './base/BaseCard';
 
     export default {
         components: {
@@ -28,12 +29,10 @@
 </script>
 
 <style lang="scss" module>
-.cards {
-    li {
-        border-radius: 0.5em;
-        background-color: #fff;
-        padding: 1em;
-        margin-bottom: 1em;
-    }
+.cards-item {
+  border-radius: 0.5em;
+  background-color: #fff;
+  padding: 1em;
+  margin-bottom: 1em;
 }
 </style>

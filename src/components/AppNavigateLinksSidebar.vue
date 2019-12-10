@@ -1,29 +1,31 @@
 <template>
-  <nav
-    :class="$style['page-links']"
-    role="navigation"
-    :style="posX"
-  >
-    <ul>
-      <li
-        v-for="appView in appViews"
-        :key="appView.name"
-        :class="$style['page-links-item']"
-      >
-        <BaseNavigateLink :view="appView" />
-      </li>
-    </ul>
-  </nav>
+  <div :class="$style['site-nav-sidebar']">
+    <nav
+      :class="$style['page-links']"
+      role="navigation"
+      :style="posX"
+    >
+      <ul>
+        <li
+          v-for="appView in appViews"
+          :key="appView.name"
+          :class="$style['page-links-item']"
+        >
+          <BaseNavigateLinkSidebar :view="appView" />
+        </li>
+      </ul>
+    </nav>
+  </div>
 </template>
 
 <script>
     import { setPosX, windowResizeHandler, viewsFilteredAndSorted } from '@/utils/helpers';
     import { appConfig } from '@/config';
-    import BaseNavigateLink from './base/BaseNavigateLink';
+    import BaseNavigateLinkSidebar from './base/BaseNavigateLinkSidebar';
 
     export default {
         components: {
-            BaseNavigateLink
+            BaseNavigateLinkSidebar
         },
         data () {
             return {
@@ -54,11 +56,23 @@
 </script>
 
 <style lang="scss" module>
+.site-nav-sidebar {
+  display: var(--site-nav-sidebar-display);
+  position: relative;
+  z-index: $z-index-sidebar-nav;
+}
 .page-links {
-  // display: none;
-  display: var(--nav-links-state);
-  font-family: $font-family-navigation;
-  font-size: 2em;
-  margin-bottom: 1.5em;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 0.6em;
+    font-family: $font-family-navigation;
+    font-size: 2em;
+    // margin-bottom: 1.5em;
 }
 </style>

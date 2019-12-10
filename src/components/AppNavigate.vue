@@ -1,6 +1,6 @@
 <template>
   <div
-    id="site-nav"
+    id="siteNav"
     class="site-nav"
   >
     <transition
@@ -20,14 +20,12 @@
         id="navigation"
         class="navigation"
       >
-        <button
-          type="button"
-          class="btn-close"
-          title="close navigation"
-          @click="closeNav()"
-        >
-          <i class="material-icons">close</i>
-        </button>
+        <BaseButtonIcon
+          :btn-class="'btn-close'"
+          :btn-title="'close'"
+          :btn-handler="closeNav"
+          :btn-icon="'close'"
+        />
         <div class="content">
           <BaseLang />
           <AppNavigateLinks />
@@ -45,48 +43,21 @@
         enableBodyScroll,
         clearAllBodyScrollLocks
     } from 'body-scroll-lock';
-    import BaseLang from './BaseLang';
+    import { eventBus } from '@/utils/eventBus';
+    import BaseLang from './base/BaseLang';
     import AppNavigateLinks from './AppNavigateLinks';
     import AppSocialMedia from './AppSocialMedia';
-    import BaseCopyright from './BaseCopyright';
-    import { eventBus } from '@/js/eventBus';
-    // import { scrollTo } from '@/js/helpers';
+    import BaseCopyright from './base/BaseCopyright';
+    import BaseButtonIcon from './base/BaseButtonIcon';
 
     export default {
         components: {
+            BaseButtonIcon,
             BaseLang,
             AppNavigateLinks,
             AppSocialMedia,
             BaseCopyright
         },
-        /* props: {
-            navShow: {
-                type: Boolean
-            },
-            nav: {
-                show: {
-                    type: Boolean,
-                    default () {
-                        return false;
-                    }
-                },
-                cb: {
-                    type: Function
-                }
-            },
-            show: {
-                type: Boolean,
-                default () {
-                    return false;
-                }
-            },
-            cb: {
-                type: Function,
-                default () {
-                    return null;
-                }
-            }
-        }, */
         data () {
             return {
                 isShow: false,
@@ -116,25 +87,13 @@
                 // );
             });
         },
-        beforeMount () {
-            // console.log('TLC: Navigation - beforeMount -> beforeMount');
-        },
         mounted () {
             // console.log('TLC: Navigation - mounted -> mounted');
-            this.elemPersistLockScroll = document.querySelector('#site-nav');
-        },
-        beforeUpdate () {
-            // console.log('TLC: Navigation - beforeUpdate -> beforeUpdate');
-        },
-        updated () {
-            // console.log('TLC: Navigation - updated -> updated');
+            this.elemPersistLockScroll = document.querySelector('#siteNav');
         },
         beforeDestroy () {
             // console.log('TLC: Navigation - beforeDestroy -> beforeDestroy');
             clearAllBodyScrollLocks();
-        },
-        destroyed () {
-            // console.log('TLC: Navigation - destroyed -> destroyed');
         },
         methods: {
             closeNav () {
@@ -144,15 +103,14 @@
                 // console.log('TLC: Navigation - closeNav -> enableBodyScroll');
             }
         },
-        beforeCreated () {
-            // console.log('TLC: Navigation - beforeCreated -> beforeCreated');
-        }
     };
 
 </script>
 
 <style lang="scss" scoped>
 .navigation {
+  --copyright-flex-direction: row;
+
   @include slide-in-panel;
 }
 
@@ -163,8 +121,6 @@
 .content {
   padding: 2em 1em;
 }
-
-@include btn-close-x("close navigation");
 
 @include slide-helper;
 

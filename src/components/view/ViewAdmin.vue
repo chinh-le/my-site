@@ -62,7 +62,7 @@
         _addRatings,
         _getRatings
     } from '@/firebase';
-    import * as mocks from '../../mocks/data';
+    import * as mocks from '../../../mocks/data';
 
     export default {
         // guard route

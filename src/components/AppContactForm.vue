@@ -1,8 +1,8 @@
 <template>
-  <div id="contact-info">
+  <div id="contactInfo">
     <form
       v-if="!messageSent"
-      :class="$style.contactForm"
+      :class="$style['contact-form']"
       novalidate
       autocomplete="on"
       role="contact"
@@ -10,16 +10,15 @@
     >
       <ul>
         <li>
-          <div :class="$style.formInputContainer">
+          <div :class="$style['form-input-container']">
             <label
-              for="contact-name"
-              :class="$style.inputLabel"
+              for="contactName"
+              :class="$style['input-label']"
             >Name</label>
             <input
-              id="contact-name"
-
+              id="contactName"
               v-model="user.name"
-              :class="$style.input"
+              :class="$style['input']"
               type="text"
               placeholder="Name*"
               autocomplete="name"
@@ -30,23 +29,21 @@
             >
           </div>
           <span
-            class="form-error"
-            :class="[$style.inputError, {[$style.visible]: $v.user.name.$dirty && !$v.user.name.required}]"
+            :class="[$style['input-error'], {[$style['visible']]: $v.user.name.$dirty && !$v.user.name.required}]"
             role="alert"
             aria-relevant="all"
           >required</span>
         </li>
         <li>
-          <div :class="$style.formInputContainer">
+          <div :class="$style['form-input-container']">
             <label
-              for="contact-email"
-              :class="$style.inputLabel"
+              for="contactEmail"
+              :class="$style['input-label']"
             >Email</label>
             <input
-              id="contact-email"
-
+              id="contactEmail"
               v-model="user.email"
-              :class="$style.input"
+              :class="$style['input']"
               type="email"
               placeholder="Email*"
               autocomplete="email"
@@ -56,7 +53,7 @@
             >
           </div>
           <span
-            :class="[$style.inputError, {[$style.visible]: $v.user.email.$dirty && (!$v.user.email.validAddress || !$v.user.email.required)}]"
+            :class="[$style['input-error'], {[$style['visible']]: $v.user.email.$dirty && (!$v.user.email.validAddress || !$v.user.email.required)}]"
             role="alert"
             aria-relevant="all"
           >
@@ -66,33 +63,33 @@
           </span>
         </li>
         <li>
-          <div :class="$style.formInputContainer">
+          <div :class="$style['form-input-container']">
             <label
-              for="contact-subject"
-              :class="$style.inputLabel"
+              for="contactSubject"
+              :class="$style['input-label']"
             >Subject</label>
             <input
-              id="contact-subject"
+              id="contactSubject"
               v-model.lazy="user.subject"
-              :class="$style.input"
+              :class="$style['input']"
               type="text"
               placeholder="Subject"
               autocomplete="off"
               aria-label="subject"
             >
           </div>
-          <span :class="$style.inputError">required</span>
+          <span :class="$style['input-error']">required</span>
         </li>
         <li>
-          <div :class="$style.formInputContainer">
+          <div :class="$style['form-input-container']">
             <label
-              for="contact-message"
-              :class="$style.inputLabel"
+              for="contactMessage"
+              :class="$style['input-label']"
             >Message</label>
             <textarea
-              id="contact-message"
+              id="contactMessage"
               v-model="user.message"
-              :class="$style.input"
+              :class="$style['input']"
               name
               cols="30"
               rows="7"
@@ -105,25 +102,19 @@
             />
           </div>
           <span
-            :class="[$style.inputError, {[$style.visible]: $v.user.message.$dirty && !$v.user.message.required}]"
+            :class="[$style['input-error'], {[$style['visible']]: $v.user.message.$dirty && !$v.user.message.required}]"
             role="alert"
             aria-relevant="all"
           >required</span>
           <span
-            :class="[$style.inputError, {[$style.visible]: !$v.user.message.maxLength}]"
+            :class="[$style['input-error'], {[$style['visible']]: !$v.user.message.maxLength}]"
             role="alert"
             aria-relevant="all"
           >Max length: {{ messageMaxLength }}</span>
         </li>
       </ul>
-      <p class="footnote">
-        This site is protected by reCAPTCHA and the Google
-        <a
-          href="https://policies.google.com/privacy"
-        >Privacy Policy</a> and
-        <a href="https://policies.google.com/terms">Terms of Service</a> apply.
-      </p>
-      <BaseButtonSubmit
+      <BaseRecaptcha />
+      <BaseFormButtonSubmit
         :label="'send message'"
         :title="'to Chinh Le'"
         :disabled="$v.$invalid"
@@ -137,15 +128,10 @@
       <br>I will get back to you as soon as possible.
       <br>Thank you.
     </p>
-    <!-- <p
+    <BaseErrorRequest
       v-if="isErrorRequest"
-      :class="$atyle.requestError"
-    >
-      Oops! There's something wrong with our server.
-      <span>[{{ isErrorRequest }}]</span>
-      <br>Please try again later.
-    </p> -->
-    <BaseErrorRequest :is-error-request="isErrorRequest" />
+      :error-code="errorRequestCode"
+    />
     <BaseSpinner v-show="isLoading" />
   </div>
 </template>
@@ -158,23 +144,25 @@
     } from 'body-scroll-lock';
     import { required, maxLength } from 'vuelidate/lib/validators';
     import { writeUserData } from '@/firebase';
-    import { recaptchaElement } from '@/js/recaptcha';
-    // import { scrollTo, emailRegex } from '@/js/helpers';
-    import { emailRegex } from '@/js/helpers';
+    import { recaptchaElement } from '@/utils/recaptcha';
+    import { emailRegex } from '@/utils/helpers';
     import { htmlEscaping } from '@/xss';
-    import BaseSpinner from './BaseSpinner';
-    import BaseButtonSubmit from './BaseButtonSubmit';
-    import BaseErrorRequest from './BaseErrorRequest';
+    import BaseSpinner from './base/BaseSpinner';
+    import BaseFormButtonSubmit from './base/BaseFormButtonSubmit';
+    import BaseErrorRequest from './base/BaseErrorRequest';
+    import BaseRecaptcha from './base/BaseRecaptcha';
 
     export default {
         components: {
+            BaseRecaptcha,
             BaseErrorRequest,
-            BaseButtonSubmit,
+            BaseFormButtonSubmit,
             BaseSpinner
         },
         data () {
             return {
                 isErrorRequest: false,
+                errorRequestCode: null,
                 isLoading: false,
                 elemPersistLockScroll: null,
                 messageSent: false,
@@ -189,7 +177,7 @@
             };
         },
         mounted () {
-            this.elemPersistLockScroll = document.querySelector('#contact-info');
+            this.elemPersistLockScroll = document.querySelector('#contactInfo');
         },
         // KIM - to use dynamic value, which is also used in template (textarea): this.messageMaxLength
         validations () {
@@ -224,6 +212,7 @@
 
                 this.isLoading = true;
                 this.isErrorRequest = false;
+                this.errorRequestCode = null;
 
                 disableBodyScroll(this.elemPersistLockScroll);
 
@@ -249,19 +238,22 @@
                                 err => {
                                     // console.log('TLC: 4onSubmit -> err', err);
                                     this.isLoading = false;
-                                    this.isErrorRequest = err.code;
+                                    this.isErrorRequest = true;
+                                    this.errorRequestCode = err.code;
                                     enableBodyScroll(this.elemPersistLockScroll);
                                 }
                             )
                             .catch(err => {
                                 // console.log('TLC: 5onSubmit -> err', err);
                                 this.isLoading = false;
-                                this.isErrorRequest = err.code;
+                                this.isErrorRequest = true;
+                                this.errorRequestCode = err.code;
                                 enableBodyScroll(this.elemPersistLockScroll);
                             });
                     } else {
                         // console.log('TLC: onSubmit -> SPAM Automated Abused!!!');
-                        this.isErrorRequest = 'SPAM Automated Abused!!!';
+                        this.isErrorRequest = true;
+                        this.errorRequestCode = 'SPAM Automated Abused!!!';
                         this.isLoading = false;
                     }
                 });
@@ -272,17 +264,17 @@
 </script>
 
 <style lang="scss" module>
-.contactForm {
+.contact-form {
     padding-bottom: 2em;
 }
 
-.formInputContainer {
+.form-input-container {
     background-color: $color-bg-form-input;
     padding: 0 1em;
     border-radius: $form-input-border-radius;
 }
 
-.inputLabel {
+.input-label {
     @include screen-reader-ready;
 }
 
@@ -290,7 +282,7 @@
     padding: $form-input-input-padding;
 }
 
-.inputError {
+.input-error {
     font-size: 0.7em;
     opacity: 0.8;
     position: relative;
@@ -298,11 +290,6 @@
     left: 1.5em;
     visibility: hidden;
     color: $color-txt-form-error;
-}
-
-.footnote {
-    @include footnote;
-    margin-bottom: 3em;
 }
 
 .visible {

@@ -1,96 +1,66 @@
 <template>
-  <div
-    id="scholarships"
-    class="scholarships"
-  >
+  <div :class="$style['scholarships']">
     <h3>Scholarships</h3>
-    <!-- <ul v-if="scholarships.length > 0">
-      <li
-        v-for="(scholarship, index) in scholarships"
-        :key="index"
-      >
-        <h4>{{ scholarship.header }}</h4>
-        <p>
-          <a
-            :href="scholarship.url"
-            :title="scholarship.alt"
-          >@{{ scholarship.location }}</a>
-        </p>
-        <img
-          :src="scholarship.image"
-          :alt="scholarship.alt"
-        >
-      </li>
-    </ul> -->
     <AppCardList
       v-if="scholarships.length > 0"
       :items="scholarships"
     />
-    <p v-if="!scholarships">
-      Oops! There's something wrong with our server.
-      <br>Please try again later.
-    </p>
+    <BaseErrorRequest
+      v-show="isErrorRequest"
+      :error-code="errorRequestCode"
+    />
   </div>
 </template>
 
 <script>
     import { _getCollection, _getImgContextPath } from '@/firebase';
     import AppCardList from './AppCardList';
+    import BaseErrorRequest from './base/BaseErrorRequest';
 
     export default {
         components: {
+            BaseErrorRequest,
             AppCardList
         },
         data () {
             return {
-                scholarships: []
+                scholarships: [],
+                isErrorRequest: false,
+                errorRequestCode: null
             };
         },
         created () {
-            _getCollection('scholarships').then(snapshots => {
-                // console.log('TLC: created -> snapshots', snapshots);
-                if (!snapshots.empty) {
-                    snapshots.forEach(element => {
-                        // console.log('TLC: created -> element', element);
-                        let elemData = element.data();
-                        // console.log('TLC: created -> elemData', elemData);
-                        if (elemData.image) {
-                            // elemData.image = this.getImgContextPath(elemData.image);
-                            elemData.image = _getImgContextPath(`education/${elemData.image}`);
-                        }
+            _getCollection('scholarships')
+                .then(snapshots => {
+                    // console.log('TLC: created -> snapshots', snapshots);
+                    this.isErrorRequest = false;
+                    this.errorRequestCode = null;
 
-                        this.scholarships.push(elemData);
-                    });
-                } else {
-                    // console.error('list empty!!!');
-                    this.scholarships = false;
-                }
-            });
+                    if (!snapshots.empty) {
+                        snapshots.forEach(element => {
+                            // console.log('TLC: created -> element', element);
+                            let elemData = element.data();
+                            // console.log('TLC: created -> elemData', elemData);
+                            if (elemData.image) {
+                                // elemData.image = this.getImgContextPath(elemData.image);
+                                elemData.image = _getImgContextPath(`education/${elemData.image}`);
+                            }
+
+                            this.scholarships.push(elemData);
+                        });
+                    } else {
+                        // console.log('TLC: created -> list empty');
+                        this.scholarships = [];
+                    }
+                })
+                .catch(err => {
+                    this.isErrorRequest = true;
+                    this.errorRequestCode = err.code;
+                });
         }
     };
-
 </script>
 
-<style lang="scss" scoped>
-li {
-    border-radius: 0.5em;
-    background-color: #fff;
-    padding: 1em;
-    margin-bottom: 1em;
-    h3 {
-        font-size: 1em;
-        margin-bottom: 0.5em;
-    }
-    p {
-        font-size: 0.7em;
-        margin-bottom: 1em;
-    }
-    a {
-        display: block;
-        color: $color-unfocus;
-    }
-    img {
-        width: 100%;
-    }
-}
+<style lang="scss" module>
+.scholarships {}
 </style>

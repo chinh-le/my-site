@@ -1,16 +1,16 @@
 <template>
-  <div :class="$style.dotSet">
-    <div
-      id="dots"
-      class="dots"
-    >
+  <div :class="$style['dot-set']">
+    <div id="dots">
       <span
         v-for="dot in ratingsLength"
         :key="dot"
-        :class="[$style.dot, {[$style.fill]: dot <= skill.rate, [$style.empty]: dot > skill.rate}]"
+        :class="[$style['dot'], {[$style['fill']]: dot <= skill.rate, [$style['empty']]: dot > skill.rate}]"
       />
     </div>
-    <label for="dots">{{ ratings[skill.rate] }}</label>
+    <label
+      :class="$style['dot-label']"
+      for="dots"
+    >{{ ratings[skill.rate] }}</label>
   </div>
 </template>
 
@@ -42,16 +42,11 @@
 <style lang="scss" module>
 $dot-width: 0.7em;
 
-.dotSet {
+.dot-set {
     width: 40%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    label {
-        font-size: 0.5em;
-        line-height: 0.5em;
-        @include color-unfocus;
-    }
 }
 .dot {
     width: $dot-width;
@@ -61,6 +56,11 @@ $dot-width: 0.7em;
     border-radius: $dot-width;
     background-color: $color-icon-skill-dot;
     opacity: 0.15;
+}
+.dot-label {
+    font-size: 0.5em;
+    line-height: 0.5em;
+    @include color-unfocus;
 }
 .fill {
     opacity: 0.4;

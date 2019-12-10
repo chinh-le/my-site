@@ -1,8 +1,8 @@
 <template>
-  <div :class="$style.container">
-    <div :class="$style.canvas" />
+  <div :class="$style['container']">
+    <div :class="$style['canvas']" />
     <img
-      :class="$style.image"
+      :class="$style['image']"
       :src="imgPath"
       alt="ripple graphic"
     >

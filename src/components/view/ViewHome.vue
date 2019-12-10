@@ -1,11 +1,13 @@
 <template>
   <div class="home">
     <div class="content">
-      <h1>Welcome to my personal site</h1>
-      <h2>
-        <span class="color-focus">Hello</span> My name is Chinh Le
+      <h1 :class="$style['heading-1']">
+        Welcome to my personal site
+      </h1>
+      <h2 :class="$style['heading-2']">
+        <span :class="$style['color-focus']">Hello</span> My name is Chinh Le
       </h2>
-      <p class="line color-focus">
+      <p :class="[$style['line'], $style['color-focus']]">
         ___
       </p>
     </div>
@@ -18,16 +20,12 @@
     }
 </script>
 
-<style lang="scss" scoped>
-.heading {
-  position: relative;
-}
-
-h1 {
+<style lang="scss" module>
+.heading-1 {
   margin-top: 3em;
   margin-bottom: 4em;
 }
-h2 {
+.heading-2 {
   font-size: 3em;
   margin-bottom: 1em;
 }
@@ -38,5 +36,4 @@ h2 {
 .color-focus {
     @include color-focus;
 }
-
 </style>
