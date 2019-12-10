@@ -10,8 +10,8 @@ module.exports = {
         .options({
           // Provide path to the file with resources
           resources: [
-            path.resolve(__dirname, 'src/styles/global/_vars.scss'),
-            path.resolve(__dirname, 'src/styles/global/_mixins.scss')
+            path.resolve(__dirname, 'src/styles/global/preVars.scss'),
+            path.resolve(__dirname, 'src/styles/global/preMixins.scss')
           ]
         })
         .end();

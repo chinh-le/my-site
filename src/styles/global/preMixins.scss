@@ -1,0 +1,187 @@
+//// preprocessed
+@mixin anim($prop, $effect: linear, $duration: 1s) {
+  transition: $prop $duration $effect;
+}
+
+@mixin error-request {
+    color: $color-txt-error-request;
+    padding: 2em;
+    > span {
+      color: $color-unfocus;
+    }
+}
+
+@mixin form {
+  .form-input {
+    background-color: $color-bg-form-input;
+    padding: 0 1em;
+    border-radius: $form-input-border-radius;
+    > input, textarea {
+      padding: $form-input-input-padding;
+    }
+  }
+
+  .form-error {
+    font-size: 0.7em;
+    opacity: 0.8;
+    position: relative;
+    top: -2.5em;
+    left: 1.5em;
+    visibility: hidden;
+    color: $color-txt-form-error;
+  }
+
+  // form {
+    label {
+      @include screen-reader-ready;
+    // }
+    // @include form-button-submit;
+  }
+
+  .visible {
+    @include visible;
+  }
+}
+
+@mixin slide-in-panel {
+  z-index: $z-index-overlay;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--slide-in-width);
+  height: $slide-in-height;
+  display: flex;
+  flex-direction: column;
+  background-color: $color-bg-slide-in-panel;
+}
+
+@mixin btn-close-x($content: "") {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  &:after {
+    content: $content;
+    @include screen-reader-ready;
+  }
+  > i {
+    color: $color-slide-in-button-close;
+    padding: 0.6em;
+  }
+}
+
+@mixin form-button-submit {
+  button {
+    font-size: 1em;
+    padding: $form-input-button-padding;
+    background-color: $color-bg-form-button;
+    border-radius: $form-input-border-radius;
+    color: $color-txt-form-button;
+    &:disabled {
+      color: $color-txt-form-button-disabled;
+      background-color: $color-bg-form-button-disabled;
+    }
+  }
+}
+
+@mixin color-focus {
+  color: $color-focus;
+}
+
+@mixin color-unfocus {
+  color: $color-unfocus;
+}
+
+@mixin set-margin($value, $direction: false) {
+  @if $direction {
+    margin-#{$direction}: $value;
+  }
+  @else {
+    margin: $value;
+  }
+}
+
+@mixin footnote {
+  font-size: 0.7em;
+  line-height: 1.3em;
+  color: $color-txt-footnote;
+  > a {
+    color: $color-txt-footnote-links;
+  }
+}
+
+@mixin bg-canvas {
+  // .bg-canvas {
+    z-index: $z-index-overlay-bg;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $slide-in-width;
+    height: $slide-in-height;
+    background-color: $color-bg-overlay;
+  // }
+}
+
+@mixin slide-helper {
+  .slide-enter-active {
+    animation: slideIn 0.5s ease-in;
+  }
+  .slide-leave-active {
+    animation: slideOut 0.4s ease-out;
+  }
+  @keyframes slideIn {
+    from {
+      transform: translateX($slide-in-width);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX($slide-in-width);
+    }
+  }
+}
+
+@mixin fading-helper {
+  .fading-enter {
+    opacity: 0;
+  }
+  .fading-enter-to {
+    opacity: 1;
+  }
+  .fading-enter-active {
+    transition: opacity 0.3s ease-in;
+  }
+  .fading-leave {
+    opacity: 1;
+  }
+  .fading-leave-active {
+    transition: opacity 0.8s ease-out;
+  }
+  .fading-leave-to {
+    opacity: 0;
+  }
+}
+
+@mixin screen-reader-ready {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* added line */
+}
+
+@mixin visible {
+  visibility: visible !important;
+}
+@mixin hiddenClass {
+  .hidden {
+    opacity: 0 !important;
+  }
+}

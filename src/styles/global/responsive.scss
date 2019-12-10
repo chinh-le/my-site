@@ -1,3 +1,7 @@
+// >= 330
+@media screen and (min-width: $breakpoint-xs) {
+
+}
 // 330 - 576
 @media screen and (min-width: $breakpoint-xs) and (max-width: $breakpoint-sm) {
     .site-wrap {
@@ -6,18 +10,31 @@
     }
 }
 
-// 577
+// < 576
+@media screen and (max-width: $breakpoint-sm) {
+    #app > header {
+        --social-media-display: none;
+    }
+}
+
+// > 577
 @media screen and (min-width: $breakpoint-sm + 1) {
-    .site-header {
+    #app > footer {
+        --copyright-flex-direction: row;
+    }
+    /* .site-header {
+        --social-media-display: flex;
+    } */
+    /* .site-header {
         .social-media {
             display: flex!important;
         }
-    }
-    .site-nav {
+    } */
+    /* .site-nav {
         .social-media {
             display: none!important;
         }
-    }
+    } */
     .contact {
         // display: flex;
         // flex-direction: column;
@@ -34,11 +51,11 @@
             }
         }
     }
-    .site-footer {
+    /* .site-footer {
         .copyright {
             flex-direction: row!important;
         }
-    }
+    } */
 }
 
 // 577 - 768
@@ -160,10 +177,13 @@
 // < 768
 @media screen and (max-width: $breakpoint-md) {
     .site-header {
+        --logo-font-size: 1.3em;
+        --logo-anim-timing-function: ease-out;
+
         @include anim(height, ease-out);
-        .logo > a {
+        /* .logo > a {
             @include anim(font-size, ease-out);
-        }
+        } */
         .btn-nav,
         .btn-login,
         .btn-logout,
@@ -185,10 +205,10 @@
     }
     .site-header {
         @include anim(height, ease-in);
-        .logo > a {
+        /* .logo > a {
             @include anim(font-size, ease-in);
             font-size: 1.7em;
-        }
+        } */
         .btn-nav,
         .btn-login,
         .btn-logout,
@@ -290,32 +310,7 @@
 // > 993
 @media screen and (min-width: $breakpoint-lg + 1) {
     #app {
-        > .page-links {
-            position: fixed!important;
-            top: 0;
-            right: 0;
-            // width: 10%;
-            height: 100%;
-            display: flex!important;
-            align-items: center;
-            justify-content: center;
-            padding-right: 0.2em;
-            > ul {
-                > li {
-                    > a {
-                        display: inline-block!important;
-                        padding: 0!important;
-                        &:before {
-                            @include screen-reader-ready;
-                        }
-                        > i {
-                            display: block!important;                            
-                            margin: 0.5em;
-                        }
-                    }
-                }
-            }
-        }
+        --site-nav-sidebar-display: block;
     }
 
     .about,
@@ -325,7 +320,8 @@
         display: flex!important;
         flex-direction: row!important;
         padding: 2em 0;
-        > .heading {
+        // > .heading {
+        > header {
             // width: 10%;
             height: 100%;
             position: fixed!important;

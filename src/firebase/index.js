@@ -1,19 +1,19 @@
 import { initializeApp } from 'firebase';
-import config from '@/config';
+import { firebaseConfig } from '@/config';
 
 export const init = () => {
-  // console.log('config: ', config);
+  // console.log('firebaseConfig: ', firebaseConfig);
   // Set the configuration for your app
-  const firebaseConfig = {
-    authDomain: config.authDomain, // required if use IAM (Identity Auth Management)
-    projectId: config.projectId, // required for Cloud Firestore DB
-    databaseURL: config.databaseUrl, // required for Realtime DB
-    storageBucket: config.storageBucket, // required for Storage
-    messagingSenderId: config.messagingSenderId,
-    apiKey: config.apiKey
+  const config = {
+    authDomain: firebaseConfig.authDomain, // required if use IAM (Identity Auth Management)
+    projectId: firebaseConfig.projectId, // required for Cloud Firestore DB
+    databaseURL: firebaseConfig.databaseUrl, // required for Realtime DB
+    storageBucket: firebaseConfig.storageBucket, // required for Storage
+    messagingSenderId: firebaseConfig.messagingSenderId,
+    apiKey: firebaseConfig.apiKey
   };
 
-  initializeApp(firebaseConfig);
+  initializeApp(config);
 };
 
 export {

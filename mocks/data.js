@@ -118,7 +118,7 @@ const skills = {
   },
   js: {
     order: 6,
-    name: 'Javascript, JQuery',
+    name: 'Javascript',
     rate: 3
   },
   css: {
