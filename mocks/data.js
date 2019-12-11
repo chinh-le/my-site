@@ -24,7 +24,7 @@ const personals = {
     order: 1,
     image: null,
     url: null,
-    label: 'coming soon'
+    label: 'coming-soon' // REM - label value is used as key for i18n - see skills.ratings (@/i18n/locales/*.json) and its use in @/components/base/BaseDotSet.vue
   }
 };
 
@@ -148,11 +148,12 @@ const skills = {
   }
 };
 
+// REM - ratings values are keys for i18n - see skills.ratings (@/i18n/locales/*.json) and its use in @/components/base/BaseDotSet.vue
 const ratings = {
   1: 'basic',
   2: 'average',
   3: 'good',
-  4: 'very good',
+  4: 'very-good',
   5: 'expert'
 };
 

@@ -1,6 +1,6 @@
 <template>
   <div :class="$style['professionals']">
-    <h3>Professional</h3>
+    <h3>{{ $t('professionals.heading') }}</h3>
     <AppCardOverlayList
       v-if="professionals.length > 0"
       :items="professionals"
@@ -33,7 +33,7 @@
             // professionals
             _getCollection('professionals')
                 .then(querySnapshot => {
-                    // // console.log('TLC: created -> querySnapshot', querySnapshot);
+                    // console.log('TLC: created -> querySnapshot', querySnapshot);
                     this.isErrorRequest = false;
                     this.errorRequestCode = null;
 
@@ -44,7 +44,7 @@
 
                             if (elemData.image) {
                                 elemData.image = _getImgContextPath(`works/${elemData.image}`);
-                            // console.log('TLC: created -> elemData.image', elemData.image);
+                                // console.log('TLC: created -> elemData.image', elemData.image);
                             }
 
                             this.professionals.push(elemData);

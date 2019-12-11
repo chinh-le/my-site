@@ -1,15 +1,13 @@
 <template>
   <div class="about">
-    <BaseHeadingSidebar :heading-text="'about me'" />
+    <BaseHeadingSidebar :heading-text="$t('about.title')" />
     <div class="content">
       <div class="desc">
         <h2 :class="$style['heading-2']">
-          <span :class="$style['color-focus']">Responsive site</span>, mobile and desktop
+          <span :class="$style['color-focus']">{{ $t('about.headings.heading-1') }}</span>, {{ $t('about.headings.heading-2') }}
         </h2>
         <p :class="$style['text']">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum et eaque vel
-          repellendus tempore ipsa cum aliquid saepe. Atque et qui repellat aliquid autem quibusdam error
-          nihil possimus velit molestiae!
+          {{ $t('about.paragraph') }}
         </p>
       </div>
       <AppSkills />

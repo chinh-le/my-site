@@ -3,8 +3,10 @@
     :to="view.path"
     :class="[$style['link'], $style[view.class]]"
     :exact-active-class="$style['exact-active']"
-    :title="view.title"
-  />
+    :title="$t(`navigation.${view.title}`)"
+  >
+    {{ $t(`navigation.${view.name}`) }}
+  </router-link>
 </template>
 
 <script>
@@ -33,7 +35,7 @@
     cursor: pointer;
   }
 }
-.link-home {
+/* .link-home {
   &:before {
     content: "Home";
   }
@@ -58,4 +60,5 @@
     content: "Contact";
   }
 }
-</style>
+ */
+ </style>

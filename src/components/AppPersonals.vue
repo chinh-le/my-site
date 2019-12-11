@@ -1,6 +1,6 @@
 <template>
   <div :class="$style['personals']">
-    <h3>Personal</h3>
+    <h3>{{ $t('personals.heading') }}</h3>
     <AppCardOverlayList
       v-if="personals.length > 0"
       :items="personals"

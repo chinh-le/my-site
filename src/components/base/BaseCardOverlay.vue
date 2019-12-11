@@ -13,7 +13,7 @@
       >
       <span
         :class="[$style['overlay'], {[$style['blank']]: !item.image}]"
-      >{{ item.label }}</span>
+      >{{ item.image ? item.label : $t(`images.${item.label}`) }}</span>
     </a>
   </div>
 </template>
@@ -22,7 +22,7 @@
     export default {
         props: {
             item: {
-                type:Object,
+                type: Object,
                 default () {
                     return {};
                 } 

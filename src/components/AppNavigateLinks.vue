@@ -1,7 +1,7 @@
 <template>
   <nav
     :class="$style['page-links']"
-    role="navigation"
+    :role="$t('navigation.heading')"
     :style="posX"
   >
     <ul>

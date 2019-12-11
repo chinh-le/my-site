@@ -1,11 +1,18 @@
 <template>
   <p :class="$style['recaptcha']">
-    This site is protected by reCAPTCHA and the Google
+    {{ $t('recaptcha.text-1') }}
     <a
       :class="$style['recaptcha-link']"
-      href="https://policies.google.com/privacy"
-    >Privacy Policy</a> and
-    <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+      :href="$t('recaptcha.policy.link')"
+      target="_blank"
+      :title="$t('recaptcha.policy.text')"
+    >{{ $t('recaptcha.policy.text') }}</a> {{ $t('recaptcha.text-2') }}
+    <a 
+      :class="$style['recaptcha-link']"
+      :href="$t('recaptcha.terms.link')"
+      target="_blank"
+      :title="$t('recaptcha.terms.text')"
+    >{{ $t('recaptcha.terms.text') }}</a> {{ $t('recaptcha.text-3') }}.
   </p>
 </template>
 

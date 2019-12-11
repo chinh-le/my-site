@@ -322,20 +322,31 @@
         padding: 2em 0;
         // > .heading {
         > header {
-            // width: 10%;
+            width: 4%;
             height: 100%;
             position: fixed!important;
             top: 0;
+            // top: 200px;
             left: 0;
-            display: flex;
-            align-items: center;
+            // display: flex;
+            // align-items: center;
             // justify-content: center;
-            justify-content: flex-end;
+            // justify-content: flex-end;
+            // justify-content: end;
             // padding-left: 0.5em;
-            > h1 {
-                margin: 0;
-                transform: rotate(-90deg);
-                padding: 0;
+            > .heading-container {
+                position: relative;
+                height: 100%;
+                > .heading-1 {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(50%) rotate(-90deg);
+                    width: 100%;
+                    white-space: nowrap;
+                    text-align: center;
+                    margin: 0;
+                    padding: 0;
+                }
             }
         }
         > .content {

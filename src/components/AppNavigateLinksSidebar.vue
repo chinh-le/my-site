@@ -70,7 +70,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-right: 0.6em;
+    // padding-right: 0.6em;
     font-family: $font-family-navigation;
     font-size: 2em;
     // margin-bottom: 1.5em;

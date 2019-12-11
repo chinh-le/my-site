@@ -1,6 +1,8 @@
 <template>
-  <div class="admin">
-    <h1>You are not meant to be here!!!</h1>
+  <div :class="$style['admin']">
+    <h1 :class="$style['heading-1']">
+      You are not meant to be here!!!
+    </h1>
     <button @click="addCollection('professionals')">
       Add professionals
     </button> |
@@ -53,6 +55,11 @@
 </template>
 
 <script>
+    // debugging purposes
+    const consoleLogResults = (res) => {
+        console.log('TLC: consoleResults -> res', res);
+    };
+
     import { auth } from 'firebase';
     import {
         _addCollection,
@@ -68,16 +75,17 @@
         // guard route
         beforeRouteEnter (to, from, next) {
             auth().onAuthStateChanged(user => {
-                console.log('TLC: beforeRouteEnter -> user', user);
+                // console.log('TLC: beforeRouteEnter -> user', user);
                 if (user) {
                     auth()
                         .currentUser.getIdTokenResult()
                         .then(res => {
-                            console.log('TLC: beforeRouteEnter -> LOGGED');
+                            // console.log('TLC: beforeRouteEnter -> LOGGED ', res);
+                            consoleLogResults(res);
                             next();
                         });
                 } else {
-                    console.log('TLC: beforeRouteEnter -> NOT LOGGED!!!');
+                    // console.log('TLC: beforeRouteEnter -> NOT LOGGED!!!');
                     next({ name: 'home' });
                 }
             });
@@ -105,14 +113,8 @@
             },
             getCollection (collection) {
                 _getCollection(collection).then(snapshots => {
-                    console.log('TLC: getCollection -> snapshots', snapshots);
-                    if (!snapshots.empty) {
-                        snapshots.forEach(element => {
-                            console.log('TLC: getCollection -> element', element);
-                        });
-                    } else {
-                        console.log('TLC: getCollection -> FAILED');
-                    }
+                    // console.log('TLC: getCollection -> snapshots', snapshots);
+                    consoleLogResults(snapshots);
                 });
             },
             addSkills () {
@@ -120,14 +122,8 @@
             },
             getSkills () {
                 _getSkills().then(snapshots => {
-                    console.log('TLC: getSkills -> snapshots', snapshots);
-                    if (!snapshots.empty) {
-                        snapshots.forEach(element => {
-                            console.log('TLC: getSkills -> element', element);
-                        });
-                    } else {
-                        console.log('TLC: getSkills -> FAILED');
-                    }
+                    // console.log('TLC: getSkills -> snapshots', snapshots);
+                    consoleLogResults(snapshots);
                 });
             },
             addRatings () {
@@ -135,18 +131,17 @@
             },
             getRatings () {
                 _getRatings().then(snapshots => {
-                    console.log('TLC: getRatings -> snapshots', snapshots);
-                    if (snapshots.exists) {
-                        console.log('TLC: getRatings -> snapshots.data()', snapshots.data());
-                    } else {
-                        console.log('TLC: getRatings -> FAILED');
-                    }
+                    // console.log('TLC: getRatings -> snapshots.data()', snapshots.data());
+                    consoleLogResults(snapshots);
                 });
             }
         }
     };
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss" module>
+.admin {}
+.heading-1 {
+    font-size: 2em;
+}
 </style>

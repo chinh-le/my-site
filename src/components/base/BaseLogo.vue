@@ -2,7 +2,7 @@
   <div :class="$style['logo']">
     <router-link
       to="/"
-      title="home"
+      :title="$t('navigation.home')"
     >
       cle.
     </router-link>

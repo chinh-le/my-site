@@ -1,0 +1,125 @@
+{
+    "home": {
+        "title": "bienvenue à mon site personel",
+        "headings": {
+            "heading-1": "bonjour!",
+            "heading-2": "mon nom est Chinh Le"
+        }
+    },
+    "about": {
+        "title": "à propos de moi",
+        "headings": {
+            "heading-1": "[responsive site]",
+            "heading-2": "[mobile and desktop]"
+        },
+        "paragraph": "[There are two tragedies in life. One is to lose your heart's desire. The other is to gain it. Good judgment comes from experience, and experience comes from bad judgment. Religion. It's given people hope in a world torn apart by religion. The curious paradox is that when I accept myself just as I am, then I can change.]"
+    },
+    "works": {
+        "title": "projets"
+    },
+    "education": {
+        "title": "éducation"
+    },
+    "contact": {
+        "title": "contact",
+        "heading": "entrer en contact"
+    },
+    "professionals": {
+        "heading": "professionels"
+    },
+    "personals": {
+        "heading": "personels",
+        "coming-soon": "disponible bientôt"
+    },
+    "certifications": {
+        "heading": "certifications"
+    },
+    "scholarships": {
+        "heading": "bourses d'études"
+    },
+    "skills": {
+        "heading": "compétences",
+        "ratings": {
+            "basic": "de base",
+            "average": "moyenne",
+            "good": "bien",
+            "very-good": "très bien",
+            "expert": "expert"
+        }
+    },
+    "navigation": {
+        "heading": "navigation",
+        "home": "accueil",
+        "about": "à propos",
+        "works": "projets",
+        "education": "éducation",
+        "contact": "contact"
+    },
+    "forms": {
+        "contact": {
+            "heading": "entrer en contact",
+            "name": "nom*",
+            "email": "courriel*",
+            "subject": "sujet",
+            "message": "message*",
+            "button": {
+                "label": "envoyer message",
+                "title": "envoyer à Chinh Le"
+            },
+            "notification": {
+                "text-1": "votre message a été envoyé!",
+                "text-2": "je vous répondrai dans les plus brefs délais",
+                "text-3": "je vous remercie"
+            }
+        },
+        "authentication": {
+            "heading": "authentification",
+            "email": "courriell*",
+            "password": "mot de passe*",
+            "signing-up": "s'enregistrer",
+            "button": {
+                "signin": "se connecter",
+                "signup": "s'inscrire"
+            }
+        },
+        "errors": {
+            "required": "champ requis",
+            "email": "courriel invalid",
+            "max-length": "longueur maximale",
+            "provided": {
+                "email": "veuillez saisir le courriel fourni",
+                "password": "veuillez saisir le mot de passe fourni"
+            }
+        }
+    },
+    "buttons": {
+        "download": "télécharger le résumé",
+        "authenticate": "se connecter",
+        "signout": "se déconnecter",
+        "navigate": "ouvrir la navigation",
+        "close": "fermer"
+    },
+    "images": {
+        "coming-soon": "bientôt disponible"
+    },
+    "recaptcha": {
+        "text-1": "ce site est protégé par reCAPTCHA et la",
+        "policy": {
+            "text": "politique de confidentialité",
+            "link": "https://policies.google.com/privacy?hl=fr-CA"
+        },
+        "text-2": "and",
+        "terms": {
+            "text": "conditions d’utilisation",
+            "link": "https://policies.google.com/terms?hl=fr-CA"
+        },
+        "text-3": "de Google s'appliquent"
+    },
+    "copyright": "tous les droits sont réservés",
+    "errors": {
+        "server-request": {
+            "text-1": "il y a un problème avec notre serveur",
+            "text-2": "veuillez réessayer plus tard"
+        }
+    }
+}
