@@ -52,7 +52,8 @@
         },
         methods: {
             errorHandler (err) {
-            // perhaps log error to DB and send email notification to admin
+                // perhaps log error to DB and send email notification to admin
+                console.log('TLC: errorHandler -> err', err);
             }
         }
     };

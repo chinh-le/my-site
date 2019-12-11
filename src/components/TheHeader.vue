@@ -9,8 +9,6 @@
 </template>
 
 <script>
-    import { logout } from '@/firebase';
-    import { eventBus } from '@/utils/eventBus';
     import BaseLogo from './base/BaseLogo';
     import AppSocialMedia from './AppSocialMedia';
     import AppSiteActions from './AppSiteActions';

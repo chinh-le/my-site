@@ -35,6 +35,8 @@
             changeLang (lang) {
                 // console.log('TLC: changeLang -> lang', lang);
                 this.$i18n.locale = lang;
+
+                localStorage.setItem('i18nLocale', lang);
             }
         }        
     }
@@ -44,5 +46,6 @@
 .langs-list {
   display: flex;
   flex-direction: row;
+  color: #2854c3;
 }
 </style>
