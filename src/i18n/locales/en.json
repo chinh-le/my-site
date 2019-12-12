@@ -1,18 +1,17 @@
 {
     "home": {
         "title": "welcome to my personal site",
-        "headings": {
-            "heading-1": "hello!",
-            "heading-2": "my name is Chinh Le"
-        }
+        "heading-1": "hello!",
+        "heading-2": "my name is Chinh Le"
     },
     "about": {
         "title": "about me",
-        "headings": {
-            "heading-1": "[responsive site]",
-            "heading-2": "[mobile and desktop]"
-        },
-        "paragraph": "[There are two tragedies in life. One is to lose your heart's desire. The other is to gain it. Good judgment comes from experience, and experience comes from bad judgment. Religion. It's given people hope in a world torn apart by religion. The curious paradox is that when I accept myself just as I am, then I can change.]"
+        "heading-1": "app developer",
+        "heading-2": "responsive for mobile and desktop",
+        "paragraph-1": "web development has always been a passion",
+        "paragraph-2": "creating beautiful websites, following best practices and current technologies, to develop better, faster and more efficiently",
+        "paragraph-3": "frontend development with today's frameworks/libraries, such as Vue, React and Angular",
+        "paragraph-4": "backend development with Google Web Services, such as Firebase and Cloud Platform"
     },
     "works": {
         "title": "works"

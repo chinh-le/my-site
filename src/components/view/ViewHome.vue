@@ -5,7 +5,7 @@
         {{ $t('home.title') }}
       </h1>
       <h2 :class="$style['heading-2']">
-        <span :class="$style['color-focus']">{{ $t('home.headings.heading-1') }}</span> {{ $t('home.headings.heading-2') }}
+        <span :class="$style['color-focus']">{{ $t('home.heading-1') }}</span> {{ $t('home.heading-2') }}
       </h2>
       <p :class="[$style['line'], $style['color-focus']]">
         ___

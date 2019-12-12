@@ -1,18 +1,19 @@
 {
     "home": {
         "title": "chào mừng đến với trang web cá nhân của tôi",
-        "headings": {
-            "heading-1": "xin chào!",
-            "heading-2": "tôi tên là Chinh Le"
-        }
+        "heading-1": "xin chào!",
+        "heading-2": "tôi tên là Chinh Le"
     },
     "about": {
         "title": "về tôi",
         "headings": {
-            "heading-1": "[todo]",
-            "heading-2": "[todo]"
+            "heading-1": "phát triển ứng dụng web",
+            "heading-2": "đáp ứng cho điện thoại di động và máy tính để bàn"
         },
-        "paragraph": "[todo]"
+        "paragraph-1": "phát triển web luôn là niềm đam mê",
+        "paragraph-2": "tạo các trang web đẹp, tuân theo các thực tiễn tốt nhất và công nghệ hiện tại, để phát triển tốt, nhanh và hiệu quả hơn",
+        "paragraph-3": "phát triển với các khung/thư viện ngày nay, như Vue, React và Angular",
+        "paragraph-4": "phát triển phụ trợ với Google Web Services, chẳng hạn như Firebase và Cloud Platform"
     },
     "works": {
         "title": "công trinh"

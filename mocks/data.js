@@ -31,7 +31,7 @@ const personals = {
 const certificates = {
   vuejs2: {
     order: 1,
-    header: 'VueJS2 - The Complete Guide',
+    header: 'Vue 2 - The Complete Guide',
     url: 'https://udemy.com/course/vuejs-2-the-complete-guide/',
     image: 'UC-KKDCJ1EE-640.jpg',
     alt: 'VueJS 2 certificate',
@@ -93,7 +93,7 @@ const scholarships = {
 const skills = {
   vuejs: {
     order: 1,
-    name: 'VueJS',
+    name: 'Vue 2',
     rate: 2
   },
   react: {

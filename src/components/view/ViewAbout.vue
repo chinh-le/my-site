@@ -4,10 +4,19 @@
     <div class="content">
       <div class="desc">
         <h2 :class="$style['heading-2']">
-          <span :class="$style['color-focus']">{{ $t('about.headings.heading-1') }}</span>, {{ $t('about.headings.heading-2') }}
+          <span :class="$style['color-focus']">{{ $t('about.heading-1') }}</span>, {{ $t('about.heading-2') }}
         </h2>
         <p :class="$style['text']">
-          {{ $t('about.paragraph') }}
+          {{ $t('about.paragraph-1') }}.
+        </p>
+        <p :class="$style['text']">
+          {{ $t('about.paragraph-2') }}.
+        </p>
+        <p :class="$style['text']">
+          {{ $t('about.paragraph-3') }}.
+        </p>
+        <p :class="[$style['text'], $style['last']]">
+          {{ $t('about.paragraph-4') }}.
         </p>
       </div>
       <AppSkills />
@@ -35,6 +44,12 @@
     margin-bottom: 1em;
 }
 .text {
-  margin-bottom: 4em;
+  margin-bottom: 0.7em;
+  &::first-letter {
+    text-transform: capitalize;
+  }
+}
+.last {
+  margin-bottom: 3em;
 }
 </style>
