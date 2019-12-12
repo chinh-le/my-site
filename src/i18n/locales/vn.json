@@ -6,10 +6,8 @@
     },
     "about": {
         "title": "về tôi",
-        "headings": {
-            "heading-1": "phát triển ứng dụng web",
-            "heading-2": "đáp ứng cho điện thoại di động và máy tính để bàn"
-        },
+        "heading-1": "phát triển ứng dụng web",
+        "heading-2": "đáp ứng cho điện thoại di động và máy tính để bàn",
         "paragraph-1": "phát triển web luôn là niềm đam mê",
         "paragraph-2": "tạo các trang web đẹp, tuân theo các thực tiễn tốt nhất và công nghệ hiện tại, để phát triển tốt, nhanh và hiệu quả hơn",
         "paragraph-3": "phát triển với các khung/thư viện ngày nay, như Vue, React và Angular",
