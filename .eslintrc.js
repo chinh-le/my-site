@@ -4,7 +4,7 @@ module.exports = {
     node: true
   },
   'extends': [
-    // 'eslint:recommended',
+    'eslint:recommended',
     // 'plugin:vue/essential',
     'plugin:vue/recommended',
     // '@vue/standard'
@@ -23,6 +23,7 @@ module.exports = {
       }
     ],
 
+    "keyword-spacing": "error",
     "space-before-function-paren": ["error", {
         "anonymous": "always",
         "named": "always",

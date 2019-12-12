@@ -10,7 +10,7 @@
       <div
         v-show="isShow"
         class="bg-canvas"
-        title="close navigation"
+        :title="$t('buttons.close')"
         @click="closeNav()"
       />
     </transition>
@@ -22,7 +22,7 @@
       >
         <BaseButtonIcon
           :btn-class="'btn-close'"
-          :btn-title="'close'"
+          :btn-title="$t('buttons.close')"
           :btn-handler="closeNav"
           :btn-icon="'close'"
         />
@@ -65,9 +65,10 @@
             };
         },
         watch: {
-            $route (to, from) {
-                // console.log('to: ', to);
-                // console.log('from: ', from);
+            // $route (to, from) {
+            // console.log('to: ', to);
+            // console.log('from: ', from);
+            $route () {
                 this.isShow = false; // close nav on route change
             }
         },

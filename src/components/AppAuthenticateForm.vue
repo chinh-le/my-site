@@ -4,8 +4,8 @@
       :class="$style['form-authenticate']"
       novalidate
       autocomplete="on"
-      role="authentication"
-      @submit.prevent="onSubmit($event)"
+      :role="$t('forms.authentication.heading')"
+      @submit.prevent="onSubmit()"
     >
       <ul>
         <li>
@@ -13,15 +13,15 @@
             <label
               :class="$style['input-label']"
               for="auth-email"
-            >Email</label>
+            >{{ $t('forms.authentication.email') }}</label>
             <input
               id="auth-email"
               v-model="auth.email"
               :class="$style['input']"
               type="email"
               autocomplete="email"
-              placeholder="email*"
-              aria-label="email address"
+              :placeholder="$t('forms.authentication.email')"
+              :aria-label="$t('forms.authentication.email')"
               aria-required="true"
               @blur="$v.auth.email.$touch()"
             >
@@ -30,22 +30,22 @@
             :class="[$style['input-error'], {[$style['visible']]: $v.auth.email.$dirty && (!$v.auth.email.required ||!$v.auth.email.isDefault)}]"
             role="alert"
             aria-relevant="all"
-          >please use the provided email</span>
+          >{{ $t('forms.errors.provided.email') }}</span>
         </li>
         <li>
           <div :class="$style['form-input-container']">
             <label
               :class="$style['input-label']"
               for="auth-password"
-            >Password</label>
+            >{{ $t('forms.authentication.password') }}</label>
             <input
               id="auth-password"
               v-model="auth.password"
               :class="$style['input']"
               type="password"
               :autocomplete="isSigningUp ? 'new-password' : 'current-password'"
-              placeholder="password*"
-              aria-label="password"
+              :placeholder="$t('forms.authentication.password')"
+              :aria-label="$t('forms.authentication.password')"
               aria-required="true"
               @blur="$v.auth.password.$touch()"
             >
@@ -54,7 +54,7 @@
             :class="[$style['input-error'], {[$style.visible]: $v.auth.password.$dirty && !$v.auth.password.isDefault}]"
             role="alert"
             aria-relevant="all"
-          >please use the provided password</span>
+          >{{ $t('forms.errors.provided.password') }}</span>
         </li>
         <li v-show="signingOption">
           <input
@@ -66,13 +66,12 @@
           <label
             :class="$style['input-label']"
             for="isSignup"
-          >signing up</label>
+          >{{ $t('forms.authentication.signing-up') }}</label>
         </li>
       </ul>
       <BaseRecaptcha />
       <BaseFormButtonSubmit
-        :label="isSigningUp ? 'sign up' : 'sign in'"
-        :title="'to authenticate'"
+        :label="isSigningUp ? $t('forms.authentication.button.signup') : $t('forms.authentication.button.signin')"
         :disabled="$v.$invalid"
       />
     </form>
@@ -140,7 +139,7 @@
             }
         },
         methods: {
-            onSubmit (evt) {
+            onSubmit () {
                 const payload = {
                     email: this.auth.email,
                     password: this.auth.password

@@ -10,7 +10,7 @@
     <label
       :class="$style['dot-label']"
       for="dots"
-    >{{ ratings[skill.rate] }}</label>
+    >{{ $t(`skills.ratings.${ratings[skill.rate]}`) }}</label>
   </div>
 </template>
 
@@ -58,7 +58,7 @@ $dot-width: 0.7em;
     opacity: 0.15;
 }
 .dot-label {
-    font-size: 0.5em;
+    font-size: 0.7em;
     line-height: 0.5em;
     @include color-unfocus;
 }

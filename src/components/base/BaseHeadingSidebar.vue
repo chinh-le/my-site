@@ -3,7 +3,12 @@
     :class="$style['heading']"
     :style="posX"
   >
-    <h1>{{ headingText }}</h1>
+    <!-- <h1 :class="$style['heading-1']"> -->
+    <div class="heading-container">
+      <h1 class="heading-1">
+        {{ headingText }}
+      </h1>
+    </div>
   </header>
 </template>
 

@@ -54,5 +54,22 @@ export const appConfig = {
             componentName: 'AppAdmin',
             private: true // private route and only accessible if authenticated
         }
+    ],
+    langs: [
+        {
+            order: 1,
+            label: 'en',
+            title: 'english',
+        },
+        {
+            order: 2,
+            label: 'fr',
+            title: 'français',
+        },
+        {
+            order: 3,
+            label: 'vn',
+            title: 'vietnam',
+        },
     ]
 };

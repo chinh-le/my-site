@@ -2,10 +2,10 @@
   <div class="home">
     <div class="content">
       <h1 :class="$style['heading-1']">
-        Welcome to my personal site
+        {{ $t('home.title') }}
       </h1>
       <h2 :class="$style['heading-2']">
-        <span :class="$style['color-focus']">Hello</span> My name is Chinh Le
+        <span :class="$style['color-focus']">{{ $t('home.heading-1') }}</span> {{ $t('home.heading-2') }}
       </h2>
       <p :class="[$style['line'], $style['color-focus']]">
         ___
@@ -15,9 +15,7 @@
 </template>
 
 <script>
-    export default {
-    
-    }
+    export default {    }
 </script>
 
 <style lang="scss" module>

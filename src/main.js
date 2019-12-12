@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import { VueReCaptcha } from 'vue-recaptcha-v3';
 import Vuelidate from 'vuelidate';
+import { i18n } from './i18n/i18n';
+
 import BootstrapVue from 'bootstrap-vue';
 
 // SCSS customizing
@@ -26,6 +28,7 @@ Vue.use(BootstrapVue);
 Vue.config.productionTip = false;
 
 new Vue({
+  i18n,
   router,
   store,
   render: h => h(App)

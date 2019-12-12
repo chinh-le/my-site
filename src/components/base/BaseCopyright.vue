@@ -1,7 +1,7 @@
 <template>
   <div :class="$style['copyright']">
     <span>&copy; chinhle.ca 2019.</span>
-    <span>All rights reserved.</span>
+    <span>{{ $t('copyright') }}.</span>
   </div>
 </template>
 

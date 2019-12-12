@@ -5,26 +5,26 @@
       :link-href="downloadUrl" 
       :link-target="'_blank'" 
       :link-class="'link-download'" 
-      :link-title="'download resume'" 
+      :link-title="$t('buttons.download')" 
       :link-icon="'cloud_download'"
     />
     <BaseButtonIcon
       v-if="!authenticated"
       :btn-class="'btn-login'"
-      :btn-title="'sign in'"
+      :btn-title="$t('buttons.authenticate')"
       :btn-handler="openAuth"
       :btn-icon="'person_outline'"
     />
     <BaseButtonIcon
       v-else
       :btn-class="'btn-logout'"
-      :btn-title="'sign out'"
+      :btn-title="$t('buttons.signout')"
       :btn-handler="signout"
       :btn-icon="'person'"
     />
     <BaseButtonIcon
       :btn-class="'btn-nac'"
-      :btn-title="'open navigation'"
+      :btn-title="$t('buttons.navigate')"
       :btn-handler="openNav"
       :btn-icon="'dehaze'"
     />

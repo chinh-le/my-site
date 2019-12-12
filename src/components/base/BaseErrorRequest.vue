@@ -1,8 +1,8 @@
 <template>
   <p :class="$style['error-request']">
-    Oops! There's something wrong with our server.
+    Oops! {{ $t('errors.server-request.text-1') }}.
     <span>[{{ errorCode }}]</span>
-    <br>Please try again later.
+    <br>{{ $t('errors.server-request.text-2') }}.
   </p>
 </template>
 

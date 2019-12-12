@@ -24,14 +24,14 @@ const personals = {
     order: 1,
     image: null,
     url: null,
-    label: 'coming soon'
+    label: 'coming-soon' // REM - label value is used as key for i18n - see skills.ratings (@/i18n/locales/*.json) and its use in @/components/base/BaseDotSet.vue
   }
 };
 
 const certificates = {
   vuejs2: {
     order: 1,
-    header: 'VueJS2 - The Complete Guide',
+    header: 'Vue 2 - The Complete Guide',
     url: 'https://udemy.com/course/vuejs-2-the-complete-guide/',
     image: 'UC-KKDCJ1EE-640.jpg',
     alt: 'VueJS 2 certificate',
@@ -93,7 +93,7 @@ const scholarships = {
 const skills = {
   vuejs: {
     order: 1,
-    name: 'VueJS',
+    name: 'Vue 2',
     rate: 2
   },
   react: {
@@ -148,11 +148,12 @@ const skills = {
   }
 };
 
+// REM - ratings values are keys for i18n - see skills.ratings (@/i18n/locales/*.json) and its use in @/components/base/BaseDotSet.vue
 const ratings = {
   1: 'basic',
   2: 'average',
   3: 'good',
-  4: 'very good',
+  4: 'very-good',
   5: 'expert'
 };
 

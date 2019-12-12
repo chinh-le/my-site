@@ -1,7 +1,7 @@
 <template>
   <div class="skills">
     <h3 :class="$style['heading-3']">
-      Skills
+      {{ $t('skills.heading') }}
     </h3>
     <AppSkillsList
       v-if="skills.length > 0"
@@ -42,8 +42,36 @@
                     this.errorRequestCode = null;
               
                     if (doc.exists) {
+                        /* let ratingsLocale = doc.data();
+
+                        Object.keys(ratingsLocale).forEach(key => {
+                            console.log('TLC: beforeCreate -> key', key);
+                            console.log('TLC: beforeCreate -> ratingsLocale[key]', ratingsLocale[key]);
+                            switch (key) {
+                            case 1:
+                                ratingsLocale[key] = this.$t('skills.ratings.basic');
+                                break;
+                            case 2:
+                                ratingsLocale[key] = this.$t('skills.ratings.average');
+                                break;
+                            case 3:
+                                ratingsLocale[key] = this.$t('skills.ratings.good');
+                                break;
+                            case 4:
+                                ratingsLocale[key] = this.$t('skills.ratings.very-good');
+                                break;
+                            case 5:
+                                ratingsLocale[key] = this.$t('skills.ratings.expert');
+                                break;
+                            default:
+                            }
+                        });
+                        
+                        console.log('TLC: beforeCreate -> ratingsLocale', ratingsLocale); */
+
                         this.ratings = doc.data();
                         this.ratingsLength = Object.keys(this.ratings).length; // key() returns an array
+
                         _getSkills()
                             .then(querySnapshots => {
                                 if (!querySnapshots.empty) {

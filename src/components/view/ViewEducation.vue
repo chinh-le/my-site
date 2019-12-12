@@ -1,6 +1,6 @@
 <template>
   <div class="education">
-    <BaseHeadingSidebar :heading-text="'education'" />
+    <BaseHeadingSidebar :heading-text="$t('education.title')" />
     <div class="content">
       <AppCertificates />
       <AppScholarships />

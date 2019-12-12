@@ -1,6 +1,6 @@
 <template>
   <div :class="$style['certificates']">
-    <h3>Certifications</h3>
+    <h3>{{ $t('certifications.heading') }}</h3>
     <AppCardList
       v-if="certificates.length > 0"
       :items="certificates"

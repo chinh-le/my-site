@@ -1,9 +1,9 @@
 <template>
   <div class="contact">
-    <BaseHeadingSidebar :heading-text="'contact'" />
+    <BaseHeadingSidebar :heading-text="$t('contact.title')" />
     <div class="content">
       <h3 :class="$style['heading-3']">
-        Get in touch
+        {{ $t('contact.heading') }}
       </h3>
       <AppContactForm />
     </div>

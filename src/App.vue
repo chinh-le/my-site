@@ -40,7 +40,7 @@
             TheFooter,
         },
         watch: {
-            $route (fr, to) {
+            $route () {
                 clearAllBodyScrollLocks();
             }
         },

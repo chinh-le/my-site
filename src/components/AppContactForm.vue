@@ -5,7 +5,7 @@
       :class="$style['contact-form']"
       novalidate
       autocomplete="on"
-      role="contact"
+      :role="$t('forms.contact.heading')"
       @submit.prevent="onSubmit()"
     >
       <ul>
@@ -14,15 +14,15 @@
             <label
               for="contactName"
               :class="$style['input-label']"
-            >Name</label>
+            >{{ $t('forms.contact.name') }}</label>
             <input
               id="contactName"
               v-model="user.name"
               :class="$style['input']"
               type="text"
-              placeholder="Name*"
+              :placeholder="$t('forms.contact.name')"
               autocomplete="name"
-              aria-label="name"
+              :aria-label="$t('forms.contact.name')"
               aria-required="true"
               autofocus
               @blur="$v.user.name.$touch()"
@@ -32,22 +32,22 @@
             :class="[$style['input-error'], {[$style['visible']]: $v.user.name.$dirty && !$v.user.name.required}]"
             role="alert"
             aria-relevant="all"
-          >required</span>
+          >{{ $t('forms.errors.required') }}</span>
         </li>
         <li>
           <div :class="$style['form-input-container']">
             <label
               for="contactEmail"
               :class="$style['input-label']"
-            >Email</label>
+            >{{ $t('forms.contact.email') }}</label>
             <input
               id="contactEmail"
               v-model="user.email"
               :class="$style['input']"
               type="email"
-              placeholder="Email*"
+              :placeholder="$t('forms.contact.email')"
               autocomplete="email"
-              aria-label="email address"
+              :aria-label="$t('forms.contact.email')"
               aria-required="true"
               @blur="$v.user.email.$touch()"
             >
@@ -57,9 +57,8 @@
             role="alert"
             aria-relevant="all"
           >
-            <span v-if="!$v.user.email.required">required</span>
-            <span v-else-if="!$v.user.email.validAddress">invalid</span>
-            <span v-else>valid</span>
+            <span v-if="!$v.user.email.required">{{ $t('forms.errors.required') }}</span>
+            <span v-else-if="!$v.user.email.validAddress">{{ $t('forms.errors.email') }}</span>
           </span>
         </li>
         <li>
@@ -67,25 +66,25 @@
             <label
               for="contactSubject"
               :class="$style['input-label']"
-            >Subject</label>
+            >{{ $t('forms.contact.subject') }}</label>
             <input
               id="contactSubject"
               v-model.lazy="user.subject"
               :class="$style['input']"
               type="text"
-              placeholder="Subject"
+              :placeholder="$t('forms.contact.subject')"
               autocomplete="off"
               aria-label="subject"
             >
           </div>
-          <span :class="$style['input-error']">required</span>
+          <span :class="$style['input-error']">{{ $t('forms.errors.required') }}</span>
         </li>
         <li>
           <div :class="$style['form-input-container']">
             <label
               for="contactMessage"
               :class="$style['input-label']"
-            >Message</label>
+            >{{ $t('forms.contact.message') }}</label>
             <textarea
               id="contactMessage"
               v-model="user.message"
@@ -93,10 +92,10 @@
               name
               cols="30"
               rows="7"
-              placeholder="Message*"
+              :placeholder="$t('forms.contact.message')"
               :maxlength="messageMaxLength + 1"
               autocomplete="off"
-              aria-label="message to send"
+              :aria-label="$t('forms.contact.message')"
               aria-required="true"
               @blur="$v.user.message.$touch()"
             />
@@ -105,18 +104,18 @@
             :class="[$style['input-error'], {[$style['visible']]: $v.user.message.$dirty && !$v.user.message.required}]"
             role="alert"
             aria-relevant="all"
-          >required</span>
+          >{{ $t('forms.errors.required') }}</span>
           <span
             :class="[$style['input-error'], {[$style['visible']]: !$v.user.message.maxLength}]"
             role="alert"
             aria-relevant="all"
-          >Max length: {{ messageMaxLength }}</span>
+          >{{ $t('forms.errors.max-length') }}: {{ messageMaxLength }}</span>
         </li>
       </ul>
       <BaseRecaptcha />
       <BaseFormButtonSubmit
-        :label="'send message'"
-        :title="'to Chinh Le'"
+        :label="$t('forms.contact.button.label')"
+        :title="$t('forms.contact.button.title')"
         :disabled="$v.$invalid"
       />
     </form>
@@ -124,9 +123,9 @@
       v-else
       :class="$style.confirmation"
     >
-      Your message has been sent!
-      <br>I will get back to you as soon as possible.
-      <br>Thank you.
+      {{ $t('forms.contact.notification.text-1') }}
+      <br>{{ $t('forms.contact.notification.text-2') }}
+      <br>{{ $t('forms.contact.notification.text-3') }}
     </p>
     <BaseErrorRequest
       v-if="isErrorRequest"
@@ -189,7 +188,7 @@
                     email: {
                         required,
                         validAddress (email) {
-                            // console.log('TLC: validAddress -> email', email);
+                            // // console.log('TLC: validAddress -> email', email);
                             return emailRegex.test(email);
                         }
                     },
@@ -223,12 +222,12 @@
                         for (let i in this.user) {
                             inputEscaped[i] = htmlEscaping(this.user[i]);
                         }
-                        // console.log('TLC: onSubmit -> inputEscaped', inputEscaped);
+                        // // console.log('TLC: onSubmit -> inputEscaped', inputEscaped);
 
                         writeUserData(inputEscaped)
                             .then(
-                                res => {
-                                    // console.log('TLC: ContactInfo - onSubmit -> res', res);
+                                () => {
+                                    // // console.log('TLC: ContactInfo - onSubmit -> res', res);
                                     this.isLoading = false;
 
                                     this.messageSent = true;
@@ -236,7 +235,7 @@
                                     enableBodyScroll(this.elemPersistLockScroll);
                                 },
                                 err => {
-                                    // console.log('TLC: 4onSubmit -> err', err);
+                                    // // console.log('TLC: 4onSubmit -> err', err);
                                     this.isLoading = false;
                                     this.isErrorRequest = true;
                                     this.errorRequestCode = err.code;
@@ -244,14 +243,14 @@
                                 }
                             )
                             .catch(err => {
-                                // console.log('TLC: 5onSubmit -> err', err);
+                                // // console.log('TLC: 5onSubmit -> err', err);
                                 this.isLoading = false;
                                 this.isErrorRequest = true;
                                 this.errorRequestCode = err.code;
                                 enableBodyScroll(this.elemPersistLockScroll);
                             });
                     } else {
-                        // console.log('TLC: onSubmit -> SPAM Automated Abused!!!');
+                        // // console.log('TLC: onSubmit -> SPAM Automated Abused!!!');
                         this.isErrorRequest = true;
                         this.errorRequestCode = 'SPAM Automated Abused!!!';
                         this.isLoading = false;
@@ -280,6 +279,9 @@
 
 .input {
     padding: $form-input-input-padding;
+    &::placeholder {
+      text-transform: capitalize;
+    }
 }
 
 .input-error {

@@ -3,9 +3,10 @@
     :to="view.path"
     :class="[$style['link'], $style[view.class]]"
     :exact-active-class="$style['exact-active']"
-    :title="view.title"
+    :title="$t(`navigation.${view.title}`)"
   >
     <i />
+    <span :class="$style['link-sidebar-name']">{{ $t(`navigation.${view.name}`) }}</span>
   </router-link>
 </template>
 
@@ -46,11 +47,14 @@
     font-style: normal;
     background-color: transparent;
   }
-  &:before {
+  /* &:before {
     @include screen-reader-ready;
-  }
+  } */
 }
-.link-home {
+.link-sidebar-name {
+  @include screen-reader-ready;
+}
+/* .link-home {
   &:before {
     content: "Home";
   }
@@ -74,5 +78,5 @@
   &:before {
     content: "Contact";
   }
-}
+} */
 </style>

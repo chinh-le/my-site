@@ -10,6 +10,7 @@
       <div
         v-show="isShow"
         class="bg-canvas"
+        :title="$t('buttons.close')"
         @click="closeSignin()"
       />
     </transition>
@@ -23,7 +24,7 @@
       >
         <BaseButtonIcon
           :btn-class="'btn-close'"
-          :btn-title="'close sign in'"
+          :btn-title="$t('buttons.close')"
           :btn-handler="closeSignin"
           :btn-icon="'close'"
         />
