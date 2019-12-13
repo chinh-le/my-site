@@ -8,8 +8,8 @@
       :role="$t('forms.contact.heading')"
       @submit.prevent="onSubmit()"
     >
-      <ul>
-        <li>
+      <ul :class="$style['form-list']">
+        <li :class="[$style['form-list-item'], $style['name']]">
           <div :class="$style['form-input-container']">
             <label
               for="contactName"
@@ -34,7 +34,7 @@
             aria-relevant="all"
           >{{ $t('forms.errors.required') }}</span>
         </li>
-        <li>
+        <li :class="[$style['form-list-item'], $style['email']]">
           <div :class="$style['form-input-container']">
             <label
               for="contactEmail"
@@ -61,7 +61,7 @@
             <span v-else-if="!$v.user.email.validAddress">{{ $t('forms.errors.email') }}</span>
           </span>
         </li>
-        <li>
+        <li :class="$style['form-list-item']">
           <div :class="$style['form-input-container']">
             <label
               for="contactSubject"
@@ -79,7 +79,7 @@
           </div>
           <span :class="$style['input-error']">{{ $t('forms.errors.required') }}</span>
         </li>
-        <li>
+        <li :class="$style['form-list-item']">
           <div :class="$style['form-input-container']">
             <label
               for="contactMessage"
@@ -137,9 +137,9 @@
 
 <script>
     import {
-        disableBodyScroll,
-        enableBodyScroll,
-        clearAllBodyScrollLocks
+        // disableBodyScroll,
+        // enableBodyScroll,
+        // clearAllBodyScrollLocks
     } from 'body-scroll-lock';
     import { required, maxLength } from 'vuelidate/lib/validators';
     import { writeUserData } from '@/firebase';
@@ -200,7 +200,7 @@
             };
         },
         beforeDestroy () {
-            clearAllBodyScrollLocks();
+            // clearAllBodyScrollLocks();
         },
         methods: {
             onSubmit () {
@@ -213,7 +213,7 @@
                 this.isErrorRequest = false;
                 this.errorRequestCode = null;
 
-                disableBodyScroll(this.elemPersistLockScroll);
+                // disableBodyScroll(this.elemPersistLockScroll);
 
                 recaptchaElement(this.recaptchaAction).then(res => {
                     if (res.data.success && res.data.action === this.recaptchaAction) {
@@ -232,14 +232,14 @@
 
                                     this.messageSent = true;
 
-                                    enableBodyScroll(this.elemPersistLockScroll);
+                                    // enableBodyScroll(this.elemPersistLockScroll);
                                 },
                                 err => {
                                     // // console.log('TLC: 4onSubmit -> err', err);
                                     this.isLoading = false;
                                     this.isErrorRequest = true;
                                     this.errorRequestCode = err.code;
-                                    enableBodyScroll(this.elemPersistLockScroll);
+                                    // enableBodyScroll(this.elemPersistLockScroll);
                                 }
                             )
                             .catch(err => {
@@ -247,7 +247,7 @@
                                 this.isLoading = false;
                                 this.isErrorRequest = true;
                                 this.errorRequestCode = err.code;
-                                enableBodyScroll(this.elemPersistLockScroll);
+                                // enableBodyScroll(this.elemPersistLockScroll);
                             });
                     } else {
                         // // console.log('TLC: onSubmit -> SPAM Automated Abused!!!');
@@ -263,27 +263,37 @@
 </script>
 
 <style lang="scss" module>
+.form-list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.form-list-item {
+  width: var(--contact-input-width);
+  &.name,
+  &.email {
+    width: var(--contact-input-name-email-width);
+  }
+}
 .contact-form {
     padding-bottom: 2em;
 }
-
 .form-input-container {
-    background-color: $color-bg-form-input;
+    background-color: $form-input-bg-color;
     padding: 0 1em;
     border-radius: $form-input-border-radius;
 }
-
 .input-label {
     @include screen-reader-ready;
 }
-
 .input {
     padding: $form-input-input-padding;
     &::placeholder {
       text-transform: capitalize;
     }
 }
-
 .input-error {
     font-size: 0.7em;
     opacity: 0.8;
@@ -291,9 +301,8 @@
     top: -2.5em;
     left: 1.5em;
     visibility: hidden;
-    color: $color-txt-form-error;
+    color: $form-error-txt-color;
 }
-
 .visible {
     @include visible;
 }

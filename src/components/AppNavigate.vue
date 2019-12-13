@@ -39,9 +39,9 @@
 
 <script>
     import {
-        disableBodyScroll,
-        enableBodyScroll,
-        clearAllBodyScrollLocks
+        // disableBodyScroll,
+        // enableBodyScroll,
+        // clearAllBodyScrollLocks
     } from 'body-scroll-lock';
     import { eventBus } from '@/utils/eventBus';
     import BaseLang from './base/BaseLang';
@@ -76,13 +76,13 @@
             // console.log('TLC: Navigation - created -> created');
             eventBus.$on('evtBusOpenNav', () => {
                 /* scrollTo({
-                          x: 0,
-                          y: 0
-                        }); */
+                    x: 0,
+                    y: 0
+                }); */
 
                 this.isShow = true;
 
-                disableBodyScroll(this.elemPersistLockScroll);
+                // disableBodyScroll(this.elemPersistLockScroll);
                 // console.log(
                 // 'TLC: Navigation - created - evtBusOpenNav -> disableBodyScroll'
                 // );
@@ -94,13 +94,13 @@
         },
         beforeDestroy () {
             // console.log('TLC: Navigation - beforeDestroy -> beforeDestroy');
-            clearAllBodyScrollLocks();
+            // clearAllBodyScrollLocks();
         },
         methods: {
             closeNav () {
                 this.isShow = false;
 
-                enableBodyScroll(this.elemPersistLockScroll);
+                // enableBodyScroll(this.elemPersistLockScroll);
                 // console.log('TLC: Navigation - closeNav -> enableBodyScroll');
             }
         },
@@ -109,25 +109,57 @@
 </script>
 
 <style lang="scss" scoped>
-.navigation {
-  --copyright-flex-direction: row;
-
-  @include slide-in-panel;
-}
-
-.page-links {
-  display: block;
-}
-
 .content {
-  padding: 2em 1em;
+  padding: var(--navigation-padding);
+  box-sizing: border-box;
+  > * {
+    margin-bottom: 1em;
+  }
 }
-
-@include slide-helper;
-
+#socialMedia {
+  margin-top: 2em;
+}
+.navigation {
+  z-index: $z-index-overlay;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--slide-in-width);
+  height: var(--slide-in-height);
+  display: flex;
+  flex-direction: column;
+  background-color: $slide-in-bg-color;
+}
 .bg-canvas {
-  @include bg-canvas;
+  z-index: $z-index-overlay-bg;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--slide-in-width);
+  height: var(--slide-in-height);
+  background-color: $overlay-bg-color;
 }
-
+.slide-enter-active {
+    animation: slideIn 0.5s ease-in;
+  }
+  .slide-leave-active {
+    animation: slideOut 0.4s ease-out;
+  }
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
 @include fading-helper;
 </style>

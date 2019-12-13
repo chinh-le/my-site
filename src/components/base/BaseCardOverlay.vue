@@ -34,7 +34,7 @@
 <style lang="scss" module>
 .card {
   display: block;
-  color: $color-txt;
+  color: $base-txt-color;
   text-decoration: none;
   position: relative;
 }

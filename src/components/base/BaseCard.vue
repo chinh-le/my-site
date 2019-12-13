@@ -38,7 +38,7 @@
     }
     a {
         display: block;
-        color: $color-unfocus;
+        color: $dimlight-color;
     }
     img {
         width: 100%;

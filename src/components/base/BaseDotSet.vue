@@ -54,13 +54,13 @@ $dot-width: 0.7em;
     display: inline-block;
     margin-left: 0.3em;
     border-radius: $dot-width;
-    background-color: $color-icon-skill-dot;
+    background-color: $skills-dot-icon-color;
     opacity: 0.15;
 }
 .dot-label {
     font-size: 0.7em;
     line-height: 0.5em;
-    @include color-unfocus;
+    color: $dimlight-color;
 }
 .fill {
     opacity: 0.4;

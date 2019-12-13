@@ -1,5 +1,6 @@
 <template>
   <header
+    id="headerSidebar"
     :class="$style['heading']"
     :style="posX"
   >

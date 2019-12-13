@@ -63,6 +63,8 @@
 
 <style lang="scss" module>
 .certificates {
+    width: var(--works-content-sub-width);
   margin-bottom: 3em;
+  
 }
 </style>

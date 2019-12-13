@@ -42,52 +42,40 @@
 
 <style lang="scss" module>
 .btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  &:hover {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    &:hover {
         cursor: pointer;
     }
-  > i {
-    color: $button-icon-color;
-    padding: 0.6em;
-  }
-  &:after {
-    @include screen-reader-ready;
-  }
+    &:after {
+        @include screen-reader-ready;
+    }
+    > i {
+        font-size: var(--base-button-icon-size);
+        transition: font-size var(--the-header-anim-duration) var(--the-header-anim-timing);
+        color: $auth-icon-color;
+        padding: 0.6em;
+    }
 }
 .btn-close {
-  &:after {
-    content: 'close';
-  }
+    &:after {
+        content: 'close';
+    }
 }
 .btn-login {
     &:after {
         content: "open login";
-        @include screen-reader-ready;
-    }
-    .material-icons {
-        color: $color-icon-auth;
     }
 }
-
 .btn-logout {
     &:after {
         content: "logout";
-        @include screen-reader-ready;
-    }
-    .material-icons {
-        color: $color-icon-auth;
     }
 }
-
 .btn-nav {
     &:after {
         content: "open navigation";
-        @include screen-reader-ready;
-    }
-    .material-icons {
-        color: $color-icon-nav;
     }
 }
 </style>

@@ -38,6 +38,7 @@
   > img {
     width: var(--social-icon-dimension);
     height: var(--social-icon-dimension);
+    transition: all var(--the-header-anim-duration) var(--the-header-anim-timing);
     padding: 1.3em;
   }
   &:after {

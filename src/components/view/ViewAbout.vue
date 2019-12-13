@@ -1,35 +1,27 @@
 <template>
-  <div class="about">
+  <div
+    id="about"
+    :class="$style['about']"
+  >
     <BaseHeadingSidebar :heading-text="$t('about.title')" />
-    <div class="content">
-      <div class="desc">
-        <h2 :class="$style['heading-2']">
-          <span :class="$style['color-focus']">{{ $t('about.heading-1') }}</span>, {{ $t('about.heading-2') }}
-        </h2>
-        <p :class="$style['text']">
-          {{ $t('about.paragraph-1') }}.
-        </p>
-        <p :class="$style['text']">
-          {{ $t('about.paragraph-2') }}.
-        </p>
-        <p :class="$style['text']">
-          {{ $t('about.paragraph-3') }}.
-        </p>
-        <p :class="[$style['text'], $style['last']]">
-          {{ $t('about.paragraph-4') }}.
-        </p>
-      </div>
+    <div
+      id="aboutContent"
+      :class="$style['content']"
+    >
+      <BaseAboutDesc />
       <AppSkills />
     </div>
   </div>
 </template>
 
 <script>
+    import BaseAboutDesc from '../base/BaseAboutDesc';
     import AppSkills from '../AppSkills';
     import BaseHeadingSidebar from '../base/BaseHeadingSidebar';
 
     export default {
         components: {
+            BaseAboutDesc,
             BaseHeadingSidebar,
             AppSkills
         }
@@ -37,19 +29,19 @@
 </script>
 
 <style lang="scss" module>
-.color-focus {
-    @include color-focus;
+.about {
+  position: absolute;
+  top: 0;
+  left: 0; // to have justified center with margin auto
+  right: 0; // to have justified center with margin auto
+  bottom: 0;
+  padding: var(--site-wrap-padding);
+  width: var(--about-width);
+  box-sizing: border-box;
+  margin: 0 auto;
+  height: var(--about-height);
 }
-.heading-2 {
-    margin-bottom: 1em;
-}
-.text {
-  margin-bottom: 0.7em;
-  &::first-letter {
-    text-transform: capitalize;
-  }
-}
-.last {
-  margin-bottom: 3em;
+.content {
+  padding-bottom: 2em;
 }
 </style>

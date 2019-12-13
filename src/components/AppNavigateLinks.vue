@@ -56,8 +56,8 @@
 <style lang="scss" module>
 .page-links {
   // display: none;
-  display: var(--nav-links-state);
-  font-family: $font-family-navigation;
+  // display: var(--nav-links-state);
+  font-family: $nav-font-family;
   font-size: 2em;
   margin-bottom: 1.5em;
 }

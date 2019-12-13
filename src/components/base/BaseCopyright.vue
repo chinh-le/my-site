@@ -14,10 +14,11 @@
 <style lang="scss" module>
 .copyright {
   font-size: 0.7em;
-  color: $color-unfocus;
+  color: $dimlight-color;
   line-height: 1.2em;
   display: flex;
   flex-direction: var(--copyright-flex-direction);
+  flex-wrap: wrap;
   justify-content: var(--copyright-justify-content);
   > span {
     padding-right: 0.5em;

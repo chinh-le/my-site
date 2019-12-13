@@ -49,7 +49,7 @@
 
 <style lang="scss" module>
 .link {
-    color: $color-icon-download;
+    color: $download-icon-color;
     border-radius: 2em;
     &:hover {
         cursor: pointer;

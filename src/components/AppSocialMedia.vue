@@ -1,6 +1,7 @@
 <template>
   <ul
     v-if="socialMedias.length > 0"
+    id="socialMedia"
     :class="$style['social-media']"
   >
     <li
@@ -28,7 +29,7 @@
         created () {
             _getCollection('socialMedia')
                 .then(snapshots => {
-                    // console.log('TLC: created -> snapshots', snapshots);
+                    // // // console.log('TLC: created -> snapshots', snapshots);
                     if (!snapshots.empty) {
                         snapshots.forEach(element => {
                             let elemData = element.data();
@@ -41,21 +42,19 @@
                             
                             this.socialMedias.push(elemData);
                         });
-                    // console.log('TLC: created -> this.socialMedias', this.socialMedias);
+                        // // // console.log('TLC: created -> this.socialMedias', this.socialMedias);
                     } else {
-                    // console.log('TLC: created -> list empty');
+                        // // // console.log('TLC: created -> list empty');
                     }
                 })
                 .catch(err => {
-                    this.errorHandler(err);
+                    errorHandler(err);
                 });
-        },
-        methods: {
-            errorHandler (err) {
-                // perhaps log error to DB and send email notification to admin
-                console.log('TLC: errorHandler -> err', err);
-            }
         }
+    };
+
+    const errorHandler = () => {
+        // console.log('TLC: errorHandler -> err', err);
     };
 </script>
 

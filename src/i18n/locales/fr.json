@@ -11,7 +11,7 @@
         "paragraph-1": "développement web a toujours été une passion",
         "paragraph-2": "Créer de beaux site Web, suivante les meilleurs pratiques et les technologies actuelles, pour développer mieux, plus vite et plus efficace",
         "paragraph-3": "développement frontend avec les frameworks/libraries d'aujourd'hui, tel que Vue, React et Angular",
-        "paragraph-4": "développement backend avec Google Web Services, tel que Firebase and Cloud Platform"
+        "paragraph-4": "développement backend avec Google Web Services, tel que Firebase et Cloud Platform"
     },
     "works": {
         "title": "projets"
@@ -73,7 +73,7 @@
         },
         "authentication": {
             "heading": "authentification",
-            "email": "courriell*",
+            "email": "courriel*",
             "password": "mot de passe*",
             "signing-up": "s'enregistrer",
             "button": {

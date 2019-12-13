@@ -1,0 +1,53 @@
+:root {
+    --about-desc-width: 100%;
+    --about-height: auto;
+    --about-width: 90%;
+    --app-width: 100%;
+
+    --base-button-icon-size: 1.4em;
+    --base-button-icon-size-md: 1.8em;
+
+    --cards-overlay-width: 100%;
+    --cards-item-width: 100%;
+    --contact-width: 80%;
+    --contact-height: auto;
+    --contact-input-width: 100%;
+    --contact-input-name-email-width: 100%;
+    --works-content-width: 90%;
+    --works-content-sub-width: 100%;
+    --copyright-justify-content: left;
+    --copyright-flex-direction: row;
+
+    --education-width: 90%;
+    
+    --home-content-width: 80%;
+    
+    --logo-font-size: 1.3em;
+    
+    --navigation-padding: 0 1em;
+    
+    --professionals-width: 100%;
+    --personals-width: 100%;
+    
+    --skills-width: 100%;
+    --site-wrap-padding: 2em 0;
+    --site-header-height: 3.5em; // 16*3.5=56px
+    --site-header-height-md: 4.5em; // 16*4.5=72px
+    --site-header-container-width: 100%;
+    --site-footer-container-width: 100%;
+    --site-nav-sidebar-display: none;
+    --slide-in-width: 100%;
+    --social-icon-dimension: 1.1em;
+    --social-icon-dimension-md: 1.5em;
+    --social-media-display: none;
+    
+    --the-header-anim-duration: 1s;
+    --the-header-anim-timing: ease-out;
+    
+    --works-width: 90%;
+}
+#siteNav {    
+    --copyright-justify-content: center;
+    
+    --social-media-display: flex;
+}

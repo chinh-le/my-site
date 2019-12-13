@@ -62,5 +62,8 @@
 </script>
 
 <style lang="scss" module>
-.scholarships {}
+.scholarships {
+    width: var(--works-content-sub-width);
+
+}
 </style>

@@ -40,7 +40,7 @@
 
 <style lang="scss" module>
 .btn {
-    color: $color-txt;
+    color: $base-txt-color;
     text-transform: uppercase;
     font-size: 0.8em;
     padding: 1.2em;
@@ -52,7 +52,7 @@
     }
 }
 .active {
-    color: $color-nav-links-current;
+    color: $nav-links-color-active;
 }    
 .btn-en {
     &:before {
