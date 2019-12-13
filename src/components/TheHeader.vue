@@ -1,5 +1,8 @@
 <template>
-  <header :class="$style['site-header']">
+  <header
+    id="theHeader"
+    :class="$style['site-header']"
+  >
     <div :class="$style['site-header-container']">    
       <BaseLogo />
       <AppSocialMedia />
@@ -30,10 +33,13 @@
     top: 0;
     width: 100%;
     padding: 0;
-    background-color: $color-bg-header;
+    background-color: $header-footer-bg-color;
+    height: var(--site-header-height);
+    transition: height var(--the-header-anim-duration) var(--the-header-anim-timing);
+    // visibility: hidden;
 }
 .site-header-container {
-    width: var(--site-header-width);
+    width: var(--site-header-container-width);
     height: var(--site-header-height);
     margin: 0 auto;
     display: flex;

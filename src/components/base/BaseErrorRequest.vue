@@ -21,10 +21,10 @@
 
 <style lang="scss" module>
 .error-request {
-    color: $color-txt-error-request;
+    color: $error-request-txt-color;
     padding: 2em;
     > span {
-      color: $color-unfocus;
+      color: $dimlight-color;
     }
 }
 </style>

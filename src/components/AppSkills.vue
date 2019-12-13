@@ -1,5 +1,5 @@
 <template>
-  <div class="skills">
+  <div :class="$style['skills']">
     <h3 :class="$style['heading-3']">
       {{ $t('skills.heading') }}
     </h3>
@@ -102,5 +102,9 @@
 </script>
 
 <style lang="scss" module>
+.skills {
+    width: var(--skills-width);
+
+}
 .heading-3 {}
 </style>

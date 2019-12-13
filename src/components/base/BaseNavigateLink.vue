@@ -24,41 +24,17 @@
 
 <style lang="scss" module>
 .link.exact-active {
-  color: $color-nav-links-current;
+  color: $nav-links-color-active;
 }
 .link {
   display: block;
-  color: $color-nav-links;
-  padding: 0.5em 0 0.5em 0.5em;
+  color: $nav-links-color;
+  padding: 0.5em;
+  box-sizing: border-box;
   text-decoration: none;
+  text-align: right;
   &:hover {
     cursor: pointer;
   }
 }
-/* .link-home {
-  &:before {
-    content: "Home";
-  }
-}
-.link-about {
-  &:before {
-    content: "About";
-  }
-}
-.link-works {
-  &:before {
-    content: "Works";
-  }
-}
-.link-education {
-  &:before {
-    content: "Education";
-  }
-}
-.link-contact {
-  &:before {
-    content: "Contact";
-  }
-}
- */
  </style>

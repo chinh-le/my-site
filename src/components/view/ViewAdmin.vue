@@ -55,11 +55,6 @@
 </template>
 
 <script>
-    // debugging purposes
-    const consoleLogResults = (res) => {
-        console.log('TLC: consoleResults -> res', res);
-    };
-
     import { auth } from 'firebase';
     import {
         _addCollection,
@@ -75,17 +70,17 @@
         // guard route
         beforeRouteEnter (to, from, next) {
             auth().onAuthStateChanged(user => {
-                // console.log('TLC: beforeRouteEnter -> user', user);
+                // // // console.log('TLC: beforeRouteEnter -> user', user);
                 if (user) {
                     auth()
                         .currentUser.getIdTokenResult()
                         .then(res => {
-                            // console.log('TLC: beforeRouteEnter -> LOGGED ', res);
-                            consoleLogResults(res);
+                            // // // console.log('TLC: beforeRouteEnter -> LOGGED ', res);
+                            errorHandler(res);
                             next();
                         });
                 } else {
-                    // console.log('TLC: beforeRouteEnter -> NOT LOGGED!!!');
+                    // // // console.log('TLC: beforeRouteEnter -> NOT LOGGED!!!');
                     next({ name: 'home' });
                 }
             });
@@ -113,8 +108,8 @@
             },
             getCollection (collection) {
                 _getCollection(collection).then(snapshots => {
-                    // console.log('TLC: getCollection -> snapshots', snapshots);
-                    consoleLogResults(snapshots);
+                    // // // console.log('TLC: getCollection -> snapshots', snapshots);
+                    errorHandler(snapshots);
                 });
             },
             addSkills () {
@@ -122,8 +117,8 @@
             },
             getSkills () {
                 _getSkills().then(snapshots => {
-                    // console.log('TLC: getSkills -> snapshots', snapshots);
-                    consoleLogResults(snapshots);
+                    // // // console.log('TLC: getSkills -> snapshots', snapshots);
+                    errorHandler(snapshots);
                 });
             },
             addRatings () {
@@ -131,12 +126,16 @@
             },
             getRatings () {
                 _getRatings().then(snapshots => {
-                    // console.log('TLC: getRatings -> snapshots.data()', snapshots.data());
-                    consoleLogResults(snapshots);
+                    // // // console.log('TLC: getRatings -> snapshots.data()', snapshots.data());
+                    errorHandler(snapshots);
                 });
             }
         }
     };
+
+    const errorHandler = () => {
+        // console.log('TLC: errorHandler -> ', err);
+    }
 </script>
 
 <style lang="scss" module>

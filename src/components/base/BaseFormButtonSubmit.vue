@@ -33,12 +33,12 @@
 
 <style lang="scss" module>
 .btn-submit {
-    color: $color-txt-form-button;
-    background-color: $color-bg-form-button;
+    color: $form-button-txt-color;
+    background-color: $form-button-bg-color;
     margin-top: 2em;
     &:disabled {
-      color: $color-txt-form-button-disabled;
-      background-color: $color-bg-form-button-disabled;
+      color: $form-button-txt-color-disabled;
+      background-color: $form-button-bg-color-disabled;
     }
     &:hover {
         cursor: pointer;

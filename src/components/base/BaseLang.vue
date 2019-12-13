@@ -46,6 +46,7 @@
 .langs-list {
   display: flex;
   flex-direction: row;
+  justify-content: flex-end;
   color: #2854c3;
 }
 </style>

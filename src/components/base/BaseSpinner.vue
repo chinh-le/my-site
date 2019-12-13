@@ -1,6 +1,6 @@
 <template>
   <div :class="$style['container']">
-    <div :class="$style['canvas']" />
+    <div :class="$style['bg-canvas']" />
     <img
       :class="$style['image']"
       :src="imgPath"
@@ -30,8 +30,15 @@
   justify-content: center;
   align-items: center;
 }
-.canvas {
+.bg-canvas {
   @include bg-canvas;
+  /* z-index: $z-index-overlay-bg;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--slide-in-width);
+  height: var(--slide-in-height);
+  background-color: $overlay-bg-color; */
 }
 .image {
     width: 20%;

@@ -36,9 +36,9 @@
 
 <script>
     import {
-        disableBodyScroll,
-        enableBodyScroll,
-        clearAllBodyScrollLocks
+        // disableBodyScroll,
+        // enableBodyScroll,
+        // clearAllBodyScrollLocks
     } from 'body-scroll-lock';
     import { eventBus } from '@/utils/eventBus';
     import AppAuthenticateForm from './AppAuthenticateForm';
@@ -60,12 +60,12 @@
             eventBus.$on('evtBusOpenAuth', () => {
                 this.isShow = true;
 
-                disableBodyScroll(this.elemPersistLockScroll);
+                // disableBodyScroll(this.elemPersistLockScroll);
             });
         },
         beforeDestroy () {
             // // // // console.log('TLC: Authentication - beforeDestroy -> beforeDestroy');
-            clearAllBodyScrollLocks();
+            // clearAllBodyScrollLocks();
         },
         mounted () {
             // // // // console.log('TLC: Authentication - mounted -> mounted');
@@ -75,7 +75,7 @@
             closeSignin () {
                 this.isShow = false;
 
-                enableBodyScroll(this.elemPersistLockScroll);
+                // enableBodyScroll(this.elemPersistLockScroll);
             },
         }
     };
@@ -84,21 +84,20 @@
 
 <style lang="scss" scoped>
 .signin {
-  @include slide-in-panel;
-  /* z-index: $z-index-overlay;
+  z-index: $z-index-overlay;
   position: absolute;
   top: 0;
   right: 0;
   width: var(--slide-in-width);
-  height: $slide-in-height;
+  height: var(--slide-in-height);
   display: flex;
   flex-direction: column;
-  background-color: $color-bg-slide-in-panel; */
+  background-color: $slide-in-bg-color;
 }
-@include slide-helper;
 .bg-canvas {
   @include bg-canvas;
 }
+@include slide-helper;
 @include fading-helper;
 
 </style>

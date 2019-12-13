@@ -1,45 +1,45 @@
 body {
-    font-family: $font-family;
-    font-size: $txt-size;
-    color: $color-txt;
-    line-height: $line-height-body;
-    background-color: $color-bg-body;
+    font-family: $base-font;
+    font-size: $base-size;
+    color: $base-txt-color;
+    line-height: $base-line-height;
+    background-color: $base-bg-color;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
     z-index: 1;
+    // position: relative;
 }
 
 h1 {
-    font-family: $font-family-heading1;
-    font-size: $txt-size-heading1;
-    color: $color-txt-heading1;
+    font-family: $heading1-font-family;
+    font-size: $heading1-size;
+    color: $heading1-txt-color;
     text-transform: lowercase;
-    padding: 1em 0 2em;
+    // padding: 1em 0 2em;
 }
 
 h2 {
-    font-family: $font-family-heading2;
-    font-size: $txt-size-heading2;
-    color: $color-txt-heading2;
+    font-family: $heading2-font-family;
+    font-size: $heading2-size;
+    color: $heading2-txt-color;
     line-height: 1.3em;
 }
 
 h3 {
-    font-family: $font-family-heading3;
-    font-size: $txt-size-heading3;
-    color: $color-txt-heading3;
-    @include set-margin(1em, 'bottom');
+    font-family: $heading3-font-family;
+    font-size: $heading3-size;
+    color: $heading3-txt-color;
 }
 
 h4 {
-    font-family: $font-family-heading4;
-    font-size: $txt-size-heading4;
-    color: $color-txt-heading4;
+    font-family: $heading4-font-family;
+    font-size: $heading4-size;
+    color: $heading4-txt-color;
 }
 
 a {
-    color: $color-txt;
+    color: $base-txt-color;
 }
 
 input, textarea {
@@ -47,7 +47,7 @@ input, textarea {
     border: 0;
     width: 100%;
     box-sizing: border-box;
-    color: $color-txt;
+    color: $base-txt-color;
     outline: none;
     filter: none; // hack fixing form input autofill/autocomplete text color (Fifrefox)
 }

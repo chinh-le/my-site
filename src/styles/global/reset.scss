@@ -31,12 +31,12 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active { 
-    transition: background-color 5000s ease-in-out 0s!important;
-    background-color: $color-bg-slide-in-form-input!important;
-    color: $color-txt!important; 
-    -webkit-text-fill-color: $color-txt!important;
-    box-shadow: 0 0 0 1000px $color-bg-slide-in-form-input inset!important;
-    animation: autofill 0s forwards!important;
+    transition: background-color 5000s ease-in-out 0s !important;
+    background-color: $slide-in-form-input-bg-color !important;
+    color: $base-txt-color !important; 
+    -webkit-text-fill-color: $base-txt-color !important;
+    box-shadow: 0 0 0 1000px $slide-in-form-input-bg-color inset !important;
+    animation: autofill 0s forwards !important;
 } 
 @keyframes autofill { 
     100% { 

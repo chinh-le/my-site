@@ -32,7 +32,7 @@
 .link {
   display: inline-block;
   padding: 0;
-  color: $color-nav-links;
+  color: $nav-links-color;
   text-decoration: none;
   &:hover {
     cursor: pointer;

@@ -61,5 +61,8 @@
 </script>
 
 <style lang="scss" module>
-.personals {}
+.personals {
+    width: var(--personals-width);
+
+}
 </style>

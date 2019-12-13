@@ -208,7 +208,7 @@
 }
 
 .form-input-container {
-  background-color: $color-bg-form-input;
+  background-color: $form-input-bg-color;
   padding: 0 1em;
   border-radius: $form-input-border-radius;
 }
@@ -228,7 +228,7 @@
   top: -2.5em;
   left: 1.5em;
   visibility: hidden;
-  color: $color-txt-form-error;
+  color: $form-error-txt-color;
 }
 
 .visible {

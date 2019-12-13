@@ -71,7 +71,7 @@
     align-items: center;
     justify-content: flex-end;
     // padding-right: 0.6em;
-    font-family: $font-family-navigation;
+    font-family: $nav-font-family;
     font-size: 2em;
     // margin-bottom: 1.5em;
 }

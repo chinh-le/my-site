@@ -1,5 +1,8 @@
 <template>
-  <footer :class="$style['site-footer']">
+  <footer
+    id="theFooter"
+    :class="$style['site-footer']"
+  >
     <div :class="$style['site-footer-container']">
       <BaseCopyright />
       <BaseLang />
@@ -26,12 +29,13 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  background-color: $color-bg-header;
+  background-color: $header-footer-bg-color;
   z-index: $z-index-footer;
+  // visibility: hidden;
 }
 
 .site-footer-container {
-  width: var(--site-header-width);
+  width: var(--site-footer-container-width);
   margin: 0 auto;
   padding: 0 0.5em 0 1.5em;
   box-sizing: border-box;

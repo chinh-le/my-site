@@ -29,10 +29,17 @@
 </script>
 
 <style lang="scss" module>
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 .cards-item {
   border-radius: 0.5em;
   background-color: #fff;
   padding: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
+  width: var(--cards-item-width);
 }
 </style>

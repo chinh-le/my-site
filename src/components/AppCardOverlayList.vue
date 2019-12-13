@@ -29,8 +29,14 @@
 </script>
 
 <style lang="scss" module>
+.cards-overlay {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 .cards-overlay-item{
-  width: 100%;
+  width: var(--cards-overlay-width);
   margin-bottom: 1em;
 }
 </style>

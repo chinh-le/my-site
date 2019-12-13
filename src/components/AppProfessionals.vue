@@ -65,6 +65,7 @@
 
 <style lang="scss" module>
 .professionals {
-  margin-bottom: 4em;
+    width: var(--professionals-width);
+    margin-bottom: 4em;
 }
 </style>

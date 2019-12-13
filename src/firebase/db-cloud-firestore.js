@@ -1,12 +1,6 @@
 const firebase = require('firebase');
 require('firebase/firestore');
 
-// perhaps log and send notif to admin
-const errorHandler = (error => {
-	console.log('TLC: error', error);
-  
-})
-
 const _addCollection = (name, data) => {
   const db = firebase.firestore();
   const collectionRef = db.collection(name);
@@ -14,7 +8,7 @@ const _addCollection = (name, data) => {
   for (let i in data) {
     collectionRef.doc(i).set(data[i])
       .then(() => {
-				console.log('TLC: _addCollection -> SUCCESS');
+				// console.log('TLC: _addCollection -> SUCCESS');
       })
     .catch(err => {
       errorHandler(err);
@@ -38,7 +32,7 @@ const _addSkills = (data) => {
   for (let i in data) {
     categoriesRef.doc(i).set(data[i])
       .then(() => {
-				console.log('TLC: _addSkills -> SUCCESS');
+				// console.log('TLC: _addSkills -> SUCCESS');
       })
     .catch(err => {
       errorHandler(err);
@@ -60,7 +54,7 @@ const _addRatings = (data) => {
 
   return educationRef.doc('ratings').set(data)
     .then(() => {
-			console.log('TLC: _addRatings -> SUCCESS');
+			// console.log('TLC: _addRatings -> SUCCESS');
     })
     .catch(err => {
       errorHandler(err);
@@ -77,6 +71,11 @@ const _getRatings = () => {
 const _getImgContextPath = (imgPath) => {
   return require('@/assets/' + imgPath) || null;
 };
+
+// perhaps log and send notif to admin
+const errorHandler = (() => {
+	// console.log('TLC: err', err);
+});
 
 export {
   _addCollection,

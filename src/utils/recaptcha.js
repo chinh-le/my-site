@@ -34,7 +34,7 @@ const siteVerify = token => axios.post('https://us-central1-my-site-258216.cloud
 const recaptchaPage = (action) => {
   return new Promise((resolve, reject) => {
     loaded()
-      .then(isLoaded => {
+      .then(() => {
         // console.log('recaptcha isLoaded: ', isLoaded);
         execute(action)
           .then(token => {
