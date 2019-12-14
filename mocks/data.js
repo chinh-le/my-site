@@ -64,17 +64,17 @@ const certificates = {
   softwareDev: {
     order: 5,
     header: 'Software Development',
-    // url: 'https://udemy.com/course/vuejs-2-the-complete-guide/',
-    // image: 'UC-KKDCJ1EE.jpg',
-    // alt: 'VueJS 2 certificate',
-    location: 'MeGill University'
+    // url: '',
+    // image: '',
+    // alt: 'McGill University',
+    location: 'McGill University'
   },
   webDesign: {
     order: 6,
     header: 'Web Design',
-    // url: 'https://udemy.com/course/vuejs-2-the-complete-guide/',
-    // image: 'UC-KKDCJ1EE.jpg',
-    // alt: 'VueJS 2 certificate',
+    // url: '',
+    // image: '',
+    // alt: 'Concordia University',
     location: 'Concordia University'
   }
 };

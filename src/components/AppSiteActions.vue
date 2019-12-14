@@ -77,5 +77,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: flex-end;
+    width: 30%;
 }
 </style>

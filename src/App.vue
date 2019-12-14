@@ -1,18 +1,26 @@
 <template>
   <div
     id="app"
-    class="app"
+    :class="$style['app']"
   >
-    <!-- <img src="@/assets/shutterstock-education.jpg" alt class="body-img-bg" /> -->
+    <div
+      id="bgGradient"
+      :class="$style['bg-gradient']"
+    />
     <TheHeader />
-    <!-- <main :class="$style['site-wrap']"> -->
     <main
       id="siteWrap"
-      class="site-wrap"
+      :class="$style['site-wrap']"
     >
       <transition
         name="fading"
         mode="out-in"
+        :enter-class="$style['fading-enter']"
+        :enter-to-class="$style['fading-enter-to']"
+        :enter-active-class="$style['fading-enter-active']"
+        :leave-class="$style['fading-leave']"
+        :leave-active-class="$style['fading-leave-actvive']"
+        :leave-to-class="$style['fading-leave-to']"
       >
         <router-view />
       </transition>
@@ -42,6 +50,15 @@
             TheHeader,
             TheFooter,
         },
+        data () {
+            return {
+                elBody: null,
+                elBgGradient: null,
+                elSiteWrap: null,
+                elTheHeader: null,
+                elTheFooter: null
+            }
+        },
         watch: {
             $route () {
                 // clearAllBodyScrollLocks();
@@ -52,80 +69,48 @@
             onStateChange(); // authentication state observer
         },
         mounted () {
-
-            console.log(window.innerHeight);
-            const elApp = document.querySelector('#siteWrap');
-            const theHeader = document.querySelector('#theHeader');
-            const theFooter = document.querySelector('#theFooter');
-            console.log(theHeader.clientHeight);
-            console.log(theFooter.clientHeight);
-            elApp.setAttribute('style', `height: ${window.innerHeight - theHeader.clientHeight - theFooter.clientHeight}px`);
+            this.elBody = document.querySelector('body');
+            this.elBgGradient = document.querySelector('#bgGradient');
+            this.elSiteWrap = document.querySelector('#siteWrap');
+            this.elTheHeader = document.querySelector('#theHeader');
+            this.elTheFooter = document.querySelector('#theFooter');
             
-            // elApp.setAttribute('style', `height: ${window.innerHeight - theHeader.clientHeight - theFooter.clientHeight}px`);
+            setInlineStyle(this);
 
-
-
-            // const elApp = document.querySelector('#app');
-            // const siteWrap = document.querySelector('#siteWrap');
-            // const theFooter = document.querySelector('#theHeader');
-            // const theHeader = document.querySelector('#theFooter');
-            // setMainHeight(elApp, siteWrap, theHeader, theFooter);
-            // window.addEventListener('resize', setMainHeight(elApp, siteWrap, theHeader, theFooter));
+            window.addEventListener('resize', setInlineStyle(this));
         },
         beforeDestroy () {
-            window.removeEventListener('resize', setMainHeight);
+            window.removeEventListener('resize', setInlineStyle);
         }
     };
-
-    /* const setMainHeight = (el) => {
-            siteWrap.setAttribute('style', `height:${window.innerHeight}px`);
-
-    } */
-
-    const setMainHeight = (elApp, siteWrap, theHeader, theFooter) => {
-        console.log('TLC: resizeHandler -> theFooter', theFooter.clientHeight);
-        console.log('TLC: resizeHandler -> theHeader', theHeader.clientHeight);
-        // // console.log('TLC: resizeHandler -> siteWrap', siteWrap);
-        const mainHeight = window.innerHeight - theHeader.clientHeight;
-        console.log('TLC: setMainHeight -> mainHeight', mainHeight);
-        siteWrap.setAttribute('style', `height: ${mainHeight}px`);
-        // elApp.setAttribute('style', `background-position: center ${theHeader.clientHeight}px`);
-    }; 
+    
+    const setInlineStyle = (vm) => {
+        vm.elBody.setAttribute('style', `height: ${window.innerHeight}px`);
+        vm.elBgGradient.setAttribute('style', `height: ${window.innerHeight}px`);
+        vm.elSiteWrap.setAttribute('style', `height: ${window.innerHeight - vm.elTheHeader.clientHeight - vm.elTheFooter.clientHeight}px; top: ${vm.elTheHeader.clientHeight}px`);
+    };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .app {
-  // position: relative;
   z-index: $z-index-app; //2;
-width: var(--app-width);
-margin: 0 auto;
-
-  // background-image: url('./assets/shutterstock_1135600613.jpg');
-  // background-image: url('./assets/PC081050.jpg');
-  // background-image: url('./assets/PC081058.jpg');
-  // background-image: url('./assets/PC081053.jpg');
-  // background-image: url('./assets/PC081049 (1).jpg');
-  // background-image: url('./assets/imageedit_1_8912521701.jpg');
-  // background-image: url('./assets/PC081037.jpg');
-  // background-size: cover;
-  // background-position: center var(--site-header-height);
-  // background-repeat: no-repeat;
-  // box-sizing: border-box;
+  width: var(--app-width);
+  margin: 0 auto;
+}
+.bg-gradient {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 .site-wrap {
   position: relative;
   top: var(--site-header-height);
   z-index: $z-index-site-wrap; //4;
-  // padding: 0 $padd-container var(--site-footer-height);
-  // box-sizing: border-box;
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  background-image: url('./assets/shutterstock_1135600613.jpg');
-  background-size: cover;
-  background-position: center center;
-  // background-position: center var(--site-header-height);
-  background-repeat: no-repeat;
   padding: var(--site-wrap-padding);
   overflow-y: scroll;
 }

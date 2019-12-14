@@ -3,7 +3,8 @@
     id="education"
     :class="$style['education']"
   >
-    <BaseHeadingSidebar :heading-text="$t('education.title')" />
+    <BaseHeadingView :heading-text="$t('education.title')" />
+    <BaseHeadingViewSidebar :heading-text="$t('education.title')" />
     <div :class="$style['content']">
       <AppCertificates />
       <AppScholarships />
@@ -12,13 +13,15 @@
 </template>
 
 <script>
-    import BaseHeadingSidebar from '../base/BaseHeadingSidebar';
+    import BaseHeadingView from '../base/BaseHeadingView';
+    import BaseHeadingViewSidebar from '../base/BaseHeadingViewSidebar';
     import AppCertificates from '../AppCertificates';
     import AppScholarships from '../AppScholarships';
 
     export default {
         components: {
-            BaseHeadingSidebar,
+            BaseHeadingView,
+            BaseHeadingViewSidebar,
             AppCertificates,
             AppScholarships
         }
@@ -28,6 +31,8 @@
 
 <style lang="scss" module>
 .education {
+  --heading1-first-letter: normal;
+
   position: absolute;
   top: 0;
   left: 0; // to have justified center with margin auto
@@ -38,9 +43,5 @@
   box-sizing: border-box;
   margin: 0 auto;
 }
-.content {
-  // display: flex;
-  // flex-direction: row;
-  // justify-content: space-between;
-}
+.content {}
 </style>

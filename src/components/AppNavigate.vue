@@ -4,21 +4,28 @@
     class="site-nav"
   >
     <transition
-      name="fading"
+      name="slide"
       mode="in-out"
+      :enter-active-class="$style['slide-enter-active']"
+      :leave-active-class="$style['slide-leave-active']"
     >
       <div
         v-show="isShow"
-        class="bg-canvas"
+        :class="$style['canvas-bg']"
         :title="$t('buttons.close')"
         @click="closeNav()"
       />
     </transition>
-    <transition name="slide">
+    <transition
+      name="slide"
+      mode="in-out"
+      :enter-active-class="$style['slide-enter-active']"
+      :leave-active-class="$style['slide-leave-active']"
+    >
       <div
         v-show="isShow"
         id="navigation"
-        class="navigation"
+        :class="$style['navigation']"
       >
         <BaseButtonIcon
           :btn-class="'btn-close'"
@@ -26,7 +33,7 @@
           :btn-handler="closeNav"
           :btn-icon="'close'"
         />
-        <div class="content">
+        <div :class="$style['navigation-content']">
           <BaseLang />
           <AppNavigateLinks />
           <AppSocialMedia />
@@ -108,9 +115,11 @@
 
 </script>
 
-<style lang="scss" scoped>
-.content {
-  padding: var(--navigation-padding);
+<style lang="scss" module>
+.navigation-content {
+  width: var(--navigation-content-width);
+  margin: 0 auto;
+  // padding: var(--navigation-padding);
   box-sizing: border-box;
   > * {
     margin-bottom: 1em;
@@ -130,36 +139,6 @@
   flex-direction: column;
   background-color: $slide-in-bg-color;
 }
-.bg-canvas {
-  z-index: $z-index-overlay-bg;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: var(--slide-in-width);
-  height: var(--slide-in-height);
-  background-color: $overlay-bg-color;
-}
-.slide-enter-active {
-    animation: slideIn 0.5s ease-in;
-  }
-  .slide-leave-active {
-    animation: slideOut 0.4s ease-out;
-  }
-  @keyframes slideIn {
-    from {
-      transform: translateX(100%);
-    }
-    to {
-      transform: translateX(0);
-    }
-  }
-  @keyframes slideOut {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(100%);
-    }
-  }
-@include fading-helper;
+@include canvas-bg; 
+@include slide-helper;
 </style>

@@ -139,7 +139,6 @@
 </script>
 
 <style lang="scss" module>
-.admin {}
 .heading-1 {
     font-size: 2em;
 }

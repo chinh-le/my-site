@@ -42,7 +42,7 @@
 .btn {
     color: $base-txt-color;
     text-transform: uppercase;
-    font-size: 0.8em;
+    font-size: var(--base-button-lang-size);
     padding: 1.2em;
     &:before {
         @include screen-reader-ready;

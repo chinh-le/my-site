@@ -47,36 +47,8 @@
     font-style: normal;
     background-color: transparent;
   }
-  /* &:before {
-    @include screen-reader-ready;
-  } */
 }
 .link-sidebar-name {
   @include screen-reader-ready;
 }
-/* .link-home {
-  &:before {
-    content: "Home";
-  }
-}
-.link-about {
-  &:before {
-    content: "About";
-  }
-}
-.link-works {
-  &:before {
-    content: "Works";
-  }
-}
-.link-education {
-  &:before {
-    content: "Education";
-  }
-}
-.link-contact {
-  &:before {
-    content: "Contact";
-  }
-} */
 </style>

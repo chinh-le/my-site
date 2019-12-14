@@ -13,7 +13,7 @@
           <div :class="$style['form-input-container']">
             <label
               for="contactName"
-              :class="$style['input-label']"
+              :class="[$style['input-label'], $style['screen-reader-ready']]"
             >{{ $t('forms.contact.name') }}</label>
             <input
               id="contactName"
@@ -38,7 +38,7 @@
           <div :class="$style['form-input-container']">
             <label
               for="contactEmail"
-              :class="$style['input-label']"
+              :class="[$style['input-label'], $style['screen-reader-ready']]"
             >{{ $t('forms.contact.email') }}</label>
             <input
               id="contactEmail"
@@ -65,7 +65,7 @@
           <div :class="$style['form-input-container']">
             <label
               for="contactSubject"
-              :class="$style['input-label']"
+              :class="[$style['input-label'], $style['screen-reader-ready']]"
             >{{ $t('forms.contact.subject') }}</label>
             <input
               id="contactSubject"
@@ -83,7 +83,7 @@
           <div :class="$style['form-input-container']">
             <label
               for="contactMessage"
-              :class="$style['input-label']"
+              :class="[$style['input-label'], $style['screen-reader-ready']]"
             >{{ $t('forms.contact.message') }}</label>
             <textarea
               id="contactMessage"
@@ -285,13 +285,10 @@
     padding: 0 1em;
     border-radius: $form-input-border-radius;
 }
-.input-label {
-    @include screen-reader-ready;
-}
 .input {
     padding: $form-input-input-padding;
     &::placeholder {
-      text-transform: capitalize;
+      text-transform: var(--form-input-placeholder);
     }
 }
 .input-error {
@@ -303,7 +300,8 @@
     visibility: hidden;
     color: $form-error-txt-color;
 }
-.visible {
-    @include visible;
+.screen-reader-ready {
+  @include screen-reader-ready;
 }
+@include visible;
 </style>

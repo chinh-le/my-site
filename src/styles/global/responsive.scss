@@ -3,6 +3,9 @@
     :root {
         --navigation-padding: 0 2em;
     }
+    #home {
+        --heading1-margin-bottom: 2em;
+    }
 }
 
 // >= 576 sm
@@ -74,31 +77,16 @@
         --contact-width: 60%;
         --contact-input-name-email-width: 48%;
         --slide-in-width: 40%;
+        --heading1-view-display: none;
+        --heading1-view-sidebar-display: block;
         --site-nav-sidebar-display: block;
     }
-    #headerSidebar {
-        width: 4%;
-        height: 100%;
-        position: fixed!important;
-        top: 0;
-        left: 0;
-        > .heading-container {
-            position: relative;
-            height: 100%;
-            > .heading-1 {
-                position: absolute;
-                top: 50%;
-                transform: translateY(50%) rotate(-90deg);
-                width: 100%;
-                white-space: nowrap;
-                text-align: center;
-                margin: 0;
-                padding: 0;
-            }
-        }
+    #home {
+        --heading1-view-display: block;
     }
     #about {
         --about-height: 100%;
+
         > #aboutContent {
             height: 100%;
             display: flex;
@@ -113,9 +101,10 @@
 // >=1200 xl
 @media screen and (min-width: $breakpoint-xl) {
     :root {
-        --app-width: $breakpoint-xl;
-        --site-header-container-width: $breakpoint-xl;
-        --site-footer-container-width: $breakpoint-xl;
+        --app-width: var(--breakpoint-xl);
+        --site-header-container-width: var(--breakpoint-xl);
+        --site-footer-container-width: var(--breakpoint-xl);
         --slide-in-width: 30%;
+        --works-display: flex;
     }
 }

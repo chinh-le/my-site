@@ -3,7 +3,8 @@
     id="works"
     :class="$style['works']"
   >
-    <BaseHeadingSidebar :heading-text="$t('works.title')" />
+    <BaseHeadingView :heading-text="$t('works.title')" />
+    <BaseHeadingViewSidebar :heading-text="$t('works.title')" />
     <div
       id="worksContent"
       :class="$style['content']"
@@ -15,13 +16,15 @@
 </template>
 
 <script>
-    import BaseHeadingSidebar from '../base/BaseHeadingSidebar';
+    import BaseHeadingView from '../base/BaseHeadingView';
+    import BaseHeadingViewSidebar from '../base/BaseHeadingViewSidebar';
     import AppProfessionals from '../AppProfessionals';
     import AppPersonals from '../AppPersonals';
 
     export default {
         components: {
-            BaseHeadingSidebar,
+            BaseHeadingView,
+            BaseHeadingViewSidebar,
             AppProfessionals,
             AppPersonals
         }
@@ -31,6 +34,8 @@
 
 <style lang="scss" module>
 .works {
+  --heading1-first-letter: normal;
+
   position: absolute;
   top: 0;
   left: 0; // to have justified center with margin auto
@@ -41,6 +46,8 @@
   box-sizing: border-box;
   margin: 0 auto;
   height: var(--works-height);
+  display: var(--works-display);
+  align-items: center;
 }
 .content{
   padding-bottom: 2em;

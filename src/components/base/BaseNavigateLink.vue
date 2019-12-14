@@ -29,7 +29,7 @@
 .link {
   display: block;
   color: $nav-links-color;
-  padding: 0.5em;
+  padding: 0.5em 0.3em 0.5em 0;
   box-sizing: border-box;
   text-decoration: none;
   text-align: right;

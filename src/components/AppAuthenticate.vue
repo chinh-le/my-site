@@ -4,12 +4,14 @@
     class="site-auth"
   >
     <transition
-      name="fading"
+      name="slide"
       mode="in-out"
+      :enter-active-class="$style['slide-enter-active']"
+      :leave-active-class="$style['slide-leave-active']"
     >
       <div
         v-show="isShow"
-        class="bg-canvas"
+        :class="$style['canvas-bg']"
         :title="$t('buttons.close')"
         @click="closeSignin()"
       />
@@ -17,10 +19,12 @@
     <transition
       name="slide"
       mode="in-out"
+      :enter-active-class="$style['slide-enter-active']"
+      :leave-active-class="$style['slide-leave-active']"
     >
       <div
         v-show="isShow"
-        class="signin"
+        :class="$style['signin']"
       >
         <BaseButtonIcon
           :btn-class="'btn-close'"
@@ -82,7 +86,7 @@
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .signin {
   z-index: $z-index-overlay;
   position: absolute;
@@ -94,10 +98,6 @@
   flex-direction: column;
   background-color: $slide-in-bg-color;
 }
-.bg-canvas {
-  @include bg-canvas;
-}
+@include canvas-bg;
 @include slide-helper;
-@include fading-helper;
-
 </style>

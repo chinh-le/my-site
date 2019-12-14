@@ -17,12 +17,14 @@
 
 <style lang="scss" module>
 .logo {
-    a {
-      font-family: $logo-font-family;
-      font-size: var(--logo-font-size);
-      transition: font-size var(--the-header-anim-duration) var(--the-header-anim-timing);    text-decoration: none;
-      color: $logo-color;
-      padding: 0.65em; 
-    }
+  width: 30%;
+  a {
+    font-family: $logo-font-family;
+    font-size: var(--logo-font-size);
+    transition: font-size var(--the-header-anim-duration) var(--the-header-anim-timing);    
+    text-decoration: none;
+    color: $logo-color;
+    padding: 0.65em; 
+  }
 }
 </style>
