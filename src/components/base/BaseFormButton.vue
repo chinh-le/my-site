@@ -39,6 +39,6 @@
     font-size: 1em;
     padding: $form-input-button-padding;
     border-radius: $form-input-border-radius;
-    text-transform: capitalize;
+    text-transform: var(--base-button-first-letter);
 }
 </style>

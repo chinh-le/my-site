@@ -1,6 +1,6 @@
 <template>
   <div :class="$style['container']">
-    <div :class="$style['bg-canvas']" />
+    <div :class="$style['canvas-bg']" />
     <img
       :class="$style['image']"
       :src="imgPath"
@@ -30,18 +30,9 @@
   justify-content: center;
   align-items: center;
 }
-.bg-canvas {
-  @include bg-canvas;
-  /* z-index: $z-index-overlay-bg;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: var(--slide-in-width);
-  height: var(--slide-in-height);
-  background-color: $overlay-bg-color; */
-}
 .image {
-    width: 20%;
-    z-index: $z-index-overlay;
-  }
+  width: 20%;
+  z-index: $z-index-overlay;
+}
+@include canvas-bg($canvas-spinner-bg-color);
 </style>

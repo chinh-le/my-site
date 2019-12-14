@@ -8768,6 +8768,16 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typeface-barlow-condensed@^0.0.71:
+  version "0.0.71"
+  resolved "https://registry.yarnpkg.com/typeface-barlow-condensed/-/typeface-barlow-condensed-0.0.71.tgz#7f78946ecd483cb2db5e3f9c2514a37d255ef667"
+  integrity sha512-0dKb79eoD462P40ec3C8sRkfzfMMDUrWIanR4A5+KDLGrjegspQFts/KYWPQCUHZVuBlZPD81q3wstNnc7I6Hg==
+
+typeface-comfortaa@^0.0.76:
+  version "0.0.76"
+  resolved "https://registry.yarnpkg.com/typeface-comfortaa/-/typeface-comfortaa-0.0.76.tgz#540cf62d5bed0214d363b2693d18a34bf4475579"
+  integrity sha512-qIrCJ2KU425ZVNzAhh8IkaHxEzUdtoPCd7PQIbc5Kmlamunq1BjNGGRCT05L3SN0h1W9QsGuIxJ2W0Q7h0l82w==
+
 typeface-montserrat@^0.0.75:
   version "0.0.75"
   resolved "https://registry.yarnpkg.com/typeface-montserrat/-/typeface-montserrat-0.0.75.tgz#b796d9c767ab8ed1343271985beb1e44b382b7b3"

@@ -9,11 +9,8 @@
     <p :class="$style['text']">
       {{ $t('about.paragraph-2') }}.
     </p>
-    <p :class="$style['text']">
-      {{ $t('about.paragraph-3') }}.
-    </p>
     <p :class="[$style['text'], $style['last']]">
-      {{ $t('about.paragraph-4') }}.
+      {{ $t('about.paragraph-3.text-1') }} <a href="./contact">{{ $t('about.paragraph-3.link') }}</a> {{ $t('about.paragraph-3.text-2') }}.
     </p>
   </div>
 </template>

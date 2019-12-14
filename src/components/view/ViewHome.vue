@@ -4,9 +4,7 @@
     :class="$style['home']"
   >
     <div :class="$style['content']">
-      <h1 :class="$style['heading-1']">
-        {{ $t('home.title') }}
-      </h1>
+      <BaseHeadingView :heading-text="$t('home.title')" />
       <h2 :class="$style['heading-2']">
         <span :class="$style['color-focus']">{{ $t('home.heading-1') }}</span> {{ $t('home.heading-2') }}
       </h2>
@@ -18,37 +16,24 @@
 </template>
 
 <script>
+    import BaseHeadingView from '../base/BaseHeadingView';
     export default { 
-        /* mounted () {
-            console.log(window.innerHeight);
-            const elHome = document.querySelector('#home');
-            const theHeader = document.querySelector('#theHeader');
-            const theFooter = document.querySelector('#theFooter');
-            console.log(theHeader.clientHeight);
-            console.log(theFooter.clientHeight);
-            elHome.setAttribute('style', `height: ${window.innerHeight - theHeader.clientHeight - theFooter.clientHeight}px`);
-        } */
+        components: {
+            BaseHeadingView
+        }
     }
 </script>
 
 <style lang="scss" module>
-.home {
-  // display: flex;
-  // align-items: center;
-  // box-sizing: border-box;
-
-}
+.home {}
 .content {
   width: var(--home-content-width);
   margin: 0 auto;
-}
-.heading-1 {
-  // margin-top: 3em;
-  // margin-bottom: 4em;
+  box-sizing: border-box;
 }
 .heading-2 {
   font-size: 2.5em;
-  // margin-bottom: 1em;
+  margin-bottom: var(--heading2-margin-bottom);
 }
 .line {
     font-size: 3em;

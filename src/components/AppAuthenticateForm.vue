@@ -11,7 +11,7 @@
         <li>
           <div :class="$style['form-input-container']">
             <label
-              :class="$style['input-label']"
+              :class="[$style['input-label'], $style['screen-reader-ready']]"
               for="auth-email"
             >{{ $t('forms.authentication.email') }}</label>
             <input
@@ -35,7 +35,7 @@
         <li>
           <div :class="$style['form-input-container']">
             <label
-              :class="$style['input-label']"
+              :class="[$style['input-label'], $style['screen-reader-ready']]"
               for="auth-password"
             >{{ $t('forms.authentication.password') }}</label>
             <input
@@ -206,21 +206,17 @@
 .form-authenticate {
   padding: 2em;
 }
-
 .form-input-container {
   background-color: $form-input-bg-color;
   padding: 0 1em;
   border-radius: $form-input-border-radius;
 }
-
-.input-label {
-  @include screen-reader-ready;
-}
-
 .input {
   padding: $form-input-input-padding;
+  &::placeholder {
+    text-transform: var(--form-input-placeholder);
+  }
 }
-
 .input-error {
   font-size: 0.7em;
   opacity: 0.8;
@@ -230,8 +226,8 @@
   visibility: hidden;
   color: $form-error-txt-color;
 }
-
-.visible {
-  @include visible;
+.screen-reader-ready {
+  @include screen-reader-ready;
 }
+@include visible;
 </style>

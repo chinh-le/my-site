@@ -16,8 +16,11 @@ $heading2-txt-color: #000;
 $heading3-txt-color: #000;
 $heading4-txt-color: #000;
 $heading1-font-family: Montserrat, $font-fallback;
-$heading2-font-family: Syncopate, $font-fallback;
-$heading3-font-family: Syncopate, $font-fallback;
+// $heading2-font-family: Syncopate, $font-fallback;
+// $heading2-font-family: Barlow-Condensed, $font-fallback;
+$heading2-font-family: Comfortaa, $font-fallback;
+// $heading3-font-family: Syncopate, $font-fallback;
+$heading3-font-family: Comfortaa, $font-fallback;
 $heading4-font-family: Montserrat, $font-fallback;
     
 // nav
@@ -54,7 +57,8 @@ $skills-dot-icon-color: #000;
 
 $header-footer-bg-color: #fff;
 
-$overlay-bg-color: rgba(0, 0, 0, 0.9);
+$canvas-bg-color: rgba(0, 0, 0, 0.9);
+$canvas-spinner-bg-color: rgba(0, 0, 0, 0.5);
 
 $error-request-txt-color: #000;
 

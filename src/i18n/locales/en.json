@@ -6,12 +6,15 @@
     },
     "about": {
         "title": "about me",
-        "heading-1": "app developer",
+        "heading-1": "web developer",
         "heading-2": "responsive for mobile and desktop",
-        "paragraph-1": "web development has always been a passion",
-        "paragraph-2": "creating beautiful websites, following best practices and current technologies, to develop better, faster and more efficiently",
-        "paragraph-3": "frontend development with today's frameworks/libraries, such as Vue, React and Angular",
-        "paragraph-4": "backend development with Google Web Services, such as Firebase and Cloud Platform"
+        "paragraph-1": "creating beautiful websites, following best practices and current technologies, to develop better, faster and more efficiently",
+        "paragraph-2": "developing with today's frameworks/libraries, such as Vue, React and Angular, and Web Services with Google Firebase and its Cloud Platform",
+        "paragraph-3": {
+            "text-1": "please",
+            "link": "send",
+            "text-2": "me a message and I'll provide the login credentials to download my resume"
+        }
     },
     "works": {
         "title": "works"

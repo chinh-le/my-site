@@ -6,6 +6,8 @@
 
     --base-button-icon-size: 1.4em;
     --base-button-icon-size-md: 1.8em;
+    --base-button-lang-size: 0.6em;
+    --base-button-first-letter: capitalize;
 
     --cards-overlay-width: 100%;
     --cards-item-width: 100%;
@@ -13,19 +15,33 @@
     --contact-height: auto;
     --contact-input-width: 100%;
     --contact-input-name-email-width: 100%;
-    --works-content-width: 90%;
-    --works-content-sub-width: 100%;
     --copyright-justify-content: left;
     --copyright-flex-direction: row;
 
     --education-width: 90%;
+
+    --href-first-letter: capitalize;
+
+    --form-input-placeholder: capitalize;
     
+    --heading1-view-display: block;
+    --heading1-view-sidebar-display: none;
+    --heading1-first-letter: capitalize;
+    --heading1-margin-bottom: 1em;
+    --heading2-first-letter: capitalize;
+    --heading2-margin-bottom: 1em;
+    --heading3-first-letter: capitalize;
+    --heading3-margin-bottom: 1em;
+    --heading4-first-letter: capitalize;
+
     --home-content-width: 80%;
     
     --logo-font-size: 1.3em;
     
-    --navigation-padding: 0 1em;
+    // --navigation-padding: 0 1em;
+    --navigation-content-width: 85%;
     
+    --paragraph-first-letter: capitalize;
     --professionals-width: 100%;
     --personals-width: 100%;
     
@@ -33,10 +49,12 @@
     --site-wrap-padding: 2em 0;
     --site-header-height: 3.5em; // 16*3.5=56px
     --site-header-height-md: 4.5em; // 16*4.5=72px
+    --site-footer-height: 3em; // 16*3=48px
     --site-header-container-width: 100%;
     --site-footer-container-width: 100%;
     --site-nav-sidebar-display: none;
     --slide-in-width: 100%;
+    --slide-in-height: 100%;
     --social-icon-dimension: 1.1em;
     --social-icon-dimension-md: 1.5em;
     --social-media-display: none;
@@ -45,6 +63,16 @@
     --the-header-anim-timing: ease-out;
     
     --works-width: 90%;
+    --works-content-width: 90%;
+    --works-content-sub-width: 100%;
+    --works-display: unset;
+
+    // responsive breakpoints (Bootstrap)
+    --breakpoint-xs: 330px;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
 }
 #siteNav {    
     --copyright-justify-content: center;

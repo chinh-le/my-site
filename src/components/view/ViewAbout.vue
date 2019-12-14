@@ -3,7 +3,8 @@
     id="about"
     :class="$style['about']"
   >
-    <BaseHeadingSidebar :heading-text="$t('about.title')" />
+    <BaseHeadingView :heading-text="$t('about.title')" />
+    <BaseHeadingViewSidebar :heading-text="$t('about.title')" />
     <div
       id="aboutContent"
       :class="$style['content']"
@@ -17,12 +18,14 @@
 <script>
     import BaseAboutDesc from '../base/BaseAboutDesc';
     import AppSkills from '../AppSkills';
-    import BaseHeadingSidebar from '../base/BaseHeadingSidebar';
+    import BaseHeadingView from '../base/BaseHeadingView';
+    import BaseHeadingViewSidebar from '../base/BaseHeadingViewSidebar';
 
     export default {
         components: {
             BaseAboutDesc,
-            BaseHeadingSidebar,
+            BaseHeadingView,
+            BaseHeadingViewSidebar,
             AppSkills
         }
     };
@@ -30,6 +33,8 @@
 
 <style lang="scss" module>
 .about {
+  --heading1-first-letter: normal;
+
   position: absolute;
   top: 0;
   left: 0; // to have justified center with margin auto

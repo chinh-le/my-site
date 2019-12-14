@@ -3,7 +3,8 @@
     id="contact"
     :class="$style['contact']"
   >
-    <BaseHeadingSidebar :heading-text="$t('contact.title')" />
+    <BaseHeadingView :heading-text="$t('contact.title')" />
+    <BaseHeadingViewSidebar :heading-text="$t('contact.title')" />
     <div
       id="contactContent"
       :class="['content']"
@@ -18,11 +19,13 @@
 
 <script>
     import AppContactForm from '../AppContactForm';
-    import BaseHeadingSidebar from '../base/BaseHeadingSidebar';
+    import BaseHeadingView from '../base/BaseHeadingView';
+    import BaseHeadingViewSidebar from '../base/BaseHeadingViewSidebar';
 
     export default {
         components: {
-            BaseHeadingSidebar,
+            BaseHeadingView,
+            BaseHeadingViewSidebar,
             AppContactForm
         }
     };
@@ -31,6 +34,8 @@
 
 <style lang="scss" module>
 .contact {
+  --heading1-first-letter: normal;
+  
   position: absolute;
   top: 0;
   left: 0; // to have justified center with margin auto
