@@ -75,6 +75,9 @@
         :disabled="$v.$invalid"
       />
     </form>
+    <p :class="$style['download-instruction']">
+      {{ $t('app.download-instruction.text-1') }} <a href="./contact">{{ $t('app.download-instruction.link') }}</a> {{ $t('app.download-instruction.text-2') }}.
+    </p>
     <BaseErrorRequest
       v-if="isErrorRequest"
       :error-code="errorRequestCode"
@@ -237,6 +240,15 @@
   // -webkit-box-shadow: 0 0 0px 1000px var(--form-input-autofill-bg-color) inset;
   box-shadow: 0 0 0px 1000px var(--form-input-autofill-bg-color) inset;
   transition: background-color 5000s ease-in-out 0s;
+}
+.download-instruction {
+  color: var(--download-instruction-txt-color);
+  padding: 0 2.5em 2em;
+  font-size: 0.8em;
+  > a {
+    color: var(--download-instruction-txt-color);
+    text-decoration: underline;
+  }
 }
 .input-error {
   font-size: 0.7em;
