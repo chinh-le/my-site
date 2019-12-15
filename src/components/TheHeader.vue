@@ -33,7 +33,7 @@
     top: 0;
     width: 100%;
     padding: 0;
-    background-color: $header-footer-bg-color;
+    background-color: $theHeader-bg-color;
     height: var(--site-header-height);
     transition: height var(--the-header-anim-duration) var(--the-header-anim-timing);
     // visibility: hidden;

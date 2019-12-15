@@ -4,7 +4,7 @@
       to="/"
       :title="$t('navigation.home')"
     >
-      cle.
+      clê.
     </router-link>
   </div>
 </template>

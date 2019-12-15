@@ -26,13 +26,13 @@
 <style lang="scss" module>
 .link.exact-active {
   > i {
-    background-color: #000;
+    background-color: $nav-links-sidebar-color;
   }
 }
 .link {
   display: inline-block;
   padding: 0;
-  color: $nav-links-color;
+  color: $nav-links-sidebar-color;
   text-decoration: none;
   &:hover {
     cursor: pointer;
@@ -42,7 +42,7 @@
     margin: 0.5em;
     width: 0.25em;
     height: 0.25em;
-    border: 1px solid #000;
+    border: 1px solid $nav-links-sidebar-border-color;
     border-radius: 0.25em;
     font-style: normal;
     background-color: transparent;

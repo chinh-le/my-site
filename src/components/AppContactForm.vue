@@ -263,6 +263,10 @@
 </script>
 
 <style lang="scss" module>
+.contact-form {
+  --footnote-txt-color: #a7a7a7;
+  --footnote-txt-color-links: #b7b7b7;
+}
 .form-list {
   width: 100%;
   display: flex;
@@ -281,7 +285,7 @@
     padding-bottom: 2em;
 }
 .form-input-container {
-    background-color: $form-input-bg-color;
+    background-color: var(--form-input-bg-color);
     padding: 0 1em;
     border-radius: $form-input-border-radius;
 }

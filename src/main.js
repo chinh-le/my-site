@@ -3,8 +3,6 @@ import { VueReCaptcha } from 'vue-recaptcha-v3';
 import Vuelidate from 'vuelidate';
 import { i18n } from './i18n/i18n';
 
-import BootstrapVue from 'bootstrap-vue';
-
 // SCSS customizing
 import './styles/style.scss';
 
@@ -23,7 +21,6 @@ Vue.use(VueReCaptcha, {
 });
 
 Vue.use(Vuelidate);
-Vue.use(BootstrapVue);
 
 Vue.config.productionTip = false;
 
