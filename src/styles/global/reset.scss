@@ -25,28 +25,3 @@ ul {
         list-style-type: none;
     }
 }
-
-// hacks fixing form input autofill/autocomplete text and bg color - cross-browsers (Chrome, Fifrefox, Safari)
-input:-webkit-autofill, 
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active { 
-    transition: background-color 5000s ease-in-out 0s !important;
-    background-color: $slide-in-form-input-bg-color !important;
-    color: $base-txt-color !important; 
-    -webkit-text-fill-color: $base-txt-color !important;
-    box-shadow: 0 0 0 1000px $slide-in-form-input-bg-color inset !important;
-    animation: autofill 0s forwards !important;
-} 
-@keyframes autofill { 
-    100% { 
-        background: transparent; 
-        color: inherit; 
-    } 
-} 
-@-webkit-keyframes autofill {
-     100% { 
-         background: transparent; 
-         color: inherit; 
-    } 
-}

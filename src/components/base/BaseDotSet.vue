@@ -60,7 +60,7 @@
     color: $dimlight-color;
 }
 .fill {
-    opacity: 0.5;
+    // opacity: 0.5;
 }
 .empty {
     opacity: 0.15;

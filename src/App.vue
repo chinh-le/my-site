@@ -113,6 +113,19 @@
   box-sizing: border-box;
   padding: var(--site-wrap-padding);
   overflow-y: scroll;
+  &::-webkit-scrollbar {
+      background: transparent;
+      width: 0.3em;
+  }
+  &::-webkit-scrollbar-thumb {
+      background: transparent;
+      border-radius: 0.5em;
+  }
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      background: #D85426;
+    }
+  }
 }
 @include fading-helper;
 </style>

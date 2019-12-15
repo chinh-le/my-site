@@ -9,12 +9,7 @@
         "heading-1": "développeur web",
         "heading-2": "réactif pour mobile et bureau",
         "paragraph-1": "création de beaux site Web, suivante les meilleurs pratiques et les technologies actuelles, pour développer mieux, plus vite et plus efficace",
-        "paragraph-2": "développement avec les frameworks, bibliothèques et services Web d'aujourd'hui, tels que Vue, React, Angular, Google Firebase et Google Cloud Platform",
-        "paragraph-3": {
-            "text-1": "veuillez m'",
-            "link": "envoyer",
-            "text-2": "un message et je fournirai les identifiants de connexion pour télécharger mon résumé"
-        }
+        "paragraph-2": "développement avec les frameworks, bibliothèques et services Web d'aujourd'hui, tels que Vue, React, Angular, Google Firebase et Google Cloud Platform"
     },
     "works": {
         "title": "projets"
@@ -122,6 +117,13 @@
         "server-request": {
             "text-1": "il y a un problème avec notre serveur",
             "text-2": "veuillez réessayer plus tard"
+        }
+    },
+    "app": {
+        "download-instruction": {
+            "text-1": "veuillez",
+            "link": "m'envoyer",
+            "text-2": "un message et je fournirai les identifiants de connexion pour télécharger mon résumé"
         }
     }
 }

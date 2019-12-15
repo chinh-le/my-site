@@ -75,6 +75,9 @@
         :disabled="$v.$invalid"
       />
     </form>
+    <p :class="$style['download-instruction']">
+      {{ $t('app.download-instruction.text-1') }} <a href="./contact">{{ $t('app.download-instruction.link') }}</a> {{ $t('app.download-instruction.text-2') }}.
+    </p>
     <BaseErrorRequest
       v-if="isErrorRequest"
       :error-code="errorRequestCode"
@@ -205,7 +208,8 @@
 <style lang="scss" module>
 .form-authenticate {
     --form-input-txt-color: #575757;
-    --form-input-bg-color: rgba(0, 0, 0, 0.1);
+    --form-input-bg-color: #ddd;
+    --form-input-autofill-bg-color: #ddd;
     --form-button-submit-txt-color: #D85426;
     --form-button-submit-bg-color:rgba(0,0,0,0.3);
     --form-button-submit-disabled-txt-color: #575757;
@@ -221,9 +225,29 @@
   border-radius: $form-input-border-radius;
 }
 .input {
+  background-color: var(--form-input-bg-color) !important;
   padding: $form-input-input-padding;
   &::placeholder {
     text-transform: var(--form-input-placeholder);
+  }
+}
+// reset form input autofill bg color
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover, 
+.input:-webkit-autofill:focus {
+  // border: 1px solid green;
+  -webkit-text-fill-color: var(--form-input-txt-color);
+  // -webkit-box-shadow: 0 0 0px 1000px var(--form-input-autofill-bg-color) inset;
+  box-shadow: 0 0 0px 1000px var(--form-input-autofill-bg-color) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+.download-instruction {
+  color: var(--download-instruction-txt-color);
+  padding: 0 2.5em 2em;
+  font-size: 0.8em;
+  > a {
+    color: var(--download-instruction-txt-color);
+    text-decoration: underline;
   }
 }
 .input-error {

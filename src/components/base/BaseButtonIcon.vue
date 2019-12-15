@@ -45,6 +45,7 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    padding: 0.6em;
     &:hover {
         cursor: pointer;
     }
@@ -55,10 +56,10 @@
         font-size: var(--base-button-icon-size);
         transition: font-size var(--the-header-anim-duration) var(--the-header-anim-timing);
         color: $auth-icon-color;
-        padding: 0.6em;
     }
 }
 .btn-close {
+    padding: var(--base-button-icon-close-padding);
     &:after {
         content: 'close';
     }

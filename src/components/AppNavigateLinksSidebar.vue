@@ -69,10 +69,8 @@
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    // padding-right: 0.6em;
+    justify-content: center;
     font-family: $nav-font-family;
     font-size: 2em;
-    // margin-bottom: 1.5em;
 }
 </style>
