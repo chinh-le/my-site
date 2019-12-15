@@ -205,7 +205,8 @@
 <style lang="scss" module>
 .form-authenticate {
     --form-input-txt-color: #575757;
-    --form-input-bg-color: rgba(0, 0, 0, 0.1);
+    --form-input-bg-color: #ddd;
+    --form-input-autofill-bg-color: #ddd;
     --form-button-submit-txt-color: #D85426;
     --form-button-submit-bg-color:rgba(0,0,0,0.3);
     --form-button-submit-disabled-txt-color: #575757;
@@ -221,10 +222,21 @@
   border-radius: $form-input-border-radius;
 }
 .input {
+  background-color: var(--form-input-bg-color) !important;
   padding: $form-input-input-padding;
   &::placeholder {
     text-transform: var(--form-input-placeholder);
   }
+}
+// reset form input autofill bg color
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover, 
+.input:-webkit-autofill:focus {
+  // border: 1px solid green;
+  -webkit-text-fill-color: var(--form-input-txt-color);
+  // -webkit-box-shadow: 0 0 0px 1000px var(--form-input-autofill-bg-color) inset;
+  box-shadow: 0 0 0px 1000px var(--form-input-autofill-bg-color) inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
 .input-error {
   font-size: 0.7em;

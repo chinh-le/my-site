@@ -264,6 +264,7 @@
 
 <style lang="scss" module>
 .contact-form {
+  --form-input-autofill-bg-color: transparent;
   --footnote-txt-color: #a7a7a7;
   --footnote-txt-color-links: #b7b7b7;
 }
@@ -294,6 +295,16 @@
     &::placeholder {
       text-transform: var(--form-input-placeholder);
     }
+}
+// reset form input autofill bg color
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover, 
+.input:-webkit-autofill:focus {
+  // border: 1px solid green;
+  -webkit-text-fill-color: var(--form-input-txt-color);
+  // -webkit-box-shadow: 0 0 0px 1000px var(--form-input-autofill-bg-color) inset;
+  box-shadow: 0 0 0px 1000px var(--form-input-autofill-bg-color) inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
 .input-error {
     font-size: 0.7em;
