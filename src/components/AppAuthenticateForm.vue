@@ -204,10 +204,19 @@
 
 <style lang="scss" module>
 .form-authenticate {
+    --form-input-txt-color: #575757;
+    --form-input-bg-color: rgba(0, 0, 0, 0.1);
+    --form-button-submit-txt-color: #D85426;
+    --form-button-submit-bg-color:rgba(0,0,0,0.3);
+    --form-button-submit-disabled-txt-color: #575757;
+    --form-button-submit-disabled-bg-color:rgba(0,0,0,0.1);
+    --footnote-txt-color: #979797;
+    --footnote-txt-color-links: #878787;
+
   padding: 2em;
 }
 .form-input-container {
-  background-color: $form-input-bg-color;
+  background-color: var(--form-input-bg-color);
   padding: 0 1em;
   border-radius: $form-input-border-radius;
 }

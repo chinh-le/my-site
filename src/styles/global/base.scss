@@ -10,7 +10,11 @@ body {
     z-index: 1;
     // position: relative;
     // background-image: url('../assets/shutterstock_1135600613.jpg');
-    background-image: url('../assets/PC081049-Edit.jpg');
+    // background-image: url('../assets/PC081049-Edit.jpg');
+    background-image: url('../assets/PC081049.jpg');
+    // background-image: url('../assets/Test.jpg');
+    // background-image: url('../assets/Test (1).jpg');
+    // background-image: url('../assets/Test (2).jpg');
     background-size: cover;
     background-position: center center;
     // background-position: center var(--site-header-height);
@@ -68,7 +72,7 @@ input, textarea {
     border: 0;
     width: 100%;
     box-sizing: border-box;
-    color: $base-txt-color;
+    color: var(--form-input-txt-color);
     outline: none;
     filter: none; // hack fixing form input autofill/autocomplete text color (Fifrefox)
 }

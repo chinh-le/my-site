@@ -6,12 +6,15 @@
     },
     "about": {
         "title": "về tôi",
-        "heading-1": "phát triển ứng dụng web",
+        "heading-1": "nhà phát triển web",
         "heading-2": "đáp ứng cho điện thoại di động và máy tính để bàn",
-        "paragraph-1": "phát triển web luôn là niềm đam mê",
-        "paragraph-2": "tạo các trang web đẹp, tuân theo các thực tiễn tốt nhất và công nghệ hiện tại, để phát triển tốt, nhanh và hiệu quả hơn",
-        "paragraph-3": "phát triển với các khung/thư viện ngày nay, như Vue, React và Angular",
-        "paragraph-4": "phát triển phụ trợ với Google Web Services, chẳng hạn như Firebase và Cloud Platform"
+        "paragraph-1": "tạo các trang web đẹp, tuân theo các thực tiễn tốt nhất và công nghệ hiện tại, để phát triển tốt, nhanh và hiệu quả hơn",
+        "paragraph-2": "phát triển với các khung, thư viện và Dịch vụ web ngày nay, như Vue, React, Angular, Google Firebase và Google Cloud Platform",
+        "paragraph-3": {
+            "text-1": "vui lòng",
+            "link": "gửi",
+            "text-2": "cho tôi một tin nhắn và tôi sẽ cung cấp thông tin đăng nhập để tải về sơ yếu lý lịch của tôi."
+        }
     },
     "works": {
         "title": "công trinh"

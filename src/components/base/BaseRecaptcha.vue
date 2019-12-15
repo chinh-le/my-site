@@ -26,9 +26,9 @@
 .recaptcha {
   font-size: 0.7em;
   line-height: 1.3em;
-  color: $footnote-txt-color;
+  color: var(--footnote-txt-color);
 }
 .recaptcha-link {
-  color: $footnote-txt-color-links;
+  color: var(--footnote-txt-color-links);
 }
 </style>

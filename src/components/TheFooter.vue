@@ -31,7 +31,7 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  background-color: $header-footer-bg-color;
+  background-color: $theFooter-bg-color;
   z-index: $z-index-footer;
   // visibility: hidden;
 }

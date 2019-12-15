@@ -40,7 +40,7 @@
 
 <style lang="scss" module>
 .btn {
-    color: $base-txt-color;
+    color: $lang-button-color;
     text-transform: uppercase;
     font-size: var(--base-button-lang-size);
     padding: 1.2em;

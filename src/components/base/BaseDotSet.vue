@@ -40,8 +40,6 @@
 </script>
 
 <style lang="scss" module>
-$dot-width: 0.7em;
-
 .dot-set {
     width: 40%;
     display: flex;
@@ -55,7 +53,6 @@ $dot-width: 0.7em;
     margin-left: 0.3em;
     border-radius: $dot-width;
     background-color: $skills-dot-icon-color;
-    opacity: 0.15;
 }
 .dot-label {
     font-size: 0.7em;
@@ -63,7 +60,7 @@ $dot-width: 0.7em;
     color: $dimlight-color;
 }
 .fill {
-    opacity: 0.4;
+    opacity: 0.5;
 }
 .empty {
     opacity: 0.15;

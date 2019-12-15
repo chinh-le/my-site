@@ -23,6 +23,19 @@
     --href-first-letter: capitalize;
 
     --form-input-placeholder: capitalize;
+    --form-input-txt-color: #f7f7f7;
+    --form-input-bg-color: rgba(0,0,0,0.4);
+    --form-button-txt-color: #f7f7f7;
+    --form-button-txt-color-disabled: #d7d7d7;
+    --form-button-bg-color-disabled:rgba(0,0,0,0.4);
+    --form-button-submit-txt-color: #D85426;
+    --form-button-submit-bg-color:rgba(0,0,0,0.7);
+    --form-button-submit-disabled-txt-color: #d7d7d7;
+    --form-button-submit-disabled-bg-color:rgba(0,0,0,0.4);
+
+
+    --footnote-txt-color: #555;
+    --footnote-txt-color-links: #666;
     
     --heading1-view-display: block;
     --heading1-view-sidebar-display: none;
@@ -38,7 +51,6 @@
     
     --logo-font-size: 1.3em;
     
-    // --navigation-padding: 0 1em;
     --navigation-content-width: 85%;
     
     --paragraph-first-letter: capitalize;

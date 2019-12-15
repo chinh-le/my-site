@@ -6,12 +6,15 @@
     },
     "about": {
         "title": "à propos de moi",
-        "heading-1": "développeur application",
+        "heading-1": "développeur web",
         "heading-2": "réactif pour mobile et bureau",
-        "paragraph-1": "développement web a toujours été une passion",
-        "paragraph-2": "Créer de beaux site Web, suivante les meilleurs pratiques et les technologies actuelles, pour développer mieux, plus vite et plus efficace",
-        "paragraph-3": "développement frontend avec les frameworks/libraries d'aujourd'hui, tel que Vue, React et Angular",
-        "paragraph-4": "développement backend avec Google Web Services, tel que Firebase et Cloud Platform"
+        "paragraph-1": "création de beaux site Web, suivante les meilleurs pratiques et les technologies actuelles, pour développer mieux, plus vite et plus efficace",
+        "paragraph-2": "développement avec les frameworks, bibliothèques et services Web d'aujourd'hui, tels que Vue, React, Angular, Google Firebase et Google Cloud Platform",
+        "paragraph-3": {
+            "text-1": "veuillez m'",
+            "link": "envoyer",
+            "text-2": "un message et je fournirai les identifiants de connexion pour télécharger mon résumé"
+        }
     },
     "works": {
         "title": "projets"
