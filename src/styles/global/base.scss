@@ -1,3 +1,9 @@
+html {
+    &::selection {
+        background: transparent;
+        color: transparent;
+    }
+}
 body {
     font-family: $base-font;
     font-size: $base-size;
@@ -10,8 +16,8 @@ body {
     z-index: 1;
     // position: relative;
     // background-image: url('../assets/shutterstock_1135600613.jpg');
-    // background-image: url('../assets/PC081049-Edit.jpg');
-    background-image: url('../assets/PC081049.jpg');
+    background-image: url('../assets/PC081049-Edit.jpg');
+    // background-image: url('../assets/PC081049.jpg');
     // background-image: url('../assets/Test.jpg');
     // background-image: url('../assets/Test (1).jpg');
     // background-image: url('../assets/Test (2).jpg');
@@ -76,6 +82,7 @@ input, textarea {
     outline: none;
     filter: none; // hack fixing form input autofill/autocomplete text color (Fifrefox)
 }
+
 
 // recaptcha v3: hide the badge
 .grecaptcha-badge {
