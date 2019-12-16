@@ -1,0 +1,116 @@
+// >= 330 xs
+@media screen and (min-width: $breakpoint-xs) {
+    :root {
+        --navigation-padding: 0 2em;
+    }
+    #home {
+        --heading1-margin-bottom: 2em;
+    }
+}
+
+// >= 576 sm
+@media screen and (min-width: $breakpoint-sm) {
+    :root {
+        --home-content-width: 60%;
+        --about-width: 80%;
+        --works-width: 80%;
+        --education-width: 80%;
+        --contact-width: 60%;
+        --slide-in-width: 60%;
+    }
+    #theHeader {
+        --social-media-display: flex;
+    }
+}
+
+// >= 768 md
+@media screen and (min-width: $breakpoint-md) {
+    :root {
+        --home-content-width: 50%;
+        --about-width: 70%;
+        --works-width: 90%;
+        --cards-overlay-width: 45%;
+        --education-width: 90%;
+        --cards-item-width: 43%;
+        --contact-width: 50%;
+        --slide-in-width: 50%;
+        --base-button-icon-close-padding: 1.5em;
+    }
+    #theHeader {
+        --the-header-anim-timing: ease-in;
+        --logo-font-size: 1.7em;
+        --social-icon-dimension: var(--social-icon-dimension-md);
+        --base-button-icon-size: var(--base-button-icon-size-md);
+        --site-header-height: var(--site-header-height-md);
+    }
+    #works {
+        // --works-height: 100%;
+        // top: 50%;
+        // transform: translateY(-50%);
+        > #worksContent {
+            // height: 100%;
+            // display: flex;
+            // align-content: center;
+        }
+    }
+    #contact {
+        --contact-height: 100%;
+        > #contactContent {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+}
+
+// >= 992 lg
+@media screen and (min-width: $breakpoint-lg) {
+    :root {
+        --home-content-width: 40%;
+        --about-width: 70%;
+        --about-desc-width: 45%;
+        --works-width: 70%;
+        --skills-width: 45%;
+        --cards-overlay-width: 32%;
+        --education-width: 70%;
+        --cards-item-width: 28%;
+        --contact-width: 60%;
+        --contact-input-name-email-width: 48%;
+        --slide-in-width: 40%;
+        --heading1-view-display: none;
+        --heading1-view-sidebar-display: block;
+        --site-nav-sidebar-display: block;
+    }
+    #home {
+        --heading1-view-display: block;
+    }
+    #about {
+        --about-height: 100%;
+
+        > #aboutContent {
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content: center;
+        }
+    }
+}
+
+// >=1200 xl
+@media screen and (min-width: $breakpoint-xl) {
+    :root {
+        --app-width: var(--breakpoint-xl);
+        --site-header-container-width: var(--breakpoint-xl);
+        --site-footer-container-width: var(--breakpoint-xl);
+        --slide-in-width: 30%;
+        --works-display: flex;
+        --heading1-view-sidebar-left: -40%;
+        --site-nav-sidebar-justify: flex-end;
+        --about-width: 80%;
+        --works-width: 80%;
+        --education-width: 80%;
+    }
+}

@@ -1,0 +1,144 @@
+<template>
+  <div
+    id="siteNav"
+    class="site-nav"
+  >
+    <transition
+      name="slide"
+      mode="in-out"
+      :enter-active-class="$style['slide-enter-active']"
+      :leave-active-class="$style['slide-leave-active']"
+    >
+      <div
+        v-show="isShow"
+        :class="$style['canvas-bg']"
+        :title="$t('buttons.close')"
+        @click="closeNav()"
+      />
+    </transition>
+    <transition
+      name="slide"
+      mode="in-out"
+      :enter-active-class="$style['slide-enter-active']"
+      :leave-active-class="$style['slide-leave-active']"
+    >
+      <div
+        v-show="isShow"
+        id="navigation"
+        :class="$style['navigation']"
+      >
+        <BaseButtonIcon
+          :btn-class="'btn-close'"
+          :btn-title="$t('buttons.close')"
+          :btn-handler="closeNav"
+          :btn-icon="'close'"
+        />
+        <div :class="$style['navigation-content']">
+          <BaseLang />
+          <AppNavigateLinks />
+          <AppSocialMedia />
+          <BaseCopyright />
+        </div>
+      </div>
+    </transition>
+  </div>
+</template>
+
+<script>
+    import {
+        // disableBodyScroll,
+        // enableBodyScroll,
+        // clearAllBodyScrollLocks
+    } from 'body-scroll-lock';
+    import { eventBus } from '@/utils/eventBus';
+    import BaseLang from './base/BaseLang';
+    import AppNavigateLinks from './AppNavigateLinks';
+    import AppSocialMedia from './AppSocialMedia';
+    import BaseCopyright from './base/BaseCopyright';
+    import BaseButtonIcon from './base/BaseButtonIcon';
+
+    export default {
+        components: {
+            BaseButtonIcon,
+            BaseLang,
+            AppNavigateLinks,
+            AppSocialMedia,
+            BaseCopyright
+        },
+        data () {
+            return {
+                isShow: false,
+                elemPersistLockScroll: null
+            };
+        },
+        watch: {
+            // $route (to, from) {
+            // console.log('to: ', to);
+            // console.log('from: ', from);
+            $route () {
+                this.isShow = false; // close nav on route change
+            }
+        },
+        created () {
+            // console.log('TLC: Navigation - created -> created');
+            eventBus.$on('evtBusOpenNav', () => {
+                /* scrollTo({
+                    x: 0,
+                    y: 0
+                }); */
+
+                this.isShow = true;
+
+                // disableBodyScroll(this.elemPersistLockScroll);
+                // console.log(
+                // 'TLC: Navigation - created - evtBusOpenNav -> disableBodyScroll'
+                // );
+            });
+        },
+        mounted () {
+            // console.log('TLC: Navigation - mounted -> mounted');
+            this.elemPersistLockScroll = document.querySelector('#siteNav');
+        },
+        beforeDestroy () {
+            // console.log('TLC: Navigation - beforeDestroy -> beforeDestroy');
+            // clearAllBodyScrollLocks();
+        },
+        methods: {
+            closeNav () {
+                this.isShow = false;
+
+                // enableBodyScroll(this.elemPersistLockScroll);
+                // console.log('TLC: Navigation - closeNav -> enableBodyScroll');
+            }
+        },
+    };
+
+</script>
+
+<style lang="scss" module>
+.navigation-content {
+  width: var(--navigation-content-width);
+  margin: 0 auto;
+  // padding: var(--navigation-padding);
+  box-sizing: border-box;
+  > * {
+    margin-bottom: 1em;
+  }
+}
+#socialMedia {
+  margin-top: 2em;
+}
+.navigation {
+  z-index: $z-index-overlay;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--slide-in-width);
+  height: var(--slide-in-height);
+  display: flex;
+  flex-direction: column;
+  background-color: $slide-in-bg-color;
+}
+@include canvas-bg; 
+@include slide-helper;
+</style>

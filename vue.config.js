@@ -9,10 +9,9 @@ module.exports = {
         .loader('sass-resources-loader')
         .options({
           // Provide path to the file with resources
-          // resources: path.resolve(__dirname, 'src/styles/_variables.scss')
           resources: [
-            path.resolve(__dirname, 'src/styles/_variables.scss'),
-            path.resolve(__dirname, 'src/styles/_mixins.scss')
+            path.resolve(__dirname, 'src/styles/preload/_variables.scss'),
+            path.resolve(__dirname, 'src/styles/preload/_mixins.scss')
           ]
         })
         .end();

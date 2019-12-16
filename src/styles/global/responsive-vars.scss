@@ -1,0 +1,97 @@
+:root {
+    --about-desc-width: 100%;
+    --about-height: auto;
+    --about-width: 90%;
+    --app-width: 100%;
+
+    --base-button-icon-size: 1.4em;
+    --base-button-icon-size-md: 1.8em;
+    --base-button-lang-size: 0.6em;
+    --base-button-first-letter: capitalize;
+    --base-button-icon-close-padding: 0.6em;
+
+    --cards-overlay-width: 100%;
+    --cards-item-width: 100%;
+    --contact-width: 80%;
+    --contact-height: auto;
+    --contact-input-width: 100%;
+    --contact-input-name-email-width: 100%;
+    --copyright-justify-content: left;
+    --copyright-flex-direction: row;
+
+    --download-instruction-txt-color: #a7a7a7;
+    --education-width: 90%;
+
+    --href-first-letter: capitalize;
+
+    --form-input-placeholder: capitalize;
+    --form-input-txt-color: #f7f7f7;
+    --form-input-bg-color: rgba(0,0,0,0.4);
+    --form-button-txt-color: #f7f7f7;
+    --form-button-txt-color-disabled: #d7d7d7;
+    --form-button-bg-color-disabled:rgba(0,0,0,0.4);
+    --form-button-submit-txt-color: #D85426;
+    --form-button-submit-bg-color:rgba(0,0,0,0.7);
+    --form-button-submit-disabled-txt-color: #d7d7d7;
+    --form-button-submit-disabled-bg-color:rgba(0,0,0,0.4);
+
+
+    --footnote-txt-color: #555;
+    --footnote-txt-color-links: #666;
+    
+    --heading1-view-display: block;
+    --heading1-view-sidebar-display: none;
+    --heading1-first-letter: capitalize;
+    --heading1-margin-bottom: 1em;
+    --heading1-view-sidebar-left: 0;
+    --heading2-first-letter: capitalize;
+    --heading2-margin-bottom: 1em;
+    --heading3-first-letter: capitalize;
+    --heading3-margin-bottom: 1em;
+    --heading4-first-letter: capitalize;
+
+    --home-content-width: 80%;
+    
+    --logo-font-size: 1.3em;
+    
+    --navigation-content-width: 85%;
+    
+    --paragraph-first-letter: capitalize;
+    --professionals-width: 100%;
+    --personals-width: 100%;
+    
+    --skills-width: 100%;
+    --site-wrap-padding: 2em 0;
+    --site-header-height: 3.5em; // 16*3.5=56px
+    --site-header-height-md: 4.5em; // 16*4.5=72px
+    --site-footer-height: 3em; // 16*3=48px
+    --site-header-container-width: 100%;
+    --site-footer-container-width: 100%;
+    --site-nav-sidebar-display: none;
+    --site-nav-sidebar-justify: center;
+    --slide-in-width: 100%;
+    --slide-in-height: 100%;
+    --social-icon-dimension: 1.1em;
+    --social-icon-dimension-md: 1.5em;
+    --social-media-display: none;
+    
+    --the-header-anim-duration: 1s;
+    --the-header-anim-timing: ease-out;
+    
+    --works-width: 90%;
+    --works-content-width: 90%;
+    --works-content-sub-width: 100%;
+    --works-display: unset;
+
+    // responsive breakpoints (Bootstrap)
+    --breakpoint-xs: 330px;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+}
+#siteNav {    
+    --copyright-justify-content: center;
+    
+    --social-media-display: flex;
+}

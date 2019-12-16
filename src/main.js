@@ -1,22 +1,18 @@
 import Vue from 'vue';
 import { VueReCaptcha } from 'vue-recaptcha-v3';
 import Vuelidate from 'vuelidate';
-import BootstrapVue from 'bootstrap-vue';
-// import 'bootstrap/dist/css/bootstrap.css'
-// import 'bootstrap-vue/dist/bootstrap-vue.css'
+import { i18n } from './i18n/i18n';
 
 // SCSS customizing
-// import './style/style.scss';
 import './styles/style.scss';
 
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import config from './config';
-// console.log('config: ', config);
+import { appConfig } from './config';
 
 Vue.use(VueReCaptcha, {
-  siteKey: config.recaptchaSiteKey,
+  siteKey: appConfig.recaptchaSiteKey,
   loaderOptions: {
     // useRecaptchaNet: true,
     // renderParameters: {},
@@ -25,11 +21,11 @@ Vue.use(VueReCaptcha, {
 });
 
 Vue.use(Vuelidate);
-Vue.use(BootstrapVue);
 
 Vue.config.productionTip = false;
 
 new Vue({
+  i18n,
   router,
   store,
   render: h => h(App)

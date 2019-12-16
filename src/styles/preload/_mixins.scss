@@ -1,0 +1,74 @@
+@mixin canvas-bg($bg-color: $canvas-bg-color) {
+    .canvas-bg {
+        z-index: $z-index-overlay-bg;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: $slide-in-height;
+        background-color: $bg-color;
+    }
+}
+@mixin slide-helper {
+    .slide-enter-active {
+        animation: slideIn 0.5s ease-in;
+    }
+    .slide-leave-active {
+        animation: slideOut 0.4s ease-out;
+    }
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+    @keyframes slideOut {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(100%);
+        }
+    }
+}
+@mixin fading-helper {
+    .fading-enter {
+        opacity: 0;
+    }
+    .fading-enter-to {
+        opacity: 1;
+    }
+    .fading-enter-active {
+        transition: opacity 0.3s ease-in;
+    }
+    .fading-leave {
+        opacity: 1;
+    }
+    .fading-leave-active {
+        transition: opacity 0.2s ease-out;
+    }
+    .fading-leave-to {
+        opacity: 0;
+    }
+}
+@mixin screen-reader-ready {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap; /* added line */
+}
+@mixin visible {
+    .visible {
+        visibility: visible !important;
+    }
+}
+@mixin hidden {
+    .hidden {
+        opacity: 0 !important;
+    }
+}

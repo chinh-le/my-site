@@ -1,101 +1,131 @@
 <template>
-  <!-- <div id="app" :style="{height: winHeight + 'px'}"> -->
-  <div id="app">
-    <app-header />
-    <main class="site-wrap">
-      <router-view />
+  <div
+    id="app"
+    :class="$style['app']"
+  >
+    <div
+      id="bgGradient"
+      :class="$style['bg-gradient']"
+    />
+    <TheHeader />
+    <main
+      id="siteWrap"
+      :class="$style['site-wrap']"
+    >
+      <transition
+        name="fading"
+        mode="out-in"
+        :enter-class="$style['fading-enter']"
+        :enter-to-class="$style['fading-enter-to']"
+        :enter-active-class="$style['fading-enter-active']"
+        :leave-class="$style['fading-leave']"
+        :leave-active-class="$style['fading-leave-actvive']"
+        :leave-to-class="$style['fading-leave-to']"
+      >
+        <router-view />
+      </transition>
     </main>
-    <app-footer />
-    <app-navigation />
-    <app-authentication />
+    <TheFooter />
+    <AppNavigate />
+    <AppAuthenticate />
+    <AppNavigateLinksSidebar />
   </div>
 </template>
-<script>
-// @ is an alias to /src
-import { clearAllBodyScrollLocks } from 'body-scroll-lock';
-import { init, onStateChange } from '@/firebase';
-import Header from '@/components/Header.vue';
-import Footer from '@/components/Footer.vue';
-import Navigation from './components/Navigation';
-import Authentication from './components/Authentication';
 
-export default {
-  components: {
-    appHeader: Header,
-    appFooter: Footer,
-    appNavigation: Navigation,
-    appAuthentication: Authentication
-  },
-  data () {
-    return {
-      winHeight: ''
+<script>
+    // @ is an alias to /src
+    // import { clearAllBodyScrollLocks } from 'body-scroll-lock';
+    import { init, onStateChange } from '@/firebase';
+    import TheHeader from '@/components/TheHeader';
+    import TheFooter from '@/components/TheFooter';
+    import AppNavigate from '@/components/AppNavigate';
+    import AppAuthenticate from '@/components/AppAuthenticate';
+    import AppNavigateLinksSidebar from '@/components/AppNavigateLinksSidebar';
+
+    export default {
+        components: {
+            AppNavigateLinksSidebar,
+            AppAuthenticate,
+            AppNavigate,
+            TheHeader,
+            TheFooter,
+        },
+        data () {
+            return {
+                elBody: null,
+                elBgGradient: null,
+                elSiteWrap: null,
+                elTheHeader: null,
+                elTheFooter: null
+            }
+        },
+        watch: {
+            $route () {
+                // clearAllBodyScrollLocks();
+            }
+        },
+        beforeCreate () {
+            init(); // set firebase config
+            onStateChange(); // authentication state observer
+        },
+        mounted () {
+            this.elBody = document.querySelector('body');
+            this.elBgGradient = document.querySelector('#bgGradient');
+            this.elSiteWrap = document.querySelector('#siteWrap');
+            this.elTheHeader = document.querySelector('#theHeader');
+            this.elTheFooter = document.querySelector('#theFooter');
+            
+            setInlineStyle(this);
+
+            window.addEventListener('resize', setInlineStyle(this));
+        },
+        beforeDestroy () {
+            window.removeEventListener('resize', setInlineStyle);
+        }
     };
-  },
-  beforeCreate () {
-    // console.log('app - beforeCreate');
-    // console.dir(window);
-    // console.log(window.innerHeight);
-    // console.log(document.body.clientHeight);
-    /* console.log(
-      'document.body.clientHeight < window.innerHeight: ',
-      document.body.clientHeight < window.innerHeight
-    ); */
-    /* if (document.body.clientHeight < window.innerHeight) {
-      this.winHeight = window.innerHeight;
-    } */
-    init(); // set firebase config
-    onStateChange(); // authentication state observer
-  },
-  created () {
-    // console.log('app - created');
-    // console.dir(window);
-    // console.dir(document.body.clientHeight);
-    /* if (document.body.clientHeight < window.innerHeight) {
-      this.winHeight = window.innerHeight;
-    }
-    // this.winHeight = window.innerHeight;
-    window.addEventListener('resize', this.resizeHandler); */
-  },
-  beforeMount () {
-    // console.log('app - beforeMount');
-    // console.dir(window);
-    // console.dir(document.body.clientHeight);
-  },
-  mounted () {
-    // console.log('app - mounted');
-    // console.dir(window);
-    // console.dir(document.body.clientHeight);
-  },
-  beforeUpdate () {
-    // console.log('app - beforeUpdate');
-  },
-  updated () {
-    // console.log('app - updated');
-  },
-  beforeDestroyed () {
-    // console.log('app - beforeDestroyed');
-  },
-  destroyed () {
-    // console.log('app - destroyed');
-    // window.removeEventListener('resize');
-  },
-  watch: {
-    $route (fr, to) {
-      // console.log('TLC: App - watch $route -> fr', fr);
-      // console.log('TLC: App - watch $route -> to', to);
-      clearAllBodyScrollLocks();
-    }
-  },
-  methods: {
-    /* resizeHandler (evt) {
-      // this.winHeight = evt.currentTarget.innerHeight;
-      if (document.body.clientHeight < evt.currentTarget.innerHeight) {
-        this.winHeight = evt.currentTarget.innerHeight;
-      }
-    } */
-  }
-};
+    
+    const setInlineStyle = (vm) => {
+        vm.elBody.setAttribute('style', `height: ${window.innerHeight}px`);
+        vm.elBgGradient.setAttribute('style', `height: ${window.innerHeight}px`);
+        vm.elSiteWrap.setAttribute('style', `height: ${window.innerHeight - vm.elTheHeader.clientHeight - vm.elTheFooter.clientHeight}px; top: ${vm.elTheHeader.clientHeight}px`);
+    };
 </script>
-<style lang="scss">
-@import "@/styles/app";
+
+<style lang="scss" module>
+.app {
+  z-index: $z-index-app; //2;
+  width: var(--app-width);
+  margin: 0 auto;
+}
+.bg-gradient {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.site-wrap {
+  position: relative;
+  top: var(--site-header-height);
+  z-index: $z-index-site-wrap; //4;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: var(--site-wrap-padding);
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+      background: transparent;
+      width: 0.3em;
+  }
+  &::-webkit-scrollbar-thumb {
+      background: transparent;
+      border-radius: 0.5em;
+  }
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      background: #D85426;
+    }
+  }
+}
+@include fading-helper;
 </style>

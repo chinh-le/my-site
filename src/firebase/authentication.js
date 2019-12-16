@@ -1,6 +1,6 @@
 import { auth } from 'firebase';
 import store from '@/store';
-import config from '@/config';
+import { appConfig } from '@/config';
 import { getDownloadUrl } from './storage';
 
 let signoutTimer = null;
@@ -17,7 +17,7 @@ const autoSignout = (expirationTime) => {
 const onStateChange = () => {
   // Set an authentication state observer and get user data
   auth().onAuthStateChanged(user => {
-    // console.log('onAuthStateChanged');
+    // console.log('TLC: onStateChange -> user', user);
     if (user) {
       auth().currentUser.getIdTokenResult()
         .then(res => {
@@ -26,7 +26,7 @@ const onStateChange = () => {
           localStorage.setItem('token', res.token);
           localStorage.setItem('expirationTime', res.expirationTime); // 1h by default
 
-          getDownloadUrl(config.appResumePath);
+          getDownloadUrl(appConfig.appResumePath);
 
           autoSignout(res.expirationTime);
         });

@@ -10,6 +10,7 @@ export default new Vuex.Store({
   },
   getters: {
     isAuthenticated (state) {
+      // console.log('TLC: isAuthenticated -> state', state);
       return state.token !== null;
     },
     downloadUrl (state) {
@@ -18,6 +19,7 @@ export default new Vuex.Store({
   },
   mutations: {
     setAuthUser (state, user) {
+      // console.log('TLC: setAuthUser -> state', state);
       if (user) {
         state.token = user.token;
       } else {

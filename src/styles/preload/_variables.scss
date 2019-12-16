@@ -1,0 +1,89 @@
+$font-fallback: Verdana, Geneva, Tahoma, sans-serif;
+
+$base-font: Montserrat, $font-fallback;
+$base-size: 16px;
+$base-txt-color: #f7f7f7;
+$base-line-height: 1.5em;
+$base-bg-color: #f7f7f7;
+
+// headings
+$heading1-size: 1em;
+$heading2-size: 2em;
+$heading3-size: 1.5em;
+$heading4-size: 0.8em;
+$heading1-txt-color: #a7a7a7;
+$heading2-txt-color: #f7f7f7;
+$heading3-txt-color: #f7f7f7;
+$heading4-txt-color: #d7d7d7;
+$heading1-font-family: Montserrat, $font-fallback;
+$heading2-font-family: Comfortaa, $font-fallback;
+$heading3-font-family: Comfortaa, $font-fallback;
+$heading4-font-family: Montserrat, $font-fallback;
+    
+// nav
+$nav-icon-color: #000;
+$nav-links-color: #000; // 170, 170, 170
+$nav-links-color-active: #D85426; // 179, 106, 18
+$nav-font-family: Roboto, $font-fallback;
+$nav-links-sidebar-color: #d7d7d7;
+$nav-links-sidebar-border-color: #d7d7d7;
+
+// form
+$form-button-bg-color: #D85426;
+$form-button-bg-color-disabled: #fff;
+$form-error-txt-color: #D85426;
+$form-input-border-radius: 0.3em;
+$form-input-border-color: #000;
+$form-input-input-padding: 1em 0;
+$form-input-button-padding: 1.4em 1em;
+
+// slide in panel: navigation, signin
+$slide-in-height: 100%;
+$slide-in-bg-color: #f7f7f7;
+$slide-in-txt-color: #000;
+$slide-in-form-input-bg-color: #444;
+
+
+$logo-font-family: Righteous, $font-fallback;
+$logo-color: #000;
+
+$auth-icon-color: #000;
+$download-icon-color: #000;
+$skills-dot-icon-color: #a7a7a7;
+$dot-width: 0.7em;
+
+$card-list-bg-color: rgba(0,0,0,0.3);
+
+$lang-button-color: #000;
+
+$canvas-bg-color: rgba(0, 0, 0, 0.9);
+$canvas-spinner-bg-color: rgba(0, 0, 0, 0.5);
+
+$error-request-txt-color: #000;
+
+$highlight-color: #D85426;
+$dimlight-color: #878787;
+
+$theHeader-bg-color: #f7f7f7;
+$theFooter-bg-color: #f7f7f7;
+
+
+// z-index
+$z-index-body: 1;
+$z-index-app: 2;
+$z-index-body-img-bg: 3;
+$z-index-site-wrap: 4;
+$z-index-sidebar-nav: 5;
+$z-index-header: 6;
+$z-index-footer: 7;
+$z-index-overlay-bg: 2000;
+$z-index-overlay: 2001;
+$z-index-spinner-bg: 3000;
+$z-index-spinner: 3001;
+
+// responsive breakpoints (Bootstrap)
+$breakpoint-xs: 330px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;

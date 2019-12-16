@@ -1,0 +1,129 @@
+{
+    "home": {
+        "title": "bienvenue à mon site personel",
+        "heading-1": "bonjour!",
+        "heading-2": "mon nom est Chinh Le"
+    },
+    "about": {
+        "title": "à propos de moi",
+        "heading-1": "développeur web",
+        "heading-2": "réactif pour mobile et bureau",
+        "paragraph-1": "création de beaux site Web, suivante les meilleurs pratiques et les technologies actuelles, pour développer mieux, plus vite et plus efficace",
+        "paragraph-2": "développement avec les frameworks, bibliothèques et services Web d'aujourd'hui, tels que Vue, React, Angular, Google Firebase et Google Cloud Platform"
+    },
+    "works": {
+        "title": "projets"
+    },
+    "education": {
+        "title": "éducation"
+    },
+    "contact": {
+        "title": "contact",
+        "heading": "entrer en contact"
+    },
+    "professionals": {
+        "heading": "professionels"
+    },
+    "personals": {
+        "heading": "personels",
+        "coming-soon": "disponible bientôt"
+    },
+    "certifications": {
+        "heading": "certifications"
+    },
+    "scholarships": {
+        "heading": "bourses d'études"
+    },
+    "skills": {
+        "heading": "compétences",
+        "ratings": {
+            "basic": "de base",
+            "average": "moyenne",
+            "good": "bien",
+            "very-good": "très bien",
+            "expert": "expert"
+        }
+    },
+    "navigation": {
+        "heading": "navigation",
+        "home": "accueil",
+        "about": "à propos",
+        "works": "projets",
+        "education": "éducation",
+        "contact": "contact"
+    },
+    "forms": {
+        "contact": {
+            "heading": "entrer en contact",
+            "name": "nom*",
+            "email": "courriel*",
+            "subject": "sujet",
+            "message": "message*",
+            "button": {
+                "label": "envoyer message",
+                "title": "envoyer à Chinh Le"
+            },
+            "notification": {
+                "text-1": "votre message a été envoyé!",
+                "text-2": "je vous répondrai dans les plus brefs délais",
+                "text-3": "je vous remercie"
+            }
+        },
+        "authentication": {
+            "heading": "authentification",
+            "email": "courriel*",
+            "password": "mot de passe*",
+            "signing-up": "s'enregistrer",
+            "button": {
+                "signin": "se connecter",
+                "signup": "s'inscrire"
+            }
+        },
+        "errors": {
+            "required": "champ requis",
+            "email": "courriel invalid",
+            "max-length": "longueur maximale",
+            "provided": {
+                "email": "veuillez saisir le courriel fourni",
+                "password": "veuillez saisir le mot de passe fourni"
+            }
+        }
+    },
+    "buttons": {
+        "download": "télécharger le résumé",
+        "authenticate": "se connecter",
+        "signout": "se déconnecter",
+        "navigate": "ouvrir la navigation",
+        "close": "fermer"
+    },
+    "images": {
+        "coming-soon": "bientôt disponible"
+    },
+    "recaptcha": {
+        "text-1": "ce site est protégé par reCAPTCHA et la",
+        "policy": {
+            "text": "politique de confidentialité",
+            "link": "https://policies.google.com/privacy?hl=fr-CA"
+        },
+        "text-2": "and",
+        "terms": {
+            "text": "conditions d’utilisation",
+            "link": "https://policies.google.com/terms?hl=fr-CA"
+        },
+        "text-3": "de Google s'appliquent"
+    },
+    "copyright": "tous les droits sont réservés",
+    "errors": {
+        "server-request": {
+            "text-1": "il y a un problème avec notre serveur",
+            "text-2": "veuillez réessayer plus tard"
+        }
+    },
+    "app": {
+        "download-instruction": {
+            "text-1": "veuillez",
+            "link": "m'envoyer",
+            "text-2": "un message et je fournirai les identifiants de connexion pour télécharger mon résumé"
+        }
+    }
+}

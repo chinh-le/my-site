@@ -7,12 +7,12 @@ const _addCollection = (name, data) => {
 
   for (let i in data) {
     collectionRef.doc(i).set(data[i])
-      .then(_ => {
-        console.log('​_addCollection -> _', _);
+      .then(() => {
+				// console.log('TLC: _addCollection -> SUCCESS');
       })
-      .catch(err => {
-        console.error(err);
-      });
+    .catch(err => {
+      errorHandler(err);
+    });
   }
 };
 
@@ -31,12 +31,12 @@ const _addSkills = (data) => {
 
   for (let i in data) {
     categoriesRef.doc(i).set(data[i])
-      .then(_ => {
-        // console.log('TLC: _addSkills -> set SUCCESS');
+      .then(() => {
+				// console.log('TLC: _addSkills -> SUCCESS');
       })
-      .catch(err => {
-        console.error(err);
-      });
+    .catch(err => {
+      errorHandler(err);
+    });
   }
 };
 
@@ -53,11 +53,11 @@ const _addRatings = (data) => {
   const educationRef = db.collection('education');
 
   return educationRef.doc('ratings').set(data)
-    .then(_ => {
-      // console.log('TLC: _addRatings -> set SUCCESS');
+    .then(() => {
+			// console.log('TLC: _addRatings -> SUCCESS');
     })
     .catch(err => {
-      console.error(err);
+      errorHandler(err);
     });
 };
 
@@ -68,11 +68,21 @@ const _getRatings = () => {
   return ratingsRef.get();
 };
 
+const _getImgContextPath = (imgPath) => {
+  return require('@/assets/' + imgPath) || null;
+};
+
+// perhaps log and send notif to admin
+const errorHandler = (() => {
+	// console.log('TLC: err', err);
+});
+
 export {
   _addCollection,
   _getCollection,
   _addSkills,
   _getSkills,
   _addRatings,
-  _getRatings
+  _getRatings,
+  _getImgContextPath
 };

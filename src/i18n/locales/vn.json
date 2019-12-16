@@ -1,0 +1,128 @@
+{
+    "home": {
+        "title": "chào mừng đến với trang web cá nhân của tôi",
+        "heading-1": "xin chào!",
+        "heading-2": "tôi tên là Chinh Le"
+    },
+    "about": {
+        "title": "về tôi",
+        "heading-1": "nhà phát triển web",
+        "heading-2": "đáp ứng cho điện thoại di động và máy tính để bàn",
+        "paragraph-1": "tạo các trang web đẹp, tuân theo các thực tiễn tốt nhất và công nghệ hiện tại, để phát triển tốt, nhanh và hiệu quả hơn",
+        "paragraph-2": "phát triển với các khung, thư viện và Dịch vụ web ngày nay, như Vue, React, Angular, Google Firebase và Google Cloud Platform"
+    },
+    "works": {
+        "title": "công trinh"
+    },
+    "education": {
+        "title": "nền học"
+    },
+    "contact": {
+        "title": "tiếp xúc",
+        "heading": "liên lạc"
+    },
+    "professionals": {
+        "heading": "nghề nghiệp"
+    },
+    "personals": {
+        "heading": "cá nhân"
+    },
+    "certifications": {
+        "heading": "bằng cấp"
+    },
+    "scholarships": {
+        "heading": "học bổng"
+    },
+    "skills": {
+        "heading": "kỹ năng",
+        "ratings": {
+            "basic": "căn bản",
+            "average": "trung bình",
+            "good": "tốt",
+            "very-good": "rất tốt",
+            "expert": "lão luyện"
+        }
+    },
+    "navigation": {
+        "heading": "điều hướng",
+        "home": "trang chủ",
+        "about": "về tôi",
+        "works": "công trinh",
+        "education": "nền học",
+        "contact": "tiếp xúc"
+    },
+    "forms": {
+        "contact": {
+            "heading": "liên lạc",
+            "name": "tên*",
+            "email": "email*",
+            "subject": "chủ từ",
+            "message": "tin nhắn*",
+            "button": {
+                "label": "gửi tin nhắn",
+                "title": "gửi đến Chinh Le"
+            },
+            "notification": {
+                "text-1": "tin nhắn của bạn đã được gửi!",
+                "text-2": "tôi sẽ hồi đáp bạn càng sớm càng tốt",
+                "text-3": "cảm ơn bạn"
+            }
+        },
+        "authentication": {
+            "heading": "xác thực",
+            "email": "email*",
+            "password": "mật khẩu*",
+            "signing-up": "s'enregister",
+            "button": {
+                "signin": "đăng nhập",
+                "signup": "đăng ký"
+            }
+        },
+        "errors": {
+            "required": "đầu vào bắt buộc",
+            "email": "email không hợp lệ",
+            "max-length": "chiều dài tối đa",
+            "provided": {
+                "email": "xin sử dụng email được cung cấp",
+                "password": "xin sử dụng mật khẩu được cung cấp"
+            }
+        }
+    },
+    "buttons": {
+        "download": "tải sơ yếu lý lịch",
+        "authenticate": "xác nhận",
+        "signout": "đăng xuất",
+        "navigate": "mở điều hướng",
+        "close": "đóng lại"
+    },
+    "images": {
+        "coming-soon": "sắp ra mắt"
+    },
+    "recaptcha": {
+        "text-1": "trang web này được bảo vệ bởi reCAPTCHA và ",
+        "policy": {
+            "text": "chính sách bảo mật",
+            "link": "https://policies.google.com/privacy?hl=vi"
+        },
+        "text-2": "và",
+        "terms": {
+            "text": "điều khoản dịch vụ",
+            "link": "https://policies.google.com/terms?hl=vi"
+        },
+        "text-3": "của Google được áp dụng"
+    },
+    "copyright": "đã đăng ký bản quyền",
+    "errors": {
+        "server-request": {
+            "text-1": "có vấn đề với máy chủ của chúng tôi",
+            "text-2": "vui lòng thử lại sau"
+        }
+    },
+    "app": {
+        "download-instruction": {
+            "text-1": "vui lòng",
+            "link": "gửi",
+            "text-2": "cho tôi một tin nhắn và tôi sẽ cung cấp thông tin đăng nhập để tải về sơ yếu lý lịch của tôi."
+        }
+    }
+}

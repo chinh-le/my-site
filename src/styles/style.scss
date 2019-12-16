@@ -1,6 +1,34 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat|Righteous|Roboto|Syncopate&display=swap");
-// @import url("https://fonts.googleapis.com/css?family=Montserrat|Roboto|Syncopate&display=swap");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+/* 
+logo: Righteous:400
+h1: Monserrat:400, 500,600
+h2, h3: Syncopate:400,700
+page-links: Roboto:400,500
+
+font-family: 'Roboto', sans-serif;
+font-family: 'Syncopate', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Righteous', cursive;
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600|Righteous&text=chinh.le&effect=outline|emboss|Roboto:400,500|Syncopate:400,700&display=swap');
+*/
+
+// @import url('https://fonts.googleapis.com/css?family=Righteous&text=chinh.le&effect=outline&display=swap');
+// local hosting
+@import '~typeface-righteous/index.css';
+@import '~typeface-montserrat/index.css';
+// @import '~typeface-syncopate/index.css';
+// @import '~typeface-barlow-condensed/index.css';
+@import '~typeface-comfortaa/index.css';
+@import '~typeface-roboto/index.css';
+
+// @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+// local hosting
+$material-icons-font-path: '~material-icons/iconfont/';
+@import '~material-icons/iconfont/material-icons.scss';
+
+
+// https://github.com/necolas/normalize.css/blob/master/normalize.css
+// @import './externals/normalize.css';
 
 // https://gist.github.com/DavidWells/18e73022e723037a50d6
 // @import './externals/reset.css';
@@ -9,7 +37,7 @@
 @import './externals/form-reset-helpers.scss';
 @import './externals/form-reset.scss';
 
-@import './reset.scss';
-@import './vars.scss';
-@import './base.scss';
-@import './responsive.scss';
+@import './global/reset.scss';
+@import './global/base.scss';
+@import './global/responsive-vars.scss';
+@import './global/responsive.scss';

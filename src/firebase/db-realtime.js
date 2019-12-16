@@ -1,8 +1,6 @@
 import { database } from 'firebase';
 
 const writeUserData = (contact) => {
-  // console.log('contact: ', contact);
-
   /*
     - Firebase Database constraint: Paths must be non-empty strings and can't contain ".", "#", "$", "[", or "]""
       - Converting dots (.) in email address into '%'
@@ -14,24 +12,28 @@ const writeUserData = (contact) => {
   // ./src/functions/index.js: exports.sendingMail = functions.database.ref('/contacts/{pushId}')
   const contactsRef = database().ref('/contacts').push(); // auto-generate unqiue key
 
-  /* contactsRef.once('value', snapshot => {
-    console.log('TLC: writeUserData -> snapshot.val()', snapshot.val());
-  }); */
-
   return new Promise((resolve, reject) => {
-    contactsRef.set({
-      name: contact.name,
-      email: contact.email,
-      subject: contact.subject,
-      message: contact.message
-
-    }, err => {
-      if (err) {
-        reject(Error(err));
-      } else {
-        resolve('write SUCCESS');
-      }
-    });
+    contactsRef
+      .set({
+        name: contact.name,
+        email: contact.email,
+        subject: contact.subject,
+        message: contact.message
+      }, err => {
+        // debugger;
+        if (err) {
+          // console.log('TLC: 1writeUserData -> err', err);
+          // reject(Error(err));
+          reject(err);
+        } else {
+          // console.log('TLC: 2writeUserData -> SUCCESS');
+          resolve('write SUCCESS');
+        }
+      })
+      .catch(err => {
+        // console.log('TLC: 3writeUserData -> err', err);
+        reject(err);
+      });
   });
 };
 

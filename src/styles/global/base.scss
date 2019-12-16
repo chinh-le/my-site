@@ -1,0 +1,87 @@
+html {
+    &::selection {
+        background: transparent;
+        color: transparent;
+    }
+}
+body {
+    font-family: $base-font;
+    font-size: $base-size;
+    color: $base-txt-color;
+    line-height: $base-line-height;
+    background-color: $base-bg-color;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+    // background-image: url('../assets/shutterstock_1135600613.jpg');
+    background-image: url('../assets/chinh-main.jpg');
+    // background-image: url('../assets/chinh-main-bw.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    font-family: $heading1-font-family;
+    font-size: $heading1-size;
+    color: $heading1-txt-color;
+    margin-bottom: var(--heading1-margin-bottom);
+    &::first-letter {
+        text-transform: var(--heading1-first-letter);
+    }
+}
+
+h2 {
+    font-family: $heading2-font-family;
+    font-size: $heading2-size;
+    color: $heading2-txt-color;
+    line-height: 1.3em;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-family: $heading3-font-family;
+    font-size: $heading3-size;
+    color: $heading3-txt-color;
+    margin-bottom: var(--heading3-margin-bottom);
+    text-transform: uppercase;
+}
+
+h4 {
+    font-family: $heading4-font-family;
+    font-size: $heading4-size;
+    color: $heading4-txt-color;
+    &::first-letter {
+        text-transform: var(--heading4-first-letter);
+    }
+}
+
+a {
+    color: $base-txt-color;
+    &::first-letter {
+        text-transform: var(--href-first-letter);
+    }
+}
+p {
+    &::first-letter {
+        text-transform: var(--paragraph-first-letter);
+    }
+}
+input, textarea {
+    font-size: 1em;
+    border: 0;
+    width: 100%;
+    box-sizing: border-box;
+    color: var(--form-input-txt-color);
+    outline: none;
+    filter: none; // hack fixing form input autofill/autocomplete text color (Fifrefox)
+}
+
+
+// recaptcha v3: hide the badge
+.grecaptcha-badge {
+    visibility: hidden;
+}
+
+
