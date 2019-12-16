@@ -68,12 +68,12 @@
 @media screen and (min-width: $breakpoint-lg) {
     :root {
         --home-content-width: 40%;
-        --about-width: 80%;
+        --about-width: 70%;
         --about-desc-width: 45%;
+        --works-width: 70%;
         --skills-width: 45%;
-        --works-width: 80%;
         --cards-overlay-width: 32%;
-        --education-width: 80%;
+        --education-width: 70%;
         --cards-item-width: 28%;
         --contact-width: 60%;
         --contact-input-name-email-width: 48%;
@@ -107,5 +107,10 @@
         --site-footer-container-width: var(--breakpoint-xl);
         --slide-in-width: 30%;
         --works-display: flex;
+        --heading1-view-sidebar-left: -40%;
+        --site-nav-sidebar-justify: flex-end;
+        --about-width: 80%;
+        --works-width: 80%;
+        --education-width: 80%;
     }
 }

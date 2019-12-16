@@ -63,6 +63,7 @@
 .heading1-view-sidebar {
     position: absolute;
     top: 50%;
+    left: var(--heading1-view-sidebar-left);
     transform: translateY(50%) rotate(-90deg);
     width: 100%;
     white-space: nowrap;
