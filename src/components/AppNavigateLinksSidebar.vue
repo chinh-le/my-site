@@ -69,7 +69,7 @@
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: var(--site-nav-sidebar-justify);
     font-family: $nav-font-family;
     font-size: 2em;
 }
