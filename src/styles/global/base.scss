@@ -16,7 +16,11 @@ body {
     z-index: 1;
     // background-image: url('../assets/shutterstock_1135600613.jpg');
     // background-image: url('../assets/chinh-main.jpg');
-    background-image: url('../assets/chinh-main-bw.jpg');
+    // background-image: url('../assets/chinh-main-bw.jpg');
+    // background-image: url('../assets/chinh-main-bw-landscape.jpg');
+    background-image: var(--body-bg-image);
+    // background-image: url('../assets/chinh-main-bw-sm.jpg');
+    // background-image: url('../assets/chinh-main-bw-md.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
