@@ -1,7 +1,7 @@
 // filter (not to include private route) and sort view routes
 const viewsFilteredAndSorted = (views) => {
   return views.filter(view => {
-    // console.log('TLC: created -> view', view);
+		// // console.log('TLC: created -> view', view);
     return !view.private;
   }).slice((viewA, viewB) => viewA.order - viewB.order);
 };
@@ -69,7 +69,7 @@ const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 };
  */
 const scrollTo = (position) => {
-  console.log('TLC: scrollTo -> position', position);
+	// console.log('TLC: scrollTo -> position', position);
   window.scroll({
     left: position.x,
     top: position.y

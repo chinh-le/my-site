@@ -265,6 +265,9 @@
 <style lang="scss" module>
 .contact-form {
   --form-input-autofill-bg-color: transparent;
+  --form-button-submit-txt-color: #f7f7f7;
+  --form-button-submit-bg-color: #D85426;
+  --form-button-submit-txt-color-disabled: #979797;
   --footnote-txt-color: #a7a7a7;
   --footnote-txt-color-links: #b7b7b7;
 }

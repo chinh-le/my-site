@@ -98,7 +98,7 @@
   margin: 0 auto;
 }
 .bg-gradient {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.8);
   position: absolute;
   top: 0;
   left: 0;
@@ -113,6 +113,8 @@
   box-sizing: border-box;
   padding: var(--site-wrap-padding);
   overflow-y: scroll;
+  scrollbar-color: #D85426 #D85426;
+  scrollbar-width: thin;
   &::-webkit-scrollbar {
       background: transparent;
       width: 0.3em;
@@ -122,6 +124,7 @@
       border-radius: 0.5em;
   }
   &:hover {
+  scrollbar-color: #D85426 #D85426;
     &::-webkit-scrollbar-thumb {
       background: #D85426;
     }
