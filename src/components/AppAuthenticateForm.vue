@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div
+    id="formAuthenticateContainer"
+    :class="$style['form-authenticate-container']"
+  >
     <form
       :class="$style['form-authenticate']"
       novalidate
@@ -113,6 +116,8 @@
         },
         data () {
             return {
+                elBtnClose: null,
+                elFormAuthenticate: null,
                 isErrorRequest: false,
                 errorRequestCode: null,
                 isLoading: false,
@@ -141,13 +146,26 @@
                 }
             }
         },
+        mounted () {
+            this.elBtnClose = document.querySelector('#btnCloseSignin')
+            this.elFormAuthenticate = document.querySelector('#formAuthenticateContainer');
+
+            setInlineStyle(this);
+            
+            window.addEventListener('resize', () => {
+                setInlineStyle(this);
+            });
+        },
+        beforeDestroy () {
+            window.removeEventListener('resize', setInlineStyle);
+        },
         methods: {
             onSubmit () {
                 const payload = {
                     email: this.auth.email,
                     password: this.auth.password
                 };
-                // console.log('TLC: onSubmit -> payload', payload);
+                // // console.log('TLC: onSubmit -> payload', payload);
 
                 this.isLoading = true;
                 this.isErrorRequest = false;
@@ -159,14 +177,14 @@
                             if (this.isSigningUp) {
                                 signup(payload)
                                     .then(res => {
-                                        // console.log('TLC: onSubmit -> res', res);
+                                        // // console.log('TLC: onSubmit -> res', res);
                                         if (res.user) {
                                             this.closeSignin();
                                             this.isLoading = false;
                                         }
                                     })
                                     .catch(err => {
-                                        // console.log('TLC: onSubmit -> err', err);
+                                        // // console.log('TLC: onSubmit -> err', err);
                                         this.isErrorRequest = true;
                                         this.errorRequestCode = err.code;
                                         this.isLoading = false;
@@ -174,28 +192,28 @@
                             } else {
                                 login(payload)
                                     .then(res => {
-                                        // console.log('TLC: onSubmit -> res', res);
+                                        // // console.log('TLC: onSubmit -> res', res);
                                         if (res.user) {
                                             this.closeSignin();
                                             this.isLoading = false;
                                         }
                                     })
                                     .catch(err => {
-                                        // console.log('TLC: onSubmit -> err', err);
+                                        // // console.log('TLC: onSubmit -> err', err);
                                         this.isErrorRequest = true;
                                         this.errorRequestCode = err.code;
                                         this.isLoading = false;
                                     });
                             }
                         } else {
-                            // console.log('TLC: onSubmit -> SPAM Automated Abused!!!');
+                            // // console.log('TLC: onSubmit -> SPAM Automated Abused!!!');
                             this.isErrorRequest = true;
                             this.errorRequestCode = 'SPAM Automated Abused!!!';
                             this.isLoading = false;
                         }
                     })
                     .catch(err => {
-                        // console.log('TLC: onSubmit -> err', err);
+                        // // console.log('TLC: onSubmit -> err', err);
                         this.isErrorRequest = true;
                         this.errorRequestCode = err.code;
                         this.isLoading = false;
@@ -203,9 +221,21 @@
             }
         }
     }
+
+    const setInlineStyle = (vm) => {
+        // console.log('TLC: setInlineStyle -> vm', vm.elFormAuthenticate);
+        const elHeight = window.innerHeight - vm.elBtnClose.clientHeight;
+        
+        vm.elFormAuthenticate.setAttribute('style', `height: ${elHeight}px`);
+    };
 </script>
 
 <style lang="scss" module>
+.form-authenticate-container {
+    padding: 2em;
+    overflow-y: scroll;
+    box-sizing: border-box;
+}
 .form-authenticate {
     --form-input-txt-color: #575757;
     --form-input-bg-color: #ddd;
@@ -216,8 +246,6 @@
     --form-button-submit-bg-color-disabled: rgba(0,0,0,0.1);
     --footnote-txt-color: #979797;
     --footnote-txt-color-links: #878787;
-
-  padding: 2em;
 }
 .form-input-container {
   background-color: var(--form-input-bg-color);
@@ -243,8 +271,9 @@
 }
 .download-instruction {
   color: var(--download-instruction-txt-color);
-  padding: 0 2.5em 2em;
+  padding: 2em 0;
   font-size: 0.8em;
+  line-height: 1.5em;
   > a {
     color: var(--download-instruction-txt-color);
     text-decoration: underline;

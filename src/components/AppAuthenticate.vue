@@ -27,6 +27,7 @@
         :class="$style['signin']"
       >
         <BaseButtonIcon
+          :btn-id="'btnCloseSignin'"
           :btn-class="'btn-close'"
           :btn-title="$t('buttons.close')"
           :btn-handler="closeSignin"
@@ -39,11 +40,6 @@
 </template>
 
 <script>
-    import {
-        // disableBodyScroll,
-        // enableBodyScroll,
-        // clearAllBodyScrollLocks
-    } from 'body-scroll-lock';
     import { eventBus } from '@/utils/eventBus';
     import AppAuthenticateForm from './AppAuthenticateForm';
     import BaseButtonIcon from './base/BaseButtonIcon';
@@ -55,7 +51,6 @@
         },
         data () {
             return {
-                elemPersistLocßkScroll: null,
                 isShow: false,
             };
         },
@@ -63,23 +58,11 @@
             // // // // console.log('TLC: Authentication - created -> created');
             eventBus.$on('evtBusOpenAuth', () => {
                 this.isShow = true;
-
-                // disableBodyScroll(this.elemPersistLockScroll);
             });
-        },
-        beforeDestroy () {
-            // // // // console.log('TLC: Authentication - beforeDestroy -> beforeDestroy');
-            // clearAllBodyScrollLocks();
-        },
-        mounted () {
-            // // // // console.log('TLC: Authentication - mounted -> mounted');
-            this.elemPersistLockScroll = document.querySelector('#siteAuth');
         },
         methods: {
             closeSignin () {
                 this.isShow = false;
-
-                // enableBodyScroll(this.elemPersistLockScroll);
             },
         }
     };

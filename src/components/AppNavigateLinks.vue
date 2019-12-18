@@ -38,16 +38,13 @@
             // set/keep the nav (pageLinks) dots to the right aligning with the hamburger icon
             this.posX = setPosX('right');
 
-            window.addEventListener('resize', this.resizeHandler);
+            window.addEventListener('resize', (evt) => {
+                windowResizeHandler(evt, 'right')
+            });
         },
         beforeDestroy () {
             // console.log('TLC: PageLinks -> beforeDestroy');
-            window.removeEventListener('resize', this.resizeHandler);
-        },
-        methods: {
-            resizeHandler (evt) {
-                this.posX = windowResizeHandler(evt, 'right');
-            }
+            window.removeEventListener('resize', windowResizeHandler);
         }
     };
 
