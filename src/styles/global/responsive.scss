@@ -118,6 +118,8 @@
 }
 
 // backgroud body image
+// orientation: landscape
+// device-pixel-ratio: 2
 // portrait
 @media screen and (max-width: $breakpoint-xs) and (min-height: $breakpoint-xs) {
     :root {
@@ -143,5 +145,20 @@
 @media screen and (max-width: $breakpoint-xl) and (min-height: $breakpoint-xl) {
     :root {
         --body-bg-image: url('../assets/chinh-main-bw-portrait.jpg');
+    }
+}
+
+
+// card overlay image max-height
+// <=330
+@media screen and (max-width: $breakpoint-xs) {
+    :root {
+        --card-overlay-image-max-height: 157px;
+    }
+}
+// <=576
+@media screen and (max-width: $breakpoint-sm) {
+    :root {
+        --card-overlay-image-max-height: 157px;
     }
 }
