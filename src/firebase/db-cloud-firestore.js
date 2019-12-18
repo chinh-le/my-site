@@ -73,6 +73,7 @@ const _getImgContextPath = (imgPath) => {
 };
 
 // perhaps log and send notif to admin
+// const errorHandler = ((err) => {
 const errorHandler = (() => {
 	// console.log('TLC: err', err);
 });
