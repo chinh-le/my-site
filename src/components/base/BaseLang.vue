@@ -37,6 +37,8 @@
                 this.$i18n.locale = lang;
 
                 localStorage.setItem('i18nLocale', lang);
+
+                this.$store.dispatch('appLocale', this.$i18n.locale);
             }
         }        
     }

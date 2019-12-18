@@ -5,10 +5,14 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    lang: null,
     token: null,
     downloadUrl: null
   },
   getters: {
+    appLang (state) {
+      return state.lang;
+    },
     isAuthenticated (state) {
       // console.log('TLC: isAuthenticated -> state', state);
       return state.token !== null;
@@ -18,6 +22,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    setLang (state, lang) {
+      state.lang = lang;
+    },
     setAuthUser (state, user) {
       // console.log('TLC: setAuthUser -> state', state);
       if (user) {
@@ -31,6 +38,9 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    appLocale ({ commit }, lang) {
+      commit('setLang', lang);
+    }
   },
   modules: {
   }

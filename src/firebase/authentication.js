@@ -1,7 +1,7 @@
 import { auth } from 'firebase';
 import store from '@/store';
-import { appConfig } from '@/config';
-import { getDownloadUrl } from './storage';
+// import { appConfig } from '@/config';
+// import { getDownloadUrl } from './storage';
 
 let signoutTimer = null;
 
@@ -26,7 +26,7 @@ const onStateChange = () => {
           localStorage.setItem('token', res.token);
           localStorage.setItem('expirationTime', res.expirationTime); // 1h by default
 
-          getDownloadUrl(appConfig.appResumePath);
+          // getDownloadUrl(appConfig.appResumeNamePath);
 
           autoSignout(res.expirationTime);
         });
