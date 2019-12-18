@@ -33,16 +33,13 @@
             // set/keep the heading (h1) to the left aligning with the logo
             this.posX = setPosX('left');
 
-            window.addEventListener('resize', this.resizeHandler);
+            window.addEventListener('resize', (evt) => {
+                windowResizeHandler(evt, 'left');
+            });
         },
         beforeDestroy () {
             // console.log('TLC: About -> beforeDestroy');
-            window.removeEventListener('resize', this.resizeHandler);
-        },
-        methods: {
-            resizeHandler (evt) {
-                this.posX = windowResizeHandler(evt, 'left');
-            }
+            window.removeEventListener('resize', windowResizeHandler);
         }
     }
 </script>

@@ -34,7 +34,6 @@
 
 <script>
     // @ is an alias to /src
-    // import { clearAllBodyScrollLocks } from 'body-scroll-lock';
     import { init, onStateChange } from '@/firebase';
     import TheHeader from '@/components/TheHeader';
     import TheFooter from '@/components/TheFooter';
@@ -59,11 +58,6 @@
                 elTheFooter: null
             }
         },
-        watch: {
-            $route () {
-                // clearAllBodyScrollLocks();
-            }
-        },
         beforeCreate () {
             init(); // set firebase config
             onStateChange(); // authentication state observer
@@ -76,8 +70,10 @@
             this.elTheFooter = document.querySelector('#theFooter');
             
             setInlineStyle(this);
-
-            window.addEventListener('resize', setInlineStyle(this));
+ 
+            window.addEventListener('resize', () => {
+                setInlineStyle(this);
+            });
         },
         beforeDestroy () {
             window.removeEventListener('resize', setInlineStyle);

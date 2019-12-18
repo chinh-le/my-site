@@ -136,11 +136,6 @@
 </template>
 
 <script>
-    import {
-        // disableBodyScroll,
-        // enableBodyScroll,
-        // clearAllBodyScrollLocks
-    } from 'body-scroll-lock';
     import { required, maxLength } from 'vuelidate/lib/validators';
     import { writeUserData } from '@/firebase';
     import { recaptchaElement } from '@/utils/recaptcha';
@@ -199,9 +194,6 @@
                 }
             };
         },
-        beforeDestroy () {
-            // clearAllBodyScrollLocks();
-        },
         methods: {
             onSubmit () {
                 /* scrollTo({
@@ -212,8 +204,6 @@
                 this.isLoading = true;
                 this.isErrorRequest = false;
                 this.errorRequestCode = null;
-
-                // disableBodyScroll(this.elemPersistLockScroll);
 
                 recaptchaElement(this.recaptchaAction).then(res => {
                     if (res.data.success && res.data.action === this.recaptchaAction) {
@@ -231,15 +221,12 @@
                                     this.isLoading = false;
 
                                     this.messageSent = true;
-
-                                    // enableBodyScroll(this.elemPersistLockScroll);
                                 },
                                 err => {
                                     // // console.log('TLC: 4onSubmit -> err', err);
                                     this.isLoading = false;
                                     this.isErrorRequest = true;
                                     this.errorRequestCode = err.code;
-                                    // enableBodyScroll(this.elemPersistLockScroll);
                                 }
                             )
                             .catch(err => {
@@ -247,7 +234,6 @@
                                 this.isLoading = false;
                                 this.isErrorRequest = true;
                                 this.errorRequestCode = err.code;
-                                // enableBodyScroll(this.elemPersistLockScroll);
                             });
                     } else {
                         // // console.log('TLC: onSubmit -> SPAM Automated Abused!!!');
