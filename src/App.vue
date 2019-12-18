@@ -61,6 +61,8 @@
         beforeCreate () {
             init(); // set firebase config
             onStateChange(); // authentication state observer
+
+            this.$store.dispatch('appLocale', this.$i18n.locale);
         },
         mounted () {
             this.elBody = document.querySelector('body');
