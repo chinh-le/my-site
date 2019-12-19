@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import { setPosX, windowResizeHandler } from '@/utils/helpers';
+    import { setStyleInlineJustify } from '@/utils/helpers';
 
     export default {
         props: {
@@ -31,20 +31,18 @@
         },
         created () {
             // set/keep the heading (h1) to the left aligning with the logo
-            this.posX = setPosX('left');
+            setInlineStyle(this);
 
-            window.addEventListener('resize', this.resizeHandler);
+            window.addEventListener('resize', () => setInlineStyle(this));
         },
         beforeDestroy () {
-            // console.log('TLC: About -> beforeDestroy');
-            window.removeEventListener('resize', this.resizeHandler);
-        },
-        methods: {
-            resizeHandler (evt) {
-                this.posX = windowResizeHandler(evt, 'left');
-            }
+            window.removeEventListener('resize', setInlineStyle);
         }
     }
+
+    const setInlineStyle = (vm) => {
+        vm.posX = setStyleInlineJustify('left');
+    };
 </script>
 
 <style lang="scss" module>

@@ -1,15 +1,8 @@
 <template>
   <div :class="$style['login-nav']">
-    <BaseLinkIcon 
-      v-if="authenticated && downloadUrl" 
-      :link-href="downloadUrl" 
-      :link-target="'_blank'" 
-      :link-class="'link-download'" 
-      :link-title="$t('buttons.download')" 
-      :link-icon="'cloud_download'"
-    />
+    <BaseDownloadLinkIcon v-if="isAuthenticated" />
     <BaseButtonIcon
-      v-if="!authenticated"
+      v-if="!isAuthenticated"
       :btn-class="'btn-login'"
       :btn-title="$t('buttons.authenticate')"
       :btn-handler="openAuth"
@@ -34,26 +27,20 @@
 <script>
     import { logout } from '@/firebase';
     import { eventBus } from '@/utils/eventBus';
-    import BaseLinkIcon from './base/BaseLinkIcon';
+    import BaseDownloadLinkIcon from './base/BaseDownloadLinkIcon';
     import BaseButtonIcon from './base/BaseButtonIcon';
+    import { mapGetters } from 'vuex';
 
     export default {
         components: {
-            BaseLinkIcon,
+            BaseDownloadLinkIcon,
             BaseButtonIcon
         },
-        data () {
-            return {
-                showSignin: false
-            };
-        },
         computed: {
-            downloadUrl () {
-                return this.$store.getters.downloadUrl;
-            },
-            authenticated () {
-                return this.$store.getters.isAuthenticated;
-            }
+            ...mapGetters([
+                'isAuthenticated'
+            ])
+
         },
         methods: {
             openNav () {
@@ -61,9 +48,6 @@
             },
             openAuth () {
                 eventBus.openAuth();
-            },
-            toggleSignin () {
-                this.showSignin = !this.showSignin;
             },
             signout () {
                 logout();

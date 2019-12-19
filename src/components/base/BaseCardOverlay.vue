@@ -15,6 +15,9 @@
         :class="[$style['overlay'], {[$style['blank']]: !item.image}]"
       >{{ item.image ? item.label : $t(`images.${item.label}`) }}</span>
     </a>
+    <p :class="$style['languages']">
+      {{ item.languages }}
+    </p>
   </div>
 </template>
 
@@ -34,12 +37,18 @@
 <style lang="scss" module>
 .card {
   display: block;
+  // display: flex;
+  // justify-content: center;
+  // align-content: center;
   color: $base-txt-color;
   text-decoration: none;
   position: relative;
+  overflow: hidden;
 }
 .card-image {
   width: 100%;
+  // max-height: var(--card-overlay-image-max-height);
+  // overflow: hidden;
 }
 .overlay {
   display: flex;
@@ -52,6 +61,20 @@
   width: 100%;
   height: 100%;
   color: #fff;
+  text-transform: lowercase;
+}
+.languages {
+  // display: block;
+  text-transform: lowercase;
+  font-size: 0.7em;
+  text-align: right;
+  padding: 0.5em 1em 1em;
+  line-height: 1.2em;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #878787;
+  &::first-letter {
+    text-transform: lowercase;
+  }
 }
 .blank {
   position: relative;

@@ -37,8 +37,8 @@
     background-color: var(--form-button-submit-bg-color);
     margin-top: 2em;
     &:disabled {
-      color: var(--form-button-submit-disabled-txt-color);
-      background-color: var(--form-button-submit-disabled-bg-color);
+      color: var(--form-button-submit-txt-color-disabled);
+      background-color: var(--form-button-submit-bg-color-disabled);
     }
     &:hover {
         cursor: pointer;

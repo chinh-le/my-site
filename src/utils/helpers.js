@@ -1,7 +1,7 @@
 // filter (not to include private route) and sort view routes
 const viewsFilteredAndSorted = (views) => {
   return views.filter(view => {
-    // console.log('TLC: created -> view', view);
+		// // console.log('TLC: created -> view', view);
     return !view.private;
   }).slice((viewA, viewB) => viewA.order - viewB.order);
 };
@@ -34,23 +34,13 @@ const wideScreenMaxWidth = 1200; // $breakpoint-xl
 
 }; */
 
-const windowResizeHandler = (evt, pos) => {
+const setStyleInlineJustify = (align) => {
   let styleInline;
-  if (evt.target.innerWidth <= wideScreenMaxWidth) {
+
+  if (window.innerWidth <= wideScreenMaxWidth) {
     styleInline = null;
   } else {
-    styleInline = `${pos}: ${(window.innerWidth - wideScreenMaxWidth) / 2}px`;
-  }
-
-  return styleInline;
-};
-
-const setPosX = (pos) => {
-  let styleInline;
-  if (window.innerWidth > wideScreenMaxWidth) {
-    styleInline = `${pos}: ${(window.innerWidth - wideScreenMaxWidth) / 2}px`;
-  } else {
-    styleInline = null;
+    styleInline = `${align}: ${(window.innerWidth - wideScreenMaxWidth) / 2}px`;
   }
 
   return styleInline;
@@ -68,11 +58,11 @@ const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
   document.body.classList.add('fonts-loaded');
 };
  */
-const scrollTo = (position) => {
-  console.log('TLC: scrollTo -> position', position);
-  window.scroll({
-    left: position.x,
-    top: position.y
+const scrollTo = (el, left, top) => {
+	// console.log('TLC: scrollTo -> position', position);
+  el.scroll({
+    left: left,
+    top: top
     // behavior: 'smooth'
   });
 };
@@ -82,8 +72,7 @@ export {
   convertArrayToObject,
   generateUniqueId,
   wideScreenMaxWidth,
-  windowResizeHandler,
-  setPosX,
+  setStyleInlineJustify,
   emailRegex,
   // loadFonts,
   scrollTo

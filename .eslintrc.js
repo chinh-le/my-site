@@ -3,35 +3,38 @@ module.exports = {
   env: {
     node: true
   },
-  'extends': [
+  extends: [
     'eslint:recommended',
     // 'plugin:vue/essential',
-    'plugin:vue/recommended',
+    'plugin:vue/recommended'
     // '@vue/standard'
   ],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-
-    "vue/script-indent": ["error", 4, { "baseIndent": 1 }],
-    "overrides": [
+    'vue/script-indent': ['error', 4, { baseIndent: 1 }],
+    /* 'overrides': [
       {
-        "files": ["*.vue"],
-        "rules": {
-          "indent": "off"
+        files: ['*.vue'],
+        rules: {
+          indent: 'off'
         }
       }
+    ], */
+    'keyword-spacing': 'error',
+    'space-before-function-paren': [
+      'error',
+      {
+        anonymous: 'always',
+        named: 'always',
+        asyncArrow: 'always'
+      }
     ],
-
-    "keyword-spacing": "error",
-    "space-before-function-paren": ["error", {
-        "anonymous": "always",
-        "named": "always",
-        "asyncArrow": "always"
-    }],
-    "space-before-blocks": ["error", { "functions": "always", "keywords": "always", "classes": "always" }],
-    "object-curly-spacing": ["error", "always", { "objectsInObjects": false }]
-
+    'space-before-blocks': [
+      'error',
+      { functions: 'always', keywords: 'always', classes: 'always' }
+    ],
+    'object-curly-spacing': ['error', 'always', { objectsInObjects: false }]
     // 'semi': [2, 'always'],
     /* 'vue/html-indent': [
       'warn', 2, {
@@ -42,4 +45,4 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint'
   }
-};
+}

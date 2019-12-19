@@ -5,15 +5,30 @@
   >
     <BaseHeadingView :heading-text="$t('contact.title')" />
     <BaseHeadingViewSidebar :heading-text="$t('contact.title')" />
-    <div
-      id="contactContent"
-      :class="['content']"
+    <transition
+      name="slide-fade"
+      mode="out-in"
+      :enter-class="$style['slide-fade-enter']"
+      :enter-to-class="$style['slide-fade-enter-to']"
+      :enter-active-class="$style['slide-fade-enter-active']"
+      :leave-class="$style['slide-fade-leave']"
+      :leave-to-class="$style['slide-fade-leave-to']"
+      :leave-active-class="$style['slide-fade-leave-active']"
     >
-      <h3 :class="$style['heading-3']">
-        {{ $t('contact.heading') }}
-      </h3>
-      <AppContactForm />
-    </div>
+      <div
+        v-if="isAnimated"
+        id="contactContent"
+        :class="['content']"
+      >
+        <h3 :class="$style['heading-3']">
+          {{ $t('contact.heading') }}
+        </h3>
+        <AppContactForm />
+        <p :class="[$style['text'], $style['last']]">
+          {{ $t('app.download-instruction.text-1') }}.
+        </p>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -27,6 +42,14 @@
             BaseHeadingView,
             BaseHeadingViewSidebar,
             AppContactForm
+        },
+        data () {
+            return {
+                isAnimated: false
+            }
+        },
+        mounted () {
+            this.isAnimated = true;
         }
     };
 
@@ -47,4 +70,16 @@
   margin: 0 auto;
   height: var(--contact-height);
 }
+.text {
+  color: $dimlight-color;
+  margin-bottom: 0.7em;
+  &::first-letter {
+    text-transform: capitalize;
+  }
+}
+.last {
+  margin-bottom: 3em;
+}
+@include slide-fade-helper();
+// @include slide-fade-helper('enter÷');
 </style>

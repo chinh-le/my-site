@@ -26,6 +26,7 @@
 // >= 768 md
 @media screen and (min-width: $breakpoint-md) {
     :root {
+        // --body-bg-image: url('../assets/chinh-main-bw-md.jpg');
         --home-content-width: 50%;
         --about-width: 70%;
         --works-width: 90%;
@@ -67,9 +68,10 @@
 // >= 992 lg
 @media screen and (min-width: $breakpoint-lg) {
     :root {
+        // --body-bg-image: url('../assets/chinh-main-bw.jpg');
         --home-content-width: 40%;
         --about-width: 70%;
-        --about-desc-width: 45%;
+        // --about-desc-width: 45%;
         --works-width: 70%;
         --skills-width: 45%;
         --cards-overlay-width: 32%;
@@ -112,5 +114,61 @@
         --about-width: 80%;
         --works-width: 80%;
         --education-width: 80%;
+    }
+}
+
+// backgroud body image
+// orientation: landscape
+// device-pixel-ratio: 2
+// portrait
+@media screen and (max-width: $breakpoint-xs) and (min-height: $breakpoint-xs) {
+    :root {
+        --body-bg-image: url('../assets/chinh-main-bw-portrait.jpg');
+    }
+}
+// 576- x 768+
+@media screen and (max-width: $breakpoint-sm) and (min-height: $breakpoint-sm) {
+    :root {
+        --body-bg-image: url('../assets/chinh-main-bw-portrait.jpg');
+    }
+}
+@media screen and (max-width: $breakpoint-md) and (min-height: $breakpoint-md) {
+    :root {
+        --body-bg-image: url('../assets/chinh-main-bw-portrait.jpg');
+    }
+}
+@media screen and (max-width: $breakpoint-lg) and (min-height: $breakpoint-lg) {
+    :root {
+        --body-bg-image: url('../assets/chinh-main-bw-portrait.jpg');
+    }
+}
+@media screen and (max-width: $breakpoint-xl) and (min-height: $breakpoint-xl) {
+    :root {
+        --body-bg-image: url('../assets/chinh-main-bw-portrait.jpg');
+    }
+}
+
+
+// card overlay image max-height
+// <=330
+/* @media screen and (max-width: $breakpoint-xs) {
+    :root {
+        --card-overlay-image-max-height: 157px;
+    }
+}
+// <=576
+@media screen and (max-width: $breakpoint-sm) {
+    :root {
+        --card-overlay-image-max-height: 157px;
+    }
+} */
+@media screen and (orientation: portrait) {
+    :root {
+        --body-bg-image: url('../assets/chinh-main-bw-portrait.jpg');
+    }
+}
+@media screen and (orientation: landscape) {
+    :root {
+        --body-bg-image: url('../assets/chinh-main-bw.jpg');
     }
 }

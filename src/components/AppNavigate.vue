@@ -28,12 +28,16 @@
         :class="$style['navigation']"
       >
         <BaseButtonIcon
+          :btn-id="'btnCloseNavigate'"
           :btn-class="'btn-close'"
           :btn-title="$t('buttons.close')"
           :btn-handler="closeNav"
           :btn-icon="'close'"
         />
-        <div :class="$style['navigation-content']">
+        <div
+          id="navigationContent"
+          :class="$style['navigation-content']"
+        >
           <BaseLang />
           <AppNavigateLinks />
           <AppSocialMedia />
@@ -45,12 +49,8 @@
 </template>
 
 <script>
-    import {
-        // disableBodyScroll,
-        // enableBodyScroll,
-        // clearAllBodyScrollLocks
-    } from 'body-scroll-lock';
     import { eventBus } from '@/utils/eventBus';
+    import { scrollTo } from '@/utils/helpers';
     import BaseLang from './base/BaseLang';
     import AppNavigateLinks from './AppNavigateLinks';
     import AppSocialMedia from './AppSocialMedia';
@@ -67,52 +67,56 @@
         },
         data () {
             return {
+                elNavigationContent: null,
+                elBtnCloseNavigate: null,
                 isShow: false,
-                elemPersistLockScroll: null
             };
         },
         watch: {
-            // $route (to, from) {
-            // console.log('to: ', to);
-            // console.log('from: ', from);
             $route () {
-                this.isShow = false; // close nav on route change
+                this.closeNav();
             }
         },
         created () {
             // console.log('TLC: Navigation - created -> created');
             eventBus.$on('evtBusOpenNav', () => {
-                /* scrollTo({
-                    x: 0,
-                    y: 0
-                }); */
-
-                this.isShow = true;
-
-                // disableBodyScroll(this.elemPersistLockScroll);
-                // console.log(
-                // 'TLC: Navigation - created - evtBusOpenNav -> disableBodyScroll'
-                // );
+                this.openNav();
+            });
+            
+            eventBus.$on('evtBusCloseNav', () => {
+                this.closeNav();
             });
         },
         mounted () {
-            // console.log('TLC: Navigation - mounted -> mounted');
-            this.elemPersistLockScroll = document.querySelector('#siteNav');
+            this.elNavigationContent = document.querySelector('#navigationContent');
+            this.elBtnCloseNavigate = document.querySelector('#btnCloseNavigate');
+
+            setInlineStyle(this);
+
+            window.addEventListener('resize', () => setInlineStyle(this));
         },
         beforeDestroy () {
-            // console.log('TLC: Navigation - beforeDestroy -> beforeDestroy');
-            // clearAllBodyScrollLocks();
+            eventBus.$off('evtBusOpenAuth');
+            eventBus.$off('evtBusCloseAuth');
+            window.removeEventListener('resize', setInlineStyle);
         },
         methods: {
+            openNav () {
+                this.isShow = true;
+            },
             closeNav () {
                 this.isShow = false;
 
-                // enableBodyScroll(this.elemPersistLockScroll);
-                // console.log('TLC: Navigation - closeNav -> enableBodyScroll');
+                scrollTo(document.querySelector('#navigationContent'), 0, 0);
             }
         },
     };
 
+    const setInlineStyle = (vm) => {
+        const elHeight = window.innerHeight - vm.elBtnCloseNavigate.clientHeight;
+
+        vm.elNavigationContent.setAttribute('style', `height: ${elHeight}px`);
+    };
 </script>
 
 <style lang="scss" module>
@@ -124,6 +128,7 @@
   > * {
     margin-bottom: 1em;
   }
+  overflow-y: scroll;
 }
 #socialMedia {
   margin-top: 2em;

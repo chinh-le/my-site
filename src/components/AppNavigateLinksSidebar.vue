@@ -19,7 +19,7 @@
 </template>
 
 <script>
-    import { setPosX, windowResizeHandler, viewsFilteredAndSorted } from '@/utils/helpers';
+    import { setStyleInlineJustify, viewsFilteredAndSorted } from '@/utils/helpers';
     import { appConfig } from '@/config';
     import BaseNavigateLinkSidebar from './base/BaseNavigateLinkSidebar';
 
@@ -38,19 +38,18 @@
             this.appViews = viewsFilteredAndSorted(appConfig.views);
             
             // set/keep the nav (pageLinks) dots to the right aligning with the hamburger icon
-            this.posX = setPosX('right');
+            // this.posX = setStyleInlineJustify('right');
+            setInlineStyle(this);
 
-            window.addEventListener('resize', this.resizeHandler);
+            window.addEventListener('resize', () => setInlineStyle(this));
         },
         beforeDestroy () {
-            // console.log('TLC: PageLinks -> beforeDestroy');
-            window.removeEventListener('resize', this.resizeHandler);
-        },
-        methods: {
-            resizeHandler (evt) {
-                this.posX = windowResizeHandler(evt, 'right');
-            }
+            window.removeEventListener('resize', setInlineStyle);
         }
+    };
+
+    const setInlineStyle = (vm) => {
+        vm.posX = setStyleInlineJustify('right');
     };
 
 </script>

@@ -3,30 +3,54 @@ const professionals = {
     order: 1,
     label: 'videotron',
     image: 'videotron-mobility-640-en.jpg',
-    url: 'https://www.videotron.com/'
+    url: 'https://www.videotron.com/',
+    languages: 'AngularJS (v1.5), jQuery, Java, Oracle Commerce, GTM, GA'
   },
   clubillico: {
     order: 2,
     label: 'clubillico',
     image: 'clubillico-640-en.jpg',
-    url: 'https://clubillico.videotron.com/'
+    url: 'https://clubillico.videotron.com/',
+    languages: 'AngularJS (v1.6), Java, GTM, GA'
   },
   illicoweb: {
     order: 3,
     label: 'illicoweb',
     image: 'illicoweb-640-en.jpg',
-    url: 'https://illicoweb.videotron.com/'
+    url: 'https://illicoweb.videotron.com/',
+    languages: 'AngularJS (v1.6), jQuery, Java, GTM, GA'
   }
-};
+}
 
 const personals = {
-  comingSoon: {
+  stockTrader: {
     order: 1,
+    label: 'Stock Trader',
+    image: 'stock-trader-vue-640.png',
+    url: 'https://stock-trader-vue-6bd8c.web.app/',
+    languages: 'Vue, Google Firebase'
+  },
+  burgerBuilder: {
+    order: 2,
+    label: 'Burger Builder',
+    image: 'burger-builder-react-640.png',
+    url: 'https://burger-builder-react-8801d.web.app/',
+    languages: 'React, Google Firebase'
+  },
+  recipeBook: {
+    order: 3,
+    label: 'Recipe Book',
+    image: 'recipe-book-ng-640.png',
+    url: 'https://recipe-book-ng-183d5.firebaseapp.com/',
+    languages: 'Angular, Google Firebase'
+  }
+  /* comingSoon: {
+    order: 4,
     image: null,
     url: null,
-    label: 'coming-soon' // REM - label value is used as key for i18n - see skills.ratings (@/i18n/locales/*.json) and its use in @/components/base/BaseDotSet.vue
-  }
-};
+    label: 'coming-soon' // REM - label value requires to be kebab-case since it is used as key for i18n - see skills.ratings (@/i18n/locales/*.json) and its use in @/components/base/BaseDotSet.vue
+  } */
+}
 
 const certificates = {
   vuejs2: {
@@ -77,7 +101,7 @@ const certificates = {
     // alt: 'Concordia University',
     location: 'Concordia University'
   }
-};
+}
 
 const scholarships = {
   bertelsmann: {
@@ -88,7 +112,7 @@ const scholarships = {
     alt: 'Bertelsmann scholarship',
     location: 'Udacity.com'
   }
-};
+}
 
 const skills = {
   vuejs: {
@@ -146,7 +170,7 @@ const skills = {
     name: 'Java, PHP, Smarty',
     rate: 1
   }
-};
+}
 
 // REM - ratings values are keys for i18n - see skills.ratings (@/i18n/locales/*.json) and its use in @/components/base/BaseDotSet.vue
 const ratings = {
@@ -155,7 +179,7 @@ const ratings = {
   3: 'good',
   4: 'very-good',
   5: 'expert'
-};
+}
 
 const socialMedia = {
   linked: {
@@ -176,7 +200,7 @@ const socialMedia = {
     image: 'instagram-logo-black-sm.png',
     url: 'https://www.instagram.com/niusaul/'
   }
-};
+}
 
 export {
   professionals,
@@ -186,4 +210,4 @@ export {
   skills,
   ratings,
   socialMedia
-};
+}

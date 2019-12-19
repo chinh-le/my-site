@@ -1,5 +1,6 @@
 <template>
   <button
+    :id="btnId"
     type="button"
     :class="[$style['btn'], $style[btnClass]]"
     :title="btnTitle"
@@ -12,6 +13,12 @@
 <script>
     export default {
         props: {
+            btnId: {
+                type: String,
+                default () {
+                    return 'btn';
+                }
+            },
             btnClass: {
                 type: String,
                 default () {

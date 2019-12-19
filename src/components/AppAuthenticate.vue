@@ -13,7 +13,7 @@
         v-show="isShow"
         :class="$style['canvas-bg']"
         :title="$t('buttons.close')"
-        @click="closeSignin()"
+        @click="closeAuth()"
       />
     </transition>
     <transition
@@ -27,24 +27,23 @@
         :class="$style['signin']"
       >
         <BaseButtonIcon
+          :btn-id="'btnCloseAuth'"
           :btn-class="'btn-close'"
           :btn-title="$t('buttons.close')"
-          :btn-handler="closeSignin"
+          :btn-handler="closeAuth"
           :btn-icon="'close'"
         />
-        <AppAuthenticateForm :close-signin="closeSignin" />
+        <div id="signinContent">
+          <AppAuthenticateForm :close-auth="closeAuth" />
+        </div>
       </div>
     </transition>
   </div>
 </template>
 
 <script>
-    import {
-        // disableBodyScroll,
-        // enableBodyScroll,
-        // clearAllBodyScrollLocks
-    } from 'body-scroll-lock';
     import { eventBus } from '@/utils/eventBus';
+    import { scrollTo } from '@/utils/helpers';
     import AppAuthenticateForm from './AppAuthenticateForm';
     import BaseButtonIcon from './base/BaseButtonIcon';
 
@@ -55,31 +54,30 @@
         },
         data () {
             return {
-                elemPersistLocßkScroll: null,
                 isShow: false,
             };
         },
         created () {
             // // // // console.log('TLC: Authentication - created -> created');
             eventBus.$on('evtBusOpenAuth', () => {
-                this.isShow = true;
-
-                // disableBodyScroll(this.elemPersistLockScroll);
+                this.openAuth();
+            });
+            eventBus.$on('evtBusCloseAuth', () => {
+                this.closeAuth();
             });
         },
         beforeDestroy () {
-            // // // // console.log('TLC: Authentication - beforeDestroy -> beforeDestroy');
-            // clearAllBodyScrollLocks();
-        },
-        mounted () {
-            // // // // console.log('TLC: Authentication - mounted -> mounted');
-            this.elemPersistLockScroll = document.querySelector('#siteAuth');
+            eventBus.$off('evtBusOpenAuth');
+            eventBus.$off('evtBusCloseAuth');
         },
         methods: {
-            closeSignin () {
+            openAuth () {
+                this.isShow = true;
+            },
+            closeAuth () {
                 this.isShow = false;
 
-                // enableBodyScroll(this.elemPersistLockScroll);
+                scrollTo(document.querySelector('#formAuthenticateContainer'), 0, 0);
             },
         }
     };

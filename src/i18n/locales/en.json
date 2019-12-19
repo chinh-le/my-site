@@ -1,128 +1,126 @@
 {
-    "home": {
-        "title": "welcome to my personal site",
-        "heading-1": "hello!",
-        "heading-2": "my name is Chinh Le"
-    },
-    "about": {
-        "title": "about me",
-        "heading-1": "web developer",
-        "heading-2": "responsive for mobile and desktop",
-        "paragraph-1": "creating beautiful websites, following best practices and current technologies, to develop better, faster and more efficiently",
-        "paragraph-2": "developing with today's frameworks, libraries and Web Services, such as Vue, React, Angular, Google Firebase and Google Cloud Platform"
-    },
-    "works": {
-        "title": "works"
-    },
-    "education": {
-        "title": "education"
-    },
-    "contact": {
-        "title": "contact",
-        "heading": "get in touch"
-    },
-    "professionals": {
-        "heading": "professionals"
-    },
-    "personals": {
-        "heading": "personals"
-    },
-    "certifications": {
-        "heading": "certifications"
-    },
-    "scholarships": {
-        "heading": "scholarships"
-    },
-    "skills": {
-        "heading": "skills",
-        "ratings": {
-            "basic": "basic",
-            "average": "average",
-            "good": "good",
-            "very-good": "very good",
-            "expert": "expert"
-        }
-    },
-    "navigation": {
-        "heading": "navigation",
-        "home": "home",
-        "about": "about",
-        "works": "works",
-        "education": "education",
-        "contact": "contact"
-    },
-    "forms": {
-        "contact": {
-            "heading": "get in touch",
-            "name": "name*",
-            "email": "email*",
-            "subject": "subject",
-            "message": "message*",
-            "button": {
-                "label": "send message",
-                "title": "send to Chinh Le"
-            },
-            "notification": {
-                "text-1": "your message has been sent!",
-                "text-2": "i will get back to you as sson as possible",
-                "text-3": "thank you"
-            }
-        },
-        "authentication": {
-            "heading": "authentication",
-            "email": "email*",
-            "password": "password*",
-            "signing-up": "signing up",
-            "button": {
-                "signin": "sign in",
-                "signup": "sign up"
-            }
-        },
-        "errors": {
-            "required": "field required",
-            "email": "email invalid",
-            "max-length": "max length",
-            "provided": {
-                "email": "please enter the provided email",
-                "password": "please enter the provided password"
-            }
-        }
-    },
-    "images": {
-        "coming-soon": "coming soon"
-    },
-    "buttons": {
-        "download": "download resume",
-        "authenticate": "sign in",
-        "signout": "sign out",
-        "navigate": "open navigation",
-        "close": "close"
-    },
-    "recaptcha": {
-        "text-1": "this site is protected by reCAPTCHA and the Google",
-        "policy": {
-            "text": "privacy policy",
-            "link": "https://policies.google.com/privacy"
-        },
-        "text-2": "and",
-        "terms": {
-            "text": "terms of services",
-            "link": "https://policies.google.com/terms"
-        },
-        "text-3": "apply"
-    },
-    "copyright": "all rights reserved",
-    "errors": {
-        "server-request": {
-            "text-1": "there's something wrong with our server",
-            "text-2": "please try again later"
-        }
-    },
-    "app": {
-        "download-instruction": {
-            "text-1": "please",
-            "link": "send",
-            "text-2": "me a message and I'll provide the login credentials to download my resume"
-        }
+  "home": {
+    "title": "welcome to my personal site",
+    "heading-1": "hello!",
+    "heading-2": "my name is Chinh Le"
+  },
+  "about": {
+    "title": "about me",
+    "heading-1": "web developer",
+    "heading-2": "responsive for mobile and desktop",
+    "paragraph-1": "creating websites, following best practices and current technologies, to develop better, faster and more efficiently",
+    "paragraph-2": "developing with today's frameworks, libraries and Web Services, such as Vue, React, Angular, Google Firebase and Google Cloud Platform"
+  },
+  "works": {
+    "title": "works"
+  },
+  "education": {
+    "title": "education"
+  },
+  "contact": {
+    "title": "contact",
+    "heading": "get in touch"
+  },
+  "professionals": {
+    "heading": "professionals"
+  },
+  "personals": {
+    "heading": "personals"
+  },
+  "certifications": {
+    "heading": "certifications"
+  },
+  "scholarships": {
+    "heading": "scholarships"
+  },
+  "skills": {
+    "heading": "skills",
+    "ratings": {
+      "basic": "basic",
+      "average": "average",
+      "good": "good",
+      "very-good": "very good",
+      "expert": "expert"
     }
+  },
+  "navigation": {
+    "heading": "navigation",
+    "home": "home",
+    "about": "about",
+    "works": "works",
+    "education": "education",
+    "contact": "contact"
+  },
+  "forms": {
+    "contact": {
+      "heading": "get in touch",
+      "name": "name*",
+      "email": "email*",
+      "subject": "subject",
+      "message": "message*",
+      "button": {
+        "label": "send message",
+        "title": "send to Chinh Le"
+      },
+      "notification": {
+        "text-1": "your message has been sent!",
+        "text-2": "i will get back to you as sson as possible",
+        "text-3": "thank you"
+      }
+    },
+    "authentication": {
+      "heading": "authentication",
+      "email": "email*",
+      "password": "password*",
+      "signing-up": "signing up",
+      "button": {
+        "signin": "sign in",
+        "signup": "sign up"
+      }
+    },
+    "errors": {
+      "required": "field required",
+      "email": "email invalid",
+      "max-length": "max length",
+      "provided": {
+        "email": "please enter the provided email",
+        "password": "please enter the provided password"
+      }
+    }
+  },
+  "images": {
+    "coming-soon": "coming soon"
+  },
+  "buttons": {
+    "download": "download resume",
+    "authenticate": "sign in",
+    "signout": "sign out",
+    "navigate": "open navigation",
+    "close": "close"
+  },
+  "recaptcha": {
+    "text-1": "this site is protected by reCAPTCHA and the Google",
+    "policy": {
+      "text": "privacy policy",
+      "link": "https://policies.google.com/privacy"
+    },
+    "text-2": "and",
+    "terms": {
+      "text": "terms of services",
+      "link": "https://policies.google.com/terms"
+    },
+    "text-3": "apply"
+  },
+  "copyright": "all rights reserved",
+  "errors": {
+    "server-request": {
+      "text-1": "there's something wrong with our server",
+      "text-2": "please try again later"
+    }
+  },
+  "app": {
+    "download-instruction": {
+      "text-1": "please contact me to obtain the login credentials to download my resume"
+    }
+  }
 }

@@ -13,14 +13,14 @@
       :class="$style['site-wrap']"
     >
       <transition
-        name="fading"
+        name="slide-fade"
         mode="out-in"
-        :enter-class="$style['fading-enter']"
-        :enter-to-class="$style['fading-enter-to']"
-        :enter-active-class="$style['fading-enter-active']"
-        :leave-class="$style['fading-leave']"
-        :leave-active-class="$style['fading-leave-actvive']"
-        :leave-to-class="$style['fading-leave-to']"
+        :enter-class="$style['slide-fade-enter']"
+        :enter-to-class="$style['slide-fade-enter-to']"
+        :enter-active-class="$style['slide-fade-enter-active']"
+        :leave-class="$style['slide-fade-leave']"
+        :leave-to-class="$style['slide-fade-leave-to']"
+        :leave-active-class="$style['slide-fade-leave-active']"
       >
         <router-view />
       </transition>
@@ -34,8 +34,8 @@
 
 <script>
     // @ is an alias to /src
-    // import { clearAllBodyScrollLocks } from 'body-scroll-lock';
     import { init, onStateChange } from '@/firebase';
+    import { eventBus } from '@/utils/eventBus';
     import TheHeader from '@/components/TheHeader';
     import TheFooter from '@/components/TheFooter';
     import AppNavigate from '@/components/AppNavigate';
@@ -59,14 +59,11 @@
                 elTheFooter: null
             }
         },
-        watch: {
-            $route () {
-                // clearAllBodyScrollLocks();
-            }
-        },
         beforeCreate () {
             init(); // set firebase config
             onStateChange(); // authentication state observer
+
+            this.$store.dispatch('appLocale', this.$i18n.locale);
         },
         mounted () {
             this.elBody = document.querySelector('body');
@@ -76,12 +73,25 @@
             this.elTheFooter = document.querySelector('#theFooter');
             
             setInlineStyle(this);
+ 
+            window.addEventListener('resize', () => setInlineStyle(this));
 
-            window.addEventListener('resize', setInlineStyle(this));
+            window.addEventListener('keydown', (evt) => closeAllSlideInPanels(evt));
         },
         beforeDestroy () {
             window.removeEventListener('resize', setInlineStyle);
+            window.removeEventListener('keydown', closeAllSlideInPanels);
         }
+    };
+
+    const closeAllSlideInPanels = (evt) => {
+        // console.log('TLC: closeAllSlideInPanels -> evt', evt.key);
+        if (typeof evt.key !== 'undefined' && typeof evt.which !== 'undefined') {
+            if ((evt.key).toLowerCase() === 'escape' || (evt.code).toLowerCase() === 'escape' || evt.which === 27) {
+                eventBus.closeNav();
+                eventBus.closeAuth();
+            } 
+        } 
     };
     
     const setInlineStyle = (vm) => {
@@ -98,7 +108,7 @@
   margin: 0 auto;
 }
 .bg-gradient {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.8);
   position: absolute;
   top: 0;
   left: 0;
@@ -113,6 +123,8 @@
   box-sizing: border-box;
   padding: var(--site-wrap-padding);
   overflow-y: scroll;
+  scrollbar-color: #D85426 #D85426;
+  scrollbar-width: thin;
   &::-webkit-scrollbar {
       background: transparent;
       width: 0.3em;
@@ -122,10 +134,11 @@
       border-radius: 0.5em;
   }
   &:hover {
+  scrollbar-color: #D85426 #D85426;
     &::-webkit-scrollbar-thumb {
       background: #D85426;
     }
   }
 }
-@include fading-helper;
+@include slide-fade-helper('leave'); 
 </style>
