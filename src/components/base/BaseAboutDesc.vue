@@ -6,11 +6,8 @@
     <p :class="$style['text']">
       {{ $t('about.paragraph-1') }}.
     </p>
-    <p :class="$style['text']">
-      {{ $t('about.paragraph-2') }}.
-    </p>
     <p :class="[$style['text'], $style['last']]">
-      {{ $t('app.download-instruction.text-1') }} <a href="./contact">{{ $t('app.download-instruction.link') }}</a> {{ $t('app.download-instruction.text-2') }}.
+      {{ $t('about.paragraph-2') }}.
     </p>
   </div>
 </template>

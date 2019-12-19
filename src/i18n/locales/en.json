@@ -120,9 +120,7 @@
   },
   "app": {
     "download-instruction": {
-      "text-1": "please",
-      "link": "send",
-      "text-2": "me a message and I'll provide the login credentials to download my resume"
+      "text-1": "please contact me to obtain the login credentials to download my resume"
     }
   }
 }

@@ -13,6 +13,9 @@
         {{ $t('contact.heading') }}
       </h3>
       <AppContactForm />
+      <p :class="[$style['text'], $style['last']]">
+        {{ $t('app.download-instruction.text-1') }}.
+      </p>
     </div>
   </div>
 </template>
@@ -46,5 +49,15 @@
   box-sizing: border-box;
   margin: 0 auto;
   height: var(--contact-height);
+}
+.text {
+  color: $dimlight-color;
+  margin-bottom: 0.7em;
+  &::first-letter {
+    text-transform: capitalize;
+  }
+}
+.last {
+  margin-bottom: 3em;
 }
 </style>

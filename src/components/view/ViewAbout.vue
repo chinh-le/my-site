@@ -10,14 +10,14 @@
       :class="$style['content']"
     >
       <BaseAboutDesc />
-      <AppSkills />
+      <!-- <AppSkills /> -->
     </div>
   </div>
 </template>
 
 <script>
     import BaseAboutDesc from '../base/BaseAboutDesc';
-    import AppSkills from '../AppSkills';
+    // import AppSkills from '../AppSkills';
     import BaseHeadingView from '../base/BaseHeadingView';
     import BaseHeadingViewSidebar from '../base/BaseHeadingViewSidebar';
 
@@ -26,7 +26,7 @@
             BaseAboutDesc,
             BaseHeadingView,
             BaseHeadingViewSidebar,
-            AppSkills
+            // AppSkills
         }
     };
 </script>
