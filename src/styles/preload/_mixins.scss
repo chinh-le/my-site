@@ -32,7 +32,7 @@
     }
     @keyframes slideIn {
         from {
-            transform: translateY(100%);
+            transform: translateY(70%);
         }
         to {
             transform: translateY(0);
@@ -43,7 +43,7 @@
             transform: translateY(0);
         }
         to {
-            transform: translateY(-100%);
+            transform: translateY(-50%);
         }
     }
 }

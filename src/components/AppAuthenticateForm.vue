@@ -79,7 +79,7 @@
       />
     </form>
     <p :class="$style['download-instruction']">
-      {{ $t('app.download-instruction.text-1') }} <a href="./contact">{{ $t('app.download-instruction.link') }}</a> {{ $t('app.download-instruction.text-2') }}.
+      {{ $t('app.download-instruction.text-1') }}.
     </p>
     <BaseErrorRequest
       v-if="isErrorRequest"

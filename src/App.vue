@@ -85,10 +85,13 @@
     };
 
     const closeAllSlideInPanels = (evt) => {
-        if ((evt.key).toLowerCase() === 'escape' || (evt.code).toLowerCase() === 'escape' || evt.which === 27) {
-            eventBus.closeNav();
-            eventBus.closeAuth();
-        }
+        // console.log('TLC: closeAllSlideInPanels -> evt', evt.key);
+        if (typeof evt.key !== 'undefined' && typeof evt.which !== 'undefined') {
+            if ((evt.key).toLowerCase() === 'escape' || (evt.code).toLowerCase() === 'escape' || evt.which === 27) {
+                eventBus.closeNav();
+                eventBus.closeAuth();
+            } 
+        } 
     };
     
     const setInlineStyle = (vm) => {
