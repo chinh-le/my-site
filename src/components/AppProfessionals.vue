@@ -1,15 +1,28 @@
 <template>
-  <div :class="$style['professionals']">
-    <h3>{{ $t('professionals.heading') }}</h3>
-    <AppCardOverlayList
+  <transition
+    name="slide-fade"
+    mode="out-in"
+    :enter-class="$style['slide-fade-enter']"
+    :enter-to-class="$style['slide-fade-enter-to']"
+    :enter-active-class="$style['slide-fade-enter-active']"
+    :leave-class="$style['slide-fade-leave']"
+    :leave-to-class="$style['slide-fade-leave-to']"
+    :leave-active-class="$style['slide-fade-leave-active']"
+  >
+    <div 
       v-if="professionals.length > 0"
-      :items="professionals"
-    />
-    <BaseErrorRequest
-      v-show="isErrorRequest"
-      :error-code="errorRequestCode"
-    />
-  </div>
+      :class="$style['professionals']"
+    >
+      <h3>{{ $t('professionals.heading') }}</h3>
+      <AppCardOverlayList
+        :items="professionals"
+      />
+      <BaseErrorRequest
+        v-show="isErrorRequest"
+        :error-code="errorRequestCode"
+      />
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -68,4 +81,5 @@
     width: var(--professionals-width);
     margin-bottom: 4em;
 }
+@include slide-fade-helper('enter');
 </style>

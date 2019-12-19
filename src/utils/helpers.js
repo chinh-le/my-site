@@ -34,23 +34,13 @@ const wideScreenMaxWidth = 1200; // $breakpoint-xl
 
 }; */
 
-const windowResizeHandler = (evt, pos) => {
+const setStyleInlineJustify = (align) => {
   let styleInline;
-  if (evt.target.innerWidth <= wideScreenMaxWidth) {
+
+  if (window.innerWidth <= wideScreenMaxWidth) {
     styleInline = null;
   } else {
-    styleInline = `${pos}: ${(window.innerWidth - wideScreenMaxWidth) / 2}px`;
-  }
-
-  return styleInline;
-};
-
-const setPosX = (pos) => {
-  let styleInline;
-  if (window.innerWidth > wideScreenMaxWidth) {
-    styleInline = `${pos}: ${(window.innerWidth - wideScreenMaxWidth) / 2}px`;
-  } else {
-    styleInline = null;
+    styleInline = `${align}: ${(window.innerWidth - wideScreenMaxWidth) / 2}px`;
   }
 
   return styleInline;
@@ -82,8 +72,7 @@ export {
   convertArrayToObject,
   generateUniqueId,
   wideScreenMaxWidth,
-  windowResizeHandler,
-  setPosX,
+  setStyleInlineJustify,
   emailRegex,
   // loadFonts,
   scrollTo

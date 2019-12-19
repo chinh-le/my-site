@@ -1,15 +1,28 @@
 <template>
-  <div :class="$style['personals']">
-    <h3>{{ $t('personals.heading') }}</h3>
-    <AppCardOverlayList
+  <transition
+    name="slide-fade"
+    mode="out-in"
+    :enter-class="$style['slide-fade-enter']"
+    :enter-to-class="$style['slide-fade-enter-to']"
+    :enter-active-class="$style['slide-fade-enter-active']"
+    :leave-class="$style['slide-fade-leave']"
+    :leave-to-class="$style['slide-fade-leave-to']"
+    :leave-active-class="$style['slide-fade-leave-active']"
+  >
+    <div
       v-if="personals.length > 0"
-      :items="personals"
-    />
-    <BaseErrorRequest
-      v-show="isErrorRequest"
-      :error-code="errorRequestCode"
-    />
-  </div>
+      :class="$style['personals']"
+    >
+      <h3>{{ $t('personals.heading') }}</h3>
+      <AppCardOverlayList
+        :items="personals"
+      />
+      <BaseErrorRequest
+        v-show="isErrorRequest"
+        :error-code="errorRequestCode"
+      />
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -64,6 +77,7 @@
 
 <style lang="scss" module>
 .personals {
-  width: var(--personals-width);
+    width: var(--personals-width);
 }
+@include slide-fade-helper('enter');
 </style>

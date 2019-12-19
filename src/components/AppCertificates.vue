@@ -1,15 +1,28 @@
 <template>
-  <div :class="$style['certificates']">
-    <h3>{{ $t('certifications.heading') }}</h3>
-    <AppCardList
+  <transition
+    name="slide-fade"
+    mode="out-in"
+    :enter-class="$style['slide-fade-enter']"
+    :enter-to-class="$style['slide-fade-enter-to']"
+    :enter-active-class="$style['slide-fade-enter-active']"
+    :leave-class="$style['slide-fade-leave']"
+    :leave-to-class="$style['slide-fade-leave-to']"
+    :leave-active-class="$style['slide-fade-leave-active']"
+  >
+    <div 
       v-if="certificates.length > 0"
-      :items="certificates"
-    />
-    <BaseErrorRequest
-      v-if="isErrorRequest"
-      :error-code="errorRequestCode"
-    />
-  </div>
+      :class="$style['certificates']"
+    >
+      <h3>{{ $t('certifications.heading') }}</h3>
+      <AppCardList
+        :items="certificates"
+      />
+      <BaseErrorRequest
+        v-if="isErrorRequest"
+        :error-code="errorRequestCode"
+      />
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -64,7 +77,7 @@
 <style lang="scss" module>
 .certificates {
     width: var(--works-content-sub-width);
-  margin-bottom: 3em;
-  
+    margin-bottom: 3em;  
 }
+@include slide-fade-helper('enter');
 </style>
