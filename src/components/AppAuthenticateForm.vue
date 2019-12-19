@@ -107,7 +107,7 @@
             BaseFormButtonSubmit
         },
         props: {
-            closeSignin: {
+            closeAuth: {
                 type: Function,
                 default () {
                     return null;
@@ -147,14 +147,12 @@
             }
         },
         mounted () {
-            this.elBtnClose = document.querySelector('#btnCloseSignin')
+            this.elBtnClose = document.querySelector('#btnCloseAuth')
             this.elFormAuthenticate = document.querySelector('#formAuthenticateContainer');
 
             setInlineStyle(this);
             
-            window.addEventListener('resize', () => {
-                setInlineStyle(this);
-            });
+            window.addEventListener('resize', () => setInlineStyle(this));
         },
         beforeDestroy () {
             window.removeEventListener('resize', setInlineStyle);
@@ -179,7 +177,7 @@
                                     .then(res => {
                                         // // console.log('TLC: onSubmit -> res', res);
                                         if (res.user) {
-                                            this.closeSignin();
+                                            this.closeAuth();
                                             this.isLoading = false;
                                         }
                                     })
@@ -194,7 +192,7 @@
                                     .then(res => {
                                         // // console.log('TLC: onSubmit -> res', res);
                                         if (res.user) {
-                                            this.closeSignin();
+                                            this.closeAuth();
                                             this.isLoading = false;
                                         }
                                     })

@@ -13,14 +13,14 @@
       :class="$style['site-wrap']"
     >
       <transition
-        name="fading"
+        name="slide-fade"
         mode="out-in"
-        :enter-class="$style['fading-enter']"
-        :enter-to-class="$style['fading-enter-to']"
-        :enter-active-class="$style['fading-enter-active']"
-        :leave-class="$style['fading-leave']"
-        :leave-active-class="$style['fading-leave-actvive']"
-        :leave-to-class="$style['fading-leave-to']"
+        :enter-class="$style['slide-fade-enter']"
+        :enter-to-class="$style['slide-fade-enter-to']"
+        :enter-active-class="$style['slide-fade-enter-active']"
+        :leave-class="$style['slide-fade-leave']"
+        :leave-to-class="$style['slide-fade-leave-to']"
+        :leave-active-class="$style['slide-fade-leave-active']"
       >
         <router-view />
       </transition>
@@ -35,6 +35,7 @@
 <script>
     // @ is an alias to /src
     import { init, onStateChange } from '@/firebase';
+    import { eventBus } from '@/utils/eventBus';
     import TheHeader from '@/components/TheHeader';
     import TheFooter from '@/components/TheFooter';
     import AppNavigate from '@/components/AppNavigate';
@@ -73,12 +74,20 @@
             
             setInlineStyle(this);
  
-            window.addEventListener('resize', () => {
-                setInlineStyle(this);
-            });
+            window.addEventListener('resize', () => setInlineStyle(this));
+
+            window.addEventListener('keydown', (evt) => closeAllSlideInPanels(evt));
         },
         beforeDestroy () {
             window.removeEventListener('resize', setInlineStyle);
+            window.removeEventListener('keydown', closeAllSlideInPanels);
+        }
+    };
+
+    const closeAllSlideInPanels = (evt) => {
+        if ((evt.key).toLowerCase() === 'escape' || (evt.code).toLowerCase() === 'escape' || evt.which === 27) {
+            eventBus.closeNav();
+            eventBus.closeAuth();
         }
     };
     
@@ -128,5 +137,5 @@
     }
   }
 }
-@include fading-helper;
+@include slide-fade-helper('leave'); 
 </style>

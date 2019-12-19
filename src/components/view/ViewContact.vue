@@ -80,5 +80,6 @@
 .last {
   margin-bottom: 3em;
 }
-@include slide-fade-helper('enter');
+@include slide-fade-helper();
+// @include slide-fade-helper('enter÷');
 </style>

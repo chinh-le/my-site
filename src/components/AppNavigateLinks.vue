@@ -36,17 +36,19 @@
             this.appViews = viewsFilteredAndSorted(appConfig.views);
             
             // set/keep the nav (pageLinks) dots to the right aligning with the hamburger icon
-            this.posX = setStyleInlineJustify('right');
+            // this.posX = setStyleInlineJustify('right');
+            setInlineStyle(this);
 
-            window.addEventListener('resize', () => {
-                this.posX = setStyleInlineJustify('right');
-            });
+            window.addEventListener('resize', () => setInlineStyle(this));
         },
         beforeDestroy () {
-            window.removeEventListener('resize', setStyleInlineJustify);
+            window.removeEventListener('resize', setInlineStyle);
         }
     };
 
+    const setInlineStyle = (vm) => {
+        vm.posX = setStyleInlineJustify('right');
+    };
 </script>
 
 <style lang="scss" module>

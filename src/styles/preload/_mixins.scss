@@ -19,18 +19,18 @@
         opacity: 1;
     }
     .slide-fade-enter-active {
-        @if ($type != '') or ($type == 'enter') {
-            transition: opacity 0.5s ease-in;
-            animation: slideFadeIn 0.3s ease-in;
+        @if ($type == '') or ($type == 'enter') {
+            transition: opacity 0.3s ease-in;
+            animation: slideIn 0.3s ease-in;
         }
     }
     .slide-fade-leave-active {
-        @if ($type != '') or ($type == 'leave') {
+        @if ($type == '') or ($type == 'leave') {
             transition: opacity 0.3s ease-out;
-            animation: slideFadeOut 0.5s ease-out;
+            animation: slideOut 0.3s ease-out;
         } 
     }
-    @keyframes slideFadeIn {
+    @keyframes slideIn {
         from {
             transform: translateY(100%);
         }
@@ -38,7 +38,7 @@
             transform: translateY(0);
         }
     }
-    @keyframes slideFadeOut {
+    @keyframes slideOut {
         from {
             transform: translateY(0);
         }
@@ -81,10 +81,10 @@
         opacity: 1;
     }
     .fading-enter-active {
-        transition: opacity 0.3s ease-in;
+        transition: opacity 0.5s ease-in;
     }
     .fading-leave-active {
-        transition: opacity 0.2s ease-out;
+        transition: opacity 0.5s ease-in;
     }
 }
 @mixin screen-reader-ready {

@@ -24,7 +24,6 @@
               autocomplete="name"
               :aria-label="$t('forms.contact.name')"
               aria-required="true"
-              autofocus
               @blur="$v.user.name.$touch()"
             >
           </div>
