@@ -33,7 +33,9 @@
           :btn-handler="closeAuth"
           :btn-icon="'close'"
         />
-        <AppAuthenticateForm :close-auth="closeAuth" />
+        <div id="signinContent">
+          <AppAuthenticateForm :close-auth="closeAuth" />
+        </div>
       </div>
     </transition>
   </div>
@@ -41,6 +43,7 @@
 
 <script>
     import { eventBus } from '@/utils/eventBus';
+    import { scrollTo } from '@/utils/helpers';
     import AppAuthenticateForm from './AppAuthenticateForm';
     import BaseButtonIcon from './base/BaseButtonIcon';
 
@@ -73,6 +76,8 @@
             },
             closeAuth () {
                 this.isShow = false;
+
+                scrollTo(document.querySelector('#formAuthenticateContainer'), 0, 0);
             },
         }
     };

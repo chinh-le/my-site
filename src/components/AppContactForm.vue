@@ -195,11 +195,6 @@
         },
         methods: {
             onSubmit () {
-                /* scrollTo({
-                    x: 0,
-                    y: 0
-                  }); */
-
                 this.isLoading = true;
                 this.isErrorRequest = false;
                 this.errorRequestCode = null;

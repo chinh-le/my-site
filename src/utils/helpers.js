@@ -58,11 +58,11 @@ const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
   document.body.classList.add('fonts-loaded');
 };
  */
-const scrollTo = (position) => {
+const scrollTo = (el, left, top) => {
 	// console.log('TLC: scrollTo -> position', position);
-  window.scroll({
-    left: position.x,
-    top: position.y
+  el.scroll({
+    left: left,
+    top: top
     // behavior: 'smooth'
   });
 };

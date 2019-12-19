@@ -50,6 +50,7 @@
 
 <script>
     import { eventBus } from '@/utils/eventBus';
+    import { scrollTo } from '@/utils/helpers';
     import BaseLang from './base/BaseLang';
     import AppNavigateLinks from './AppNavigateLinks';
     import AppSocialMedia from './AppSocialMedia';
@@ -105,6 +106,8 @@
             },
             closeNav () {
                 this.isShow = false;
+
+                scrollTo(document.querySelector('#navigationContent'), 0, 0);
             }
         },
     };

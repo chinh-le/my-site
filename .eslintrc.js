@@ -13,14 +13,14 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'vue/script-indent': ['error', 4, { baseIndent: 1 }],
-    'overrides': [
+    /* 'overrides': [
       {
         files: ['*.vue'],
         rules: {
           indent: 'off'
         }
       }
-    ],
+    ], */
     'keyword-spacing': 'error',
     'space-before-function-paren': [
       'error',
