@@ -31,16 +31,18 @@
         },
         created () {
             // set/keep the heading (h1) to the left aligning with the logo
-            this.posX = setStyleInlineJustify('left');
+            setInlineStyle(this);
 
-            window.addEventListener('resize', () => {
-                this.posX = setStyleInlineJustify('left');
-            });
+            window.addEventListener('resize', () => setInlineStyle(this));
         },
         beforeDestroy () {
-            window.removeEventListener('resize', setStyleInlineJustify);
+            window.removeEventListener('resize', setInlineStyle);
         }
     }
+
+    const setInlineStyle = (vm) => {
+        vm.posX = setStyleInlineJustify('left');
+    };
 </script>
 
 <style lang="scss" module>

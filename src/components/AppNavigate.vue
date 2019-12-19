@@ -72,22 +72,18 @@
             };
         },
         watch: {
-            // $route (to, from) {
-            // console.log('to: ', to);
-            // console.log('from: ', from);
             $route () {
-                this.isShow = false; // close nav on route change
+                this.closeNav();
             }
         },
         created () {
             // console.log('TLC: Navigation - created -> created');
             eventBus.$on('evtBusOpenNav', () => {
-                /* scrollTo({
-                    x: 0,
-                    y: 0
-                }); */
-
-                this.isShow = true;
+                this.openNav();
+            });
+            
+            eventBus.$on('evtBusCloseNav', () => {
+                this.closeNav();
             });
         },
         mounted () {
@@ -96,14 +92,17 @@
 
             setInlineStyle(this);
 
-            window.addEventListener('resize', () => {
-                setInlineStyle(this);
-            });
+            window.addEventListener('resize', () => setInlineStyle(this));
         },
         beforeDestroy () {
+            eventBus.$off('evtBusOpenAuth');
+            eventBus.$off('evtBusCloseAuth');
             window.removeEventListener('resize', setInlineStyle);
         },
         methods: {
+            openNav () {
+                this.isShow = true;
+            },
             closeNav () {
                 this.isShow = false;
             }

@@ -13,7 +13,7 @@
         v-show="isShow"
         :class="$style['canvas-bg']"
         :title="$t('buttons.close')"
-        @click="closeSignin()"
+        @click="closeAuth()"
       />
     </transition>
     <transition
@@ -27,13 +27,13 @@
         :class="$style['signin']"
       >
         <BaseButtonIcon
-          :btn-id="'btnCloseSignin'"
+          :btn-id="'btnCloseAuth'"
           :btn-class="'btn-close'"
           :btn-title="$t('buttons.close')"
-          :btn-handler="closeSignin"
+          :btn-handler="closeAuth"
           :btn-icon="'close'"
         />
-        <AppAuthenticateForm :close-signin="closeSignin" />
+        <AppAuthenticateForm :close-auth="closeAuth" />
       </div>
     </transition>
   </div>
@@ -57,11 +57,21 @@
         created () {
             // // // // console.log('TLC: Authentication - created -> created');
             eventBus.$on('evtBusOpenAuth', () => {
-                this.isShow = true;
+                this.openAuth();
+            });
+            eventBus.$on('evtBusCloseAuth', () => {
+                this.closeAuth();
             });
         },
+        beforeDestroy () {
+            eventBus.$off('evtBusOpenAuth');
+            eventBus.$off('evtBusCloseAuth');
+        },
         methods: {
-            closeSignin () {
+            openAuth () {
+                this.isShow = true;
+            },
+            closeAuth () {
                 this.isShow = false;
             },
         }
