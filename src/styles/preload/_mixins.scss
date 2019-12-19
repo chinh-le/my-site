@@ -9,6 +9,44 @@
         background-color: $bg-color;
     }
 }
+@mixin slide-fade-helper($type: '') {
+    .slide-fade-enter,
+    .slide-fade-leave-to {
+        opacity: 0;
+    }
+    .slide-fade-enter-to,
+    .slide-fade-leave {
+        opacity: 1;
+    }
+    .slide-fade-enter-active {
+        @if ($type != '') or ($type == 'enter') {
+            transition: opacity 0.5s ease-in;
+            animation: slideFadeIn 0.3s ease-in;
+        }
+    }
+    .slide-fade-leave-active {
+        @if ($type != '') or ($type == 'leave') {
+            transition: opacity 0.3s ease-out;
+            animation: slideFadeOut 0.5s ease-out;
+        } 
+    }
+    @keyframes slideFadeIn {
+        from {
+            transform: translateY(100%);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
+    @keyframes slideFadeOut {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(-100%);
+        }
+    }
+}
 @mixin slide-helper {
     .slide-enter-active {
         animation: slideIn 0.5s ease-in;
@@ -34,23 +72,19 @@
     }
 }
 @mixin fading-helper {
-    .fading-enter {
+    .fading-enter,
+    .fading-leave-to {
         opacity: 0;
     }
-    .fading-enter-to {
+    .fading-enter-to,
+    .fading-leave {
         opacity: 1;
     }
     .fading-enter-active {
         transition: opacity 0.3s ease-in;
     }
-    .fading-leave {
-        opacity: 1;
-    }
     .fading-leave-active {
         transition: opacity 0.2s ease-out;
-    }
-    .fading-leave-to {
-        opacity: 0;
     }
 }
 @mixin screen-reader-ready {

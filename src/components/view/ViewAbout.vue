@@ -5,13 +5,25 @@
   >
     <BaseHeadingView :heading-text="$t('about.title')" />
     <BaseHeadingViewSidebar :heading-text="$t('about.title')" />
-    <div
-      id="aboutContent"
-      :class="$style['content']"
+    <transition
+      name="slide-fade"
+      mode="out-in"
+      :enter-class="$style['slide-fade-enter']"
+      :enter-to-class="$style['slide-fade-enter-to']"
+      :enter-active-class="$style['slide-fade-enter-active']"
+      :leave-class="$style['slide-fade-leave']"
+      :leave-to-class="$style['slide-fade-leave-to']"
+      :leave-active-class="$style['slide-fade-leave-active']"
     >
-      <BaseAboutDesc />
+      <div
+        v-if="isAnimated"
+        id="aboutContent"
+        :class="$style['content']"
+      >
+        <BaseAboutDesc />
       <!-- <AppSkills /> -->
-    </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -27,6 +39,14 @@
             BaseHeadingView,
             BaseHeadingViewSidebar,
             // AppSkills
+        },
+        data () {
+            return {
+                isAnimated: false
+            }
+        },
+        mounted () {
+            this.isAnimated = true;
         }
     };
 </script>
@@ -49,4 +69,5 @@
 .content {
   padding-bottom: 2em;
 }
+@include slide-fade-helper('enter');
 </style>
