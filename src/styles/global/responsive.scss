@@ -151,7 +151,7 @@
 
 // card overlay image max-height
 // <=330
-@media screen and (max-width: $breakpoint-xs) {
+/* @media screen and (max-width: $breakpoint-xs) {
     :root {
         --card-overlay-image-max-height: 157px;
     }
@@ -160,5 +160,15 @@
 @media screen and (max-width: $breakpoint-sm) {
     :root {
         --card-overlay-image-max-height: 157px;
+    }
+} */
+@media screen and (orientation: portrait) {
+    :root {
+        --body-bg-image: url('../assets/chinh-main-bw-portrait.jpg');
+    }
+}
+@media screen and (orientation: landscape) {
+    :root {
+        --body-bg-image: url('../assets/chinh-main-bw.jpg');
     }
 }
