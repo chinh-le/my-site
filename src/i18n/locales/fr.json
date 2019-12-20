@@ -121,9 +121,7 @@
   },
   "app": {
     "download-instruction": {
-      "text-1": "veuillez",
-      "link": "m'envoyer",
-      "text-2": "un message et je fournirai les identifiants de connexion pour télécharger mon résumé"
+      "text-1": "veuillez me contacter pour obtenir les identifiants de connexion pour télécharger mon résumé"
     }
   }
 }
