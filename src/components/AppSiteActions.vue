@@ -1,16 +1,16 @@
 <template>
-  <div :class="$style['login-nav']">
+  <div :class="$style['signin-nav']">
     <BaseDownloadLinkIcon v-if="isAuthenticated" />
     <BaseButtonIcon
       v-if="!isAuthenticated"
-      :btn-class="'btn-login'"
+      :btn-class="'btn-signin'"
       :btn-title="$t('buttons.authenticate')"
       :btn-handler="openAuth"
       :btn-icon="'person_outline'"
     />
     <BaseButtonIcon
       v-else
-      :btn-class="'btn-logout'"
+      :btn-class="'btn-signout'"
       :btn-title="$t('buttons.signout')"
       :btn-handler="signout"
       :btn-icon="'person'"
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-    import { logout } from '@/firebase';
+    import { signout } from '@/firebase';
     import { eventBus } from '@/utils/eventBus';
     import BaseDownloadLinkIcon from './base/BaseDownloadLinkIcon';
     import BaseButtonIcon from './base/BaseButtonIcon';
@@ -50,14 +50,14 @@
                 eventBus.openAuth();
             },
             signout () {
-                logout();
+                signout();
             }
         }
     }
 </script>
 
 <style lang="scss" module>
-.login-nav {
+.signin-nav {
     display: flex;
     flex-direction: row;
     align-items: center;

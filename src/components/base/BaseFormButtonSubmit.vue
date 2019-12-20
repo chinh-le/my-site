@@ -17,15 +17,11 @@
         props: {
             label: {
                 type: String,
-                default () {
-                    return 'submit';
-                }
+                default: () => 'submit'
             },
             title: {
                 type: String,
-                default () {
-                    return '';
-                }
+                default: () => ''
             }
         }        
     }

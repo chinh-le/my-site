@@ -14,33 +14,23 @@
         props: {
             linkHref: {
                 type: String,
-                default () {
-                    return null;
-                }
+                default: () => ''
             },
             linkTarget: {
                 type: String,
-                default () {
-                    return '_blank';
-                }
+                default: () => '_blank'
             },
             linkClass: {
                 type: String,
-                default () {
-                    return null;
-                }
+                default: () => ''
             },
             linkTitle: {
                 type: String,
-                default () {
-                    return null;
-                }
+                default: () => ''
             },
             linkIcon: {
                 type: String,
-                default () {
-                    return null
-                }
+                default: () => ''
             }
         }
         

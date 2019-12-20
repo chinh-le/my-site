@@ -13,26 +13,20 @@
         props: {
             btnLabel: {
                 type: String,
-                default () {
-                    return null;
-                }
+                default: () => ''
             },
             btnTitle: {
                 type: String,
-                default () {
-                    return null;
-                }
+                default: () => ''
             },
             btnHandler: {
                 type: Function,
-                default () {
-                    return null;
-                }
+                default: () => () => {}
             },
         },
         computed: {
             setActive () {
-                return this.$i18n.locale === this.btnLabel ? 'active' : null;
+                return this.$i18n.locale === this.btnLabel ? 'active' : '';
             }
         }
     }

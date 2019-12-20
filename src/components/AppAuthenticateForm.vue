@@ -92,7 +92,7 @@
 <script>
     import { required } from 'vuelidate/lib/validators';
     import { recaptchaElement } from '@/utils/recaptcha';
-    import { signup, login } from '@/firebase';
+    import { signup, signin } from '@/firebase';
     import { appConfig } from '@/config';
     import BaseSpinner from './base/BaseSpinner';
     import BaseFormButtonSubmit from './base/BaseFormButtonSubmit';
@@ -109,9 +109,7 @@
         props: {
             closeAuth: {
                 type: Function,
-                default () {
-                    return null;
-                }
+                default: () => () => {}
             }
         },
         data () {
@@ -188,7 +186,7 @@
                                         this.isLoading = false;
                                     });
                             } else {
-                                login(payload)
+                                signin(payload)
                                     .then(res => {
                                         // // console.log('TLC: onSubmit -> res', res);
                                         if (res.user) {

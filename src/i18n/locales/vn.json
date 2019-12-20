@@ -120,9 +120,7 @@
   },
   "app": {
     "download-instruction": {
-      "text-1": "vui lòng",
-      "link": "gửi",
-      "text-2": "cho tôi một tin nhắn và tôi sẽ cung cấp thông tin đăng nhập để tải về sơ yếu lý lịch của tôi."
+      "text-1": "vui lòng liên hệ với tôi để có được thông tin đăng nhập để tải về sơ yếu lý lịch của tôi"
     }
   }
 }
