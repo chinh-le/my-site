@@ -10,7 +10,7 @@ const autoSignout = (expirationTime) => {
   const expirationTimeInMilsecs = Date.parse(expirationTime);
   const timerInMilsecs = expirationTimeInMilsecs - currentTimeInMilsecs;
   signoutTimer = setTimeout(() => {
-    logout();
+    signout();
   }, timerInMilsecs);
 };
 
@@ -38,10 +38,10 @@ const onStateChange = () => {
 const signup = (payload) => {
   return auth().createUserWithEmailAndPassword(payload.email, payload.password);
 };
-const login = (payload) => {
+const signin = (payload) => {
   return auth().signInWithEmailAndPassword(payload.email, payload.password);
 };
-const logout = () => {
+const signout = () => {
   auth().signOut();
   store.commit('setAuthUser');
   localStorage.removeItem('token');
@@ -56,6 +56,6 @@ const logout = () => {
 export {
   onStateChange,
   signup,
-  login,
-  logout
+  signin,
+  signout
 };

@@ -19,8 +19,8 @@ export const init = () => {
 export {
   onStateChange,
   signup,
-  login,
-  logout
+  signin,
+  signout
 } from './authentication';
 
 export {

@@ -11,9 +11,7 @@
         props: {
             errorCode: {
                 type: String,
-                default () {
-                    return null;
-                }
+                default: () => ''
             }
         }
     }
