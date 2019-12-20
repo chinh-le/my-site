@@ -25,21 +25,15 @@
         props: {
             skills: {
                 type: Array,
-                default () {
-                    return [];
-                }
+                default: () => []
             },
             ratings: {
                 type: Object,
-                default () {
-                    return {};
-                }
+                default: () => {}
             },
             ratingsLength: {
                 type: Number,
-                default () {
-                    return 0;
-                }
+                default: () => 0
             }
         },
         created () {

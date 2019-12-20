@@ -14,21 +14,15 @@
         props: {
             btnLabel: {
                 type: String,
-                default () {
-                    return 'button';
-                }
+                default: () => 'button'
             },
             btnType: {
                 type: String,
-                default () {
-                    return 'button';
-                }
+                default: () => 'button'
             },
             btnTitle: {
                 type: String,
-                default () {
-                    return '';
-                }
+                default: () => ''
             },
         }
     }

@@ -15,33 +15,23 @@
         props: {
             btnId: {
                 type: String,
-                default () {
-                    return 'btn';
-                }
+                default: () => ''
             },
             btnClass: {
                 type: String,
-                default () {
-                    return 'button';
-                }
+                default: () => ''
             },
             btnTitle: {
                 type: String,
-                default () {
-                    return '';
-                }
+                default: () => ''
             },
             btnHandler: {
                 type: Function,
-                default () {
-                    return null;
-                }
+                default: () => () => {}
             },
             btnIcon: {
                 type: String,
-                default () {
-                    return '';
-                }
+                default: () => ''
             },
         }
     }
@@ -71,14 +61,14 @@
         content: 'close';
     }
 }
-.btn-login {
+.btn-signin {
     &:after {
-        content: "open login";
+        content: "open signin";
     }
 }
-.btn-logout {
+.btn-signout {
     &:after {
-        content: "logout";
+        content: "signout";
     }
 }
 .btn-nav {

@@ -19,9 +19,7 @@
         props: {
             headingText: {
                 type: String,
-                default () {
-                    return null;
-                }
+                default: () => ''
             }
         },
         data () {

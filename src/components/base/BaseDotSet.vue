@@ -19,21 +19,15 @@
         props: {
             ratings: {
                 type: Object,
-                default () {
-                    return {};
-                }
+                default: () => {}
             },
             ratingsLength: {
                 type: Number,
-                default () {
-                    return 0;
-                }
+                default: () => 0
             },
             skill: {
                 type: Object,
-                default () {
-                    return {}
-                }
+                default: () => {}
             }
         }
     }

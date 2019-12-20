@@ -14,9 +14,7 @@
         props: {
             view: {
                 type: Object,
-                default () {
-                    return {};
-                }
+                default: () => {}
             }
         }
     }

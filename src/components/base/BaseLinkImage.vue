@@ -18,9 +18,7 @@
         props: {
             link: {
                 type: Object,
-                default () {
-                    return {};
-                }
+                default: () => {}
             }
         }
     }

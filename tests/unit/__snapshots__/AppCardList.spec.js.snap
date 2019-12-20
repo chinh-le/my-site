@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppCardList matches snapshot 1`] = `
+<ul>
+  <li>
+    <basecard-stub item="[object Object]"></basecard-stub>
+  </li>
+  <li>
+    <basecard-stub item="[object Object]"></basecard-stub>
+  </li>
+</ul>
+`;
