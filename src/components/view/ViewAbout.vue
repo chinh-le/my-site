@@ -43,7 +43,7 @@
         data () {
             return {
                 isAnimated: false
-            }
+            };
         },
         mounted () {
             this.isAnimated = true;

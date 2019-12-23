@@ -1,15 +1,14 @@
-
 import Vue from 'vue';
 import VueI18n from "vue-i18n";
-import { supportedLangs, defaultLang, fallbackLang } from './locales/index';
+import { _supportedLangs, _defaultLang, _fallbackLang } from './locales/index';
 
-// const messages = Object.assign(supportedLangs); // Object assign is relevant???
-const messages = supportedLangs;
+// const messages = Object.assign(_supportedLangs); // Object assign is relevant???
+const messages = _supportedLangs;
 
 // REM - check if OS/navigator languages are supported by the app's i18n messages
 // const navigatorLangs = navigator.languages;
 const navigatorLangSupported = () => {
-    return Object.getOwnPropertyNames(supportedLangs)
+    return Object.getOwnPropertyNames(_supportedLangs)
         .find(supportedLang => {
             return navigator.languages
                 .find(navigatorLang => {
@@ -24,13 +23,13 @@ const navigatorLangSupported = () => {
 3. then default lang that is set in ./locales/index.js
  */
 const setAppDefaultLang = () => {
-    return localStorage.getItem('i18nLocale') || navigatorLangSupported() || defaultLang;
-}
+    return localStorage.getItem('i18nLocale') || navigatorLangSupported() || _defaultLang;
+};
 
 Vue.use(VueI18n);
 
 export const i18n = new VueI18n({
     locale: setAppDefaultLang(), // by default
-    fallbackLocale: fallbackLang, // if cannot load the default locale
+    fallbackLocale: _fallbackLang, // if cannot load the default locale
     messages, // set locale messages
 });

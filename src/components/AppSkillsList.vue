@@ -35,16 +35,8 @@
                 type: Number,
                 default: () => 0
             }
-        },
-        created () {
-            /* console.log('TLC: created -> ', this.ratings);
-            Object.keys(this.ratings).forEach(key => {
-                console.log('TLC: created -> key', key);
-                console.log('TLC: created -> this.ratings[key]', this.ratings[key]);
-                
-            }); */
         }
-    }
+    };
 </script>
 
 <style lang="scss" module>

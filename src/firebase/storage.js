@@ -1,8 +1,8 @@
 import { storage } from 'firebase';
 // import store from '@/store';
 
-export const getDownloadUrl = (filePath) => {
-	// console.log('TLC: getDownloadUrl -> filePath', filePath);
+export const _getDownloadUrl = (filePath) => {
+	// console.log('TLC: _getDownloadUrl -> filePath', filePath);
   // Create a reference with an initial file path and name
   const fileRef = storage().ref(filePath);
   // Create a reference from a Google Cloud Storage URI
@@ -14,7 +14,6 @@ export const getDownloadUrl = (filePath) => {
   return fileRef.getDownloadURL()
     .then(url => {
 			// console.log('TLC: getDownloadUrl -> url', url);
-      // store.commit('setDownloadUrl', url);
       return url;
     })
     /* .catch(err => {

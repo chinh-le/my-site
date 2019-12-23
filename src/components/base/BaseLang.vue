@@ -16,7 +16,7 @@
 </template>
 
 <script>
-    import { appConfig } from '@/config';
+    import { _appConfig } from '@/config';
     import BaseLangButton from './BaseLangButton';
 
     export default {
@@ -25,23 +25,22 @@
         },
         data () {
             return {
-                langs: appConfig.langs
-            }
+                langs: _appConfig.langs
+            };
         },
         created () {
             this.langs.sort((langA, langB) => (langA.order > langB.order) ? 1 : -1);
         },
         methods: {
             changeLang (lang) {
-                // console.log('TLC: changeLang -> lang', lang);
                 this.$i18n.locale = lang;
 
                 localStorage.setItem('i18nLocale', lang);
 
-                this.$store.dispatch('appLocale', this.$i18n.locale);
+                this.$store.dispatch('appLocale', lang);
             }
         }        
-    }
+    };
 </script>
 
 <style lang="scss" module>

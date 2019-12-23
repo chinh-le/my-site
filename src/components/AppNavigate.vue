@@ -49,8 +49,8 @@
 </template>
 
 <script>
-    import { eventBus } from '@/utils/eventBus';
-    import { scrollTo } from '@/utils/helpers';
+    import { _eventBus } from '@/utils/eventBus';
+    import { _scrollTo } from '@/utils/helpers';
     import BaseLang from './base/BaseLang';
     import AppNavigateLinks from './AppNavigateLinks';
     import AppSocialMedia from './AppSocialMedia';
@@ -79,11 +79,11 @@
         },
         created () {
             // console.log('TLC: Navigation - created -> created');
-            eventBus.$on('evtBusOpenNav', () => {
+            _eventBus.$on('evtBusOpenNav', () => {
                 this.openNav();
             });
             
-            eventBus.$on('evtBusCloseNav', () => {
+            _eventBus.$on('evtBusCloseNav', () => {
                 this.closeNav();
             });
         },
@@ -96,8 +96,8 @@
             window.addEventListener('resize', () => setInlineStyle(this));
         },
         beforeDestroy () {
-            eventBus.$off('evtBusOpenAuth');
-            eventBus.$off('evtBusCloseAuth');
+            _eventBus.$off('evtBusOpenAuth');
+            _eventBus.$off('evtBusCloseAuth');
             window.removeEventListener('resize', setInlineStyle);
         },
         methods: {
@@ -107,7 +107,7 @@
             closeNav () {
                 this.isShow = false;
 
-                scrollTo(document.querySelector('#navigationContent'), 0, 0);
+                _scrollTo(document.querySelector('#navigationContent'), 0, 0);
             }
         },
     };
@@ -123,7 +123,6 @@
 .navigation-content {
   width: var(--navigation-content-width);
   margin: 0 auto;
-  // padding: var(--navigation-padding);
   box-sizing: border-box;
   > * {
     margin-bottom: 1em;

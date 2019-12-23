@@ -6,8 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     lang: null,
-    token: null,
-    downloadUrl: null
+    token: null
   },
   getters: {
     appLang (state) {
@@ -16,9 +15,6 @@ export default new Vuex.Store({
     isAuthenticated (state) {
       // console.log('TLC: isAuthenticated -> state', state);
       return state.token !== null;
-    },
-    downloadUrl (state) {
-      return state.downloadUrl;
     }
   },
   mutations: {
@@ -32,9 +28,6 @@ export default new Vuex.Store({
       } else {
         state.token = null;
       }
-    },
-    setDownloadUrl (state, url) {
-      state.downloadUrl = url || null;
     }
   },
   actions: {

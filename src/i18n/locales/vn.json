@@ -62,7 +62,7 @@
         "label": "gửi tin nhắn",
         "title": "gửi đến Chinh Le"
       },
-      "notification": {
+      "confirmation": {
         "text-1": "tin nhắn của bạn đã được gửi!",
         "text-2": "tôi sẽ hồi đáp bạn càng sớm càng tốt",
         "text-3": "cảm ơn bạn"

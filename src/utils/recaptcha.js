@@ -49,7 +49,7 @@ const recaptchaPage = (action) => {
   });
 };
 
-const recaptchaElement = action => {
+const _recaptchaElement = action => {
   return new Promise((resolve, reject) => {
     recaptchaPage(action)
       .then(token => {
@@ -72,6 +72,5 @@ const recaptchaElement = action => {
 };
 
 export {
-  recaptchaPage,
-  recaptchaElement
+  _recaptchaElement
 };

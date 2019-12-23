@@ -24,9 +24,6 @@
           {{ $t('contact.heading') }}
         </h3>
         <AppContactForm />
-        <p :class="[$style['text'], $style['last']]">
-          {{ $t('app.download-instruction.text-1') }}.
-        </p>
       </div>
     </transition>
   </div>
@@ -46,7 +43,7 @@
         data () {
             return {
                 isAnimated: false
-            }
+            };
         },
         mounted () {
             this.isAnimated = true;

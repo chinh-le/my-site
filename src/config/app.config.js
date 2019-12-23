@@ -1,9 +1,10 @@
-export const appConfig = {
+export const _appConfig = {
     recaptchaSiteKey: process.env.VUE_APP_GOOGLE_RECAPTCHA_SITEKEY, // v3 site key (frontend)
     appAuthenticationType: process.env.VUE_APP_AUTHENTICATION_TYPE,
     appDefaultPassword: process.env.VUE_APP_DEFAULT_PASSWORD,
     appDefaultEmail: process.env.VUE_APP_DEFAULT_EMAIL,
     appResumeNamePath: '/docs/resume/resume-',
+    appRequestRetry: 20,
     views: [
         {
             order: 4,

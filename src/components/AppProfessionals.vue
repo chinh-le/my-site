@@ -1,37 +1,40 @@
 <template>
-  <transition
-    name="slide-fade"
-    mode="out-in"
-    :enter-class="$style['slide-fade-enter']"
-    :enter-to-class="$style['slide-fade-enter-to']"
-    :enter-active-class="$style['slide-fade-enter-active']"
-    :leave-class="$style['slide-fade-leave']"
-    :leave-to-class="$style['slide-fade-leave-to']"
-    :leave-active-class="$style['slide-fade-leave-active']"
-  >
-    <div 
-      v-if="professionals.length > 0"
-      :class="$style['professionals']"
+  <div :class="$style['professionals-container']">
+    <h3>{{ $t('professionals.heading') }}</h3>
+    <transition
+      name="slide-fade"
+      mode="out-in"
+      :enter-class="$style['slide-fade-enter']"
+      :enter-to-class="$style['slide-fade-enter-to']"
+      :enter-active-class="$style['slide-fade-enter-active']"
+      :leave-class="$style['slide-fade-leave']"
+      :leave-to-class="$style['slide-fade-leave-to']"
+      :leave-active-class="$style['slide-fade-leave-active']"
     >
-      <h3>{{ $t('professionals.heading') }}</h3>
       <AppCardOverlayList
+        v-if="professionals.length > 0"
+        :class="$style['professionals']"
         :items="professionals"
       />
+      <BaseDualRing v-else-if="!isErrorRequest" />
       <BaseErrorRequest
-        v-show="isErrorRequest"
+        v-else
         :error-code="errorRequestCode"
       />
-    </div>
-  </transition>
+    </transition>
+  </div>
 </template>
 
 <script>
-    import { _getCollection, _getImgContextPath } from '@/firebase';
+    import { _getData } from '@/utils/helpers';
+    import { _getImgContextPath } from '@/firebase';
     import AppCardOverlayList from './AppCardOverlayList';
     import BaseErrorRequest from './base/BaseErrorRequest';
+    import BaseDualRing from './base/BaseDualRing';
 
     export default {
         components: {
+            BaseDualRing,
             BaseErrorRequest,
             AppCardOverlayList
         },
@@ -43,8 +46,7 @@
             };
         },
         created () {
-            // professionals
-            _getCollection('professionals')
+            _getData('professionals')
                 .then(querySnapshot => {
                     // console.log('TLC: created -> querySnapshot', querySnapshot);
                     this.isErrorRequest = false;
@@ -68,8 +70,9 @@
                     }
                 })
                 .catch(err => {
+                    // console.log('TLC: professionals - created -> err.code', err.code);
                     this.isErrorRequest = true;
-                    this.errorRequestCode = err.code;
+                    this.errorRequestCode = err.code;            
                 });
         }
     };
@@ -77,6 +80,9 @@
 </script>
 
 <style lang="scss" module>
+.professionals-container {
+  min-height: 200px;
+}
 .professionals {
     width: var(--professionals-width);
     margin-bottom: 4em;

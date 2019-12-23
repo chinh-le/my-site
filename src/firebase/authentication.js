@@ -1,47 +1,56 @@
 import { auth } from 'firebase';
 import store from '@/store';
-// import { appConfig } from '@/config';
-// import { getDownloadUrl } from './storage';
 
 let signoutTimer = null;
 
-const autoSignout = (expirationTime) => {
+const _autoSignout = (expirationTime) => {
+	// console.log('TLC: _autoSignout -> expirationTime', expirationTime);
   const currentTimeInMilsecs = Date.parse(new Date());
   const expirationTimeInMilsecs = Date.parse(expirationTime);
   const timerInMilsecs = expirationTimeInMilsecs - currentTimeInMilsecs;
+
   signoutTimer = setTimeout(() => {
-    signout();
+    _signout();
   }, timerInMilsecs);
 };
 
-const onStateChange = () => {
+const _onAuthStateChange = () => {
   // Set an authentication state observer and get user data
   auth().onAuthStateChanged(user => {
-    // console.log('TLC: onStateChange -> user', user);
+		// console.log('TLC: _onAuthStateChange -> user', user);
     if (user) {
-      auth().currentUser.getIdTokenResult()
+     if (!user.isAnonymous) {
+        auth().currentUser.getIdTokenResult()
         .then(res => {
+					// console.log('TLC: _onAuthStateChange -> currentUser.getIdTokenResult() - res', res);
           store.commit('setAuthUser', res);
 
           localStorage.setItem('token', res.token);
           localStorage.setItem('expirationTime', res.expirationTime); // 1h by default
 
-          // getDownloadUrl(appConfig.appResumeNamePath);
-
-          autoSignout(res.expirationTime);
+          _autoSignout(res.expirationTime);
         });
-    } else {
-      store.commit('setDownloadUrl');
+      }
     }
   });
 };
-const signup = (payload) => {
+const _signup = (payload) => {
   return auth().createUserWithEmailAndPassword(payload.email, payload.password);
 };
-const signin = (payload) => {
+const _signin = (payload) => {
   return auth().signInWithEmailAndPassword(payload.email, payload.password);
 };
-const signout = () => {
+const _signinAnonymous = () => {
+		// console.log('TLC: _signinAnonymous -> ');
+    auth().signInAnonymously();
+    /* .then(res => {
+			// console.log('TLC: _signinAnonymous -> res', res);
+    })
+    .catch(err => {
+			// console.log('TLC: init -> _signinAnonymous - err ', err);
+    }); */
+};
+const _signout = () => {
   auth().signOut();
   store.commit('setAuthUser');
   localStorage.removeItem('token');
@@ -51,11 +60,14 @@ const signout = () => {
     clearTimeout(signoutTimer);
     signoutTimer = null;
   }
+
+  _signinAnonymous(); // anonymous signin to allow secured data access
 };
 
 export {
-  onStateChange,
-  signup,
-  signin,
-  signout
+  _onAuthStateChange,
+  _signup,
+  _signin,
+  _signinAnonymous,
+  _signout
 };

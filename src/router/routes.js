@@ -1,8 +1,8 @@
 // import { i18n } from '@/plugins/i18n';
-import { appConfig } from '@/config';
-import { convertArrayToObject } from '@/utils/helpers';
+import { _appConfig } from '@/config';
+import { _convertArrayToObject } from '@/utils/helpers';
 
-const routesConfig = convertArrayToObject(appConfig.views, 'name');
+const routesConfig = _convertArrayToObject(_appConfig.views, 'name');
 // console.log('TLC: routesConfig', routesConfig);
 
 // const routes = [
@@ -47,7 +47,7 @@ export default [
         path: '*',
         redirect: { name: routesConfig.home.name }
     }
-]
+];
 
 /* export {
     routes

@@ -1,10 +1,10 @@
 <template>
-  <div :class="$style['container']">
-    <div :class="$style['canvas-bg']" />
+  <div :class="$style['dual-ring-container']">
+    <!-- <div :class="$style['canvas-bg']" /> -->
     <img
       :class="$style['image']"
       :src="imgPath"
-      alt="ripple graphic"
+      alt="dual ring loading graphic"
     >
   </div>
 </template>
@@ -13,17 +13,14 @@
     export default {
         computed: {
             imgPath () {
-                return require('@/assets/svg/Ripple-2s-200px.svg');
+                return require('@/assets/svg/Dual Ring-1s-200px-55.svg');
             }
         }
     };
 </script>
 
 <style lang="scss" module>
-.container {
-  position: absolute;
-  top: 0;
-  left: 0;
+.dual-ring-container {
   width: 100%;
   height: 100%;
   display: flex;
@@ -31,8 +28,6 @@
   align-items: center;
 }
 .image {
-  width: 20%;
   z-index: $z-index-overlay;
 }
-@include canvas-bg($canvas-spinner-bg-color);
 </style>

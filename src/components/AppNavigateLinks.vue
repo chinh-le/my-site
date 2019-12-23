@@ -17,8 +17,8 @@
 </template>
 
 <script>
-    import { setStyleInlineJustify, viewsFilteredAndSorted } from '@/utils/helpers';
-    import { appConfig } from '@/config';
+    import { _setStyleInlineJustify, _viewsFilteredAndSorted } from '@/utils/helpers';
+    import { _appConfig } from '@/config';
     import BaseNavigateLink from './base/BaseNavigateLink';
 
     export default {
@@ -33,10 +33,9 @@
         },
         created () {
             // filter (not to include private route in navigaton) and sort views array from config
-            this.appViews = viewsFilteredAndSorted(appConfig.views);
+            this.appViews = _viewsFilteredAndSorted(_appConfig.views);
             
             // set/keep the nav (pageLinks) dots to the right aligning with the hamburger icon
-            // this.posX = setStyleInlineJustify('right');
             setInlineStyle(this);
 
             window.addEventListener('resize', () => setInlineStyle(this));
@@ -47,14 +46,12 @@
     };
 
     const setInlineStyle = (vm) => {
-        vm.posX = setStyleInlineJustify('right');
+        vm.posX = _setStyleInlineJustify('right');
     };
 </script>
 
 <style lang="scss" module>
 .page-links {
-  // display: none;
-  // display: var(--nav-links-state);
   font-family: $nav-font-family;
   font-size: 2em;
   margin-bottom: 1.5em;

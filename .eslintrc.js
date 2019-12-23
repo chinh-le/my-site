@@ -34,8 +34,8 @@ module.exports = {
       'error',
       { functions: 'always', keywords: 'always', classes: 'always' }
     ],
-    'object-curly-spacing': ['error', 'always', { objectsInObjects: false }]
-    // 'semi': [2, 'always'],
+    'object-curly-spacing': ['error', 'always', { objectsInObjects: false }],
+    'semi': [2, 'always'],
     /* 'vue/html-indent': [
       'warn', 2, {
         'closeBracket': 1

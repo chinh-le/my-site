@@ -34,8 +34,8 @@
 
 <script>
     // @ is an alias to /src
-    import { init, onStateChange } from '@/firebase';
-    import { eventBus } from '@/utils/eventBus';
+    import { _onAuthStateChange } from '@/firebase';
+    import { _eventBus } from '@/utils/eventBus';
     import TheHeader from '@/components/TheHeader';
     import TheFooter from '@/components/TheFooter';
     import AppNavigate from '@/components/AppNavigate';
@@ -57,12 +57,12 @@
                 elSiteWrap: null,
                 elTheHeader: null,
                 elTheFooter: null
-            }
+            };
         },
         beforeCreate () {
-            init(); // set firebase config
-            onStateChange(); // authentication state observer
-
+            _onAuthStateChange(); // authentication state observer
+            
+            // set app locale
             this.$store.dispatch('appLocale', this.$i18n.locale);
         },
         mounted () {
@@ -88,8 +88,8 @@
         // console.log('TLC: closeAllSlideInPanels -> evt', evt.key);
         if (typeof evt.key !== 'undefined' && typeof evt.which !== 'undefined') {
             if ((evt.key).toLowerCase() === 'escape' || (evt.code).toLowerCase() === 'escape' || evt.which === 27) {
-                eventBus.closeNav();
-                eventBus.closeAuth();
+                _eventBus.closeNav();
+                _eventBus.closeAuth();
             } 
         } 
     };

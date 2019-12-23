@@ -38,16 +38,15 @@
         data () {
             return {
                 isAnimated: false
-            }
+            };
         },
         mounted () {
             this.isAnimated = true;
         }
-    }
+    };
 </script>
 
 <style lang="scss" module>
-.home {}
 .content {
   width: var(--home-content-width);
   margin: 0 auto;
@@ -59,7 +58,6 @@
 }
 .line {
     font-size: 3em;
-    // display: none;
 }
 .color-focus {
     color: $highlight-color;

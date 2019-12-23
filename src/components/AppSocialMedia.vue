@@ -14,7 +14,9 @@
 </template>
 
 <script>
-    import { _getCollection, _getImgContextPath } from '@/firebase';
+    // import { _getCollection, _getImgContextPath } from '@/firebase';
+    import { _getImgContextPath } from '@/firebase';
+    import { _getData } from '@/utils/helpers';
     import BaseLinkImage from './base/BaseLinkImage';
 
     export default {
@@ -27,7 +29,8 @@
             };
         },
         created () {
-            _getCollection('socialMedia')
+            // _getCollection('socialMedia')
+            _getData('socialMedia')
                 .then(snapshots => {
                     // // // console.log('TLC: created -> snapshots', snapshots);
                     if (!snapshots.empty) {
@@ -42,20 +45,17 @@
                             
                             this.socialMedias.push(elemData);
                         });
-                        // // // console.log('TLC: created -> this.socialMedias', this.socialMedias);
-                    } else {
-                        // // // console.log('TLC: created -> list empty');
                     }
-                })
-                .catch(err => {
-                    errorHandler(err);
                 });
+            /* .catch(err => {
+                    errorHandler(err);
+                }); */
         }
     };
 
-    const errorHandler = () => {
+    /* const errorHandler = () => {
         // console.log('TLC: errorHandler -> err', err);
-    };
+    }; */
 </script>
 
 <style lang="scss" module>

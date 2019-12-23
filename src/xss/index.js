@@ -1,6 +1,6 @@
 // https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
 
-const htmlEscaping = (input) => {
+const _htmlEscaping = (input) => {
   // & --> &amp;
   // < --> &lt;
   // > --> &gt;
@@ -21,5 +21,5 @@ const htmlEscaping = (input) => {
 };
 
 export {
-  htmlEscaping
+  _htmlEscaping
 };
