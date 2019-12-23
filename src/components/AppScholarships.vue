@@ -1,37 +1,43 @@
 <template>
-  <transition
-    name="slide-fade"
-    mode="out-in"
-    :enter-class="$style['slide-fade-enter']"
-    :enter-to-class="$style['slide-fade-enter-to']"
-    :enter-active-class="$style['slide-fade-enter-active']"
-    :leave-class="$style['slide-fade-leave']"
-    :leave-to-class="$style['slide-fade-leave-to']"
-    :leave-active-class="$style['slide-fade-leave-active']"
-  >
-    <div 
-      v-if="scholarships.length > 0"
-      :class="$style['scholarships']"
+  <div :class="$style['scholarships-container']">
+    <h3>{{ $t('scholarships.heading') }}</h3>
+    <transition
+      name="slide-fade"
+      mode="out-in"
+      :enter-class="$style['slide-fade-enter']"
+      :enter-to-class="$style['slide-fade-enter-to']"
+      :enter-active-class="$style['slide-fade-enter-active']"
+      :leave-class="$style['slide-fade-leave']"
+      :leave-to-class="$style['slide-fade-leave-to']"
+      :leave-active-class="$style['slide-fade-leave-active']"
     >
-      <h3>{{ $t('scholarships.heading') }}</h3>
-      <AppCardList
-        :items="scholarships"
-      />
+      <div 
+        v-if="scholarships.length > 0"
+        :class="$style['scholarships']"
+      >
+        <AppCardList
+          :items="scholarships"
+        />
+      </div>
+      <BaseDualRing v-else-if="!isErrorRequest" />
       <BaseErrorRequest
-        v-show="isErrorRequest"
+        v-else
         :error-code="errorRequestCode"
       />
-    </div>
-  </transition>
+    </transition>
+  </div>
 </template>
 
 <script>
-    import { _getCollection, _getImgContextPath } from '@/firebase';
+    import { _getData } from '@/utils/helpers';
+    import { _getImgContextPath } from '@/firebase';
     import AppCardList from './AppCardList';
     import BaseErrorRequest from './base/BaseErrorRequest';
+    import BaseDualRing from './base/BaseDualRing';
 
     export default {
         components: {
+            BaseDualRing,
             BaseErrorRequest,
             AppCardList
         },
@@ -43,7 +49,7 @@
             };
         },
         created () {
-            _getCollection('scholarships')
+            _getData('scholarships')
                 .then(snapshots => {
                     // console.log('TLC: created -> snapshots', snapshots);
                     this.isErrorRequest = false;
@@ -75,6 +81,9 @@
 </script>
 
 <style lang="scss" module>
+.scholarships-container {
+  min-height: 200px;
+}
 .scholarships {
     width: var(--works-content-sub-width);
 }

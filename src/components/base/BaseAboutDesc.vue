@@ -6,16 +6,11 @@
     <p :class="$style['text']">
       {{ $t('about.paragraph-1') }}.
     </p>
-    <p :class="[$style['text'], $style['last']]">
-      {{ $t('about.paragraph-2') }}.
-    </p>
   </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+    export default {};
 </script>
 
 <style lang="scss" module>

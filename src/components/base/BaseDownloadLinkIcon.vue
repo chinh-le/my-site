@@ -11,14 +11,14 @@
 
 <script>
     import { mapState } from 'vuex';
-    import { getDownloadUrl } from '@/firebase';
-    import { appConfig } from '@/config';
+    import { _getDownloadUrl } from '@/firebase';
+    import { _appConfig } from '@/config';
 
     export default {
         data () {
             return {
                 linkUrl: null
-            }
+            };
         },
         computed: {
             ...mapState([
@@ -37,12 +37,12 @@
                 this.linkUrl = res;
             });
         },
-    }
+    };
 
     const setDownloadLink = (lang) => {
-        const resumeFilePath = appConfig.appResumeNamePath + lang + '.pdf';
+        const resumeFilePath = _appConfig.appResumeNamePath + lang + '.pdf';
 
-        return getDownloadUrl(resumeFilePath);
+        return _getDownloadUrl(resumeFilePath);
     };
 </script>
 

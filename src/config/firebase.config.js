@@ -1,4 +1,4 @@
-export const firebaseConfig = {
+export const _firebaseConfig = {
     // gcloudProject: process.env.GCLOUD_PROJECT, // avail in emulator
     // firebaseConfig: process.env.FIREBASE_CONFIG, // avail in emulator
     apiKey: process.env.VUE_APP_GOOGLE_API_KEY,

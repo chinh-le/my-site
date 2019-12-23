@@ -1,8 +1,8 @@
 export {
-  firebaseConfig
+  _firebaseConfig
 } from './firebase.config';
 
 export {
-  appConfig
+  _appConfig
 } from './app.config';
 

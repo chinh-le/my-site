@@ -29,7 +29,7 @@
                 return this.$i18n.locale === this.btnLabel ? 'active' : '';
             }
         }
-    }
+    };
 </script>
 
 <style lang="scss" module>

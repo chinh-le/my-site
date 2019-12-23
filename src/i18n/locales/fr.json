@@ -63,7 +63,7 @@
         "label": "envoyer message",
         "title": "envoyer à Chinh Le"
       },
-      "notification": {
+      "confirmation": {
         "text-1": "votre message a été envoyé!",
         "text-2": "je vous répondrai dans les plus brefs délais",
         "text-3": "je vous remercie"

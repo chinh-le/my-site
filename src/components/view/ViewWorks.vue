@@ -29,7 +29,6 @@
             AppPersonals
         }
     };
-
 </script>
 
 <style lang="scss" module>

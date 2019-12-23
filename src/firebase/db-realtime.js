@@ -1,6 +1,6 @@
 import { database } from 'firebase';
 
-const writeUserData = (contact) => {
+const _writeUserData = (contact) => {
   /*
     - Firebase Database constraint: Paths must be non-empty strings and can't contain ".", "#", "$", "[", or "]""
       - Converting dots (.) in email address into '%'
@@ -22,21 +22,21 @@ const writeUserData = (contact) => {
       }, err => {
         // debugger;
         if (err) {
-          // console.log('TLC: 1writeUserData -> err', err);
+          // console.log('TLC: 1_writeUserData -> err', err);
           // reject(Error(err));
           reject(err);
         } else {
-          // console.log('TLC: 2writeUserData -> SUCCESS');
+          // console.log('TLC: 2_writeUserData -> SUCCESS');
           resolve('write SUCCESS');
         }
       })
       .catch(err => {
-        // console.log('TLC: 3writeUserData -> err', err);
+        // console.log('TLC: 3_writeUserData -> err', err);
         reject(err);
       });
   });
 };
 
 export {
-  writeUserData
+  _writeUserData
 };

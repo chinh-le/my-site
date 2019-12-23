@@ -25,11 +25,11 @@
 </template>
 
 <script>
-    import { signout } from '@/firebase';
-    import { eventBus } from '@/utils/eventBus';
+    import { mapGetters } from 'vuex';
+    import { _signout } from '@/firebase';
+    import { _eventBus } from '@/utils/eventBus';
     import BaseDownloadLinkIcon from './base/BaseDownloadLinkIcon';
     import BaseButtonIcon from './base/BaseButtonIcon';
-    import { mapGetters } from 'vuex';
 
     export default {
         components: {
@@ -44,16 +44,16 @@
         },
         methods: {
             openNav () {
-                eventBus.openNav();
+                _eventBus.openNav();
             },
             openAuth () {
-                eventBus.openAuth();
+                _eventBus.openAuth();
             },
             signout () {
-                signout();
+                _signout();
             }
         }
-    }
+    };
 </script>
 
 <style lang="scss" module>

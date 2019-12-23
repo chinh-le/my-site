@@ -30,7 +30,7 @@
                 default: () => {}
             }
         }
-    }
+    };
 </script>
 
 <style lang="scss" module>

@@ -42,8 +42,8 @@
 </template>
 
 <script>
-    import { eventBus } from '@/utils/eventBus';
-    import { scrollTo } from '@/utils/helpers';
+    import { _eventBus } from '@/utils/eventBus';
+    import { _scrollTo } from '@/utils/helpers';
     import AppAuthenticateForm from './AppAuthenticateForm';
     import BaseButtonIcon from './base/BaseButtonIcon';
 
@@ -59,16 +59,16 @@
         },
         created () {
             // // // // console.log('TLC: Authentication - created -> created');
-            eventBus.$on('evtBusOpenAuth', () => {
+            _eventBus.$on('evtBusOpenAuth', () => {
                 this.openAuth();
             });
-            eventBus.$on('evtBusCloseAuth', () => {
+            _eventBus.$on('evtBusCloseAuth', () => {
                 this.closeAuth();
             });
         },
         beforeDestroy () {
-            eventBus.$off('evtBusOpenAuth');
-            eventBus.$off('evtBusCloseAuth');
+            _eventBus.$off('evtBusOpenAuth');
+            _eventBus.$off('evtBusCloseAuth');
         },
         methods: {
             openAuth () {
@@ -77,7 +77,7 @@
             closeAuth () {
                 this.isShow = false;
 
-                scrollTo(document.querySelector('#formAuthenticateContainer'), 0, 0);
+                _scrollTo(document.querySelector('#formAuthenticateContainer'), 0, 0);
             },
         }
     };

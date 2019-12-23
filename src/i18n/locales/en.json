@@ -8,8 +8,7 @@
     "title": "about me",
     "heading-1": "web developer",
     "heading-2": "responsive for mobile and desktop",
-    "paragraph-1": "creating websites, following best practices and current technologies, to develop better, faster and more efficiently",
-    "paragraph-2": "developing with today's frameworks, libraries and Web Services, such as Vue, React, Angular, Google Firebase and Google Cloud Platform"
+    "paragraph-1": "Innovative Web Developer with over 10 years experience in front-end development.  Building and maintaining high-quality responsive web applications. Working with the latest Javascript frameworks/libraries and web services such as Vue, React, Angular, Google Cloud Platform. Seeking to thrive rapidly and master diverse new trends and emerging technologies. Ability to perform well in a fast-paced environment.  Excellent analytical thinker and problem-solving skills.  Detail-oriented with the ability to work independently and to collaborate successfully with other team player."
   },
   "works": {
     "title": "works"
@@ -62,7 +61,7 @@
         "label": "send message",
         "title": "send to Chinh Le"
       },
-      "notification": {
+      "confirmation": {
         "text-1": "your message has been sent!",
         "text-2": "i will get back to you as sson as possible",
         "text-3": "thank you"
