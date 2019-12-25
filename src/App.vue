@@ -60,6 +60,7 @@
             };
         },
         beforeCreate () {
+            // console.log('TLC: beforeCreate -> beforeCreate');
             _onAuthStateChange(); // authentication state observer
             
             // set app locale
@@ -85,7 +86,7 @@
     };
 
     const closeAllSlideInPanels = (evt) => {
-        // console.log('TLC: closeAllSlideInPanels -> evt', evt.key);
+        // // console.log('TLC: closeAllSlideInPanels -> evt', evt.key);
         if (typeof evt.key !== 'undefined' && typeof evt.which !== 'undefined') {
             if ((evt.key).toLowerCase() === 'escape' || (evt.code).toLowerCase() === 'escape' || evt.which === 27) {
                 _eventBus.closeNav();

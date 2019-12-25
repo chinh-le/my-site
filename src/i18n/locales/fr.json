@@ -50,7 +50,8 @@
     "about": "à propos",
     "works": "projets",
     "education": "éducation",
-    "contact": "contact"
+    "contact": "contact",
+    "admin": "admin"
   },
   "forms": {
     "contact": {

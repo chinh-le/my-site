@@ -1,3 +1,4 @@
+// import store from '@/store';
 import { _appConfig } from '../config';
 
 // get data async with number of retry
@@ -19,12 +20,15 @@ const _getData = async (collection) => {
   throw error;
 };
 
+// sort array by key
+const _arraySortByKey = (arr, k) => {
+  return arr.sort((a, b) => a[k] - b[k]);
+};
+
 // filter (not to include private route) and sort view routes
-const _viewsFilteredAndSorted = (views) => {
-  return views.filter(view => {
-		// // // console.log('TLC: created -> view', view);
-    return !view.private;
-  }).slice((viewA, viewB) => viewA.order - viewB.order);
+const _viewsFilterPublicAndSort = (views, k) => {
+  const filteredViews = views.slice().filter(view => !view.private);
+  return _arraySortByKey(filteredViews, k);
 };
 
 // source: https://dev.to/afewminutesofcode/how-to-convert-an-array-into-an-object-in-javascript-25a4
@@ -88,7 +92,8 @@ const _scrollTo = (el, left, top) => {
 
 export {
   _getData,
-  _viewsFilteredAndSorted,
+  _arraySortByKey,
+  _viewsFilterPublicAndSort,
   _convertArrayToObject,
   _generateUniqueId,
   _setStyleInlineJustify,

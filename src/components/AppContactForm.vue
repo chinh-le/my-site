@@ -292,15 +292,7 @@
     }
 }
 // reset form input autofill bg color
-.input:-webkit-autofill,
-.input:-webkit-autofill:hover, 
-.input:-webkit-autofill:focus {
-  // border: 1px solid green;
-  -webkit-text-fill-color: var(--form-input-txt-color);
-  // -webkit-box-shadow: 0 0 0px 1000px var(--form-input-autofill-bg-color) inset;
-  box-shadow: 0 0 0px 1000px var(--form-input-autofill-bg-color) inset;
-  transition: background-color 5000s ease-in-out 0s;
-}
+@include reset-form-autofill;
 .input-error {
     font-size: 0.7em;
     opacity: 0.8;
