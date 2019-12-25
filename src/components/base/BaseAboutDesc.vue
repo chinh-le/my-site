@@ -6,6 +6,12 @@
     <p :class="$style['text']">
       {{ $t('about.paragraph-1') }}.
     </p>
+    <p :class="$style['text']">
+      {{ $t('about.paragraph-2') }}.
+    </p>
+    <p :class="$style['text']">
+      {{ $t('about.paragraph-3') }}.
+    </p>
   </div>
 </template>
 

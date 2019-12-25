@@ -20,7 +20,7 @@ const professionals = {
     url: 'https://illicoweb.videotron.com/',
     languages: 'AngularJS (v1.6), jQuery, Java, GTM, GA'
   }
-}
+};
 
 const personals = {
   stockTrader: {
@@ -50,7 +50,7 @@ const personals = {
     url: null,
     label: 'coming-soon' // REM - label value requires to be kebab-case since it is used as key for i18n - see skills.ratings (@/i18n/locales/*.json) and its use in @/components/base/BaseDotSet.vue
   } */
-}
+};
 
 const certificates = {
   vuejs2: {
@@ -101,7 +101,7 @@ const certificates = {
     // alt: 'Concordia University',
     location: 'Concordia University'
   }
-}
+};
 
 const scholarships = {
   bertelsmann: {
@@ -112,7 +112,7 @@ const scholarships = {
     alt: 'Bertelsmann scholarship',
     location: 'Udacity.com'
   }
-}
+};
 
 const skills = {
   vuejs: {
@@ -170,7 +170,7 @@ const skills = {
     name: 'Java, PHP, Smarty',
     rate: 1
   }
-}
+};
 
 // REM - ratings values are keys for i18n - see skills.ratings (@/i18n/locales/*.json) and its use in @/components/base/BaseDotSet.vue
 const ratings = {
@@ -179,7 +179,7 @@ const ratings = {
   3: 'good',
   4: 'very-good',
   5: 'expert'
-}
+};
 
 const socialMedia = {
   linked: {
@@ -200,7 +200,7 @@ const socialMedia = {
     image: 'instagram-logo-black-sm.png',
     url: 'https://www.instagram.com/niusaul/'
   }
-}
+};
 
 export {
   professionals,
@@ -210,4 +210,4 @@ export {
   skills,
   ratings,
   socialMedia
-}
+};
