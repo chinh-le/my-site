@@ -67,6 +67,9 @@
   margin: 0 auto;
   height: var(--contact-height);
 }
+.contact-content {
+  box-sizing: border-box;
+}
 .text {
   color: $dimlight-color;
   margin-bottom: 0.7em;

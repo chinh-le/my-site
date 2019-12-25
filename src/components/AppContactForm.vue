@@ -277,9 +277,6 @@
     width: var(--contact-input-name-email-width);
   }
 }
-.contact-form {
-    padding-bottom: 2em;
-}
 .form-input-container {
     background-color: var(--form-input-bg-color);
     padding: 0 1em;
