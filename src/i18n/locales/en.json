@@ -48,7 +48,8 @@
     "about": "about",
     "works": "works",
     "education": "education",
-    "contact": "contact"
+    "contact": "contact",
+    "admin": "admin"
   },
   "forms": {
     "contact": {

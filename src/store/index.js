@@ -5,10 +5,14 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    uid: null,
     lang: null,
     token: null
   },
   getters: {
+    uid (state) {
+      return state.uid;
+    },
     appLang (state) {
       return state.lang;
     },
@@ -24,8 +28,10 @@ export default new Vuex.Store({
     setAuthUser (state, user) {
       // console.log('TLC: setAuthUser -> state', state);
       if (user) {
+        state.uid = user.claims.user_id;
         state.token = user.token;
       } else {
+        state.uid = null;
         state.token = null;
       }
     }
@@ -33,6 +39,9 @@ export default new Vuex.Store({
   actions: {
     appLocale ({ commit }, lang) {
       commit('setLang', lang);
+    },
+    authUser ({ commit }, user) {
+      commit('setAuthUser', user);
     }
   },
   modules: {

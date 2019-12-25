@@ -55,7 +55,6 @@
 </template>
 
 <script>
-    import { auth } from 'firebase';
     import {
         _addCollection,
         _getCollection,
@@ -65,26 +64,7 @@
         _getRatings
     } from '@/firebase';
     import * as mocks from '../../../mocks/data';
-
     export default {
-        // guard route
-        beforeRouteEnter (to, from, next) {
-            auth().onAuthStateChanged(user => {
-                // console.log('TLC: beforeRouteEnter -> user', user)
-                if (user) {
-                    auth()
-                        .currentUser.getIdTokenResult()
-                        .then(res => {
-                            // console.log('TLC: beforeRouteEnter -> LOGGED ', res)
-                            errorHandler(res);
-                            next();
-                        });
-                } else {
-                    // console.log('TLC: beforeRouteEnter -> NOT LOGGED!!!')
-                    next({ name: 'home' });
-                }
-            });
-        },
         methods: {
             addCollection (type) {
                 _addCollection(
@@ -135,7 +115,7 @@
 
     // const errorHandler = err => {
     const errorHandler = () => {
-        // console.log('TLC: errorHandler -> ', err)
+        // console.log('TLC: errorHandler -> ', err);
     };
 </script>
 

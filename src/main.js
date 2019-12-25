@@ -2,7 +2,7 @@ import Vue from 'vue';
 import { VueReCaptcha } from 'vue-recaptcha-v3';
 import Vuelidate from 'vuelidate';
 import { i18n } from './i18n';
-import { _init, _signinAnonymous } from './firebase';
+import { _init } from './firebase';
 
 // SCSS customizing
 import './styles/style.scss';
@@ -13,7 +13,6 @@ import store from './store';
 import { _appConfig } from './config';
 
 _init(); // Firebase init
-_signinAnonymous(); // anonymous signin to allow secured data access
 
 Vue.use(VueReCaptcha, {
   siteKey: _appConfig.recaptchaSiteKey,

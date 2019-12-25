@@ -20,7 +20,7 @@ const professionals = {
     url: 'https://illicoweb.videotron.com/',
     languages: 'AngularJS (v1.6), jQuery, Java, GTM, GA'
   }
-}
+};
 
 const personals = {
   stockTrader: {
@@ -28,21 +28,21 @@ const personals = {
     label: 'Stock Trader',
     image: 'stock-trader-vue-640.png',
     url: 'https://stock-trader-vue-6bd8c.web.app/',
-    languages: 'Vue, Google Firebase'
+    languages: 'Vue, Google Cloud Platform'
   },
   burgerBuilder: {
     order: 2,
     label: 'Burger Builder',
     image: 'burger-builder-react-640.png',
     url: 'https://burger-builder-react-8801d.web.app/',
-    languages: 'React, Google Firebase'
+    languages: 'React, Google Cloud Platform'
   },
   recipeBook: {
     order: 3,
     label: 'Recipe Book',
     image: 'recipe-book-ng-640.png',
     url: 'https://recipe-book-ng-183d5.firebaseapp.com/',
-    languages: 'Angular, Google Firebase'
+    languages: 'Angular, Google Cloud Platform'
   }
   /* comingSoon: {
     order: 4,
@@ -50,7 +50,7 @@ const personals = {
     url: null,
     label: 'coming-soon' // REM - label value requires to be kebab-case since it is used as key for i18n - see skills.ratings (@/i18n/locales/*.json) and its use in @/components/base/BaseDotSet.vue
   } */
-}
+};
 
 const certificates = {
   vuejs2: {
@@ -101,7 +101,7 @@ const certificates = {
     // alt: 'Concordia University',
     location: 'Concordia University'
   }
-}
+};
 
 const scholarships = {
   bertelsmann: {
@@ -112,13 +112,13 @@ const scholarships = {
     alt: 'Bertelsmann scholarship',
     location: 'Udacity.com'
   }
-}
+};
 
 const skills = {
   vuejs: {
     order: 1,
     name: 'Vue 2',
-    rate: 2
+    rate: 3
   },
   react: {
     order: 2,
@@ -143,17 +143,17 @@ const skills = {
   js: {
     order: 6,
     name: 'Javascript',
-    rate: 3
+    rate: 4
   },
   css: {
     order: 7,
     name: 'CSS, Sass, Less',
-    rate: 4
+    rate: 5
   },
   html: {
     order: 8,
     name: 'HTML',
-    rate: 4
+    rate: 5
   },
   git: {
     order: 9,
@@ -170,7 +170,7 @@ const skills = {
     name: 'Java, PHP, Smarty',
     rate: 1
   }
-}
+};
 
 // REM - ratings values are keys for i18n - see skills.ratings (@/i18n/locales/*.json) and its use in @/components/base/BaseDotSet.vue
 const ratings = {
@@ -179,7 +179,7 @@ const ratings = {
   3: 'good',
   4: 'very-good',
   5: 'expert'
-}
+};
 
 const socialMedia = {
   linked: {
@@ -200,7 +200,7 @@ const socialMedia = {
     image: 'instagram-logo-black-sm.png',
     url: 'https://www.instagram.com/niusaul/'
   }
-}
+};
 
 export {
   professionals,
@@ -210,4 +210,4 @@ export {
   skills,
   ratings,
   socialMedia
-}
+};

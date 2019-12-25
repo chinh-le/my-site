@@ -127,13 +127,13 @@
                 email: {
                     required,
                     isDefault (email) {
-                        return email === _appConfig.appDefaultEmail;
+                        return email === _appConfig.appResumeEmail || email === _appConfig.appAdminEmail || email === _appConfig.appTesterEmail;
                     }
                 },
                 password: {
                     required,
                     isDefault: password => {
-                        return password === _appConfig.appDefaultPassword;
+                        return password === _appConfig.appResumePassword || password === _appConfig.appAdminPassword || password === _appConfig.appTesterPassword;
                     }
                 }
             }
@@ -162,7 +162,7 @@
                     email: this.auth.email,
                     password: this.auth.password
                 };
-                // // console.log('TLC: onSubmit -> payload', payload);
+                // // // console.log('TLC: onSubmit -> payload', payload);
 
                 this.requestStatus = 'sending';
                 this.errorRequestCode = '';
@@ -173,37 +173,37 @@
                             if (this.isSigningUp) {
                                 _signup(payload)
                                     .then(res => {
-                                        // // console.log('TLC: onSubmit -> res', res);
+                                        // // // console.log('TLC: onSubmit -> res', res);
                                         if (res.user) {
                                             this.closeAuth();
                                             this.requestStatus = '';
                                         }
                                     })
                                     .catch(err => {
-                                        // // console.log('TLC: onSubmit -> err', err);
+                                        // // // console.log('TLC: onSubmit -> err', err);
                                         this.errorRequestCode = err.code;
                                     });
                             } else {
                                 _signin(payload)
                                     .then(res => {
-                                        console.log('TLC: onSubmit -> res', res);
+                                        // console.log('TLC: onSubmit -> res', res);
                                         if (res.user) {
                                             this.closeAuth();
                                             this.requestStatus = '';
                                         }
                                     })
                                     .catch(err => {
-                                        console.log('TLC: onSubmit -> err', err);
+                                        // console.log('TLC: onSubmit -> err', err);
                                         this.errorRequestCode = err.code;
                                     });
                             }
                         } else {
-                            // // console.log('TLC: onSubmit -> SPAM Automated Abused!!!');
+                            // // // console.log('TLC: onSubmit -> SPAM Automated Abused!!!');
                             this.errorRequestCode = 'SPAM Automated Abused!!!';
                         }
                     })
                     .catch(err => {
-                        // // console.log('TLC: onSubmit -> err', err);
+                        // // // console.log('TLC: onSubmit -> err', err);
                         this.errorRequestCode = err.code;
                     });
             }
@@ -211,7 +211,7 @@
     };
 
     const setInlineStyle = (vm) => {
-        // console.log('TLC: setInlineStyle -> vm', vm.elFormAuthenticate);
+        // // console.log('TLC: setInlineStyle -> vm', vm.elFormAuthenticate);
         const elHeight = window.innerHeight - vm.elBtnClose.clientHeight;
         
         vm.elFormAuthenticate.setAttribute('style', `height: ${elHeight}px`);
@@ -248,15 +248,7 @@
   }
 }
 // reset form input autofill bg color
-.input:-webkit-autofill,
-.input:-webkit-autofill:hover, 
-.input:-webkit-autofill:focus {
-  // border: 1px solid green;
-  -webkit-text-fill-color: var(--form-input-txt-color);
-  // -webkit-box-shadow: 0 0 0px 1000px var(--form-input-autofill-bg-color) inset;
-  box-shadow: 0 0 0px 1000px var(--form-input-autofill-bg-color) inset;
-  transition: background-color 5000s ease-in-out 0s;
-}
+@include reset-form-autofill;
 .download-instruction {
   color: var(--download-instruction-txt-color);
   padding: 2em 0;
