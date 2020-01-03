@@ -118,7 +118,6 @@
 }
 .site-wrap {
   position: relative;
-  top: var(--site-header-height);
   z-index: $z-index-site-wrap; //4;
   display: flex;
   align-items: center;

@@ -14,7 +14,6 @@
 </template>
 
 <script>
-    // import { _getCollection, _getImgContextPath } from '@/firebase';
     import { _getImgContextPath } from '@/firebase';
     import { _getData } from '@/utils/helpers';
     import BaseLinkImage from './base/BaseLinkImage';
@@ -29,7 +28,6 @@
             };
         },
         created () {
-            // _getCollection('socialMedia')
             _getData('socialMedia')
                 .then(snapshots => {
                     // // // console.log('TLC: created -> snapshots', snapshots);

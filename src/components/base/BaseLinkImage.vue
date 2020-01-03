@@ -1,16 +1,14 @@
 <template>
-  <div :class="$style['link-image']">
-    <a
-      :href="link.url"
-      :class="[$style['link'], $style[link.label]]"
-      :title="link.label"
+  <a
+    :href="link.url"
+    :class="[$style['link'], $style[link.label]]"
+    :title="link.label"
+  >
+    <img
+      :src="link.image"
+      :alt="link.label"
     >
-      <img
-        :src="link.image"
-        :alt="link.label"
-      >
-    </a>
-  </div>
+  </a>
 </template>
 
 <script>
@@ -25,19 +23,17 @@
 </script>
 
 <style lang="scss" module>
-.link-image {
-  line-height: 1em;
-  &:hover {
-        cursor: pointer;
-    }
-}
 .link{
-  display: inline-flex;
+  display: flex;
+  text-decoration: none;
   > img {
     width: var(--social-icon-dimension);
     height: var(--social-icon-dimension);
     transition: all var(--the-header-anim-duration) var(--the-header-anim-timing);
-    padding: 1.3em;
+    padding: 1em;
+  }
+  &:hover {
+      cursor: pointer;
   }
   &:after {
     @include screen-reader-ready;
