@@ -1,3 +1,12 @@
+// responsive breakpoints (Bootstrap)
+$breakpoint-xs: 330px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+
+
 $font-fallback: Verdana, Geneva, Tahoma, sans-serif;
 
 $base-font: Montserrat, $font-fallback;
@@ -5,6 +14,10 @@ $base-size: 16px;
 $base-txt-color: #f7f7f7;
 $base-line-height: 1.5em;
 $base-bg-color: #f7f7f7;
+$base-min-width: $breakpoint-xs;
+$base-max-width: $breakpoint-xl;
+
+
 
 // headings
 $heading1-size: 1em;
@@ -82,13 +95,6 @@ $z-index-overlay-bg: 2000;
 $z-index-overlay: 2001;
 $z-index-spinner-bg: 3000;
 $z-index-spinner: 3001;
-
-// responsive breakpoints (Bootstrap)
-$breakpoint-xs: 330px;
-$breakpoint-sm: 576px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 992px;
-$breakpoint-xl: 1200px;
 
 // 3:4 (portrait)
 $breakpoint-xs-height: 440px;

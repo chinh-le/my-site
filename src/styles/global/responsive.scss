@@ -1,6 +1,7 @@
 // >= 330 xs
 @media screen and (min-width: $breakpoint-xs) {
     :root {
+        --lang-list-direction: row;
         --navigation-padding: 0 2em;
     }
     #home {
@@ -121,7 +122,7 @@
 // orientation: landscape
 // device-pixel-ratio: 2
 // portrait
-@media screen and (max-width: $breakpoint-xs) and (min-height: $breakpoint-xs) {
+/* @media screen and (max-width: $breakpoint-xs) and (min-height: $breakpoint-xs) {
     :root {
         --body-bg-image: url('../assets/chinh-main-bw-portrait.jpg');
     }
@@ -147,7 +148,7 @@
         --body-bg-image: url('../assets/chinh-main-bw-portrait.jpg');
     }
 }
-
+ */
 
 // card overlay image max-height
 // <=330

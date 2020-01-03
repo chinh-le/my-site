@@ -16,7 +16,7 @@
       :btn-icon="'person'"
     />
     <BaseButtonIcon
-      :btn-class="'btn-nac'"
+      :btn-class="'btn-nav'"
       :btn-title="$t('buttons.navigate')"
       :btn-handler="openNav"
       :btn-icon="'dehaze'"

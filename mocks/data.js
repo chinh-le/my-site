@@ -55,7 +55,7 @@ const personals = {
 const certificates = {
   vuejs2: {
     order: 1,
-    header: 'Vue 2 - The Complete Guide',
+    header: 'VueJS 2 - The Complete Guide',
     url: 'https://udemy.com/course/vuejs-2-the-complete-guide/',
     image: 'UC-KKDCJ1EE-640.jpg',
     alt: 'VueJS 2 certificate',
@@ -115,60 +115,55 @@ const scholarships = {
 };
 
 const skills = {
-  vuejs: {
+  librairies: {
     order: 1,
-    name: 'Vue 2',
+    name: 'VueJS 2, React 16, Angular, AngularJS, Bootstrap 4',
     rate: 3
   },
-  react: {
-    order: 2,
-    name: 'React 16',
-    rate: 2
-  },
-  angular: {
-    order: 3,
-    name: 'Angular, AngularJS',
-    rate: 2
-  },
-  bootstrap: {
-    order: 4,
-    name: 'Bootstrap 4',
-    rate: 2
-  },
   google: {
-    order: 5,
-    name: 'Google Firebase, Google Cloud Platform',
-    rate: 2
+    order: 2,
+    name: 'Google Firebase/Cloud Platform',
+    rate: 3
   },
   js: {
-    order: 6,
+    order: 3,
     name: 'Javascript',
     rate: 4
   },
   css: {
-    order: 7,
-    name: 'CSS, Sass, Less',
+    order: 4,
+    name: 'CSS, Sass, Less, BEM',
     rate: 5
   },
   html: {
-    order: 8,
+    order: 5,
     name: 'HTML',
     rate: 5
   },
   git: {
-    order: 9,
+    order: 6,
     name: 'Git, Subversion',
     rate: 3
   },
   npm: {
-    order: 10,
+    order: 7,
     name: 'NPM, Yarn, Webpack, Gulp, Grunt',
     rate: 3
   },
+  tools: {
+    order: 8,
+    name: 'jQuery, Photoshop',
+    rate: 3
+  },
+  api: {
+    order: 9,
+    name: 'Rest API, Ajax, JSON',
+    rate: 2
+  },
   others: {
-    order: 11,
+    order: 10,
     name: 'Java, PHP, Smarty',
-    rate: 1
+    rate: 2
   }
 };
 

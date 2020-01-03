@@ -1,6 +1,6 @@
 <template>
   <div :class="$style['langs']">
-    <ul :class="$style['langs-list']">
+    <ul :class="$style['lang-list']">
       <li
         v-for="(lang, index) in langs"
         :key="index"
@@ -44,9 +44,9 @@
 </script>
 
 <style lang="scss" module>
-.langs-list {
+.lang-list {
   display: flex;
-  flex-direction: row;
+  flex-direction: var(--lang-list-direction);
   justify-content: flex-end;
   color: #2854c3;
 }
