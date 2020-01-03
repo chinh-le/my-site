@@ -105,7 +105,8 @@
 <style lang="scss" module>
 .app {
   z-index: $z-index-app; //2;
-  width: var(--app-width);
+  width: 100%;
+  max-width: $base-max-width;
   margin: 0 auto;
 }
 .bg-gradient {

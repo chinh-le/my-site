@@ -3,7 +3,6 @@
     --about-desc-width: 100%;
     --about-height: auto;
     --about-width: 90%;
-    --app-width: 100%;
     
     --base-button-icon-size: 1.4em;
     --base-button-icon-size-md: 1.8em;
@@ -67,8 +66,6 @@
     --site-header-height: 3.5em; // 16*3.5=56px
     --site-header-height-md: 4.5em; // 16*4.5=72px
     --site-footer-height: 3em; // 16*3=48px
-    --site-header-container-width: 100%;
-    --site-footer-container-width: 100%;
     --site-nav-sidebar-display: none;
     --site-nav-sidebar-justify: center;
     --slide-in-width: 100%;
@@ -102,6 +99,5 @@
 }
 #siteNav {    
     --copyright-justify-content: center;
-    
     --social-media-display: flex;
 }

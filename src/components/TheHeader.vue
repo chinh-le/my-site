@@ -39,7 +39,8 @@
     // visibility: hidden;
 }
 .site-header-container {
-    width: var(--site-header-container-width);
+    width: 100%;
+    max-width: $base-max-width;
     height: var(--site-header-height);
     margin: 0 auto;
     display: flex;

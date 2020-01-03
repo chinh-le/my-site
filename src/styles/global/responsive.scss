@@ -27,7 +27,6 @@
 // >= 768 md
 @media screen and (min-width: $breakpoint-md) {
     :root {
-        // --body-bg-image: url('../assets/chinh-main-bw-md.jpg');
         --home-content-width: 50%;
         --about-width: 70%;
         --works-width: 90%;
@@ -45,16 +44,6 @@
         --base-button-icon-size: var(--base-button-icon-size-md);
         --site-header-height: var(--site-header-height-md);
     }
-    #works {
-        // --works-height: 100%;
-        // top: 50%;
-        // transform: translateY(-50%);
-        > #worksContent {
-            // height: 100%;
-            // display: flex;
-            // align-content: center;
-        }
-    }
     #contact {
         --contact-height: 100%;
         > #contactContent {
@@ -69,10 +58,8 @@
 // >= 992 lg
 @media screen and (min-width: $breakpoint-lg) {
     :root {
-        // --body-bg-image: url('../assets/chinh-main-bw.jpg');
         --home-content-width: 40%;
         --about-width: 70%;
-        // --about-desc-width: 45%;
         --works-width: 70%;
         --skills-width: 45%;
         --cards-overlay-width: 32%;
@@ -105,9 +92,6 @@
 // >=1200 xl
 @media screen and (min-width: $breakpoint-xl) {
     :root {
-        --app-width: var(--breakpoint-xl);
-        --site-header-container-width: var(--breakpoint-xl);
-        --site-footer-container-width: var(--breakpoint-xl);
         --slide-in-width: 30%;
         --works-display: flex;
         --heading1-view-sidebar-left: -40%;
@@ -118,51 +102,6 @@
     }
 }
 
-// backgroud body image
-// orientation: landscape
-// device-pixel-ratio: 2
-// portrait
-/* @media screen and (max-width: $breakpoint-xs) and (min-height: $breakpoint-xs) {
-    :root {
-        --body-bg-image: url('../assets/chinh-main-bw-portrait.jpg');
-    }
-}
-// 576- x 768+
-@media screen and (max-width: $breakpoint-sm) and (min-height: $breakpoint-sm) {
-    :root {
-        --body-bg-image: url('../assets/chinh-main-bw-portrait.jpg');
-    }
-}
-@media screen and (max-width: $breakpoint-md) and (min-height: $breakpoint-md) {
-    :root {
-        --body-bg-image: url('../assets/chinh-main-bw-portrait.jpg');
-    }
-}
-@media screen and (max-width: $breakpoint-lg) and (min-height: $breakpoint-lg) {
-    :root {
-        --body-bg-image: url('../assets/chinh-main-bw-portrait.jpg');
-    }
-}
-@media screen and (max-width: $breakpoint-xl) and (min-height: $breakpoint-xl) {
-    :root {
-        --body-bg-image: url('../assets/chinh-main-bw-portrait.jpg');
-    }
-}
- */
-
-// card overlay image max-height
-// <=330
-/* @media screen and (max-width: $breakpoint-xs) {
-    :root {
-        --card-overlay-image-max-height: 157px;
-    }
-}
-// <=576
-@media screen and (max-width: $breakpoint-sm) {
-    :root {
-        --card-overlay-image-max-height: 157px;
-    }
-} */
 @media screen and (orientation: portrait) {
     :root {
         --body-bg-image: url('../assets/chinh-main-bw-portrait.jpg');

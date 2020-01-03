@@ -37,7 +37,8 @@
 }
 
 .site-footer-container {
-  width: var(--site-footer-container-width);
+  width: 100%;
+  max-width: $base-max-width;
   margin: 0 auto;
   padding: 0 0.2em 0 1em;
   box-sizing: border-box;
