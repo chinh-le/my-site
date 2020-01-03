@@ -139,7 +139,7 @@
           {{ $t('forms.contact.confirmation.text-1') }}
         </p>
         <p :class="$style['text']">
-          {{ $t('forms.contact.confirmation.text-2') }}
+          {{ $t('forms.contact.confirmation.text-2') }}.
         </p>
         <p :class="$style['text']">
           {{ $t('forms.contact.confirmation.text-3') }}
