@@ -1,18 +1,18 @@
 <template>
-  <div :class="$style['langs']">
-    <ul :class="$style['lang-list']">
-      <li
-        v-for="(lang, index) in langs"
-        :key="index"
-      >
-        <BaseLangButton
-          :btn-label="lang.label"
-          :btn-title="lang.title"
-          :btn-handler="changeLang"
-        />
-      </li>
-    </ul>
-  </div>
+  <!-- <div :class="$style['langs']"> -->
+  <ul :class="$style['lang-list']">
+    <li
+      v-for="(lang, index) in langs"
+      :key="index"
+    >
+      <BaseLangButton
+        :btn-label="lang.label"
+        :btn-title="lang.title"
+        :btn-handler="changeLang"
+      />
+    </li>
+  </ul>
+  <!-- </div> -->
 </template>
 
 <script>
