@@ -1,4 +1,4 @@
-export const firebaseConfig = {
+export const _firebaseConfig = {
     // gcloudProject: process.env.GCLOUD_PROJECT, // avail in emulator
     // firebaseConfig: process.env.FIREBASE_CONFIG, // avail in emulator
     apiKey: process.env.VUE_APP_GOOGLE_API_KEY,
@@ -12,4 +12,5 @@ export const firebaseConfig = {
     gmailAccount: process.env.VUE_APP_GMAIL_ACCOUNT,
     gmailLogin: process.env.VUE_APP_GMAIL_LOGIN,
     gmailPassword: process.env.VUE_APP_GMAIL_PASSWORD,
+    adminUid: process.env.VUE_APP_GOOGLE_ADMIN_UID,
 };

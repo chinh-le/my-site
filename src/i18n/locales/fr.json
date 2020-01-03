@@ -7,9 +7,10 @@
   "about": {
     "title": "à propos de moi",
     "heading-1": "développeur web",
-    "heading-2": "réactif pour mobile et bureau",
-    "paragraph-1": "création sites Web, suivante les meilleurs pratiques et les technologies actuelles, pour développer mieux, plus vite et plus efficace",
-    "paragraph-2": "développement avec les frameworks, bibliothèques et services Web d'aujourd'hui, tels que Vue, React, Angular, Google Firebase et Google Cloud Platform"
+    "heading-2": "conception et développement réactifs",
+    "paragraph-1": "développeur Web innovant avec plus de 10 ans d'expérience dans la création, le développement et la gestion de sites Web, d'applications et de programmes pour diverses organisations",
+    "paragraph-2": "travailler avec les derniers frameworks / bibliothèques Javascript, tels que Vue, React, Angular et les services web de Google Cloud Platform",
+    "paragraph-3": "capacité à bien performer dans un environnement dynamique et axé sur l'équipe. Excellente capacité de réflexion analytique et de résolution de problèmes avec une grande attention aux détails"
   },
   "works": {
     "title": "projets"
@@ -50,7 +51,8 @@
     "about": "à propos",
     "works": "projets",
     "education": "éducation",
-    "contact": "contact"
+    "contact": "contact",
+    "admin": "admin"
   },
   "forms": {
     "contact": {
@@ -63,7 +65,7 @@
         "label": "envoyer message",
         "title": "envoyer à Chinh Le"
       },
-      "notification": {
+      "confirmation": {
         "text-1": "votre message a été envoyé!",
         "text-2": "je vous répondrai dans les plus brefs délais",
         "text-3": "je vous remercie"

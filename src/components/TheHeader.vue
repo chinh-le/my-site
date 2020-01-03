@@ -34,13 +34,11 @@
     width: 100%;
     padding: 0;
     background-color: $theHeader-bg-color;
-    height: var(--site-header-height);
-    transition: height var(--the-header-anim-duration) var(--the-header-anim-timing);
     // visibility: hidden;
 }
 .site-header-container {
-    width: var(--site-header-container-width);
-    height: var(--site-header-height);
+    width: 100%;
+    max-width: $base-max-width;
     margin: 0 auto;
     display: flex;
     flex-direction: row;

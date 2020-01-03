@@ -78,32 +78,27 @@
         :disabled="$v.$invalid"
       />
     </form>
-    <p :class="$style['download-instruction']">
-      {{ $t('app.download-instruction.text-1') }}.
-    </p>
-    <BaseErrorRequest
-      v-if="isErrorRequest"
+    <BaseDualRingMessage
+      v-if="requestStatus === 'sending'"
       :error-code="errorRequestCode"
     />
-    <BaseSpinner v-show="isLoading" />
   </div>
 </template>
 
 <script>
     import { required } from 'vuelidate/lib/validators';
-    import { recaptchaElement } from '@/utils/recaptcha';
-    import { signup, signin } from '@/firebase';
-    import { appConfig } from '@/config';
-    import BaseSpinner from './base/BaseSpinner';
+    import { _recaptchaElement } from '@/utils/recaptcha';
+    import { _signup, _signin } from '@/firebase';
+    import { _appConfig } from '@/config';
+    import { _eventBus } from '@/utils/eventBus';
     import BaseFormButtonSubmit from './base/BaseFormButtonSubmit';
-    import BaseErrorRequest from './base/BaseErrorRequest';
     import BaseRecaptcha from './base/BaseRecaptcha';
+    import BaseDualRingMessage from './base/BaseDualRingMessage';
 
     export default {
         components: {
+            BaseDualRingMessage,
             BaseRecaptcha,
-            BaseErrorRequest,
-            BaseSpinner,
             BaseFormButtonSubmit
         },
         props: {
@@ -114,11 +109,10 @@
         },
         data () {
             return {
+                requestStatus: '',
+                errorRequestCode: '',
                 elBtnClose: null,
                 elFormAuthenticate: null,
-                isErrorRequest: false,
-                errorRequestCode: null,
-                isLoading: false,
                 recaptchaAction: 'login',
                 signingOption: false,
                 isSigningUp: false,
@@ -133,19 +127,25 @@
                 email: {
                     required,
                     isDefault (email) {
-                        return email === appConfig.appDefaultEmail;
+                        return email === _appConfig.appResumeEmail || email === _appConfig.appAdminEmail || email === _appConfig.appTesterEmail;
                     }
                 },
                 password: {
                     required,
                     isDefault: password => {
-                        return password === appConfig.appDefaultPassword;
+                        return password === _appConfig.appResumePassword || password === _appConfig.appAdminPassword || password === _appConfig.appTesterPassword;
                     }
                 }
             }
         },
+        created () {
+            _eventBus.$on('evtBusCloseAuth', () => {
+                this.requestStatus = '';
+                this.errorRequestCode = '';
+            });
+        },
         mounted () {
-            this.elBtnClose = document.querySelector('#btnCloseAuth')
+            this.elBtnClose = document.querySelector('#btnCloseAuth');
             this.elFormAuthenticate = document.querySelector('#formAuthenticateContainer');
 
             setInlineStyle(this);
@@ -153,6 +153,7 @@
             window.addEventListener('resize', () => setInlineStyle(this));
         },
         beforeDestroy () {
+            _eventBus.$off('evtBusCloseAuth');
             window.removeEventListener('resize', setInlineStyle);
         },
         methods: {
@@ -161,65 +162,56 @@
                     email: this.auth.email,
                     password: this.auth.password
                 };
-                // // console.log('TLC: onSubmit -> payload', payload);
+                // // // console.log('TLC: onSubmit -> payload', payload);
 
-                this.isLoading = true;
-                this.isErrorRequest = false;
-                this.errorRequestCode = null;
+                this.requestStatus = 'sending';
+                this.errorRequestCode = '';
 
-                recaptchaElement(this.recaptchaAction)
+                _recaptchaElement(this.recaptchaAction)
                     .then(res => {
                         if (res.data.success && res.data.action === this.recaptchaAction) {
                             if (this.isSigningUp) {
-                                signup(payload)
+                                _signup(payload)
                                     .then(res => {
-                                        // // console.log('TLC: onSubmit -> res', res);
+                                        // // // console.log('TLC: onSubmit -> res', res);
                                         if (res.user) {
                                             this.closeAuth();
-                                            this.isLoading = false;
+                                            this.requestStatus = '';
                                         }
                                     })
                                     .catch(err => {
-                                        // // console.log('TLC: onSubmit -> err', err);
-                                        this.isErrorRequest = true;
+                                        // // // console.log('TLC: onSubmit -> err', err);
                                         this.errorRequestCode = err.code;
-                                        this.isLoading = false;
                                     });
                             } else {
-                                signin(payload)
+                                _signin(payload)
                                     .then(res => {
-                                        // // console.log('TLC: onSubmit -> res', res);
+                                        // console.log('TLC: onSubmit -> res', res);
                                         if (res.user) {
                                             this.closeAuth();
-                                            this.isLoading = false;
+                                            this.requestStatus = '';
                                         }
                                     })
                                     .catch(err => {
-                                        // // console.log('TLC: onSubmit -> err', err);
-                                        this.isErrorRequest = true;
+                                        // console.log('TLC: onSubmit -> err', err);
                                         this.errorRequestCode = err.code;
-                                        this.isLoading = false;
                                     });
                             }
                         } else {
-                            // // console.log('TLC: onSubmit -> SPAM Automated Abused!!!');
-                            this.isErrorRequest = true;
+                            // // // console.log('TLC: onSubmit -> SPAM Automated Abused!!!');
                             this.errorRequestCode = 'SPAM Automated Abused!!!';
-                            this.isLoading = false;
                         }
                     })
                     .catch(err => {
-                        // // console.log('TLC: onSubmit -> err', err);
-                        this.isErrorRequest = true;
+                        // // // console.log('TLC: onSubmit -> err', err);
                         this.errorRequestCode = err.code;
-                        this.isLoading = false;
                     });
             }
         }
-    }
+    };
 
     const setInlineStyle = (vm) => {
-        // console.log('TLC: setInlineStyle -> vm', vm.elFormAuthenticate);
+        // // console.log('TLC: setInlineStyle -> vm', vm.elFormAuthenticate);
         const elHeight = window.innerHeight - vm.elBtnClose.clientHeight;
         
         vm.elFormAuthenticate.setAttribute('style', `height: ${elHeight}px`);
@@ -238,7 +230,7 @@
     --form-input-autofill-bg-color: #ddd;
     --form-button-submit-txt-color: #f7f7f7;
     --form-button-submit-bg-color: #D85426;
-    --form-button-submit-txt-color-disabled: #979797;
+    --form-button-submit-txt-color-disabled: #575757;
     --form-button-submit-bg-color-disabled: rgba(0,0,0,0.1);
     --footnote-txt-color: #979797;
     --footnote-txt-color-links: #878787;
@@ -256,15 +248,7 @@
   }
 }
 // reset form input autofill bg color
-.input:-webkit-autofill,
-.input:-webkit-autofill:hover, 
-.input:-webkit-autofill:focus {
-  // border: 1px solid green;
-  -webkit-text-fill-color: var(--form-input-txt-color);
-  // -webkit-box-shadow: 0 0 0px 1000px var(--form-input-autofill-bg-color) inset;
-  box-shadow: 0 0 0px 1000px var(--form-input-autofill-bg-color) inset;
-  transition: background-color 5000s ease-in-out 0s;
-}
+@include reset-form-autofill;
 .download-instruction {
   color: var(--download-instruction-txt-color);
   padding: 2em 0;

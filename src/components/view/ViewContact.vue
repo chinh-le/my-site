@@ -24,9 +24,6 @@
           {{ $t('contact.heading') }}
         </h3>
         <AppContactForm />
-        <p :class="[$style['text'], $style['last']]">
-          {{ $t('app.download-instruction.text-1') }}.
-        </p>
       </div>
     </transition>
   </div>
@@ -46,7 +43,7 @@
         data () {
             return {
                 isAnimated: false
-            }
+            };
         },
         mounted () {
             this.isAnimated = true;
@@ -70,6 +67,9 @@
   margin: 0 auto;
   height: var(--contact-height);
 }
+.contact-content {
+  box-sizing: border-box;
+}
 .text {
   color: $dimlight-color;
   margin-bottom: 0.7em;
@@ -77,9 +77,5 @@
     text-transform: capitalize;
   }
 }
-.last {
-  margin-bottom: 3em;
-}
 @include slide-fade-helper();
-// @include slide-fade-helper('enter÷');
 </style>

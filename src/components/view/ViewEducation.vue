@@ -26,7 +26,6 @@
             AppScholarships
         }
     };
-
 </script>
 
 <style lang="scss" module>
@@ -43,5 +42,4 @@
   box-sizing: border-box;
   margin: 0 auto;
 }
-.content {}
 </style>

@@ -8,7 +8,7 @@ const _addCollection = (name, data) => {
   for (let i in data) {
     collectionRef.doc(i).set(data[i])
       .then(() => {
-				// console.log('TLC: _addCollection -> SUCCESS');
+				// // console.log('TLC: _addCollection -> SUCCESS');
       })
     .catch(err => {
       errorHandler(err);
@@ -17,6 +17,7 @@ const _addCollection = (name, data) => {
 };
 
 const _getCollection = (name) => {
+	// console.log('TLC: _getCollection -> name', name);
   const db = firebase.firestore();
   const query = db.collection(name).orderBy('order');
 
@@ -32,7 +33,7 @@ const _addSkills = (data) => {
   for (let i in data) {
     categoriesRef.doc(i).set(data[i])
       .then(() => {
-				// console.log('TLC: _addSkills -> SUCCESS');
+				// // console.log('TLC: _addSkills -> SUCCESS');
       })
     .catch(err => {
       errorHandler(err);
@@ -54,7 +55,7 @@ const _addRatings = (data) => {
 
   return educationRef.doc('ratings').set(data)
     .then(() => {
-			// console.log('TLC: _addRatings -> SUCCESS');
+			// // console.log('TLC: _addRatings -> SUCCESS');
     })
     .catch(err => {
       errorHandler(err);
@@ -75,7 +76,7 @@ const _getImgContextPath = (imgPath) => {
 // perhaps log and send notif to admin
 // const errorHandler = ((err) => {
 const errorHandler = (() => {
-	// console.log('TLC: err', err);
+	// // console.log('TLC: err', err);
 });
 
 export {

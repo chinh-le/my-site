@@ -1,25 +1,50 @@
+// import store from '@/store';
+import { _appConfig } from '../config';
+
+// get data async with number of retry
+import { _getCollection } from '@/firebase';
+const _getData = async (collection) => {
+  let error;
+
+  for (let i = 0; i < _appConfig.appRequestRetry; i++) {
+		// console.log('TLC: getData -> i', i);
+    try {
+      return await _getCollection(collection);
+    }
+    catch (err) {
+			// console.log('TLC: getData -> err', err);
+      error = err;
+    }
+  }
+
+  throw error;
+};
+
+// sort array by key
+const _arraySortByKey = (arr, k) => {
+  return arr.sort((a, b) => a[k] - b[k]);
+};
+
 // filter (not to include private route) and sort view routes
-const viewsFilteredAndSorted = (views) => {
-  return views.filter(view => {
-		// // console.log('TLC: created -> view', view);
-    return !view.private;
-  }).slice((viewA, viewB) => viewA.order - viewB.order);
+const _viewsFilterPublicAndSort = (views, k) => {
+  const filteredViews = views.slice().filter(view => !view.private);
+  return _arraySortByKey(filteredViews, k);
 };
 
 // source: https://dev.to/afewminutesofcode/how-to-convert-an-array-into-an-object-in-javascript-25a4
-const convertArrayToObject = (array, key) => 
+const _convertArrayToObject = (array, key) => 
   array.reduce((acc, curr) => {
     acc[curr[key]] = curr;
     return acc;
   }, {});
 // Even concise
 // REM - error: Uncaught ReferenceError: item is not defined
-// const convertArrayToObject = (array, key) => array.reduce((acc, curr) =>(acc[item[key]] = item, acc), {});
+// const _convertArrayToObject = (array, key) => array.reduce((acc, curr) =>(acc[item[key]] = item, acc), {});
 // Basically everything inside parentheses will be evaluated, only the last value used will be only returned.
 
 
 // https://gist.github.com/gordonbrander/2230317
-const generateUniqueId = () => {
+const _generateUniqueId = () => {
     return Math.random().toString(36).substr(2, 9);
 };
 
@@ -30,11 +55,7 @@ for wide screen larger than 1200px - mostly fluid pattern: max-width: $breakpoin
 */
 const wideScreenMaxWidth = 1200; // $breakpoint-xl
 
-/* const resizeHandler = () => {
-
-}; */
-
-const setStyleInlineJustify = (align) => {
+const _setStyleInlineJustify = (align) => {
   let styleInline;
 
   if (window.innerWidth <= wideScreenMaxWidth) {
@@ -46,7 +67,7 @@ const setStyleInlineJustify = (align) => {
   return styleInline;
 };
 
-const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+const _emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
 /* const loadFonts = async () => {
   const font = new FontFace('myfont', 'url(https://fonts.googleapis.com/css?family=Righteous)');
@@ -58,8 +79,10 @@ const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
   document.body.classList.add('fonts-loaded');
 };
  */
-const scrollTo = (el, left, top) => {
-	// console.log('TLC: scrollTo -> position', position);
+const _scrollTo = (el, left, top) => {
+	// // // console.log('TLC: _scrollTo -> el', el);
+	// // // console.log('TLC: _scrollTo -> top', top);
+	// // // console.log('TLC: _scrollTo -> left', left);
   el.scroll({
     left: left,
     top: top
@@ -68,12 +91,13 @@ const scrollTo = (el, left, top) => {
 };
 
 export {
-  viewsFilteredAndSorted,
-  convertArrayToObject,
-  generateUniqueId,
-  wideScreenMaxWidth,
-  setStyleInlineJustify,
-  emailRegex,
+  _getData,
+  _arraySortByKey,
+  _viewsFilterPublicAndSort,
+  _convertArrayToObject,
+  _generateUniqueId,
+  _setStyleInlineJustify,
+  _emailRegex,
   // loadFonts,
-  scrollTo
+  _scrollTo
 };

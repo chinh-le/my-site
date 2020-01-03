@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import { setStyleInlineJustify } from '@/utils/helpers';
+    import { _setStyleInlineJustify } from '@/utils/helpers';
 
     export default {
         props: {
@@ -36,10 +36,10 @@
         beforeDestroy () {
             window.removeEventListener('resize', setInlineStyle);
         }
-    }
+    };
 
     const setInlineStyle = (vm) => {
-        vm.posX = setStyleInlineJustify('left');
+        vm.posX = _setStyleInlineJustify('left');
     };
 </script>
 

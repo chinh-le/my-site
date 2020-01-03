@@ -1,11 +1,9 @@
-// import { i18n } from '@/plugins/i18n';
-import { appConfig } from '@/config';
-import { convertArrayToObject } from '@/utils/helpers';
+import { _appConfig } from '@/config';
+import { _convertArrayToObject } from '@/utils/helpers';
 
-const routesConfig = convertArrayToObject(appConfig.views, 'name');
+const routesConfig = _convertArrayToObject(_appConfig.views, 'name');
 // console.log('TLC: routesConfig', routesConfig);
 
-// const routes = [
 export default [
     {
         path: routesConfig.home.path,
@@ -41,14 +39,18 @@ export default [
     {
         path: routesConfig.admin.path,
         name: routesConfig.admin.name,
-        component: () => import(/* webpackChunkName: "ViewAdmin" */ '@/components/view/ViewAdmin')
+        component: () => import(/* webpackChunkName: "ViewAdmin" */ '@/components/view/ViewAdmin'),
+        // admin route cannot be accessed directly from url, to ensure the store uid is available thus allowing only user with admin rights (uid) can have access (see watch: uid in AppNavigateLinks and AppNavigateLinksSidebar)
+        beforeEnter (to, from, next) {
+            if (from.name) {
+                next();
+            } else {
+                next({ name: routesConfig.home.name });
+            }
+        }
     },
     {
         path: '*',
         redirect: { name: routesConfig.home.name }
     }
-]
-
-/* export {
-    routes
-}   */
+];

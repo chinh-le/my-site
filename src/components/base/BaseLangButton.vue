@@ -29,7 +29,7 @@
                 return this.$i18n.locale === this.btnLabel ? 'active' : '';
             }
         }
-    }
+    };
 </script>
 
 <style lang="scss" module>
@@ -37,7 +37,7 @@
     color: $lang-button-color;
     text-transform: uppercase;
     font-size: var(--base-button-lang-size);
-    padding: 1.2em;
+    padding: 1.2em 1.5em;
     &:before {
         @include screen-reader-ready;
     }

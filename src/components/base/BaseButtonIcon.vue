@@ -34,15 +34,13 @@
                 default: () => ''
             },
         }
-    }
+    };
 </script>
 
 <style lang="scss" module>
 .btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    padding: 0.6em;
+    display: inherit;
+    padding: 1em;
     &:hover {
         cursor: pointer;
     }
@@ -56,7 +54,9 @@
     }
 }
 .btn-close {
-    padding: var(--base-button-icon-close-padding);
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-end;
     &:after {
         content: 'close';
     }

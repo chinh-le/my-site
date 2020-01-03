@@ -1,22 +1,20 @@
 <template>
-  <div :class="$style['langs']">
-    <ul :class="$style['langs-list']">
-      <li
-        v-for="(lang, index) in langs"
-        :key="index"
-      >
-        <BaseLangButton
-          :btn-label="lang.label"
-          :btn-title="lang.title"
-          :btn-handler="changeLang"
-        />
-      </li>
-    </ul>
-  </div>
+  <ul :class="$style['lang-list']">
+    <li
+      v-for="(lang, index) in langs"
+      :key="index"
+    >
+      <BaseLangButton
+        :btn-label="lang.label"
+        :btn-title="lang.title"
+        :btn-handler="changeLang"
+      />
+    </li>
+  </ul>
 </template>
 
 <script>
-    import { appConfig } from '@/config';
+    import { _appConfig } from '@/config';
     import BaseLangButton from './BaseLangButton';
 
     export default {
@@ -25,30 +23,29 @@
         },
         data () {
             return {
-                langs: appConfig.langs
-            }
+                langs: _appConfig.langs
+            };
         },
         created () {
             this.langs.sort((langA, langB) => (langA.order > langB.order) ? 1 : -1);
         },
         methods: {
             changeLang (lang) {
-                // console.log('TLC: changeLang -> lang', lang);
                 this.$i18n.locale = lang;
 
                 localStorage.setItem('i18nLocale', lang);
 
-                this.$store.dispatch('appLocale', this.$i18n.locale);
+                this.$store.dispatch('appLocale', lang);
             }
         }        
-    }
+    };
 </script>
 
 <style lang="scss" module>
-.langs-list {
+.lang-list {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  color: #2854c3;
+  order: var(--the-footer-lang-order);
 }
 </style>

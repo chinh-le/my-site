@@ -6,10 +6,11 @@
   },
   "about": {
     "title": "về tôi",
-    "heading-1": "nhà phát triển web",
-    "heading-2": "đáp ứng cho điện thoại di động và máy tính để bàn",
-    "paragraph-1": "tạo các trang web, tuân theo các thực tiễn tốt nhất và công nghệ hiện tại, để phát triển tốt, nhanh và hiệu quả hơn",
-    "paragraph-2": "phát triển với các khung, thư viện và Dịch vụ web ngày nay, như Vue, React, Angular, Google Firebase và Google Cloud Platform"
+    "heading-1": "phát triển web",
+    "heading-2": "thiết kế và phát triển đáp ứng",
+    "paragraph-1": "nhà phát triển web sáng tạo với hơn 10 năm kinh nghiệm trong việc xây dựng, phát triển và quản lý trang web, ứng dụng và chương trình cho các tổ chức khác nhau",
+    "paragraph-2": "làm việc với các thư viện / khung công tác Javascript mới nhất, chẳng hạn như Vue, React, Angular và các dịch vụ web Google Cloud Platform",
+    "paragraph-3": "có khả năng thực hiện tốt trong môi trường năng động, theo định hướng nhóm, nhanh chóng. Nhà tư duy phân tích xuất sắc và kỹ năng giải quyết vấn đề với sự chú ý sâu sắc đến chi tiết"
   },
   "works": {
     "title": "công trinh"
@@ -49,7 +50,8 @@
     "about": "về tôi",
     "works": "công trinh",
     "education": "nền học",
-    "contact": "tiếp xúc"
+    "contact": "tiếp xúc",
+    "admin": "quản trị viên"
   },
   "forms": {
     "contact": {
@@ -62,7 +64,7 @@
         "label": "gửi tin nhắn",
         "title": "gửi đến Chinh Le"
       },
-      "notification": {
+      "confirmation": {
         "text-1": "tin nhắn của bạn đã được gửi!",
         "text-2": "tôi sẽ hồi đáp bạn càng sớm càng tốt",
         "text-3": "cảm ơn bạn"

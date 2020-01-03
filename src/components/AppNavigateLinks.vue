@@ -17,8 +17,9 @@
 </template>
 
 <script>
-    import { setStyleInlineJustify, viewsFilteredAndSorted } from '@/utils/helpers';
-    import { appConfig } from '@/config';
+    import { mapState } from 'vuex';
+    import { _setStyleInlineJustify, _viewsFilterPublicAndSort, _arraySortByKey } from '@/utils/helpers';
+    import { _appConfig, _firebaseConfig } from '@/config';
     import BaseNavigateLink from './base/BaseNavigateLink';
 
     export default {
@@ -31,12 +32,26 @@
                 posX: null
             };
         },
+        computed: {
+            ...mapState([
+                'uid'
+            ])
+        },
+        watch: {
+            uid (newVal) {
+                if (newVal === _firebaseConfig.adminUid) {
+                    this.appViews = _arraySortByKey(_appConfig.views, 'order'); // all routes
+                } else {
+                    this.appViews = _viewsFilterPublicAndSort(_appConfig.views, 'order'); // except private/admin route
+                }
+            
+            }
+        },
         created () {
             // filter (not to include private route in navigaton) and sort views array from config
-            this.appViews = viewsFilteredAndSorted(appConfig.views);
+            this.appViews = _viewsFilterPublicAndSort(_appConfig.views, 'order');
             
             // set/keep the nav (pageLinks) dots to the right aligning with the hamburger icon
-            // this.posX = setStyleInlineJustify('right');
             setInlineStyle(this);
 
             window.addEventListener('resize', () => setInlineStyle(this));
@@ -47,14 +62,12 @@
     };
 
     const setInlineStyle = (vm) => {
-        vm.posX = setStyleInlineJustify('right');
+        vm.posX = _setStyleInlineJustify('right');
     };
 </script>
 
 <style lang="scss" module>
 .page-links {
-  // display: none;
-  // display: var(--nav-links-state);
   font-family: $nav-font-family;
   font-size: 2em;
   margin-bottom: 1.5em;

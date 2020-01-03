@@ -5,20 +5,20 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    uid: null,
     lang: null,
-    token: null,
-    downloadUrl: null
+    token: null
   },
   getters: {
+    uid (state) {
+      return state.uid;
+    },
     appLang (state) {
       return state.lang;
     },
     isAuthenticated (state) {
       // console.log('TLC: isAuthenticated -> state', state);
       return state.token !== null;
-    },
-    downloadUrl (state) {
-      return state.downloadUrl;
     }
   },
   mutations: {
@@ -28,18 +28,20 @@ export default new Vuex.Store({
     setAuthUser (state, user) {
       // console.log('TLC: setAuthUser -> state', state);
       if (user) {
+        state.uid = user.claims.user_id;
         state.token = user.token;
       } else {
+        state.uid = null;
         state.token = null;
       }
-    },
-    setDownloadUrl (state, url) {
-      state.downloadUrl = url || null;
     }
   },
   actions: {
     appLocale ({ commit }, lang) {
       commit('setLang', lang);
+    },
+    authUser ({ commit }, user) {
+      commit('setAuthUser', user);
     }
   },
   modules: {

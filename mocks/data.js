@@ -20,7 +20,7 @@ const professionals = {
     url: 'https://illicoweb.videotron.com/',
     languages: 'AngularJS (v1.6), jQuery, Java, GTM, GA'
   }
-}
+};
 
 const personals = {
   stockTrader: {
@@ -28,21 +28,21 @@ const personals = {
     label: 'Stock Trader',
     image: 'stock-trader-vue-640.png',
     url: 'https://stock-trader-vue-6bd8c.web.app/',
-    languages: 'Vue, Google Firebase'
+    languages: 'Vue, Google Cloud Platform'
   },
   burgerBuilder: {
     order: 2,
     label: 'Burger Builder',
     image: 'burger-builder-react-640.png',
     url: 'https://burger-builder-react-8801d.web.app/',
-    languages: 'React, Google Firebase'
+    languages: 'React, Google Cloud Platform'
   },
   recipeBook: {
     order: 3,
     label: 'Recipe Book',
     image: 'recipe-book-ng-640.png',
     url: 'https://recipe-book-ng-183d5.firebaseapp.com/',
-    languages: 'Angular, Google Firebase'
+    languages: 'Angular, Google Cloud Platform'
   }
   /* comingSoon: {
     order: 4,
@@ -50,12 +50,12 @@ const personals = {
     url: null,
     label: 'coming-soon' // REM - label value requires to be kebab-case since it is used as key for i18n - see skills.ratings (@/i18n/locales/*.json) and its use in @/components/base/BaseDotSet.vue
   } */
-}
+};
 
 const certificates = {
   vuejs2: {
     order: 1,
-    header: 'Vue 2 - The Complete Guide',
+    header: 'VueJS 2 - The Complete Guide',
     url: 'https://udemy.com/course/vuejs-2-the-complete-guide/',
     image: 'UC-KKDCJ1EE-640.jpg',
     alt: 'VueJS 2 certificate',
@@ -101,7 +101,7 @@ const certificates = {
     // alt: 'Concordia University',
     location: 'Concordia University'
   }
-}
+};
 
 const scholarships = {
   bertelsmann: {
@@ -112,65 +112,60 @@ const scholarships = {
     alt: 'Bertelsmann scholarship',
     location: 'Udacity.com'
   }
-}
+};
 
 const skills = {
-  vuejs: {
+  librairies: {
     order: 1,
-    name: 'Vue 2',
-    rate: 2
-  },
-  react: {
-    order: 2,
-    name: 'React 16',
-    rate: 2
-  },
-  angular: {
-    order: 3,
-    name: 'Angular, AngularJS',
-    rate: 2
-  },
-  bootstrap: {
-    order: 4,
-    name: 'Bootstrap 4',
-    rate: 2
-  },
-  google: {
-    order: 5,
-    name: 'Google Firebase, Google Cloud Platform',
-    rate: 2
-  },
-  js: {
-    order: 6,
-    name: 'Javascript',
+    name: 'VueJS 2, React 16, Angular, AngularJS, Bootstrap 4',
     rate: 3
   },
-  css: {
-    order: 7,
-    name: 'CSS, Sass, Less',
+  google: {
+    order: 2,
+    name: 'Google Firebase/Cloud Platform',
+    rate: 3
+  },
+  js: {
+    order: 3,
+    name: 'Javascript',
     rate: 4
+  },
+  css: {
+    order: 4,
+    name: 'CSS, Sass, Less, BEM',
+    rate: 5
   },
   html: {
-    order: 8,
+    order: 5,
     name: 'HTML',
-    rate: 4
+    rate: 5
   },
   git: {
-    order: 9,
+    order: 6,
     name: 'Git, Subversion',
     rate: 3
   },
   npm: {
-    order: 10,
+    order: 7,
     name: 'NPM, Yarn, Webpack, Gulp, Grunt',
     rate: 3
   },
+  tools: {
+    order: 8,
+    name: 'jQuery, Photoshop',
+    rate: 3
+  },
+  api: {
+    order: 9,
+    name: 'Rest API, Ajax, JSON',
+    rate: 2
+  },
   others: {
-    order: 11,
+    order: 10,
     name: 'Java, PHP, Smarty',
-    rate: 1
+    rate: 2
   }
-}
+};
 
 // REM - ratings values are keys for i18n - see skills.ratings (@/i18n/locales/*.json) and its use in @/components/base/BaseDotSet.vue
 const ratings = {
@@ -179,7 +174,7 @@ const ratings = {
   3: 'good',
   4: 'very-good',
   5: 'expert'
-}
+};
 
 const socialMedia = {
   linked: {
@@ -200,7 +195,7 @@ const socialMedia = {
     image: 'instagram-logo-black-sm.png',
     url: 'https://www.instagram.com/niusaul/'
   }
-}
+};
 
 export {
   professionals,
@@ -210,4 +205,4 @@ export {
   skills,
   ratings,
   socialMedia
-}
+};

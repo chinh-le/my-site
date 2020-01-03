@@ -1,37 +1,43 @@
 <template>
-  <transition
-    name="slide-fade"
-    mode="out-in"
-    :enter-class="$style['slide-fade-enter']"
-    :enter-to-class="$style['slide-fade-enter-to']"
-    :enter-active-class="$style['slide-fade-enter-active']"
-    :leave-class="$style['slide-fade-leave']"
-    :leave-to-class="$style['slide-fade-leave-to']"
-    :leave-active-class="$style['slide-fade-leave-active']"
-  >
-    <div 
-      v-if="certificates.length > 0"
-      :class="$style['certificates']"
+  <div :class="$style['certificates-container']">
+    <h3>{{ $t('certifications.heading') }}</h3>
+    <transition
+      name="slide-fade"
+      mode="out-in"
+      :enter-class="$style['slide-fade-enter']"
+      :enter-to-class="$style['slide-fade-enter-to']"
+      :enter-active-class="$style['slide-fade-enter-active']"
+      :leave-class="$style['slide-fade-leave']"
+      :leave-to-class="$style['slide-fade-leave-to']"
+      :leave-active-class="$style['slide-fade-leave-active']"
     >
-      <h3>{{ $t('certifications.heading') }}</h3>
-      <AppCardList
-        :items="certificates"
-      />
+      <div 
+        v-if="certificates.length > 0"
+        :class="$style['certificates']"
+      >
+        <AppCardList
+          :items="certificates"
+        />
+      </div>
+      <BaseDualRing v-else-if="!isErrorRequest" />
       <BaseErrorRequest
-        v-if="isErrorRequest"
+        v-else
         :error-code="errorRequestCode"
       />
-    </div>
-  </transition>
+    </transition>
+  </div>
 </template>
 
 <script>
-    import { _getCollection, _getImgContextPath } from '@/firebase';
+    import { _getData } from '@/utils/helpers';
+    import { _getImgContextPath } from '@/firebase';
     import AppCardList from './AppCardList';
     import BaseErrorRequest from './base/BaseErrorRequest';
+    import BaseDualRing from './base/BaseDualRing';
 
     export default {
         components: {
+            BaseDualRing,
             BaseErrorRequest,
             AppCardList
         },
@@ -43,7 +49,7 @@
             };
         },
         created () {
-            _getCollection('certificates')
+            _getData('certificates')
                 .then(snapshots => {
                     // // // console.log('TLC: created -> snapshots', snapshots);
                     this.isErrorRequest = false;
@@ -76,6 +82,9 @@
 </script>
 
 <style lang="scss" module>
+.certificates-container {
+  min-height: 200px;
+}
 .certificates {
     width: var(--works-content-sub-width);
     margin-bottom: 3em;  

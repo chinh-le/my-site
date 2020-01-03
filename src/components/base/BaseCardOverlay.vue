@@ -29,15 +29,12 @@
                 default: () => {}
             }
         }
-    }
+    };
 </script>
 
 <style lang="scss" module>
 .card {
   display: block;
-  // display: flex;
-  // justify-content: center;
-  // align-content: center;
   color: $base-txt-color;
   text-decoration: none;
   position: relative;
@@ -45,8 +42,6 @@
 }
 .card-image {
   width: 100%;
-  // max-height: var(--card-overlay-image-max-height);
-  // overflow: hidden;
 }
 .overlay {
   display: flex;
@@ -62,7 +57,6 @@
   text-transform: lowercase;
 }
 .languages {
-  // display: block;
   text-transform: lowercase;
   font-size: 0.7em;
   text-align: right;

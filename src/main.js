@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import { VueReCaptcha } from 'vue-recaptcha-v3';
 import Vuelidate from 'vuelidate';
-import { i18n } from './i18n/i18n';
+import { i18n } from './i18n';
+import { _init } from './firebase';
 
 // SCSS customizing
 import './styles/style.scss';
@@ -9,10 +10,12 @@ import './styles/style.scss';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import { appConfig } from './config';
+import { _appConfig } from './config';
+
+_init(); // Firebase init
 
 Vue.use(VueReCaptcha, {
-  siteKey: appConfig.recaptchaSiteKey,
+  siteKey: _appConfig.recaptchaSiteKey,
   loaderOptions: {
     // useRecaptchaNet: true,
     // renderParameters: {},

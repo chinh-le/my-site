@@ -1,34 +1,35 @@
 import { initializeApp } from 'firebase';
-import { firebaseConfig } from '@/config';
+import { _firebaseConfig } from '@/config';
 
-export const init = () => {
-  // console.log('firebaseConfig: ', firebaseConfig);
+export const _init = () => {
+	// console.log('TLC: _init -> _init');
   // Set the configuration for your app
   const config = {
-    authDomain: firebaseConfig.authDomain, // required if use IAM (Identity Auth Management)
-    projectId: firebaseConfig.projectId, // required for Cloud Firestore DB
-    databaseURL: firebaseConfig.databaseUrl, // required for Realtime DB
-    storageBucket: firebaseConfig.storageBucket, // required for Storage
-    messagingSenderId: firebaseConfig.messagingSenderId,
-    apiKey: firebaseConfig.apiKey
+    authDomain: _firebaseConfig.authDomain, // required if use IAM (Identity Auth Management)
+    projectId: _firebaseConfig.projectId, // required for Cloud Firestore DB
+    databaseURL: _firebaseConfig.databaseUrl, // required for Realtime DB
+    storageBucket: _firebaseConfig.storageBucket, // required for Storage
+    messagingSenderId: _firebaseConfig.messagingSenderId,
+    apiKey: _firebaseConfig.apiKey
   };
 
   initializeApp(config);
 };
 
 export {
-  onStateChange,
-  signup,
-  signin,
-  signout
+  _onAuthStateChange,
+  _signup,
+  _signin,
+  _signinAnonymous,
+  _signout
 } from './authentication';
 
 export {
-  getDownloadUrl
+  _getDownloadUrl
 } from './storage';
 
 export {
-  writeUserData
+  _writeUserData
 } from './db-realtime';
 
 export {

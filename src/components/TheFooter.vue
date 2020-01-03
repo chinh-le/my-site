@@ -27,7 +27,6 @@
   --copyright-justify-content: unset;
 
   width: 100%;
-  height: var(--site-footer-height);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -37,13 +36,14 @@
 }
 
 .site-footer-container {
-  width: var(--site-footer-container-width);
+  width: 100%;
+  max-width: $base-max-width;
   margin: 0 auto;
-  padding: 0 0.2em 0 1em;
+  padding: var(--the-footer-padding);
   box-sizing: border-box;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: var(--the-footer-flex-direction);
+  justify-content: var(--the-footer-justify-content);
   align-items: center;
 }
 </style>
