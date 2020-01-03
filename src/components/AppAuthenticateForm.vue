@@ -230,7 +230,7 @@
     --form-input-autofill-bg-color: #ddd;
     --form-button-submit-txt-color: #f7f7f7;
     --form-button-submit-bg-color: #D85426;
-    --form-button-submit-txt-color-disabled: #979797;
+    --form-button-submit-txt-color-disabled: #575757;
     --form-button-submit-bg-color-disabled: rgba(0,0,0,0.1);
     --footnote-txt-color: #979797;
     --footnote-txt-color-links: #878787;

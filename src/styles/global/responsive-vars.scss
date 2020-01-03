@@ -8,7 +8,6 @@
     --base-button-icon-size-md: 1.8em;
     --base-button-lang-size: 0.6em;
     --base-button-first-letter: capitalize;
-    --base-button-icon-close-padding: 0.6em;
 
     --cards-overlay-width: 100%;
     --card-overlay-image-max-height: 157px;
@@ -52,7 +51,6 @@
 
     --home-content-width: 80%;
     
-    --lang-list-direction: column;
     --logo-font-size: 1.3em;
     
     --navigation-content-width: 85%;
@@ -73,6 +71,11 @@
     
     --the-header-anim-duration: 1s;
     --the-header-anim-timing: ease-out;
+    --the-footer-padding: 0 0 0 1em;
+    --the-footer-flex-direction: row;
+    --the-footer-justify-content: space-between;
+    --the-footer-copyright-order: 1;
+    --the-footer-lang-order: 2;
     
     --works-width: 90%;
     --works-content-width: 90%;
@@ -87,11 +90,11 @@
     --breakpoint-xl: 1200px;
 
     // 3:4 (portrait)
-    --breakpoint-xs-height: 440px;
-    --breakpoint-sm-height: 768px;
-    --breakpoint-md-height: 1024px;
-    --breakpoint-lg-height: 1323px;
-    --breakpoint-xl-height: 1600px;
+    // --breakpoint-xs-height: 440px;
+    // --breakpoint-sm-height: 768px;
+    // --breakpoint-md-height: 1024px;
+    // --breakpoint-lg-height: 1323px;
+    // --breakpoint-xl-height: 1600px;
 
 }
 #siteNav {    
