@@ -48,21 +48,24 @@
 
 <style lang="scss" module>
 .link {
-    color: $download-icon-color;
-    border-radius: 2em;
+    padding: 1em;
+    display: inherit;
+    text-decoration: none;
     &:hover {
         cursor: pointer;
     }
     &:after{
         @include screen-reader-ready;
     }
+    > i {
+        font-size: var(--base-button-icon-size);
+        transition: font-size var(--the-header-anim-duration) var(--the-header-anim-timing);
+        color: $download-icon-color;
+    }
 }
 .link-download {
     &:after {
         content: "cloud download";
-    }
-    > i {
-        padding: 0.6em 0.7em 0.6em 0.9em;
     }
 }
 </style>

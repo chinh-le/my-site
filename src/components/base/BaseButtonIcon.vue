@@ -39,10 +39,8 @@
 
 <style lang="scss" module>
 .btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    padding: 0.6em;
+    display: inherit;
+    padding: 1em;
     &:hover {
         cursor: pointer;
     }
