@@ -1,6 +1,6 @@
 <template>
   <div :class="$style['copyright']">
-    <span>&copy; chinhle.ca 2019.</span>
+    <span>&copy; chinhle.ca 2020.</span>
     <span>{{ $t('copyright') }}.</span>
   </div>
 </template>
@@ -14,10 +14,9 @@
   font-size: 0.7em;
   color: $dimlight-color;
   line-height: 1.2em;
-  display: flex;
-  flex-direction: var(--copyright-flex-direction);
-  flex-wrap: wrap;
-  justify-content: var(--copyright-justify-content);
+  padding: 0.5em 0;
+  text-align: center;
+  order: var(--the-footer-copyright-order);
   > span {
     padding-right: 0.5em;
   }

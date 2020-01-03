@@ -54,7 +54,9 @@
     }
 }
 .btn-close {
-    padding: var(--base-button-icon-close-padding);
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-end;
     &:after {
         content: 'close';
     }

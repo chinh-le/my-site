@@ -1,7 +1,17 @@
+// < 330 xs
+@media screen and (max-width: $breakpoint-xs - 1) {
+    :root{
+        --the-footer-padding: 0 1em;
+        --the-footer-flex-direction: column;
+        --the-footer-justify-content: center;
+        --the-footer-copyright-order: 2;
+        --the-footer-lang-order: 1;
+    }
+}
+
 // >= 330 xs
 @media screen and (min-width: $breakpoint-xs) {
     :root {
-        --lang-list-direction: row;
         --navigation-padding: 0 2em;
     }
     #home {
@@ -35,13 +45,12 @@
         --cards-item-width: 43%;
         --contact-width: 50%;
         --slide-in-width: 50%;
-        --base-button-icon-close-padding: 1.5em;
+        --base-button-icon-size: var(--base-button-icon-size-md);
     }
     #theHeader {
         --the-header-anim-timing: ease-in;
         --logo-font-size: 1.7em;
         --social-icon-dimension: var(--social-icon-dimension-md);
-        --base-button-icon-size: var(--base-button-icon-size-md);
     }
     #contact {
         --contact-height: 100%;

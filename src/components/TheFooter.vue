@@ -39,11 +39,11 @@
   width: 100%;
   max-width: $base-max-width;
   margin: 0 auto;
-  padding-left: 1em;
+  padding: var(--the-footer-padding);
   box-sizing: border-box;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: var(--the-footer-flex-direction);
+  justify-content: var(--the-footer-justify-content);
   align-items: center;
 }
 </style>

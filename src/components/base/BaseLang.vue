@@ -1,5 +1,4 @@
 <template>
-  <!-- <div :class="$style['langs']"> -->
   <ul :class="$style['lang-list']">
     <li
       v-for="(lang, index) in langs"
@@ -12,7 +11,6 @@
       />
     </li>
   </ul>
-  <!-- </div> -->
 </template>
 
 <script>
@@ -46,8 +44,8 @@
 <style lang="scss" module>
 .lang-list {
   display: flex;
-  flex-direction: var(--lang-list-direction);
+  flex-direction: row;
   justify-content: flex-end;
-  color: #2854c3;
+  order: var(--the-footer-lang-order);
 }
 </style>
