@@ -27,7 +27,6 @@
   --copyright-justify-content: unset;
 
   width: 100%;
-  height: var(--site-footer-height);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -40,7 +39,7 @@
   width: 100%;
   max-width: $base-max-width;
   margin: 0 auto;
-  padding: 0 0.2em 0 1em;
+  padding-left: 1em;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
