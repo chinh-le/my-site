@@ -110,7 +110,7 @@
   margin: 0 auto;
 }
 .bg-gradient {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 0;
   left: 0;
