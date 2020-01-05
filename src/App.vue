@@ -107,6 +107,7 @@
   z-index: $z-index-app; //2;
   width: 100%;
   max-width: $base-max-width;
+  height: 100%;
   margin: 0 auto;
 }
 .bg-gradient {
@@ -119,11 +120,9 @@
 .site-wrap {
   position: relative;
   z-index: $z-index-site-wrap; //4;
-  display: flex;
-  align-items: center;
   box-sizing: border-box;
   padding: var(--site-wrap-padding);
-  overflow-y: scroll;
+  overflow-y: auto;
   scrollbar-color: #D85426 #D85426;
   scrollbar-width: thin;
   &::-webkit-scrollbar {
@@ -135,7 +134,7 @@
       border-radius: 0.5em;
   }
   &:hover {
-  scrollbar-color: #D85426 #D85426;
+    scrollbar-color: #D85426 #D85426;
     &::-webkit-scrollbar-thumb {
       background: #D85426;
     }

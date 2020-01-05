@@ -20,7 +20,10 @@
     --copyright-flex-direction: row;
 
     --download-instruction-txt-color: #a7a7a7;
+    
     --education-width: 90%;
+    --education-height: auto;
+    --education-content-sub-width: 100%;
 
     --href-first-letter: capitalize;
 
@@ -78,9 +81,8 @@
     --the-footer-lang-order: 2;
     
     --works-width: 90%;
-    --works-content-width: 90%;
-    --works-content-sub-width: 100%;
-    --works-display: unset;
+    --works-height: auto;
+    --works-display: flex;
 
     // responsive breakpoints (Bootstrap)
     --breakpoint-xs: 330px;

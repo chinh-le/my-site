@@ -18,7 +18,7 @@
       <div
         v-if="isAnimated"
         id="aboutContent"
-        :class="$style['content']"
+        :class="$style['about-content']"
       >
         <BaseAboutDesc />
       <!-- <AppSkills /> -->
@@ -55,19 +55,14 @@
 .about {
   --heading1-first-letter: normal;
 
-  position: absolute;
-  top: 0;
-  left: 0; // to have justified center with margin auto
-  right: 0; // to have justified center with margin auto
-  bottom: 0;
   padding: var(--site-wrap-padding);
   width: var(--about-width);
-  box-sizing: border-box;
   margin: 0 auto;
+  box-sizing: border-box;
   height: var(--about-height);
-}
-.content {
-  padding-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 @include slide-fade-helper('enter');
 </style>

@@ -7,7 +7,7 @@
     <BaseHeadingViewSidebar :heading-text="$t('works.title')" />
     <div
       id="worksContent"
-      :class="$style['content']"
+      :class="$style['works-content']"
     >
       <AppProfessionals />
       <AppPersonals />
@@ -35,20 +35,14 @@
 .works {
   --heading1-first-letter: normal;
 
-  position: absolute;
-  top: 0;
-  left: 0; // to have justified center with margin auto
-  right: 0; // to have justified center with margin auto
-  bottom: 0;
   padding: var(--site-wrap-padding);
   width: var(--works-width);
-  box-sizing: border-box;
   margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   height: var(--works-height);
-  display: var(--works-display);
-  align-items: center;
-}
-.content{
-  padding-bottom: 2em;
 }
 </style>

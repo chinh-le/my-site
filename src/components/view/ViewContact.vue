@@ -18,7 +18,7 @@
       <div
         v-if="isAnimated"
         id="contactContent"
-        :class="['content']"
+        :class="['contact-content']"
       >
         <h3 :class="$style['heading-3']">
           {{ $t('contact.heading') }}
@@ -56,19 +56,15 @@
 .contact {
   --heading1-first-letter: normal;
   
-  position: absolute;
-  top: 0;
-  left: 0; // to have justified center with margin auto
-  right: 0; // to have justified center with margin auto
-  bottom: 0;
   padding: var(--site-wrap-padding);
   width: var(--contact-width);
-  box-sizing: border-box;
   margin: 0 auto;
-  height: var(--contact-height);
-}
-.contact-content {
   box-sizing: border-box;
+  height: var(--contact-height);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 .text {
   color: $dimlight-color;

@@ -148,7 +148,7 @@
             this.elBtnClose = document.querySelector('#btnCloseAuth');
             this.elFormAuthenticate = document.querySelector('#formAuthenticateContainer');
 
-            setInlineStyle(this);
+            // setInlineStyle(this);
             
             window.addEventListener('resize', () => setInlineStyle(this));
         },
@@ -221,7 +221,8 @@
 <style lang="scss" module>
 .form-authenticate-container {
     padding: 2em;
-    overflow-y: scroll;
+    // overflow-y: scroll;
+    overflow-y: auto;
     box-sizing: border-box;
 }
 .form-authenticate {

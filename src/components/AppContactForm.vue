@@ -1,156 +1,145 @@
 <template>
   <div id="contactInfo">
-    <transition
-      name="slide-fade"
-      mode="out-in"
-      :enter-class="$style['slide-fade-enter']"
-      :enter-to-class="$style['slide-fade-enter-to']"
-      :enter-active-class="$style['slide-fade-enter-active']"
-      :leave-class="$style['slide-fade-leave']"
-      :leave-to-class="$style['slide-fade-leave-to']"
-      :leave-active-class="$style['slide-fade-leave-active']"
+    <form
+      v-if="requestStatus === 'toSend'"
+      :class="$style['contact-form']"
+      novalidate
+      autocomplete="on"
+      :role="$t('forms.contact.heading')"
+      @submit.prevent="onSubmit()"
     >
-      <form
-        v-if="requestStatus === 'toSend'"
-        :class="$style['contact-form']"
-        novalidate
-        autocomplete="on"
-        :role="$t('forms.contact.heading')"
-        @submit.prevent="onSubmit()"
-      >
-        <ul :class="$style['form-list']">
-          <li :class="[$style['form-list-item'], $style['name']]">
-            <div :class="$style['form-input-container']">
-              <label
-                for="contactName"
-                :class="[$style['input-label'], $style['screen-reader-ready']]"
-              >{{ $t('forms.contact.name') }}</label>
-              <input
-                id="contactName"
-                v-model="user.name"
-                :class="$style['input']"
-                type="text"
-                :placeholder="$t('forms.contact.name')"
-                autocomplete="name"
-                :aria-label="$t('forms.contact.name')"
-                aria-required="true"
-                @blur="$v.user.name.$touch()"
-              >
-            </div>
-            <span
-              :class="[$style['input-error'], {[$style['visible']]: $v.user.name.$dirty && !$v.user.name.required}]"
-              role="alert"
-              aria-relevant="all"
-            >{{ $t('forms.errors.required') }}</span>
-          </li>
-          <li :class="[$style['form-list-item'], $style['email']]">
-            <div :class="$style['form-input-container']">
-              <label
-                for="contactEmail"
-                :class="[$style['input-label'], $style['screen-reader-ready']]"
-              >{{ $t('forms.contact.email') }}</label>
-              <input
-                id="contactEmail"
-                v-model="user.email"
-                :class="$style['input']"
-                type="email"
-                :placeholder="$t('forms.contact.email')"
-                autocomplete="email"
-                :aria-label="$t('forms.contact.email')"
-                aria-required="true"
-                @blur="$v.user.email.$touch()"
-              >
-            </div>
-            <span
-              :class="[$style['input-error'], {[$style['visible']]: $v.user.email.$dirty && (!$v.user.email.validAddress || !$v.user.email.required)}]"
-              role="alert"
-              aria-relevant="all"
+      <ul :class="$style['form-list']">
+        <li :class="[$style['form-list-item'], $style['name']]">
+          <div :class="$style['form-input-container']">
+            <label
+              for="contactName"
+              :class="[$style['input-label'], $style['screen-reader-ready']]"
+            >{{ $t('forms.contact.name') }}</label>
+            <input
+              id="contactName"
+              v-model="user.name"
+              :class="$style['input']"
+              type="text"
+              :placeholder="$t('forms.contact.name')"
+              autocomplete="name"
+              :aria-label="$t('forms.contact.name')"
+              aria-required="true"
+              @blur="$v.user.name.$touch()"
             >
-              <span v-if="!$v.user.email.required">{{ $t('forms.errors.required') }}</span>
-              <span v-else-if="!$v.user.email.validAddress">{{ $t('forms.errors.email') }}</span>
-            </span>
-          </li>
-          <li :class="$style['form-list-item']">
-            <div :class="$style['form-input-container']">
-              <label
-                for="contactSubject"
-                :class="[$style['input-label'], $style['screen-reader-ready']]"
-              >{{ $t('forms.contact.subject') }}</label>
-              <input
-                id="contactSubject"
-                v-model.lazy="user.subject"
-                :class="$style['input']"
-                type="text"
-                :placeholder="$t('forms.contact.subject')"
-                autocomplete="off"
-                aria-label="subject"
-              >
-            </div>
-            <span :class="$style['input-error']">{{ $t('forms.errors.required') }}</span>
-          </li>
-          <li :class="$style['form-list-item']">
-            <div :class="$style['form-input-container']">
-              <label
-                for="contactMessage"
-                :class="[$style['input-label'], $style['screen-reader-ready']]"
-              >{{ $t('forms.contact.message') }}</label>
-              <textarea
-                id="contactMessage"
-                v-model="user.message"
-                :class="$style['input']"
-                name
-                cols="30"
-                rows="7"
-                :placeholder="$t('forms.contact.message')"
-                :maxlength="messageMaxLength + 1"
-                autocomplete="off"
-                :aria-label="$t('forms.contact.message')"
-                aria-required="true"
-                @blur="$v.user.message.$touch()"
-              />
-            </div>
-            <span
-              :class="[$style['input-error'], {[$style['visible']]: $v.user.message.$dirty && !$v.user.message.required}]"
-              role="alert"
-              aria-relevant="all"
-            >{{ $t('forms.errors.required') }}</span>
-            <span
-              :class="[$style['input-error'], {[$style['visible']]: !$v.user.message.maxLength}]"
-              role="alert"
-              aria-relevant="all"
-            >{{ $t('forms.errors.max-length') }}: {{ messageMaxLength }}</span>
-          </li>
-        </ul>
-        <BaseRecaptcha />
-        <BaseFormButtonSubmit
-          :label="$t('forms.contact.button.label')"
-          :title="$t('forms.contact.button.title')"
-          :disabled="$v.$invalid"
-        />
-        <p :class="[$style['text'], $style['last']]">
-          {{ $t('app.download-instruction.text-1') }}.
-        </p>
-      </form>
-      <div
-        v-else-if="requestStatus === 'sent'"
-        :class="$style['confirmation']"
-      >
-        <p :class="$style['text']">
-          {{ $t('forms.contact.confirmation.text-1') }}
-        </p>
-        <p :class="$style['text']">
-          {{ $t('forms.contact.confirmation.text-2') }}.
-        </p>
-        <p :class="$style['text']">
-          {{ $t('forms.contact.confirmation.text-3') }}
-        </p>
-      </div>
-      <BaseDualRing v-else-if="requestStatus === 'sending'" />
-      <BaseErrorRequest
-        v-else-if="requestStatus === 'error'"
-        :error-code="errorRequestCode"
+          </div>
+          <span
+            :class="[$style['input-error'], {[$style['visible']]: $v.user.name.$dirty && !$v.user.name.required}]"
+            role="alert"
+            aria-relevant="all"
+          >{{ $t('forms.errors.required') }}</span>
+        </li>
+        <li :class="[$style['form-list-item'], $style['email']]">
+          <div :class="$style['form-input-container']">
+            <label
+              for="contactEmail"
+              :class="[$style['input-label'], $style['screen-reader-ready']]"
+            >{{ $t('forms.contact.email') }}</label>
+            <input
+              id="contactEmail"
+              v-model="user.email"
+              :class="$style['input']"
+              type="email"
+              :placeholder="$t('forms.contact.email')"
+              autocomplete="email"
+              :aria-label="$t('forms.contact.email')"
+              aria-required="true"
+              @blur="$v.user.email.$touch()"
+            >
+          </div>
+          <span
+            v-if="$v.user.email.$dirty && !$v.user.email.required"
+            :class="[$style['input-error'], $style['visible']]"
+          >{{ $t('forms.errors.required') }}</span>
+          <span
+            v-else
+            :class="[$style['input-error'], {[$style['visible']]: $v.user.email.$dirty && !$v.user.email.validAddress}]"
+          >{{ $t('forms.errors.email') }}</span>
+        </li>
+        <li :class="$style['form-list-item']">
+          <div :class="$style['form-input-container']">
+            <label
+              for="contactSubject"
+              :class="[$style['input-label'], $style['screen-reader-ready']]"
+            >{{ $t('forms.contact.subject') }}</label>
+            <input
+              id="contactSubject"
+              v-model.lazy="user.subject"
+              :class="$style['input']"
+              type="text"
+              :placeholder="$t('forms.contact.subject')"
+              autocomplete="off"
+              aria-label="subject"
+            >
+          </div>
+          <span :class="$style['input-error']">{{ $t('forms.errors.required') }}</span>
+        </li>
+        <li :class="$style['form-list-item']">
+          <div :class="$style['form-input-container']">
+            <label
+              for="contactMessage"
+              :class="[$style['input-label'], $style['screen-reader-ready']]"
+            >{{ $t('forms.contact.message') }}</label>
+            <textarea
+              id="contactMessage"
+              v-model="user.message"
+              :class="$style['input']"
+              name
+              cols="30"
+              rows="7"
+              :placeholder="$t('forms.contact.message')"
+              :maxlength="messageMaxLength + 1"
+              autocomplete="off"
+              :aria-label="$t('forms.contact.message')"
+              aria-required="true"
+              @blur="$v.user.message.$touch()"
+            />
+          </div>
+          <span
+            :class="[$style['input-error'], {[$style['visible']]: $v.user.message.$dirty && !$v.user.message.required}]"
+            role="alert"
+            aria-relevant="all"
+          >{{ $t('forms.errors.required') }}</span>
+          <span
+            :class="[$style['input-error'], {[$style['visible']]: !$v.user.message.maxLength}]"
+            role="alert"
+            aria-relevant="all"
+          >{{ $t('forms.errors.max-length') }}: {{ messageMaxLength }}</span>
+        </li>
+      </ul>
+      <BaseRecaptcha />
+      <BaseFormButtonSubmit
+        :label="$t('forms.contact.button.label')"
+        :title="$t('forms.contact.button.title')"
+        :disabled="$v.$invalid"
       />
-    </transition>
+      <p :class="[$style['text'], $style['last']]">
+        {{ $t('app.download-instruction.text-1') }}.
+      </p>
+    </form>
+    <div
+      v-else-if="requestStatus === 'sent'"
+      :class="$style['confirmation']"
+    >
+      <p :class="$style['text']">
+        {{ $t('forms.contact.confirmation.text-1') }}
+      </p>
+      <p :class="$style['text']">
+        {{ $t('forms.contact.confirmation.text-2') }}.
+      </p>
+      <p :class="$style['text']">
+        {{ $t('forms.contact.confirmation.text-3') }}
+      </p>
+    </div>
+    <BaseDualRing v-else-if="requestStatus === 'sending'" />
+    <BaseErrorRequest
+      v-else-if="requestStatus === 'error'"
+      :error-code="errorRequestCode"
+    />
   </div>
 </template>
 
@@ -262,6 +251,8 @@
   --form-button-submit-txt-color-disabled: #979797;
   --footnote-txt-color: #a7a7a7;
   --footnote-txt-color-links: #b7b7b7;
+
+  box-sizing: border-box;
 }
 .form-list {
   width: 100%;

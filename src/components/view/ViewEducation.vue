@@ -5,7 +5,7 @@
   >
     <BaseHeadingView :heading-text="$t('education.title')" />
     <BaseHeadingViewSidebar :heading-text="$t('education.title')" />
-    <div :class="$style['content']">
+    <div :class="$style['education-content']">
       <AppCertificates />
       <AppScholarships />
     </div>
@@ -32,14 +32,10 @@
 .education {
   --heading1-first-letter: normal;
 
-  position: absolute;
-  top: 0;
-  left: 0; // to have justified center with margin auto
-  right: 0; // to have justified center with margin auto
-  // bottom: 0;
   padding: var(--site-wrap-padding);
   width: var(--education-width);
-  box-sizing: border-box;
   margin: 0 auto;
+  box-sizing: border-box;
+  height: var(--education-height);
 }
 </style>
