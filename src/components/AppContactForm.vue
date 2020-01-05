@@ -24,6 +24,7 @@
               autocomplete="name"
               :aria-label="$t('forms.contact.name')"
               aria-required="true"
+              :tabindex="tabIndex.contactForm[0]"
               @blur="$v.user.name.$touch()"
             >
           </div>
@@ -48,6 +49,7 @@
               autocomplete="email"
               :aria-label="$t('forms.contact.email')"
               aria-required="true"
+              :tabindex="tabIndex.contactForm[1]"
               @blur="$v.user.email.$touch()"
             >
           </div>
@@ -74,6 +76,7 @@
               :placeholder="$t('forms.contact.subject')"
               autocomplete="off"
               aria-label="subject"
+              :tabindex="tabIndex.contactForm[2]"
             >
           </div>
           <span :class="$style['input-error']">{{ $t('forms.errors.required') }}</span>
@@ -96,6 +99,7 @@
               autocomplete="off"
               :aria-label="$t('forms.contact.message')"
               aria-required="true"
+              :tabindex="tabIndex.contactForm[3]"
               @blur="$v.user.message.$touch()"
             />
           </div>
@@ -116,6 +120,7 @@
         :label="$t('forms.contact.button.label')"
         :title="$t('forms.contact.button.title')"
         :disabled="$v.$invalid"
+        :tabindex="tabIndex.contactForm[4]"
       />
       <p :class="[$style['text'], $style['last']]">
         {{ $t('app.download-instruction.text-1') }}.
@@ -126,13 +131,13 @@
       :class="$style['confirmation']"
     >
       <p :class="$style['text']">
-        {{ $t('forms.contact.confirmation.text-1') }}
+        {{ $t('forms.contact.confirmation.text-1') }}.
       </p>
       <p :class="$style['text']">
         {{ $t('forms.contact.confirmation.text-2') }}.
       </p>
       <p :class="$style['text']">
-        {{ $t('forms.contact.confirmation.text-3') }}
+        {{ $t('forms.contact.confirmation.text-3') }}!
       </p>
     </div>
     <BaseDualRing v-else-if="requestStatus === 'sending'" />
@@ -149,6 +154,7 @@
     import { _recaptchaElement } from '@/utils/recaptcha';
     import { _emailRegex } from '@/utils/helpers';
     import { _htmlEscaping } from '@/xss';
+    import { _tabIndex } from '@/utils/tabIndex';
     import BaseFormButtonSubmit from './base/BaseFormButtonSubmit';
     import BaseErrorRequest from './base/BaseErrorRequest';
     import BaseRecaptcha from './base/BaseRecaptcha';
@@ -163,6 +169,7 @@
         },
         data () {
             return {
+                tabIndex: _tabIndex,
                 requestStatus: 'toSend',
                 errorRequestCode: '',
                 elemPersistLockScroll: null,
@@ -298,10 +305,13 @@
   }
 }
 .confirmation {
-  // color: $dimlight-color;
   margin: 1em 0;
   &::first-letter {
     text-transform: capitalize;
+
+  }
+  .text {
+    color: $base-txt-confirmation-color;
   }
 }
 .screen-reader-ready {

@@ -1,12 +1,16 @@
 <template>
   <div :class="$style['signin-nav']">
-    <BaseDownloadLinkIcon v-if="isAuthenticated" />
+    <BaseDownloadLinkIcon
+      v-if="isAuthenticated"
+      :tabindex="tabIndex.siteAction[0]"
+    />
     <BaseButtonIcon
       v-if="!isAuthenticated"
       :btn-class="'btn-signin'"
       :btn-title="$t('buttons.authenticate')"
       :btn-handler="openAuth"
       :btn-icon="'person_outline'"
+      :tabindex="tabIndex.siteAction[1]"
     />
     <BaseButtonIcon
       v-else
@@ -14,12 +18,14 @@
       :btn-title="$t('buttons.signout')"
       :btn-handler="signout"
       :btn-icon="'person'"
+      :tabindex="tabIndex.siteAction[2]"
     />
     <BaseButtonIcon
       :btn-class="'btn-nav'"
       :btn-title="$t('buttons.navigate')"
       :btn-handler="openNav"
       :btn-icon="'dehaze'"
+      :tabindex="tabIndex.siteAction[3]"
     />
   </div>
 </template>
@@ -28,6 +34,7 @@
     import { mapGetters } from 'vuex';
     import { _signout } from '@/firebase';
     import { _eventBus } from '@/utils/eventBus';
+    import { _tabIndex } from '@/utils/tabIndex';
     import BaseDownloadLinkIcon from './base/BaseDownloadLinkIcon';
     import BaseButtonIcon from './base/BaseButtonIcon';
 
@@ -35,6 +42,11 @@
         components: {
             BaseDownloadLinkIcon,
             BaseButtonIcon
+        },
+        data () {
+            return {
+                tabIndex: _tabIndex
+            };
         },
         computed: {
             ...mapGetters([

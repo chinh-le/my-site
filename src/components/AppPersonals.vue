@@ -17,6 +17,7 @@
       >
         <AppCardOverlayList
           :items="personals"
+          :tab-index="tabIndex"
         />
       </div>
       <BaseDualRing v-else-if="!isErrorRequest" />
@@ -31,6 +32,7 @@
 <script>
     import { _getData } from '@/utils/helpers';
     import { _getImgContextPath } from '@/firebase';
+    import { _tabIndex } from '@/utils/tabIndex';
     import AppCardOverlayList from './AppCardOverlayList';
     import BaseErrorRequest from './base/BaseErrorRequest';
     import BaseDualRing from './base/BaseDualRing';
@@ -43,6 +45,7 @@
         },
         data () {
             return {
+                tabIndex: _tabIndex.listPersonals,
                 personals: [],
                 isErrorRequest: false,
                 errorRequestCode: null

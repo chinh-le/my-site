@@ -78,7 +78,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 10%;
+    width: 6%;
     height: 100%;
     display: flex;
     align-items: center;

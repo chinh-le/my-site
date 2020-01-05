@@ -1,6 +1,6 @@
 {
   "home": {
-    "title": "bienvenue à mon site personel",
+    "title": "bienvenue à mon site personnel",
     "heading-1": "bonjour!",
     "heading-2": "mon nom est Chinh Le"
   },
@@ -23,10 +23,10 @@
     "heading": "entrer en contact"
   },
   "professionals": {
-    "heading": "professionels"
+    "heading": "professionnels"
   },
   "personals": {
-    "heading": "personels",
+    "heading": "personnels",
     "coming-soon": "disponible bientôt"
   },
   "certifications": {
@@ -66,9 +66,9 @@
         "title": "envoyer à Chinh Le"
       },
       "confirmation": {
-        "text-1": "votre message a été envoyé!",
+        "text-1": "votre message a été envoyé",
         "text-2": "je vous répondrai dans les plus brefs délais",
-        "text-3": "je vous remercie"
+        "text-3": "merci"
       }
     },
     "authentication": {

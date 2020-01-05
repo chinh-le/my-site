@@ -7,6 +7,7 @@
     <li
       v-for="(socialMedia, index) in socialMedias"
       :key="index"
+      :tabindex="tabIndex.socialMedia[index]"
     >
       <BaseLinkImage :link="socialMedia" />
     </li>
@@ -16,6 +17,7 @@
 <script>
     import { _getImgContextPath } from '@/firebase';
     import { _getData } from '@/utils/helpers';
+    import { _tabIndex } from '@/utils/tabIndex';
     import BaseLinkImage from './base/BaseLinkImage';
 
     export default {
@@ -24,6 +26,7 @@
         },
         data () {
             return {
+                tabIndex: _tabIndex,
                 socialMedias: []
             };
         },
