@@ -6,11 +6,14 @@
   >
     <ul>
       <li
-        v-for="appView in appViews"
+        v-for="(appView, index) in appViews"
         :key="appView.name"
         :class="$style['page-links-item']"
       >
-        <BaseNavigateLink :view="appView" />
+        <BaseNavigateLink
+          :view="appView"
+          :tabindex="tabIndex.nav[index]"
+        />
       </li>
     </ul>
   </nav>
@@ -20,6 +23,7 @@
     import { mapState } from 'vuex';
     import { _setStyleInlineJustify, _viewsFilterPublicAndSort, _arraySortByKey } from '@/utils/helpers';
     import { _appConfig, _firebaseConfig } from '@/config';
+    import { _tabIndex } from '@/utils/tabIndex';
     import BaseNavigateLink from './base/BaseNavigateLink';
 
     export default {
@@ -28,6 +32,7 @@
         },
         data () {
             return {
+                tabIndex: _tabIndex,
                 appViews: null,
                 posX: null
             };

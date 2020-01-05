@@ -3,6 +3,7 @@
     <router-link
       to="/"
       :title="$t('navigation.home')"
+      :tabindex="tabIndex.logo[0]"
     >
       clê.
     </router-link>
@@ -10,7 +11,15 @@
 </template>
 
 <script>
-    export default {};
+    import { _tabIndex } from '@/utils/tabIndex';
+    
+    export default {
+        data () {
+            return {
+                tabIndex: _tabIndex
+            };
+        }
+    };
 </script>
 
 <style lang="scss" module>
@@ -22,7 +31,7 @@
     transition: font-size var(--the-header-anim-duration) var(--the-header-anim-timing);    
     text-decoration: none;
     color: $logo-color;
-    padding: 0.65em; 
+    padding: 0.5em; 
   }
 }
 </style>

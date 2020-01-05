@@ -15,6 +15,7 @@
         v-if="professionals.length > 0"
         :class="$style['professionals']"
         :items="professionals"
+        :tab-index="tabIndex"
       />
       <BaseDualRing v-else-if="!isErrorRequest" />
       <BaseErrorRequest
@@ -28,6 +29,7 @@
 <script>
     import { _getData } from '@/utils/helpers';
     import { _getImgContextPath } from '@/firebase';
+    import { _tabIndex } from '@/utils/tabIndex';
     import AppCardOverlayList from './AppCardOverlayList';
     import BaseErrorRequest from './base/BaseErrorRequest';
     import BaseDualRing from './base/BaseDualRing';
@@ -40,6 +42,7 @@
         },
         data () {
             return {
+                tabIndex: _tabIndex.listProfessionals,
                 professionals: [],
                 isErrorRequest: false,
                 errorRequestCode: null

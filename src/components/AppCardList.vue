@@ -1,11 +1,14 @@
 <template>
   <ul :class="$style['cards']">
     <li
-      v-for="item in items"
+      v-for="(item, index) in items"
       :key="item.header"
       :class="$style['cards-item']"
     >
-      <BaseCard :item="item" />
+      <BaseCard
+        :item="item" 
+        :tab-index="tabIndex[index]"
+      />
     </li>
   </ul>
 </template>
@@ -18,6 +21,10 @@
             BaseCard
         },
         props: {
+            tabIndex: {
+                type: Array,
+                default: () => []
+            },
             items: {
                 type: Array,
                 default: () => []
