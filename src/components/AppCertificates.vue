@@ -86,7 +86,7 @@
   min-height: 200px;
 }
 .certificates {
-    width: var(--works-content-sub-width);
+    width: var(--education-content-sub-width);
     margin-bottom: 3em;  
 }
 @include slide-fade-helper('enter');

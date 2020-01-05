@@ -1,7 +1,7 @@
 <template>
   <div
     id="siteNav"
-    class="site-nav"
+    :class="$style['site-nav']"
   >
     <transition
       name="slide"
@@ -74,7 +74,9 @@
         },
         watch: {
             $route () {
-                this.closeNav();
+                if (this.isShow) {
+                    this.closeNav();
+                }
             }
         },
         created () {
@@ -91,7 +93,7 @@
             this.elNavigationContent = document.querySelector('#navigationContent');
             this.elBtnCloseNavigate = document.querySelector('#btnCloseNavigate');
 
-            setInlineStyle(this);
+            // setInlineStyle(this);
 
             window.addEventListener('resize', () => setInlineStyle(this));
         },
@@ -120,18 +122,6 @@
 </script>
 
 <style lang="scss" module>
-.navigation-content {
-  width: var(--navigation-content-width);
-  margin: 0 auto;
-  box-sizing: border-box;
-  > * {
-    margin-bottom: 1em;
-  }
-  overflow-y: scroll;
-}
-#socialMedia {
-  margin-top: 2em;
-}
 .navigation {
   z-index: $z-index-overlay;
   position: absolute;
@@ -142,6 +132,18 @@
   display: flex;
   flex-direction: column;
   background-color: $slide-in-bg-color;
+}
+.navigation-content {
+  width: var(--navigation-content-width);
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow-y: auto;
+  > * {
+    margin-bottom: 1em;
+  }
+}
+#socialMedia {
+  margin-top: 2em;
 }
 @include canvas-bg; 
 @include slide-helper;

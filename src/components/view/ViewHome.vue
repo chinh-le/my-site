@@ -15,7 +15,7 @@
     >
       <div 
         v-if="isAnimated"
-        :class="$style['content']"
+        :class="$style['home-content']"
       >
         <BaseHeadingView :heading-text="$t('home.title')" />
         <h2 :class="$style['heading-2']">
@@ -47,10 +47,18 @@
 </script>
 
 <style lang="scss" module>
-.content {
+.home {
+  height: 100%;
+}
+.home-content {
   width: var(--home-content-width);
   margin: 0 auto;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
 }
 .heading-2 {
   font-size: 2.5em;

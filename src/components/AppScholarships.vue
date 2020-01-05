@@ -85,7 +85,7 @@
   min-height: 200px;
 }
 .scholarships {
-    width: var(--works-content-sub-width);
+    width: var(--education-content-sub-width);
 }
 @include slide-fade-helper('enter');
 </style>

@@ -2,19 +2,14 @@
   <header
     id="headerView"
     :class="$style['heading-view']"
-    :style="posX"
   >
-    <div class="heading-view-container">
-      <h1 class="heading1-view">
-        {{ headingText }}
-      </h1>
-    </div>
+    <h1 class="heading1-view">
+      {{ headingText }}
+    </h1>
   </header>
 </template>
 
 <script>
-    import { _setStyleInlineJustify } from '@/utils/helpers';
-
     export default {
         props: {
             headingText: {
@@ -22,24 +17,6 @@
                 default: () => ''
             }
         },
-        data () {
-            return {
-                posX: null
-            };
-        },
-        created () {
-            // set/keep the heading (h1) to the left aligning with the logo
-            setInlineStyle(this);
-
-            window.addEventListener('resize', () => setInlineStyle(this));
-        },
-        beforeDestroy () {
-            window.removeEventListener('resize', setInlineStyle);
-        }
-    };
-
-    const setInlineStyle = (vm) => {
-        vm.posX = _setStyleInlineJustify('left');
     };
 </script>
 
