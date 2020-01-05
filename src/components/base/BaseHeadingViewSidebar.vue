@@ -46,7 +46,7 @@
 <style lang="scss" module>
 .heading-view-sidebar {
     display: var(--heading1-view-sidebar-display);
-    width: 10%;
+    width: 6%;
     height: 100%;
     position: fixed !important;
     top: 0;
