@@ -4,6 +4,7 @@
       :href="item.url"
       :class="$style['card']"
       :title="item.label"
+      :tabindex="tabIndex"
     >
       <img
         v-if="item.image"
@@ -24,6 +25,10 @@
 <script>
     export default {
         props: {
+            tabIndex: {
+                type: Number,
+                default: () => null
+            },
             item: {
                 type: Object,
                 default: () => {}
