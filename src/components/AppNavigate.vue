@@ -33,6 +33,7 @@
           :btn-title="$t('buttons.close')"
           :btn-handler="closeNav"
           :btn-icon="'close'"
+          :tabindex="tabIndex.closeButton[0]"
         />
         <div
           id="navigationContent"
@@ -51,6 +52,7 @@
 <script>
     import { _eventBus } from '@/utils/eventBus';
     import { _scrollTo } from '@/utils/helpers';
+    import { _tabIndex } from '@/utils/tabIndex';
     import BaseLang from './base/BaseLang';
     import AppNavigateLinks from './AppNavigateLinks';
     import AppSocialMedia from './AppSocialMedia';
@@ -67,6 +69,7 @@
         },
         data () {
             return {
+                tabIndex: _tabIndex,
                 elNavigationContent: null,
                 elBtnCloseNavigate: null,
                 isShow: false,

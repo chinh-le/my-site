@@ -6,18 +6,27 @@
       :href="$t('recaptcha.policy.link')"
       target="_blank"
       :title="$t('recaptcha.policy.text')"
+      :tabindex="tabIndex.recaptcha[0]"
     >{{ $t('recaptcha.policy.text') }}</a> {{ $t('recaptcha.text-2') }}
     <a 
       :class="$style['recaptcha-link']"
       :href="$t('recaptcha.terms.link')"
       target="_blank"
       :title="$t('recaptcha.terms.text')"
+      :tabindex="tabIndex.recaptcha[1]"
     >{{ $t('recaptcha.terms.text') }}</a> {{ $t('recaptcha.text-3') }}.
   </p>
 </template>
 
 <script>
-    export default {};
+    import { _tabIndex } from '@/utils/tabIndex';
+    export default {
+        data () {
+            return {
+                tabIndex: _tabIndex
+            };
+        }
+    };
 </script>
 
 <style lang="scss" module>

@@ -32,6 +32,7 @@
           :btn-title="$t('buttons.close')"
           :btn-handler="closeAuth"
           :btn-icon="'close'"
+          :tabindex="tabIndex.closeButton[0]"
         />
         <div id="signinContent">
           <AppAuthenticateForm :close-auth="closeAuth" />
@@ -44,6 +45,7 @@
 <script>
     import { _eventBus } from '@/utils/eventBus';
     import { _scrollTo } from '@/utils/helpers';
+    import { _tabIndex } from '@/utils/tabIndex';
     import AppAuthenticateForm from './AppAuthenticateForm';
     import BaseButtonIcon from './base/BaseButtonIcon';
 
@@ -54,6 +56,7 @@
         },
         data () {
             return {
+                tabIndex: _tabIndex,
                 isShow: false,
             };
         },

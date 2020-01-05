@@ -8,6 +8,7 @@
         :btn-label="lang.label"
         :btn-title="lang.title"
         :btn-handler="changeLang"
+        :tabindex="tabIndex.lang[index]"
       />
     </li>
   </ul>
@@ -15,6 +16,7 @@
 
 <script>
     import { _appConfig } from '@/config';
+    import { _tabIndex } from '@/utils/tabIndex';
     import BaseLangButton from './BaseLangButton';
 
     export default {
@@ -23,6 +25,7 @@
         },
         data () {
             return {
+                tabIndex: _tabIndex,
                 langs: _appConfig.langs
             };
         },

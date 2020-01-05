@@ -5,7 +5,10 @@
       :key="index"
       :class="$style['cards-overlay-item']"
     >
-      <BaseCardOverlay :item="item" />
+      <BaseCardOverlay
+        :item="item"
+        :tabindex="tabIndex[index]"
+      />
     </li>
   </ul>
 </template>
@@ -18,11 +21,20 @@
             BaseCardOverlay
         },
         props: {
+            tabIndex: {
+                type: Object,
+                default: () => {}
+            },
             items: {
                 type: Array,
                 default: () => []
             }
-        }
+        },
+        /* data () {
+            return {
+                tabIndex: _tabIndex
+            };
+        } */
     };
 </script>
 

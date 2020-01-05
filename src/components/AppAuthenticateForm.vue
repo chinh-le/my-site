@@ -26,6 +26,7 @@
               :placeholder="$t('forms.authentication.email')"
               :aria-label="$t('forms.authentication.email')"
               aria-required="true"
+              :tabindex="tabIndex.authForm[0]"
               @blur="$v.auth.email.$touch()"
             >
           </div>
@@ -50,6 +51,7 @@
               :placeholder="$t('forms.authentication.password')"
               :aria-label="$t('forms.authentication.password')"
               aria-required="true"
+              :tabindex="tabIndex.authForm[1]"
               @blur="$v.auth.password.$touch()"
             >
           </div>
@@ -65,6 +67,7 @@
             v-model="isSigningUp"
             :class="$style['input-checkbox']"
             type="checkbox"
+            :tabindex="tabIndex.authForm[2]"
           >
           <label
             :class="$style['input-label']"
@@ -76,6 +79,7 @@
       <BaseFormButtonSubmit
         :label="isSigningUp ? $t('forms.authentication.button.signup') : $t('forms.authentication.button.signin')"
         :disabled="$v.$invalid"
+        :tabindex="tabIndex.authForm[3]"
       />
     </form>
     <BaseDualRingMessage
@@ -91,6 +95,7 @@
     import { _signup, _signin } from '@/firebase';
     import { _appConfig } from '@/config';
     import { _eventBus } from '@/utils/eventBus';
+    import { _tabIndex } from '@/utils/tabIndex';
     import BaseFormButtonSubmit from './base/BaseFormButtonSubmit';
     import BaseRecaptcha from './base/BaseRecaptcha';
     import BaseDualRingMessage from './base/BaseDualRingMessage';
@@ -109,6 +114,7 @@
         },
         data () {
             return {
+                tabIndex: _tabIndex,
                 requestStatus: '',
                 errorRequestCode: '',
                 elBtnClose: null,

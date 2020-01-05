@@ -1,3 +1,7 @@
+*:focus,
+button:focus {
+    outline: 1px dotted #D85426;
+}
 html {
     &::selection {
         background: transparent;
@@ -61,6 +65,9 @@ a {
     &::first-letter {
         text-transform: var(--href-first-letter);
     }
+    /* &:focus {
+        outline: 1px solid #D85426;
+    } */
 }
 p {
     &::first-letter {
@@ -74,6 +81,9 @@ input, textarea {
     box-sizing: border-box;
     color: var(--form-input-txt-color);
     outline: none;
+    &:focus {
+        outline: none;
+    }
     filter: none; // hack fixing form input autofill/autocomplete text color (Fifrefox)
 }
 

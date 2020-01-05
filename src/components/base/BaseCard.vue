@@ -5,6 +5,7 @@
       <a
         :href="item.url"
         :title="item.url"
+        :tabindex="tabIndex"
       >@{{ item.location }}</a>
     </p>
     <img
@@ -17,6 +18,10 @@
 <script>
     export default {
         props: {
+            tabIndex: {
+                type: Number,
+                default: () => null
+            },
             item: {
                 type: Object,
                 default: () => {}
