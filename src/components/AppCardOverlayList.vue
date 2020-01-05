@@ -7,7 +7,7 @@
     >
       <BaseCardOverlay
         :item="item"
-        :tabindex="tabIndex[index]"
+        :tab-index="tabIndex[index]"
       />
     </li>
   </ul>
@@ -22,19 +22,14 @@
         },
         props: {
             tabIndex: {
-                type: Object,
-                default: () => {}
+                type: Array,
+                default: () => []
             },
             items: {
                 type: Array,
                 default: () => []
             }
-        },
-        /* data () {
-            return {
-                tabIndex: _tabIndex
-            };
-        } */
+        }
     };
 </script>
 

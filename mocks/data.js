@@ -28,21 +28,21 @@ const personals = {
     label: 'Stock Trader',
     image: 'stock-trader-vue-640.png',
     url: 'https://stock-trader-vue-6bd8c.web.app/',
-    languages: 'Vue, Google Cloud Platform'
+    languages: 'Vue, Google Web Services, Bootstrap'
   },
   burgerBuilder: {
     order: 2,
     label: 'Burger Builder',
     image: 'burger-builder-react-640.png',
     url: 'https://burger-builder-react-8801d.web.app/',
-    languages: 'React, Google Cloud Platform'
+    languages: 'React, Google Web Services, Bootstrap'
   },
   recipeBook: {
     order: 3,
     label: 'Recipe Book',
     image: 'recipe-book-ng-640.png',
     url: 'https://recipe-book-ng-183d5.firebaseapp.com/',
-    languages: 'Angular, Google Cloud Platform'
+    languages: 'Angular, Google Web Services, Bootstrap'
   }
   /* comingSoon: {
     order: 4,
