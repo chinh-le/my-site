@@ -9,6 +9,7 @@
       >@{{ item.location }}</a>
     </p>
     <img
+      v-if="item.image"
       :src="item.image"
       :alt="item.alt"
     >
@@ -32,18 +33,21 @@
 
 <style lang="scss" module>
 .card {
-    h4 {
+  border-radius: 0.5em;
+  background-color: $card-list-bg-color;
+  padding: 1em;
+    > h4 {
         font-size: 0.8em;
     }
-    p {
+    > p {
         font-size: 0.7em;
         margin-bottom: 1em;
+      > a {
+          display: block;
+          color: $dimlight-color;
+      }
     }
-    a {
-        display: block;
-        color: $dimlight-color;
-    }
-    img {
+    > img {
         width: 100%;
     }
 }

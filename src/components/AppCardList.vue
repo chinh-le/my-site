@@ -41,9 +41,6 @@
   justify-content: space-between;
 }
 .cards-item {
-  border-radius: 0.5em;
-  background-color: $card-list-bg-color;
-  padding: 1em;
   margin-bottom: 2em;
   width: var(--cards-item-width);
 }
