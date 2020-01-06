@@ -6,6 +6,7 @@
         :href="item.url"
         :title="item.url"
         :tabindex="tabIndex"
+        target="_blank"
       >@{{ item.location }}</a>
     </p>
     <img
