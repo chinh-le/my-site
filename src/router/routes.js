@@ -8,7 +8,10 @@ export default [
     {
         path: routesConfig.home.path,
         name: routesConfig.home.name,
-        component: () => import(/* webpackChunkName: "ViewHome" */ `@/components/view/ViewHome`)
+        component: () => import(/* webpackChunkName: "ViewHome" */ `@/components/view/ViewHome`),
+        meta: {
+            title: `${routesConfig.home.title} | ${_appConfig.appName}`
+        }
     },
     {
         path: routesConfig.about.path,
@@ -19,27 +22,42 @@ export default [
             // this generates a separate chunk (ViewAbout.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
         */
-        component: () => import(/* webpackChunkName: "ViewAbout" */ '@/components/view/ViewAbout')
+        component: () => import(/* webpackChunkName: "ViewAbout" */ '@/components/view/ViewAbout'),
+        meta: {
+            title: `${routesConfig.about.title} | ${_appConfig.appName}`
+        }
     },
     {
         path: routesConfig.works.path,
         name: routesConfig.works.name,
-        component: () => import(/* webpackChunkName: "ViewWorks" */ '@/components/view/ViewWorks')
+        component: () => import(/* webpackChunkName: "ViewWorks" */ '@/components/view/ViewWorks'),
+        meta: {
+            title: `${routesConfig.works.title} | ${_appConfig.appName}`
+        }
     },
     {
         path: routesConfig.education.path,
         name: routesConfig.education.name,
-        component: () => import(/* webpackChunkName: "ViewEducation" */ '@/components/view/ViewEducation')
+        component: () => import(/* webpackChunkName: "ViewEducation" */ '@/components/view/ViewEducation'),
+        meta: {
+            title: `${routesConfig.education.title} | ${_appConfig.appName}`
+        }
     },
     {
         path: routesConfig.contact.path,
         name: routesConfig.contact.name,
-        component: () => import(/* webpackChunkName: "ViewContact" */ '@/components/view/ViewContact')
+        component: () => import(/* webpackChunkName: "ViewContact" */ '@/components/view/ViewContact'),
+        meta: {
+            title: `${routesConfig.contact.title} | ${_appConfig.appName}`
+        }
     },
     {
         path: routesConfig.admin.path,
         name: routesConfig.admin.name,
         component: () => import(/* webpackChunkName: "ViewAdmin" */ '@/components/view/ViewAdmin'),
+        meta: {
+            title: `${routesConfig.admin.title} | ${_appConfig.appName}`
+        },
         // admin route cannot be accessed directly from url, to ensure the store uid is available thus allowing only user with admin rights (uid) can have access (see watch: uid in AppNavigateLinks and AppNavigateLinksSidebar)
         beforeEnter (to, from, next) {
             if (from.name) {

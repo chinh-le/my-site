@@ -10,4 +10,8 @@ const router = new VueRouter({
   routes
 });
 
+router.afterEach((to) => {
+  document.title = to.meta.title; // set page title
+});
+
 export default router;
