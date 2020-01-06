@@ -3,6 +3,7 @@
     :href="link.url"
     :class="[$style['link'], $style[link.label]]"
     :title="link.label"
+    target="_blank"
   >
     <img
       :src="link.image"

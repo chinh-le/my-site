@@ -5,6 +5,7 @@
       :class="$style['card']"
       :title="item.label"
       :tabindex="tabIndex"
+      target="_blank"
     >
       <img
         v-if="item.image"
