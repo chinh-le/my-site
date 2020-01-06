@@ -9,6 +9,7 @@ export const _appConfig = {
     appTesterEmail: process.env.VUE_APP_TESTER_EMAIL,
     appTesterPassword: process.env.VUE_APP_TESTER_PASSWORD,
     appRequestRetry: 20,
+    appName: 'clê',
     views: [
         {
             order: 1,
