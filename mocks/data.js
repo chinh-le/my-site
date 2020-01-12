@@ -28,21 +28,21 @@ const personals = {
     label: 'Stock Trader',
     image: 'stock-trader-vue-640.png',
     url: 'https://stock-trader-vue-6bd8c.web.app/',
-    languages: 'Vue, Google Web Services, Bootstrap'
+    languages: 'Vue 2, Google Web Services, Bootstrap 4'
   },
   burgerBuilder: {
     order: 2,
     label: 'Burger Builder',
     image: 'burger-builder-react-640.png',
     url: 'https://burger-builder-react-8801d.web.app/',
-    languages: 'React, Google Web Services, Bootstrap'
+    languages: 'React 16, Google Web Services, Bootstrap 4'
   },
   recipeBook: {
     order: 3,
     label: 'Recipe Book',
     image: 'recipe-book-ng-640.png',
     url: 'https://recipe-book-ng-183d5.firebaseapp.com/',
-    languages: 'Angular, Google Web Services, Bootstrap'
+    languages: 'Angular 7, Google Web Services, Bootstrap 4'
   }
   /* comingSoon: {
     order: 4,
@@ -53,12 +53,12 @@ const personals = {
 };
 
 const certificates = {
-  vuejs2: {
+  vue2: {
     order: 1,
-    header: 'VueJS 2 - The Complete Guide',
+    header: 'Vue 2 - The Complete Guide',
     url: 'https://udemy.com/course/vuejs-2-the-complete-guide/',
     image: 'UC-KKDCJ1EE-640.jpg',
-    alt: 'VueJS 2 certificate',
+    alt: 'Vue 2 certificate',
     location: 'Udemy.com'
   },
   react16: {
@@ -66,15 +66,15 @@ const certificates = {
     header: 'React 16 - The Complete Guide',
     url: 'https://udemy.com/course/react-the-complete-guide-incl-redux/',
     image: 'UC-AV9URVXK-640.jpg',
-    alt: 'Reacte 16 certificate',
+    alt: 'React 16 certificate',
     location: 'Udemy.com'
   },
   angular: {
     order: 3,
-    header: 'Angular - The Complete Guide',
+    header: 'Angular 7 - The Complete Guide',
     url: 'https://udemy.com/course/the-complete-guide-to-angular-2/',
     image: 'UC-RFUPPOFP-640.jpg',
-    alt: 'Angular certificate',
+    alt: 'Angular 7 certificate',
     location: 'Udemy.com'
   },
   bootstrap4: {
@@ -117,7 +117,7 @@ const scholarships = {
 const skills = {
   librairies: {
     order: 1,
-    name: 'VueJS 2, React 16, Angular, AngularJS, Bootstrap 4',
+    name: 'Vue 2, React 16, Angular 7, AngularJS, Bootstrap 4',
     rate: 3
   },
   google: {

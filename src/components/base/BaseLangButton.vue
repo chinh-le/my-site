@@ -2,7 +2,7 @@
   <button
     :class="[$style['btn'], $style[`btn-${btnLabel}`], $style[setActive]]"
     :title="btnTitle"
-    @click="btnHandler(btnLabel)"
+    @click="clickHandler(btnLabel)"
   >
     {{ btnLabel }}
   </button>
@@ -19,7 +19,7 @@
                 type: String,
                 default: () => ''
             },
-            btnHandler: {
+            clickHandler: {
                 type: Function,
                 default: () => () => {}
             },

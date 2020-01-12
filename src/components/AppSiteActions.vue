@@ -1,6 +1,6 @@
 <template>
   <div :class="$style['signin-nav']">
-    <BaseDownloadLinkIcon
+    <AppDownloadResume
       v-if="isAuthenticated"
       :tabindex="tabIndex.siteAction[0]"
     />
@@ -8,24 +8,24 @@
       v-if="!isAuthenticated"
       :btn-class="'btn-signin'"
       :btn-title="$t('buttons.authenticate')"
-      :btn-handler="openAuth"
+      :click-handler="openAuth"
       :btn-icon="'person_outline'"
-      :tabindex="tabIndex.siteAction[1]"
+      :tabindex="tabIndex.siteAction[3]"
     />
     <BaseButtonIcon
       v-else
       :btn-class="'btn-signout'"
       :btn-title="$t('buttons.signout')"
-      :btn-handler="signout"
+      :click-handler="signout"
       :btn-icon="'person'"
-      :tabindex="tabIndex.siteAction[2]"
+      :tabindex="tabIndex.siteAction[4]"
     />
     <BaseButtonIcon
       :btn-class="'btn-nav'"
       :btn-title="$t('buttons.navigate')"
-      :btn-handler="openNav"
+      :click-handler="openNav"
       :btn-icon="'dehaze'"
-      :tabindex="tabIndex.siteAction[3]"
+      :tabindex="tabIndex.siteAction[5]"
     />
   </div>
 </template>
@@ -35,12 +35,12 @@
     import { _signout } from '@/firebase';
     import { _eventBus } from '@/utils/eventBus';
     import { _tabIndex } from '@/utils/tabIndex';
-    import BaseDownloadLinkIcon from './base/BaseDownloadLinkIcon';
     import BaseButtonIcon from './base/BaseButtonIcon';
+    import AppDownloadResume from './AppDownloadResume';
 
     export default {
         components: {
-            BaseDownloadLinkIcon,
+            AppDownloadResume,
             BaseButtonIcon
         },
         data () {

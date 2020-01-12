@@ -122,7 +122,7 @@
   z-index: $z-index-site-wrap; //4;
   box-sizing: border-box;
   padding: var(--site-wrap-padding);
-  overflow-y: auto;
+  overflow-y: scroll;
   scrollbar-color: #D85426 #D85426;
   scrollbar-width: thin;
   &::-webkit-scrollbar {
