@@ -1,6 +1,6 @@
 export const _tabIndex = {
     logo: [100],
-    siteAction: [110, 111, 112, 113],
+    siteAction: [110, 111, 112, 113, 114, 115],
     socialMedia: [140, 141, 142],
     
     // content

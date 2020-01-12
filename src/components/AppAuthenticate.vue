@@ -30,7 +30,7 @@
           :btn-id="'btnCloseAuth'"
           :btn-class="'btn-close'"
           :btn-title="$t('buttons.close')"
-          :btn-handler="closeAuth"
+          :click-handler="closeAuth"
           :btn-icon="'close'"
           :tabindex="tabIndex.closeButton[0]"
         />

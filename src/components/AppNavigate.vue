@@ -31,7 +31,7 @@
           :btn-id="'btnCloseNavigate'"
           :btn-class="'btn-close'"
           :btn-title="$t('buttons.close')"
-          :btn-handler="closeNav"
+          :click-handler="closeNav"
           :btn-icon="'close'"
           :tabindex="tabIndex.closeButton[0]"
         />

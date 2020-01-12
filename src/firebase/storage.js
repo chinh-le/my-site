@@ -13,7 +13,7 @@ export const _getDownloadUrl = (filePath) => {
   // fileRef.getDownloadURL()
   return fileRef.getDownloadURL()
     .then(url => {
-			// console.log('TLC: getDownloadUrl -> url', url);
+			// // console.log('TLC: getDownloadUrl -> url', url);
       return url;
     })
     /* .catch(err => {

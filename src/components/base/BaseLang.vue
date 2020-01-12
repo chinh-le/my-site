@@ -7,7 +7,7 @@
       <BaseLangButton
         :btn-label="lang.label"
         :btn-title="lang.title"
-        :btn-handler="changeLang"
+        :click-handler="changeLang"
         :tabindex="tabIndex.lang[index]"
       />
     </li>
@@ -34,6 +34,7 @@
         },
         methods: {
             changeLang (lang) {
+                // console.log('TLC: changeLang -> lang', lang);
                 this.$i18n.locale = lang;
 
                 localStorage.setItem('i18nLocale', lang);

@@ -59,6 +59,30 @@
         }
     }
 }
+@mixin slide-vertical-helper {
+    .slide-vertical-enter-active {
+        animation: slideIn 0.5s ease-in;
+    }
+    .slide-vertical-leave-active {
+        animation: slideOut 0.4s ease-out;
+    }
+    @keyframes slideIn {
+        from {
+            transform: translateY(-100%);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
+    @keyframes slideOut {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(-100%);
+        }
+    }
+}
 @mixin slide-helper {
     .slide-enter-active {
         animation: slideIn 0.5s ease-in;
