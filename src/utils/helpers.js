@@ -90,6 +90,11 @@ const _scrollTo = (el, left, top) => {
   });
 };
 
+const _getImgContextPath = (imgPath) => {
+	// console.log('TLC: _getImgContextPath -> imgPath', imgPath);
+  return require('@/assets/' + imgPath) || null;
+};
+
 export {
   _getData,
   _arraySortByKey,
@@ -99,5 +104,6 @@ export {
   _setStyleInlineJustify,
   _emailRegex,
   // loadFonts,
-  _scrollTo
+  _scrollTo,
+  _getImgContextPath
 };

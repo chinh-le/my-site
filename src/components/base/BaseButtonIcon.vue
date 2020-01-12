@@ -4,7 +4,8 @@
     type="button"
     :class="[$style['btn'], $style[btnClass]]"
     :title="btnTitle"
-    @click="btnHandler"
+    @click="clickHandler"
+    @blur="blurHandler"
   >
     <i class="material-icons">{{ btnIcon }}</i>
   </button>
@@ -25,13 +26,17 @@
                 type: String,
                 default: () => ''
             },
-            btnHandler: {
-                type: Function,
-                default: () => () => {}
-            },
             btnIcon: {
                 type: String,
                 default: () => ''
+            },
+            clickHandler: {
+                type: Function,
+                default: () => () => {}
+            },
+            blurHandler: {
+                type: Function,
+                default: () => () => {}
             },
         }
     };
@@ -39,8 +44,9 @@
 
 <style lang="scss" module>
 .btn {
-    display: inherit;
+    display: flex;
     padding: 1em;
+    background-color: $theHeader-bg-color;
     &:hover {
         cursor: pointer;
     }
@@ -74,6 +80,13 @@
 .btn-nav {
     &:after {
         content: "open navigation";
+    }
+}
+.btn-download-resume {
+    position: relative;
+    z-index: $z-index-btn-download-resume;
+    &:after {
+        content: "download resume";
     }
 }
 </style>

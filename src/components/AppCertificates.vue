@@ -30,8 +30,7 @@
 </template>
 
 <script>
-    import { _getData } from '@/utils/helpers';
-    import { _getImgContextPath } from '@/firebase';
+    import { _getData, _getImgContextPath } from '@/utils/helpers';
     import { _tabIndex } from '@/utils/tabIndex';
     import AppCardList from './AppCardList';
     import BaseErrorRequest from './base/BaseErrorRequest';

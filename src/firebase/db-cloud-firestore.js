@@ -17,7 +17,7 @@ const _addCollection = (name, data) => {
 };
 
 const _getCollection = (name) => {
-	// console.log('TLC: _getCollection -> name', name);
+	// // console.log('TLC: _getCollection -> name', name);
   const db = firebase.firestore();
   const query = db.collection(name).orderBy('order');
 
@@ -33,7 +33,7 @@ const _addSkills = (data) => {
   for (let i in data) {
     categoriesRef.doc(i).set(data[i])
       .then(() => {
-				// // console.log('TLC: _addSkills -> SUCCESS');
+				// // // console.log('TLC: _addSkills -> SUCCESS');
       })
     .catch(err => {
       errorHandler(err);
@@ -55,7 +55,7 @@ const _addRatings = (data) => {
 
   return educationRef.doc('ratings').set(data)
     .then(() => {
-			// // console.log('TLC: _addRatings -> SUCCESS');
+			// // // console.log('TLC: _addRatings -> SUCCESS');
     })
     .catch(err => {
       errorHandler(err);
@@ -67,10 +67,6 @@ const _getRatings = () => {
   const ratingsRef = db.collection('education').doc('ratings');
 
   return ratingsRef.get();
-};
-
-const _getImgContextPath = (imgPath) => {
-  return require('@/assets/' + imgPath) || null;
 };
 
 // perhaps log and send notif to admin
@@ -86,5 +82,4 @@ export {
   _getSkills,
   _addRatings,
   _getRatings,
-  _getImgContextPath
 };
