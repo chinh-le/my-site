@@ -28,11 +28,11 @@ export default [
         }
     },
     {
-        path: routesConfig.works.path,
-        name: routesConfig.works.name,
-        component: () => import(/* webpackChunkName: "ViewWorks" */ '@/components/view/ViewWorks'),
+        path: routesConfig.work.path,
+        name: routesConfig.work.name,
+        component: () => import(/* webpackChunkName: "ViewWork" */ '@/components/view/ViewWork'),
         meta: {
-            title: `${routesConfig.works.title} | ${_appConfig.appName}`
+            title: `${routesConfig.work.title} | ${_appConfig.appName}`
         }
     },
     {

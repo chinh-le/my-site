@@ -12,7 +12,7 @@
     "paragraph-2": "working with the latest Javascript frameworks/libraries, such as VueJS, React, Angular, and Google Web Services",
     "paragraph-3": "Ability to perform well in a fast-paced, team-oriented, dynamic environment. Excellent analytical thinker and problem-solving skills with a keen attention to detail"
   },
-  "works": {
+  "work": {
     "title": "work"
   },
   "education": {
@@ -48,7 +48,7 @@
     "heading": "navigation",
     "home": "home",
     "about": "about",
-    "works": "works",
+    "work": "work",
     "education": "education",
     "contact": "contact",
     "admin": "admin"
