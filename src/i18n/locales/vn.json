@@ -12,7 +12,7 @@
     "paragraph-2": "làm việc với các thư viện / khung công tác Javascript mới nhất, chẳng hạn như VueJS, React, Angular và Google Web Services",
     "paragraph-3": "có khả năng thực hiện tốt trong môi trường năng động, theo định hướng nhóm, nhanh chóng. Nhà tư duy phân tích xuất sắc và kỹ năng giải quyết vấn đề với sự chú ý sâu sắc đến chi tiết"
   },
-  "works": {
+  "work": {
     "title": "công trinh"
   },
   "education": {
@@ -48,7 +48,7 @@
     "heading": "điều hướng",
     "home": "trang chủ",
     "about": "về tôi",
-    "works": "công trinh",
+    "work": "công trinh",
     "education": "nền học",
     "contact": "tiếp xúc",
     "admin": "quản trị viên"

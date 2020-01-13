@@ -29,11 +29,11 @@ export const _appConfig = {
         },
         {
             order: 3,
-            name: 'works',
-            path: '/works',
-            class: 'link-works',
-            title: 'works',
-            componentName: 'AppWorks'
+            name: 'work',
+            path: '/work',
+            class: 'link-work',
+            title: 'work',
+            componentName: 'AppWork'
         },
         {
             order: 4,

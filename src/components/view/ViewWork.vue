@@ -1,13 +1,13 @@
 <template>
   <div
-    id="works"
-    :class="$style['works']"
+    id="work"
+    :class="$style['work']"
   >
-    <BaseHeadingView :heading-text="$t('works.title')" />
-    <BaseHeadingViewSidebar :heading-text="$t('works.title')" />
+    <BaseHeadingView :heading-text="$t('work.title')" />
+    <BaseHeadingViewSidebar :heading-text="$t('work.title')" />
     <div
-      id="worksContent"
-      :class="$style['works-content']"
+      id="workContent"
+      :class="$style['work-content']"
     >
       <AppProfessionals />
       <AppPersonals />
@@ -32,17 +32,17 @@
 </script>
 
 <style lang="scss" module>
-.works {
+.work {
   --heading1-first-letter: normal;
 
   padding: var(--site-wrap-padding);
-  width: var(--works-width);
+  width: var(--work-width);
   margin: 0 auto;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  height: var(--works-height);
+  height: var(--work-height);
 }
 </style>

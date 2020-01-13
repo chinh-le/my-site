@@ -12,7 +12,7 @@
     "paragraph-2": "travailler avec les derniers frameworks / bibliothèques Javascript, tels que VueJS, React, Angular et les Services Web de Google",
     "paragraph-3": "capacité à bien performer dans un environnement dynamique et axé sur l'équipe. Excellente capacité de réflexion analytique et de résolution de problèmes avec une grande attention aux détails"
   },
-  "works": {
+  "work": {
     "title": "projet"
   },
   "education": {
@@ -49,7 +49,7 @@
     "heading": "navigation",
     "home": "accueil",
     "about": "à propos",
-    "works": "projets",
+    "work": "projet",
     "education": "éducation",
     "contact": "contact",
     "admin": "admin"
