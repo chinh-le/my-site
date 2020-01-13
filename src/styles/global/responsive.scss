@@ -27,7 +27,7 @@
         --education-width: 80%;
         --home-content-width: 60%;
         --slide-in-width: 60%;
-        --works-width: 80%;
+        --work-width: 80%;
     }
     #theHeader {
         --social-media-display: flex;
@@ -47,7 +47,7 @@
         --education-width: 90%;
         --home-content-width: 50%;
         --slide-in-width: 50%;
-        --works-width: 90%;
+        --work-width: 90%;
     }
     #theHeader {
         --logo-font-size: 1.7em;
@@ -79,7 +79,7 @@
         --skills-width: 45%;
         --site-nav-sidebar-display: block;
         --slide-in-width: 40%;
-        --works-width: 70%;
+        --work-width: 70%;
     }
     #home {
         --heading1-view-display: block;
@@ -94,8 +94,8 @@
         // --heading1-view-sidebar-left: -40%;
         // --site-nav-sidebar-justify: flex-end;
         --slide-in-width: 30%;
-        --works-display: flex;
-        --works-width: 80%;
+        --work-display: flex;
+        --work-width: 80%;
     }
 }
 
@@ -111,7 +111,7 @@
     /* @media screen and (max-height: 400px) {
         :root {
             --contact-height: auto;
-            --works-height: auto;
+            --work-height: auto;
         }
     } */
 }
