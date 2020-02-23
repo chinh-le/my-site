@@ -2,8 +2,7 @@ import Vue from 'vue';
 import VueI18n from "vue-i18n";
 import { _supportedLangs, _defaultLang, _fallbackLang } from './locales/index';
 
-// const messages = Object.assign(_supportedLangs); // Object assign is relevant???
-const messages = _supportedLangs;
+const messages = Object.assign(_supportedLangs);
 
 // REM - check if OS/navigator languages are supported by the app's i18n messages
 // const navigatorLangs = navigator.languages;

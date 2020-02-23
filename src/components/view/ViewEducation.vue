@@ -7,7 +7,7 @@
     <BaseHeadingViewSidebar :heading-text="$t('education.title')" />
     <div :class="$style['education-content']">
       <AppCertificates />
-      <AppScholarships />
+      <!-- <AppScholarships /> -->
     </div>
   </div>
 </template>
@@ -16,14 +16,14 @@
     import BaseHeadingView from '../base/BaseHeadingView';
     import BaseHeadingViewSidebar from '../base/BaseHeadingViewSidebar';
     import AppCertificates from '../AppCertificates';
-    import AppScholarships from '../AppScholarships';
+    // import AppScholarships from '../AppScholarships';
 
     export default {
         components: {
             BaseHeadingView,
             BaseHeadingViewSidebar,
             AppCertificates,
-            AppScholarships
+            // AppScholarships
         }
     };
 </script>
