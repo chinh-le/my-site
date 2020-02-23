@@ -53,40 +53,48 @@ const personals = {
 };
 
 const certificates = {
-  vue2: {
+  jsAlgoDataStruct: {
     order: 1,
+    header: 'Javascript Algorithms and Data Structures',
+    url: 'https://udemy.com/course/vuejs-2-the-complete-guide/',
+    image: 'javascript-algorithms-and-data-structures.png',
+    alt: 'Javascript Algorithms and Data Structures',
+    location: 'freecodecamp.org'
+  },
+  vue2: {
+    order: 2,
     header: 'Vue 2 - The Complete Guide',
     url: 'https://udemy.com/course/vuejs-2-the-complete-guide/',
-    image: 'UC-KKDCJ1EE-640.jpg',
+    image: 'UC-KKDCJ1EE.jpg',
     alt: 'Vue 2 certificate',
     location: 'Udemy.com'
   },
   react16: {
-    order: 2,
+    order: 3,
     header: 'React 16 - The Complete Guide',
     url: 'https://udemy.com/course/react-the-complete-guide-incl-redux/',
-    image: 'UC-AV9URVXK-640.jpg',
+    image: 'UC-AV9URVXK.jpg',
     alt: 'React 16 certificate',
     location: 'Udemy.com'
   },
   angular: {
-    order: 3,
+    order: 4,
     header: 'Angular 7 - The Complete Guide',
     url: 'https://udemy.com/course/the-complete-guide-to-angular-2/',
-    image: 'UC-RFUPPOFP-640.jpg',
+    image: 'UC-RFUPPOFP.jpg',
     alt: 'Angular 7 certificate',
     location: 'Udemy.com'
   },
   bootstrap4: {
-    order: 4,
+    order: 5,
     header: 'Bootstrap 4 - Bootcamp',
     url: 'https://udemy.com/course/bootstrap-4-bootcamp/',
-    image: 'UC-SCGX1MCT-640.jpg',
+    image: 'UC-SCGX1MCT.jpg',
     alt: 'Bootcamp 4 certificate',
     location: 'Udemy.com'
   },
   softwareDev: {
-    order: 5,
+    order: 6,
     header: 'Software Development',
     // url: '',
     // image: '',
@@ -94,7 +102,7 @@ const certificates = {
     location: 'McGill University'
   },
   webDesign: {
-    order: 6,
+    order: 7,
     header: 'Web Design',
     // url: '',
     // image: '',
