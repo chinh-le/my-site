@@ -53,7 +53,7 @@ const personals = {
 };
 
 const certificates = {
-  jsAlgoDataStruct: {
+  awsServerlessIntro: {
     order: 1,
     header: 'AWS Serverless APIs & Apps - A Complete Introduction',
     url: 'https://www.udemy.com/course/aws-serverless-a-complete-introduction/',
