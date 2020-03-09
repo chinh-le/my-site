@@ -7,7 +7,7 @@
         :title="item.url"
         :tabindex="tabIndex"
         target="_blank"
-      >@{{ item.location }}</a>
+      >@ {{ item.location }}</a>
     </p>
     <img
       v-if="item.image"
