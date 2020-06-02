@@ -63,21 +63,21 @@ const personals = {
     label: 'Stock Trader',
     image: 'stock-trader-vue-640.png',
     url: 'https://stock-trader-vue-6bd8c.web.app/',
-    languages: 'Vue 2, Google Web Services, Bootstrap 4'
+    languages: 'Vue 2, Google Cloud Platform / Firebase, Bootstrap 4'
   },
   burgerBuilder: {
     order: 7,
     label: 'Burger Builder',
     image: 'burger-builder-react-640.png',
     url: 'https://burger-builder-react-8801d.web.app/',
-    languages: 'React 16, Google Web Services, Bootstrap 4'
+    languages: 'React 16, Google Cloud Platform / Firebase, Bootstrap 4'
   },
   recipeBook: {
     order: 8,
     label: 'Recipe Book',
     image: 'recipe-book-ng-640.png',
     url: 'https://recipe-book-ng-183d5.firebaseapp.com/',
-    languages: 'Angular 7, Google Web Services, Bootstrap 4'
+    languages: 'Angular 7, Google Cloud Platform / Firebase, Bootstrap 4'
   },
   /* comingSoon: {
     order: 4,
