@@ -11,77 +11,68 @@
       :leave-to-class="$style['slide-fade-leave-to']"
       :leave-active-class="$style['slide-fade-leave-active']"
     >
-      <div
-        v-if="personals.length > 0"
-        :class="$style['personals']"
-      >
-        <AppCardOverlayList
-          :items="personals"
-          :tab-index="tabIndex"
-        />
+      <div v-if="personals.length > 0" :class="$style['personals']">
+        <AppCardOverlayList :items="personals" :tab-index="tabIndex" />
       </div>
       <BaseDualRing v-else-if="!isErrorRequest" />
-      <BaseErrorRequest
-        v-else
-        :error-code="errorRequestCode"
-      />
+      <BaseErrorRequest v-else :error-code="errorRequestCode" />
     </transition>
   </div>
 </template>
 
 <script>
-    import { _getData, _getImgContextPath } from '@/utils/helpers';
-    import { _tabIndex } from '@/utils/tabIndex';
-    import AppCardOverlayList from './AppCardOverlayList';
-    import BaseErrorRequest from './base/BaseErrorRequest';
-    import BaseDualRing from './base/BaseDualRing';
+import { _getData, _getImgContextPath } from '@/utils/helpers'
+import { _tabIndex } from '@/utils/tabIndex'
+import AppCardOverlayList from './AppCardOverlayList'
+import BaseErrorRequest from './base/BaseErrorRequest'
+import BaseDualRing from './base/BaseDualRing'
 
-    export default {
-        components: {
-            BaseDualRing,
-            BaseErrorRequest,
-            AppCardOverlayList
-        },
-        data () {
-            return {
-                tabIndex: _tabIndex.listPersonals,
-                personals: [],
-                isErrorRequest: false,
-                errorRequestCode: null
-            };
-        },
-        created () {
-            _getData('personals')
-                .then(querySnapshot => {
-                    // console.log('TLC: created -> querySnapshot', querySnapshot);
-                    this.errorRequest = false;
-                    this.errorRequestCode = null;
+export default {
+  components: {
+    BaseDualRing,
+    BaseErrorRequest,
+    AppCardOverlayList
+  },
+  data() {
+    return {
+      tabIndex: _tabIndex.listPersonals,
+      personals: [],
+      isErrorRequest: false,
+      errorRequestCode: null
+    }
+  },
+  created() {
+    _getData('personals')
+      .then(querySnapshot => {
+        // console.log('TLC: created -> querySnapshot', querySnapshot)
+        this.errorRequest = false
+        this.errorRequestCode = null
 
-                    if (!querySnapshot.empty) {
-                        querySnapshot.forEach(element => {
-                            let elemData = element.data();
-                            // console.log('TLC: created -> elemData', elemData);
-                            // console.log('TLC: created -> elemData.image', elemData.image);
+        if (!querySnapshot.empty) {
+          querySnapshot.forEach(element => {
+            let elemData = element.data()
+            console.log('TLC: created -> elemData', elemData)
+            // console.log('TLC: created -> elemData.image', elemData.image);
 
-                            if (elemData.image) {
-                                elemData.image = _getImgContextPath(`works/${elemData.image}`);
-                                // console.log('TLC: created -> elemData.image', elemData.image);
-                            }
+            if (elemData.image) {
+              elemData.image = _getImgContextPath(`works/${elemData.image}`)
+              // console.log('TLC: created -> elemData.image', elemData.image);
+            }
 
-                            this.personals.push(elemData);
-                        });
-                    } else {
-                        // console.log('TLC: created -> list empty');
-                        this.personals = [];
-                    }
-                })
-                .catch(err => {
-                    // console.log('TLC: personals - created -> err.code', err.code);
-                    this.isErrorRequest = true;
-                    this.errorRequestCode = err.code;
-                });
+            this.personals.push(elemData)
+          })
+        } else {
+          // console.log('TLC: created -> list empty');
+          this.personals = []
         }
-    };
+      })
+      .catch(err => {
+        // console.log('TLC: personals - created -> err.code', err.code);
+        this.isErrorRequest = true
+        this.errorRequestCode = err.code
+      })
+  }
+}
 </script>
 
 <style lang="scss" module>
@@ -89,7 +80,7 @@
   min-height: 200px;
 }
 .personals {
-    width: var(--personals-width);
+  width: var(--personals-width);
 }
 @include slide-fade-helper('enter');
 </style>

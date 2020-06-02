@@ -1,7 +1,7 @@
 <template>
   <ul :class="$style['cards']">
     <li
-      v-for="(item, index) in items"
+      v-for="(item, index) in reverseItems"
       :key="item.header"
       :class="$style['cards-item']"
     >
@@ -28,6 +28,11 @@
             items: {
                 type: Array,
                 default: () => []
+            }
+        },
+        computed: {
+            reverseItems () {
+                return this.items.slice().reverse();
             }
         }        
     };
