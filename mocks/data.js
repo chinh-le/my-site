@@ -98,7 +98,7 @@ const certificates = {
     urlCert: 'https://www.freecodecamp.org/certification/chinh-le/front-end-libraries',
     languages: 'React, Redux, Bootstrap, Sass, jQuery'
   },
-  nodejsApisMicroservices: {
+  fccApisMicroservices: {
     order: 9,
     header: 'APIs and Microservices',
     url: 'https://www.freecodecamp.org/learn/#apis-and-microservices',
@@ -108,25 +108,25 @@ const certificates = {
     urlCert: 'https://www.freecodecamp.org/certification/chinh-le/apis-and-microservices',
     languages: 'NodeJS, MongoDB, Mongoose, NPM'
   },
-  awsServerlessIntro: {
+  udyAwsServerlessIntro: {
     order: 8,
     header: 'AWS Serverless APIs & Apps - A Complete Introduction',
     url: 'https://www.udemy.com/course/aws-serverless-a-complete-introduction/',
-    image: 'jUC-032d5abc-610a-44c1-bbb4-ef8fad3b6680.jpg',
+    image: 'UC-032d5abc-610a-44c1-bbb4-ef8fad3b6680.jpg',
     alt: 'AWS Serverless APIs & Apps certificate',
     location: 'udemy.com'
   },
-  jsAlgoDataStruct: {
+  fccJsAlgoDataStruct: {
     order: 7,
     header: 'Javascript Algorithms and Data Structures',
     url: 'https://www.freecodecamp.org/learn/#javascript-algorithms-and-data-structures',
-    image: 'javascript-algorithms-and-data-structures.png',
+    image: 'fcc-javascript-algorithms-and-data-structures.png',
     alt: 'Javascript Algorithms and Data Structures Certificate',
     location: 'freecodecamp.org',
     urlCert: 'https://www.freecodecamp.org/certification/chinh-le/javascript-algorithms-and-data-structures',
     languages: 'ES5, ES6, Regular Expression'
   },
-  vue2: {
+  udyVue2: {
     order: 6,
     header: 'Vue 2 - The Complete Guide',
     url: 'https://udemy.com/course/vuejs-2-the-complete-guide/',
@@ -134,7 +134,7 @@ const certificates = {
     alt: 'Vue 2 certificate',
     location: 'udemy.com'
   },
-  react16: {
+  udyReact16: {
     order: 5,
     header: 'React 16 - The Complete Guide',
     url: 'https://udemy.com/course/react-the-complete-guide-incl-redux/',
@@ -142,7 +142,7 @@ const certificates = {
     alt: 'React 16 certificate',
     location: 'udemy.com'
   },
-  angular: {
+  udyAngular: {
     order: 4,
     header: 'Angular 7 - The Complete Guide',
     url: 'https://udemy.com/course/the-complete-guide-to-angular-2/',
@@ -150,7 +150,7 @@ const certificates = {
     alt: 'Angular 7 certificate',
     location: 'udemy.com'
   },
-  bootstrap4: {
+  udyBootstrap4: {
     order: 3,
     header: 'Bootstrap 4 - Bootcamp',
     url: 'https://udemy.com/course/bootstrap-4-bootcamp/',

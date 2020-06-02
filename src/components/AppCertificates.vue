@@ -59,7 +59,7 @@
 
                     if (!snapshots.empty) {
                         snapshots.forEach(element => {
-                            // // // console.log('TLC: created -> element.data()', element.data());
+                            console.log('TLC: created -> element.data()', element.data());
                             let elemData = element.data();
                             if (elemData.image) {
                                 elemData.image = _getImgContextPath(`education/${elemData.image}`);
