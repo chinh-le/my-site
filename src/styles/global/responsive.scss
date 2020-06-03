@@ -41,13 +41,15 @@
         --about-height: 100%;
         --base-button-icon-size: var(--base-button-icon-size-md);
         --cards-overlay-width: 45%;
-        --cards-item-width: 43%;
+        --cards-item-width: 48%;
+        --cards-item-margin-right: 0.5em;
         --contact-width: 80%;
         --contact-input-name-email-width: 48%;
         --education-width: 90%;
         --home-content-width: 50%;
         --slide-in-width: 50%;
         --work-width: 90%;
+        --cards-overlay-item-margin-right: 1em;
     }
     #theHeader {
         --logo-font-size: 1.7em;
@@ -68,7 +70,9 @@
     :root {
         --about-width: 70%;
         --cards-overlay-width: 32%;
-        --cards-item-width: 28%;
+        --cards-overlay-item-margin-right: 0.5em;
+        --cards-item-width: 32%;
+        --cards-item-margin-right: 0.5em;
         --contact-width: 60%;
         --contact-input-name-email-width: 48%;
         --education-width: 70%;
@@ -96,6 +100,9 @@
         --slide-in-width: 30%;
         --work-display: flex;
         --work-width: 80%;
+        --cards-overlay-item-margin-right: 0.7em;
+        --cards-item-width: 32%;
+        --cards-item-margin-right: 0.7em;
     }
 }
 

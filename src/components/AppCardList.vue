@@ -1,7 +1,7 @@
 <template>
   <ul :class="$style['cards']">
     <li
-      v-for="(item, index) in items"
+      v-for="(item, index) in reverseItems"
       :key="item.header"
       :class="$style['cards-item']"
     >
@@ -29,6 +29,11 @@
                 type: Array,
                 default: () => []
             }
+        },
+        computed: {
+            reverseItems () {
+                return this.items.slice().reverse();
+            }
         }        
     };
 </script>
@@ -38,10 +43,11 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 .cards-item {
-  margin-bottom: 2em;
   width: var(--cards-item-width);
+  margin-bottom: 2em;
+  margin-right: var(--cards-item-margin-right);
 }
 </style>

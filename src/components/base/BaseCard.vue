@@ -1,5 +1,10 @@
 <template>
   <div :class="$style['card']">
+    <img
+      v-if="item.image"
+      :src="item.image"
+      :alt="item.alt"
+    >
     <h4>{{ item.header }}</h4>
     <p>
       <a
@@ -9,11 +14,6 @@
         target="_blank"
       >@ {{ item.location }}</a>
     </p>
-    <img
-      v-if="item.image"
-      :src="item.image"
-      :alt="item.alt"
-    >
   </div>
 </template>
 
@@ -42,7 +42,6 @@
     }
     > p {
         font-size: 0.7em;
-        margin-bottom: 1em;
       > a {
           display: block;
           color: $dimlight-color;
