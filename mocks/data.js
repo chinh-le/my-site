@@ -23,57 +23,64 @@ const professionals = {
 };
 
 const personals = {
-  pomodoroClock: {
+  slsStackNotes: {
     order: 1,
+    label: 'Scratch Note',
+    image: 'sls-stack-notes-640x340.png',
+    url: 'https://sls-stack-notes.chinhle.ca',
+    languages: 'React 16, Bootstrap 4, Serverless Framework, AWS, Stripe'
+  },
+  pomodoroClock: {
+    order: 2,
     label: 'Pomodoro Clock',
     image: 'pomodoro-clock-640x340.png',
     url: 'https://pomodoro-clock.chinhle.ca',
     languages: 'React 16, Redux, Bootstrap 4, Material UI, Sass'
   },
   calculator: {
-    order: 2,
+    order: 3,
     label: 'Calculator',
     image: 'calculator-640x340.png',
     url: 'https://calculator.chinhle.ca',
     languages: 'React 16, Bootstrap 4, Sass'
   },
   drumMachine: {
-    order: 3,
+    order: 4,
     label: 'Drum Machine',
     image: 'drum-machine-640x340.png',
     url: 'https://drum-machine.chinhle.ca',
     languages: 'React 16, Bootstrap 4, Sass'
   },
   markdownPreviewer: {
-    order: 4,
+    order: 5,
     label: 'Markdown Previewer',
     image: 'markdown-previewer-640x340.png',
     url: 'https://markdown-previewer.chinhle.ca',
     languages: 'React 16, Bootstrap 4'
   },
   randomQuote: {
-    order: 5,
+    order: 6,
     label: 'Random Quote',
     image: 'random-quote-640x340.png',
     url: 'https://random-quote.chinhle.ca',
     languages: 'React 16, Bootstrap 4, FontAwesome, Sass'
   },
   stockTrader: {
-    order: 6,
+    order: 7,
     label: 'Stock Trader',
     image: 'stock-trader-vue-640.png',
     url: 'https://stock-trader.chinhle.ca/',
     languages: 'Vue 2, Google Cloud Platform / Firebase, Bootstrap 4'
   },
   burgerBuilder: {
-    order: 7,
+    order: 8,
     label: 'Burger Builder',
     image: 'burger-builder-react-640.png',
     url: 'https://burger-builder.chinhle.ca',
     languages: 'React 16, Google Cloud Platform / Firebase, Bootstrap 4'
   },
   recipeBook: {
-    order: 8,
+    order: 9,
     label: 'Recipe Book',
     image: 'recipe-book-ng-640.png',
     url: 'https://recipe-book.chinhle.ca',
