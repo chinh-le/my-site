@@ -11,11 +11,20 @@
       :leave-to-class="$style['slide-fade-leave-to']"
       :leave-active-class="$style['slide-fade-leave-active']"
     >
-      <div v-if="personals.length > 0" :class="$style['personals']">
-        <AppCardOverlayList :items="personals" :tab-index="tabIndex" />
+      <div
+        v-if="personals.length > 0"
+        :class="$style['personals']"
+      >
+        <AppCardOverlayList
+          :items="personals"
+          :tab-index="tabIndex"
+        />
       </div>
       <BaseDualRing v-else-if="!isErrorRequest" />
-      <BaseErrorRequest v-else :error-code="errorRequestCode" />
+      <BaseErrorRequest
+        v-else
+        :error-code="errorRequestCode"
+      />
     </transition>
   </div>
 </template>
@@ -51,7 +60,7 @@ export default {
         if (!querySnapshot.empty) {
           querySnapshot.forEach(element => {
             let elemData = element.data()
-            console.log('TLC: created -> elemData', elemData)
+            // console.log('TLC: created -> elemData', elemData)
             // console.log('TLC: created -> elemData.image', elemData.image);
 
             if (elemData.image) {

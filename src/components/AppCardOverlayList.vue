@@ -38,10 +38,11 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 .cards-overlay-item{
   width: var(--cards-overlay-width);
   margin-bottom: 1em;
+  margin-right: var(--cards-overlay-item-margin-right)
 }
 </style>

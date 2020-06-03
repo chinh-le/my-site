@@ -43,10 +43,11 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 .cards-item {
-  margin-bottom: 2em;
   width: var(--cards-item-width);
+  margin-bottom: 2em;
+  margin-right: var(--cards-item-margin-right);
 }
 </style>
